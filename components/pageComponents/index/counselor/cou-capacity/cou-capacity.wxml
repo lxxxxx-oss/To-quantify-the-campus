@@ -1,0 +1,18 @@
+<!-- 这里是首页辅导员的功能选项卡 -->
+<view class="capacity">
+    <view class="capacity-item">
+        <view class="box" bindtap="gotoDestinat">
+            <image src="/assets/img/index/cou-icon/destination.png" mode="aspectFit" class="box-img"></image>
+            <text>学生动向</text>
+        </view>
+        <view class="box" bindtap="gotoInform">
+            <image src="/assets/img/index/cou-icon/inform.png" mode="aspectFit" class="box-img"></image>
+            <text>今日通知</text>
+        </view>
+        <view class="box" bindtap="gotoGather">
+            <image src="/assets/img/index/cou-icon/gather.png" mode="aspectFit" class="box-img"></image>
+            <text>信息采集</text>
+        </view>
+    </view>
+    <slot></slot>
+</view>

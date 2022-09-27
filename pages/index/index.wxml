@@ -1,0 +1,28 @@
+<!-- 导员：首页 -->
+<!-- 轮播图 -->
+<!-- 自动切换有问题！ -->
+    <swiper indicator-dots="true" indicator-color="#cacaca" indicator-active-color="#87ceeb" circular="true" auto-play="true" interval="3000">
+        <swiper-item>
+            <image src="/assets/img/index/swiper.jpg" class="swiperImg"></image>
+        </swiper-item>
+    <swiper-item>
+        <image src="/assets/img/index/swiper.jpg" class="swiperImg"></image>
+    </swiper-item>
+</swiper>
+
+<!-- 通知栏 -->
+<view class="bulletinBoard">
+    <image src="/assets/img/index/trumpet.png" class="trumpet"></image>
+    <scroll-view class="informText" scroll-x="true">
+        今天的任务今天的任务今天的任务今天的任务今天的任务今天的任务
+    </scroll-view>
+</view>
+
+<!-- 辅导员的功能选项 -->
+<!-- <con-capacity></con-capacity> -->
+
+<!-- 学生的功能选项 -->
+<!-- <stu-capacity></stu-capacity> -->
+
+<!-- 宿管的功能选项 -->
+<hou-capacity></hou-capacity>

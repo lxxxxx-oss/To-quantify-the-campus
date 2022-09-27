@@ -1,0 +1,34 @@
+.scapacity{
+    display: flex;
+    /* height: 250rpx; */
+    background-color: #f5f6fa;
+    margin-top: 30rpx;
+    border-radius: 30rpx;
+    box-shadow: 20px 30px 20px 2px rgba(0,0,0,0.1);
+}
+
+.scapacity-item {
+    display: flex;
+    /* height: 150rpx; */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    margin: 50rpx;
+    border-radius: 30rpx;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1);
+}
+.stu-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15rpx 5rpx;
+    font-size: 30rpx;
+}
+/* 功能图标 */
+.box-img {
+    height: 100rpx;
+    width: 100rpx;
+    margin: 20rpx 20rpx;
+}

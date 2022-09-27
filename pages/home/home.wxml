@@ -1,0 +1,30 @@
+<!-- 导员：我的 -->
+<!-- 用户信息 -->
+<view class="userMessage">
+    <!-- 用户头像区域 -->
+    <view class="headPortrait">
+        <!-- <image src="/assets/img/home/userHead.png" class="userPortrait"></image> -->
+    </view>
+    <!-- 用户名称区域 -->
+    <view class="nickName">
+        <view>用户名称</view>
+        
+        <view style="font-size: 26rpx;">未实名认证</view>
+    </view>
+    <!-- 用户二维码区域 -->
+    <view class="qr"></view>
+</view>
+
+<!-- 选项卡 -->
+<view class="tabWidget">
+    <view class="tab" bindtap="gotoMessage">
+        <image src="/assets/img/home/idCard.png" class="tabUi"></image>
+        <text class="tabText">个人信息</text>
+        <image src="/assets/img/home/rightArrows.png" class="arrow"></image>
+    </view>
+    <view class="tab" bindtap="gotoSetting">
+        <image src="/assets/img/home/setting.png" class="tabUi"></image>
+        <text class="tabText">我的设置</text>
+        <image src="/assets/img/home/rightArrows.png" class="arrow"></image>
+    </view>
+</view>

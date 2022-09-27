@@ -1,0 +1,48 @@
+
+/* 轮播图 */
+swiper {
+    /* background: red; */
+    height: 470rpx;
+    border: 10rpx soild red;
+    overflow: hidden;
+    border-radius: 20rpx;
+}
+/* 设置轮播图图片大小 */
+swiper-item{
+    height: 470rpx;
+    width: 500rpx;
+    border: 2rpx soild red;
+    /* margin: 20rpx 0; */
+    /* 实现轮播图图片垂直居中对齐 */
+    display: table-cell; 
+    vertical-align: middle;
+    text-align: center;
+}
+.swiperImg {
+    height: 100%;
+    width: 100%;
+}
+/* 通知栏 */
+.bulletinBoard {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    height: 60rpx;
+    background-color: #C9FAE0;
+    margin-top: 30rpx;
+    padding-top: 20rpx;
+    border-radius: 30rpx;
+    box-shadow: 21px 18px 13px -11px rgba(0,0,0,0.1);
+} 
+.trumpet {
+    display: flex;
+    height: 45rpx;
+    width: 45rpx;
+    margin-left: 25rpx;
+}
+.informText {
+    height: 40rpx;
+    width: 560rpx;
+    margin-right: 40rpx;
+}
+
