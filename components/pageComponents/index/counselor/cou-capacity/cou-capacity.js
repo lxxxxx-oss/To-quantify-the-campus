@@ -17,6 +17,21 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        gotoDestinat() {
+            wx.navigateTo({
+              url: '/components/refreshTo/index/cou-capacity/destination/destination',
+            })
+        },
+        gotoInform() {
+            wx.navigateTo({
+              url: '/components/refreshTo/index/cou-capacity/inform/inform',
+            })
+        },
+        gotoGather() {
+            wx.navigateTo({
+              url: '/components/refreshTo/index/cou-capacity/gather/gather',
+            })
+        },
+        
     }
 })

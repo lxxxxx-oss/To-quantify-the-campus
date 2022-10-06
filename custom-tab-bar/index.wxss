@@ -1,1 +1,33 @@
-/* custom-tab-bar/index.wxss */
+/* 自定义tabbar的样式 */
+/* 根标签样式 */
+.root {
+    height: 150rpx;
+    background-color: #fff;
+    border-top: 1px solid #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 60rpx 60rpx 0 0;
+    box-shadow:6px 45px 24px -22px rgba(0, 0, 0, 0.61)
+  ;
+  
+}
+
+/* 每个Tab的样式 */
+.tab {
+    text-align: -webkit-center;
+    flex-grow: 1;
+}
+.tab cover-image {
+    width: 60rpx;
+    height: 70rpx;
+}
+.tab .active cover-image{
+    transform: translateY(-55rpx);
+}
+
+.tab cover-view {
+    font-size: 35rpx;
+    padding-top: 10rpx;
+    text-align: center;
+}

@@ -1,17 +1,7 @@
 /**app.wxss**/
 /* 全局样式 */
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
-
 page {
-    background-color: #f5f6fa;
+    background-color: #F6F7FB ;
     height: 100%;
     /* 设置版心 */
     padding: 0 30rpx;

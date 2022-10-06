@@ -1,0 +1,18 @@
+<!-- 这是辅导员空间页面的学生管理 -->
+<view class="space">
+    <view class="manageTitle">学生管理</view>
+    <view class="studentManagement">
+        <view class="stuRecord"  bindtap="gotoRecord">
+            <image src="/assets/img/space/cou-icon/stuRecord.png" class="managementUi"></image>
+            <view class="manageText recordText">学生履历</view>
+        </view>
+        <view class="stuAppoint" bindtap="gotoAppoint">
+            <image src="/assets/img/space/cou-icon/stuAppoint.png" class="managementUi"></image>
+            <view class="manageText appointText">班委任命</view>
+        </view>
+        <view class="stuGool" bindtap="gotoGool">
+            <image src="/assets/img/space/cou-icon/stuGool.png" class="managementUi"></image>
+            <view class="manageText goolText">学生违规</view>
+        </view>
+    </view>
+</view>   

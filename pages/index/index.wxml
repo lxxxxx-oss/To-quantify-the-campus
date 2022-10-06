@@ -1,4 +1,5 @@
 <!-- 导员：首页 -->
+<!-- <loading></loading> -->
 <!-- 轮播图 -->
 <!-- 自动切换有问题！ -->
     <swiper indicator-dots="true" indicator-color="#cacaca" indicator-active-color="#87ceeb" circular="true" auto-play="true" interval="3000">
@@ -19,10 +20,10 @@
 </view>
 
 <!-- 辅导员的功能选项 -->
-<!-- <con-capacity></con-capacity> -->
+<cou-capacity wx:if="{{isCou}}"></cou-capacity>
 
 <!-- 学生的功能选项 -->
-<!-- <stu-capacity></stu-capacity> -->
+<stu-capacity wx:if="{{isStu}}"></stu-capacity>
 
 <!-- 宿管的功能选项 -->
-<hou-capacity></hou-capacity>
+<hou-capacity wx:if="{{isHou}}"></hou-capacity>

@@ -1,18 +1,25 @@
 // pages/space/space.js
 Page({
 
-    /**
-     * 页面的初始数据
-     */
     data: {
-
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        //根据登录时携带的ID信息,选择要展示的功能选项卡
+        const app =getApp();
+        if(app.globalData.isStu) {
+            this.setData({
+                isStu: true
+            })
+        }
+        if(app.globalData.isCou) {
+            this.setData({
+                isCou: true
+            })
+        }
     },
 
     /**
@@ -22,11 +29,13 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
     onShow() {
-
+        //添加选中效果,避免自定义tabbar闪烁
+         if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+             this.getTabBar().setData({
+             selected: 1 //这个数是，tabBar从左到右的下标，从0开始
+             })
+        }
     },
 
     /**
@@ -62,21 +71,5 @@ Page({
      */
     onShareAppMessage() {
 
-    },
-    // 跳转页面
-    gotoRecord() {
-        wx.navigateTo({
-            url:'/components/refreshTo/stuRecord/stuRecord'
-        })
-    },
-    gotoAppoint() {
-        wx.navigateTo({
-            url:'/components/refreshTo/stuAppoint/stuAppoint'
-        })
-    },
-    gotoGool() {
-        wx.navigateTo({
-          url: '/components/refreshTo/stuGool/stuGool',
-        })
     }
 })

@@ -1,7 +1,7 @@
 <!-- 这里是首页学生的功能选项卡 -->
-<view class="scapacity">
+<view class="scapacity" style="margin-top:{{ capacityHeight }}rpx">
     <view class="scapacity-item">
-        <view class="stu-box" bindtap="gotoDestinat">
+        <view class="stu-box" bindtap="gotoSchedule">
             <image src="/assets/img/index/stu-icon/classSchedule.png" mode="aspectFit" class="box-img"></image>
             <text>课表查询</text>
         </view>
@@ -9,11 +9,11 @@
             <image src="/assets/img/index/stu-icon/inform.png" mode="aspectFit" class="box-img"></image>
             <text>今日通知</text>
         </view>
-        <view class="stu-box" bindtap="gotoGather">
+        <view class="stu-box" bindtap="gotoPunch">
             <image src="/assets/img/index/stu-icon/punch.png" mode="aspectFit" class="box-img"></image>
             <text>校园打卡</text>
         </view>
-        <view class="stu-box" bindtap="gotoGather">
+        <view class="stu-box" bindtap="gotoCareer">
             <image src="/assets/img/index/stu-icon/career.png" mode="aspectFit" class="box-img"></image>
             <text>大学生涯</text>
         </view>

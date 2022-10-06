@@ -1,23 +1,22 @@
-// custom-tab-bar/index.js
+const app =getApp();
 Component({
-    /**
-     * 组件的属性列表
-     */
-    properties: {
-
+  data: {
+    selectedColor: "#468AFB",
+    selected: 0,
+    list: []
+  },
+    //组件的生命周期函数
+    attached() {
+     this.setData({
+      list: app.globalData.list
+     })
     },
-
-    /**
-     * 组件的初始数据
-     */
-    data: {
-
+  methods: {
+    switchTab(event) {
+        // data为接受到的参数
+        const data = event.currentTarget.dataset;
+        // 取出参数中的path作为路由跳转的目标地址
+        wx.switchTab({url: data.path});
     },
-
-    /**
-     * 组件的方法列表
-     */
-    methods: {
-
-    }
+  },
 })

@@ -1,0 +1,20 @@
+
+<!--启动页-->
+<view class="container">
+ <view class="remind-box" wx:if="{{remind}}">
+ </view>
+ <block wx:else>
+  <view class="content">
+   <view class="hd" style="transform:rotateZ({{angle}}deg);">
+    <open-data class="logo" type="userAvatarUrl"></open-data>
+    <image class="wave" src="/assets/img/index/swiper.jpg" mode="aspectFill"></image>
+    <!-- <image class="wave wave-bg" src="/assets/img/index/swiper.jpg" mode="aspectFill"></image> -->
+   </view>
+   <view class="bd">
+    <view class="confirm-btn">
+     <button open-type="getUserInfo" lang="zh_CN" bindtap="goLogin">点击登录</button>
+    </view>
+   </view>
+  </view>
+ </block>
+</view>

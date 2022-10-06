@@ -1,19 +1,37 @@
 {
     "pages": [
+        "pages/log/log",
         "pages/index/index",
         "pages/home/home",
         "pages/space/space",
-        "components/refreshTo/destination/destination",
-        "components/refreshTo/gather/gather",
-        "components/refreshTo/inform/inform",
-        "components/refreshTo/myMessage/myMessage",
-        "components/refreshTo/setting/setting",
-        "components/refreshTo/stuAppoint/stuAppoint",
-        "components/refreshTo/stuGool/stuGool",
-        "components/refreshTo/stuRecord/stuRecord",
+        "pages/print/print",
+        "components/loading/loading",
+        "components/refreshTo/index/hou-capacity/affiche/affiche",
+        "components/refreshTo/index/hou-capacity/bed/bed",
+        "components/refreshTo/index/hou-capacity/punch/punch",
+        "components/refreshTo/index/hou-capacity/state/state",
+        "components/refreshTo/index/cou-capacity/destination/destination",
+        "components/refreshTo/index/cou-capacity/gather/gather",
+        "components/refreshTo/index/cou-capacity/inform/inform",
+        "components/refreshTo/index/stu-capacity/career/career",
+        "components/refreshTo/index/stu-capacity/inform/inform",
+        "components/refreshTo/index/stu-capacity/punch/punch",
+        "components/refreshTo/index/stu-capacity/schedule/schedule",
+        "components/refreshTo/my/cou-capacity/myMessage/myMessage",
+        "components/refreshTo/my/cou-capacity/setting/setting",
+        "components/refreshTo/space/cou-capacity/stuAppoint/stuAppoint",
+        "components/refreshTo/space/cou-capacity/stuGool/stuGool",
+        "components/refreshTo/space/cou-capacity/stuRecord/stuRecord",
+        "components/refreshTo/space/stu-capacity/ammeter/ammeter",
+        "components/refreshTo/space/stu-capacity/card/card",
+        "components/refreshTo/space/stu-capacity/dorm/dorm",
+        "components/refreshTo/space/stu-capacity/payment/payment",
+        "components/refreshTo/space/stu-capacity/up/up",
         "components/pageComponents/index/counselor/cou-capacity/cou-capacity",
         "components/pageComponents/index/student/stu-capacity/stu-capacity",
         "components/pageComponents/index/houseparent/hou-capacity/hou-capacity",
+        "components/pageComponents/space/counselor/cou-capacity/cou-capacity",
+        "components/pageComponents/space/student/stu-capacity/stu-capacity",
         "custom-tab-bar/index"
     ],
     "window": {
@@ -22,7 +40,7 @@
         "navigationBarTextStyle": "black"
     },
     "tabBar": {
-        "custom": false,
+        "custom": true,
         "selectedColor": "#ff0000",
         "list": [
             {
@@ -38,6 +56,12 @@
                 "selectedIconPath": "./assets/img/tabBar/space-active.png"
             },
             {
+                "pagePath": "pages/print/print",
+                "text": "打印",
+                "iconPath": "./assets/img/tabBar/print.png",
+                "selectedIconPath": "./assets/img/tabBar/print-active.png"
+            },
+            {
                 "pagePath": "pages/home/home",
                 "text": "我的",
                 "iconPath": "./assets/img/tabBar/my.png",
@@ -45,6 +69,7 @@
             }
         ]
     },
+    "usingComponents": {},
     "style": "v2",
     "sitemapLocation": "sitemap.json"
 }

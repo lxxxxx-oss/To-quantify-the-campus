@@ -1,0 +1,44 @@
+/* 学生管理 */
+.space {
+    background-color: #fff;
+    margin-top: 30rpx;
+}
+/* 标题 */
+.manageTitle {
+    height: 45rpx;
+    border-bottom: 3rpx solid #F5F6FA;
+    font-size: 32rpx;
+    padding: 10rpx 0 5rpx 40rpx;
+}
+/* 功能选项 */
+.studentManagement {
+    display: flex;
+    justify-content: space-around;
+    height:200rpx;
+    background-color: #fff;
+    margin-top: 30rpx;
+    box-shadow: 20px 30px 20px 2px rgba(0,0,0,0.1);
+}
+/* 各个功能图标 */
+.managementUi {
+    display: block;
+    height: 80rpx;
+    width: 87rpx;
+    margin: 30rpx 0 13rpx 0;
+}
+/* 功能名称 */
+.manageText {
+    font-size: 30rpx;
+    font-weight: 500;
+    margin-left: -20rpx;
+}
+/* 颜色 */
+.recordText {
+    color: #B70707;
+}
+.appointText {
+    color: #42779A;
+}
+.goolText {
+    color: #7A47A9;
+}

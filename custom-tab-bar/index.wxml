@@ -1,5 +1,10 @@
-<view class="tab">
-    <view>首页</view>
-    <view>空间</view>
-    <view>我的</view>
-</view>
+<cover-view class="root" style="background-color: {{tabBar.backgroundColor}};">
+    <!-- 循环渲染Tab标签 -->
+    <cover-view class="tab" bindtap="switchTab"
+        wx:for="{{list}}" wx:key="index"
+        data-path="{{'/' + item.pagePath}}" data-index="{{index}}">
+        <!-- 这里需要注意路径前面要加/，或者直接修改tabBar下的list.pagePath也行 -->
+        <cover-image src="{{index == selected ? item.selectedIconPath : item.iconPath}}"></cover-image>
+        <cover-view style="color: {{index == selected ? selectedColor : white}};">{{item.text}}</cover-view>
+    </cover-view>
+</cover-view>

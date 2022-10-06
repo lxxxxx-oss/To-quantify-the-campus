@@ -26,7 +26,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        //添加选中效果,避免自定义tabbar闪烁
+         if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+             this.getTabBar().setData({
+             selected: 2 //这个数是，tabBar从左到右的下标，从0开始
+             })
+        }
     },
 
     /**
@@ -67,12 +72,12 @@ Page({
     // 点击跳转函数
     gotoMessage() {
         wx.navigateTo({
-          url: '/components/refreshTo/myMessage/myMessage',
+          url: '/components/refreshTo/my/cou-capacity/myMessage/myMessage',
         })
     },
     gotoSetting() {
         wx.navigateTo({
-          url: '/components/refreshTo/setting/setting',
+          url: '/components/refreshTo/my/cou-capacity/setting/setting',
         })
     }
 })

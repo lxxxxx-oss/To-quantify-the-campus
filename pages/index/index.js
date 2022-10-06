@@ -1,32 +1,60 @@
 // pages/index/index.js
 Page({
 
-    /**
-     * 页面的初始数据
-     */
+    // 在最开始将所有身份的功能卡全部隐藏
     data: {
-
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        // 显示加载中loading效果 
+        // wx.showLoading({  
+        //     title: "加载中",
+        //     mask: false, //开启蒙版遮罩
+        //     icon: 'loading',
+        //     duration: 200    //提示的延迟时间
+        // });
+        var w = wx.getSystemInfoSync().windowWidth;
+        var h = wx.getSystemInfoSync().windowHeight;
+        console.log(w);
+        console.log(h);
+        //根据登录时携带的ID信息,选择要展示的功能选项卡
+       const app =getApp();
+       if(app.globalData.isStu){
+           this.setData({
+               isStu: true
+           })
+       };
+       if(app.globalData.isHou){
+        this.setData({
+            isHou: true
+        })
+    };
+        if(app.globalData.isCou){
+            this.setData({
+                isCou: true
+            })
+        }
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        //添加选中效果,避免自定义tabbar闪烁
+         if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+             this.getTabBar().setData({
+             selected: 0 //这个数是，tabBar从左到右的下标，从0开始
+             })
+        }
     },
 
     /**

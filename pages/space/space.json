@@ -1,4 +1,8 @@
 {
-    "usingComponents": {},
+    "usingComponents": {
+        "cou-capacity": "/components/pageComponents/space/counselor/cou-capacity/cou-capacity",
+        "stu-capacity": "/components/pageComponents/space/student/stu-capacity/stu-capacity"
+    },
     "navigationBarTitleText": "空间"
+     
 }

@@ -24,11 +24,11 @@
     justify-content: center;
     align-items: center;
     margin: 15rpx 20rpx;
-    font-size: 30rpx;
+    font-size: 28rpx;
 }
 /* 功能图标 */
 .box-img {
-    height: 100rpx;
-    width: 100rpx;
+    height: 80rpx;
+    width: 80rpx;
     margin: 20rpx 20rpx;
 }

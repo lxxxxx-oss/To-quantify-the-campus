@@ -1,0 +1,6 @@
+<!-- 登录页面 -->
+<button bindtap="stuLoginAll">普通学生</button>
+<button bindtap="stuLoginAll">班委</button>
+<button bindtap="couLoginAll">辅导员</button>
+<button bindtap="houLoginAll">宿管</button>
+

@@ -3,9 +3,9 @@
 swiper {
     /* background: red; */
     height: 470rpx;
-    border: 10rpx soild red;
+    border: 4rpx soild red;
     overflow: hidden;
-    border-radius: 20rpx;
+    border-radius: 40rpx;
 }
 /* 设置轮播图图片大小 */
 swiper-item{
