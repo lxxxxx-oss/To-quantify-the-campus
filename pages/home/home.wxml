@@ -2,29 +2,61 @@
 <!-- 用户信息 -->
 <view class="userMessage">
     <!-- 用户头像区域 -->
-    <view class="headPortrait">
-        <!-- <image src="/assets/img/home/userHead.png" class="userPortrait"></image> -->
+    <view class="headPortrait" bindtap="getUserProfile">
+        <image src="{{userInfo.avatarUrl}}"></image>
     </view>
     <!-- 用户名称区域 -->
-    <view class="nickName">
-        <view>用户名称</view>
-        
-        <view style="font-size: 26rpx;">未实名认证</view>
+    <view class="userInfo">
+        <view class="infoOne">姓名：{{name}}</view>
+        <view class="infoOne">学号：{{number}}</view>
     </view>
-    <!-- 用户二维码区域 -->
-    <view class="qr"></view>
 </view>
 
 <!-- 选项卡 -->
-<view class="tabWidget">
-    <view class="tab" bindtap="gotoMessage">
+<!-- 可展开的多列表 -->
+<view class="tabWidget" >
+    <!-- 个人信息展示 -->
+    <view class="tab"  bindtap="unfoldInfo">
         <image src="/assets/img/home/idCard.png" class="tabUi"></image>
         <text class="tabText">个人信息</text>
-        <image src="/assets/img/home/rightArrows.png" class="arrow"></image>
+        <image src="/assets/img/home/rightArrows.png" class="arrow" style="transform:{{isShowInfo?'rotate(90deg)' : 'rotate(0)'}}"></image>
     </view>
-    <view class="tab" bindtap="gotoSetting">
+    <!-- 可以折叠的详细描述信息 -->
+    <view wx:if="{{isShowInfo}}" class="unfold">
+            <block>
+            <view>{{index}}</view>
+            <view>{{item}}</view>
+                <view class="info" wx:for="{{info}}" wx:key="number">{{index}} : {{item}}</view>
+            </block>
+    </view>
+    <!-- 我的设置选项 -->
+    <view class="tab" bindtap="unfoldSetting">
         <image src="/assets/img/home/setting.png" class="tabUi"></image>
         <text class="tabText">我的设置</text>
-        <image src="/assets/img/home/rightArrows.png" class="arrow"></image>
+        <image src="/assets/img/home/rightArrows.png" class="arrow" style="transform:{{isShowSet?'rotate(90deg)' : 'rotate(0)'}}"></image>
     </view>
+    <view wx:if="{{isShowSet}}" class="unfold">
+            <view class="info" bindtap="gotoChange">
+                修改密码
+                <image src="/assets/img/home/rightArrows.png" class="arrow"></image>  
+            </view>
+
+            <view class="info" bindtap="gotoService">
+                联系我们
+                <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
+            </view>
+            <view class="info">
+                分享我们
+                <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
+            </view>
+            <view class="info">
+                用户协议
+                <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
+            </view>
+            <view class="info">
+                清除缓存
+                <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
+            </view>
+        </view>
 </view>
+

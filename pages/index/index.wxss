@@ -28,7 +28,9 @@ swiper-item{
     /* flex-direction: column; */
     justify-content: space-between;
     height: 60rpx;
+    width: 700rpx;
     background-color: #C9FAE0;
+    overflow: hidden;
     margin-top: 30rpx;
     padding-top: 20rpx;
     border-radius: 30rpx;
@@ -38,11 +40,40 @@ swiper-item{
     display: flex;
     height: 45rpx;
     width: 45rpx;
-    margin-left: 25rpx;
+    margin-left: 30rpx;
 }
-.informText {
-    height: 40rpx;
-    width: 560rpx;
-    margin-right: 40rpx;
+
+/* 纯CSS实现滚动播放 */
+.scoll {
+    white-space: nowrap;
+    animation: 7s loop linear infinite normal;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 30rpx;
+    color: #6e7074;
 }
+
+@keyframes loop {
+    0% {
+      transform: translateX(350px);
+      -webkit-transform: translateX(350px);
+    }
+  
+    100% {
+      transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+    }
+  }
+  /* 浏览器适配  Safari and Chrome*/
+  @-webkit-keyframes loop {
+    0% {
+      transform: translateX(350px);
+      -webkit-transform: translateX(350px);
+    }
+  
+    100% {
+      transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+    }
+  }
 

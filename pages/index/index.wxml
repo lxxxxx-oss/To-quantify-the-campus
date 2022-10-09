@@ -13,10 +13,8 @@
 
 <!-- 通知栏 -->
 <view class="bulletinBoard">
-    <image src="/assets/img/index/trumpet.png" class="trumpet"></image>
-    <scroll-view class="informText" scroll-x="true">
-        今天的任务今天的任务今天的任务今天的任务今天的任务今天的任务
-    </scroll-view>
+    <view><image src="/assets/img/index/trumpet.png" class="trumpet"></image></view>
+    <text class="scoll">今日任务今日任务今日任务今日任务今日任务今日任务今日任务今日任务</text>
 </view>
 
 <!-- 辅导员的功能选项 -->

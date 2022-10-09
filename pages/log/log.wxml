@@ -1,6 +1,23 @@
 <!-- 登录页面 -->
-<button bindtap="stuLoginAll">普通学生</button>
-<button bindtap="stuLoginAll">班委</button>
-<button bindtap="couLoginAll">辅导员</button>
-<button bindtap="houLoginAll">宿管</button>
+<!-- 介绍 -->
+<view class="text">
+    <view class="title1">您好!</view> 
+    <view class="title2">欢迎来到,量化校园</view>   
+</view>
 
+
+<!-- 输入框 -->
+<view class="con">
+    <block>
+        <input class="{{sel_number ?'border_bot': ''}}" data-type="1" type="number" placeholder="学号/工号" placeholder-class="p_class" bindfocus="bindfocus" bindblur="bindblur" bindinput="bindPhone" value="{{number}}" maxlength="11"></input>
+        <input class="{{sel_pass ?'border_bot': ''}}" data-type="2" type="password" placeholder="密码（默认身份证号后六位）" placeholder-class="p_class" bindfocus="bindfocus" bindblur="bindblur" bindinput="bindPass" value="{{pass}}"></input>
+    </block>
+</view>
+
+
+<!-- 登录按钮 -->
+<view  bindtap="login">
+  <block>
+    <button class="login_btn">登录</button>
+  </block>
+</view>

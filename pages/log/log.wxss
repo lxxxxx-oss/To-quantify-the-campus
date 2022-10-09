@@ -1,1 +1,80 @@
 /* pages/log/log.wxss */
+page {
+    background-color: #fff;
+}
+/* 介绍 */
+.text {
+    height: 80rpx;
+    margin: 100rpx 0 0 50rpx;
+}
+.title1 {
+    font-size: 70rpx;
+}
+.title2 {
+    margin-top: 30rpx;
+    font-size: 40rpx;
+    color: #8C9198;
+}
+
+/* 整个输入框 */
+.con {
+    padding: 0 55rpx;
+    position: relative;
+    margin-top: 180rpx;
+}
+  
+.con input {
+    display: block;
+    width: 100%;
+    line-height: 100rpx;
+    height: 100rpx;
+    padding-right: 40%;
+    font-size: 28rpx;
+    border-bottom: 2rpx solid #EFEFEF;
+    box-sizing: border-box;
+}
+  /* 输入账号和密码 */
+.phone {
+    display: none;
+    position: absolute;
+    top: 37rpx;
+    right: 60rpx;
+    width: 24rpx;
+    height: 24rpx;
+    z-index: 100;
+  }
+  
+.pass {
+    display: none;
+    position: absolute;
+    top: 142rpx;
+    right: 60rpx;
+    width: 24rpx;
+    height: 24rpx;
+    z-index: 100;
+  }
+  /* 当获取到焦点的时候，下边框的颜色 */
+.border_bot {
+    border-bottom: 2rpx solid #df120b !important;
+}
+
+/* 登录按钮 */
+.login_btn {
+    display: block;
+    width: 90% !important;
+    line-height: 40px;
+    height: 88rpx;
+    background-color: #df120b;
+    margin: 40rpx 0 0 0;
+    padding: 0;
+    border-radius: 44rpx;
+    font-size: 28rpx;
+    font-weight: normal;
+    color: #fff;
+}
+  
+.login_btn::after {
+    border: none;
+    outline: none;
+}
+ 

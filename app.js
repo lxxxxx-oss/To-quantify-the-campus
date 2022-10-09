@@ -3,12 +3,16 @@ App({
     onLaunch: function () {
     },
     globalData: {
+        // 不同权限用户标识
+        user: "",
+        stu: 0,
+        com: 1,
+        cou: 2,
+        hou: 3,
         // 控制不同用户展示不同页面
         isStu: false,
         isCou: false,
         isHou: false,
         list:[] //存放tabBar的数据
-    },
-    // 显示加载中loading效果 
-    
-   })
+    }
+})

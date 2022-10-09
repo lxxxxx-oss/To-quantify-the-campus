@@ -11,28 +11,27 @@
     /* box-shadow: 25px 20px 18px 2px rgba(0,0,0,0.1); */
 }
 /* 用户头像 */
-.headPortrait {
+.headPortrait image{
     height: 200rpx;
     width: 200rpx;
-    background-color: #e4dfdf;
-    /* background-color: red; */
-    /* border: 2rpx solid black; */
     border-radius: 50%;
 }
 .userPortrait {
     height: 190rpx;
     width: 190rpx;
 }
-/* 用户名称 */
-.nickName {
+/* 用户主要信息展示 */
+.userInfo {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 100rpx;
     width: 300rpx;
-    font-size: 40rpx;
-    font-weight: 500;
     margin: 0 0 0 20rpx;
+}
+.infoOne {
+    font-size:30rpx;
+    font-weight: 500;
 }
 
 /* 用户二维码 */
@@ -44,10 +43,10 @@
 
 /* 选项卡区域 */
 .tabWidget {
-    height: 700rpx;
-    /* background-color: white; */
+    height: 1500rpx;
     padding-top: 10rpx;
 }
+/* 每个功能选项 */
 .tab {
     display: flex;
     justify-content: space-between;
@@ -58,18 +57,38 @@
     /* box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1); */
 }
 
+/* 图标 */
 .tabUi {
-    height: 70rpx;
-    width: 70rpx;
-    margin: 10rpx 0 0 20rpx;
+    height: 60rpx;
+    width: 75rpx;
+    margin: 5rpx 0 0 20rpx;
 }
+/* 描述信息 */
 .tabText {
     font-size: 35rpx;
-    font-weight: 55 x0;
-    margin: 15rpx 370rpx 0 0;
+    font-weight: 550;
+    margin-right: 350rpx;
 }
+/* 详细的描述信息 */
+.unfold {
+    background-color: #fff;
+    padding: 1rpx 0 30rpx 0;
+}
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* !important提高了border的优先级 */
+    border-bottom: 2rpx solid #cecece !important;
+    padding: 35rpx 0 15rpx 20rpx;
+    font-size: 35rpx;
+    font-weight: 500;
+}
+/* 箭头 */
 .arrow {
     height: 28rpx;
     width: 30rpx;
-    margin: 20rpx 10rpx 0 0;
+    /* 使箭头旋转九十度 */
+    /* transform:rotate(90deg); */
+    margin-right: 20rpx;
 }

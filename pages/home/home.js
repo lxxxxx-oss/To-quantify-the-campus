@@ -5,21 +5,30 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        userInfo: {},
+        hasUserInfo: false,
+        // 控制是否展开详细信息，默认不展开
+        isShowInfo: false,
+        isShowSet: false,
+        infoList: [
+            {
+                "所属学院": "大数据与计算机科学学院",
+                "真实姓名": "黎鑫",
+                "所属专业": "软件工程",
+                "学号/工号": "2020211932",
+                "辅 导 员": "彭崇清"
+            }
+        ],
+        name: "黎鑫",
+        number: "2020211932"
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
-
-    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-
+    
     },
 
     /**
@@ -40,7 +49,23 @@ Page({
     onHide() {
 
     },
-
+    
+    onLoad(){
+        //异步获取缓存,如果该用户信息已存在，则直接显示该用户信息，避免重复弹窗
+        wx.getStorage({
+            key:"userInfo",//本地缓存中指定的 key
+            success:(res)=>{ 
+            console.log('获取缓存成功',res.data)      
+                this.setData({
+                    userInfo:res.data, //将得到的缓存给key 
+                    hasUserInfo: true,             
+                }) 
+                fail:(err)=>{
+                    console.log("获取失败",err);
+                }                 
+            }
+        }) 
+    },
     /**
      * 生命周期函数--监听页面卸载
      */
@@ -68,16 +93,52 @@ Page({
     onShareAppMessage() {
 
     },
+    // 获取用户头像
+    getUserProfile(e) {
+            wx.getUserProfile({
+                desc: '获取用户头像', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+                success: (res) => {
+                  this.setData({
+                    userInfo: res.userInfo,
+                    hasUserInfo: true
+                  })
+                // 将获取的用户数据存入缓存，避免用户再次登入小程序时重复弹窗  
+                wx.setStorage({
+                    key: 'userInfo',
+                    data: res.userInfo,
+                })
+                }
+              })
+      },
 
-    // 点击跳转函数
-    gotoMessage() {
-        wx.navigateTo({
-          url: '/components/refreshTo/my/cou-capacity/myMessage/myMessage',
+    // 设置点击展示详细信息
+    unfoldInfo() {
+        let data = this.data
+        // 展示数据
+        this.setData({
+            isShowInfo: !data.isShowInfo,
+            info: data.infoList[0],
+            name: data.name,
+            number: data.number
         })
     },
-    gotoSetting() {
+
+    // 点击展开更多设置选项
+    unfoldSetting() {
+        let data = this.data
+        this.setData({
+            isShowSet: !data.isShowSet
+        })
+    },
+    // 页面跳转
+    gotoChange() {
         wx.navigateTo({
-          url: '/components/refreshTo/my/cou-capacity/setting/setting',
+          url: '/components/refreshTo/my/stu-capacity/setting/change/change',
+        })
+    },
+    gotoService() {
+        wx.navigateTo({
+          url: '/components/refreshTo/my/stu-capacity/setting/customerService/customerService',
         })
     }
 })
