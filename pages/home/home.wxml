@@ -37,26 +37,28 @@
     </view>
     <view wx:if="{{isShowSet}}" class="unfold">
             <view class="info" bindtap="gotoChange">
-                修改密码
+                <button>修改密码</button>
                 <image src="/assets/img/home/rightArrows.png" class="arrow"></image>  
             </view>
 
-            <view class="info" bindtap="gotoService">
-                联系我们
+            <view class="info">
+                <button open-type="contact">联系我们</button>
                 <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
             </view>
             <view class="info">
-                分享我们
+                <button open-type='share'>分享我们</button>
                 <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
             </view>
             <view class="info">
-                用户协议
+                <button>用户协议</button>
                 <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
             </view>
             <view class="info">
-                清除缓存
+                <button>清除缓存</button>
                 <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
             </view>
         </view>
 </view>
 
+<!-- 解决底部导航栏遮挡页面内容，自己加一个view -->
+<view class="standView"></view>

@@ -5,8 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        // userInfo: {},
-        // hasUserInfo: false,
+        userInfo: {},
         // 控制是否展开详细信息，默认不展开
         isShowInfo: false,
         isShowSet: false,
@@ -63,7 +62,7 @@ Page({
                     console.log("获取失败",err);
                 }                 
             }
-        }) 
+        })
     },
     /**
      * 生命周期函数--监听页面卸载

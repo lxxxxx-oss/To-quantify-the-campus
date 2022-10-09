@@ -43,7 +43,7 @@
 
 /* 选项卡区域 */
 .tabWidget {
-    height: 1500rpx;
+    height: 700rpx;
     padding-top: 10rpx;
 }
 /* 每个功能选项 */
@@ -84,6 +84,13 @@
     font-size: 35rpx;
     font-weight: 500;
 }
+/* 我的设置按钮样式 */
+.info button {
+    margin: -10rpx 0 -10rpx -100rpx;
+    background-color: #fff;
+    font-size: 35rpx;
+    font-weight: 500;
+}
 /* 箭头 */
 .arrow {
     height: 28rpx;
@@ -92,3 +99,9 @@
     /* transform:rotate(90deg); */
     margin-right: 20rpx;
 }
+
+/* 解决底部导航栏遮挡的占位view的样式 */
+.standView{
+    width: 100%;
+    height: 500rpx;     /*  自定义一下需要的高度 */
+  }
