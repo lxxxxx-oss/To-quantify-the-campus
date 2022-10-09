@@ -2,7 +2,7 @@
 <!-- 用户信息 -->
 <view class="userMessage">
     <!-- 用户头像区域 -->
-    <view class="headPortrait" bindtap="getUserProfile">
+    <view class="headPortrait">
         <image src="{{userInfo.avatarUrl}}"></image>
     </view>
     <!-- 用户名称区域 -->

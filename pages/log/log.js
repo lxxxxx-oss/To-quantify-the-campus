@@ -13,7 +13,7 @@ Page({
         show: 0,
         userId: ""
     },
-
+    
     //获取焦点
     bindfocus (e) {
         let type = e.currentTarget.dataset.type;
@@ -43,7 +43,7 @@ Page({
     // 登录按钮
     login() {
         let inputNum = getCurrentPages()[0].data.number
-        // const app =getApp();
+        const app =getApp();
         // this.setData({
         //     userId: getCurrentPages()[0].data.number,
         // })
@@ -79,6 +79,26 @@ Page({
         }else{
             this.houLoginAll()
         }
+
+        // 请求用户权限
+        // 获取用户头像,当用户数据已经在缓存中时，不再请求权限，直接展示
+        if(!app.globalData.hasUserInfo) {
+            wx.getUserProfile({
+                desc: '获取用户头像', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+                success: (res) => {
+                    this.setData({
+                        userInfo: res.userInfo,
+                    })
+                    app.globalData.hasUserInfo = true
+                    // 将获取的用户数据存入缓存，避免用户再次登入小程序时重复弹窗  
+                    wx.setStorage({
+                        key: 'userInfo',
+                        data: res.userInfo,
+                    })
+                }
+            })
+        }
+        console.log(app.globalData.hasUserInfo);
     },
 
     // 除宿管外其他用户登录时展示的tabbar

@@ -3,6 +3,9 @@ App({
     onLaunch: function () {
     },
     globalData: {
+        // 用户信息
+        userInfo: {},
+        hasUserInfo: false,
         // 不同权限用户标识
         user: "",
         stu: 0,

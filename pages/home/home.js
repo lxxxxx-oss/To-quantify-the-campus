@@ -5,8 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userInfo: {},
-        hasUserInfo: false,
+        // userInfo: {},
+        // hasUserInfo: false,
         // 控制是否展开详细信息，默认不展开
         isShowInfo: false,
         isShowSet: false,
@@ -57,8 +57,7 @@ Page({
             success:(res)=>{ 
             console.log('获取缓存成功',res.data)      
                 this.setData({
-                    userInfo:res.data, //将得到的缓存给key 
-                    hasUserInfo: true,             
+                    userInfo:res.data, //将得到的缓存给key             
                 }) 
                 fail:(err)=>{
                     console.log("获取失败",err);
@@ -93,23 +92,6 @@ Page({
     onShareAppMessage() {
 
     },
-    // 获取用户头像
-    getUserProfile(e) {
-            wx.getUserProfile({
-                desc: '获取用户头像', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-                success: (res) => {
-                  this.setData({
-                    userInfo: res.userInfo,
-                    hasUserInfo: true
-                  })
-                // 将获取的用户数据存入缓存，避免用户再次登入小程序时重复弹窗  
-                wx.setStorage({
-                    key: 'userInfo',
-                    data: res.userInfo,
-                })
-                }
-              })
-      },
 
     // 设置点击展示详细信息
     unfoldInfo() {
