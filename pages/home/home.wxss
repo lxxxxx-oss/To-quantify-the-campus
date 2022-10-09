@@ -8,7 +8,8 @@
     height: 250rpx;
     margin: 30rpx 0 25rpx 0;
     background-color: white;
-    /* box-shadow: 25px 20px 18px 2px rgba(0,0,0,0.1); */
+    box-shadow: 25px 20px 18px 2px rgba(0,0,0,0.1);
+    border-radius: 40rpx;
 }
 /* 用户头像 */
 .headPortrait image{
@@ -34,16 +35,10 @@
     font-weight: 500;
 }
 
-/* 用户二维码 */
-.qr {
-    height: 100rpx;
-    width: 100rpx;
-    /* background-color: black; */
-}
 
 /* 选项卡区域 */
 .tabWidget {
-    height: 700rpx;
+    height: 1200rpx;
     padding-top: 10rpx;
 }
 /* 每个功能选项 */
@@ -54,7 +49,8 @@
     height: 135rpx;
     margin-top: 30rpx;
     background-color: #fff;
-    /* box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1); */
+    box-shadow: 20rpx 20rpx 18rpx 2rpx rgba(0,0,0,0.1);
+    border-radius: 30rpx;
 }
 
 /* 图标 */
@@ -73,6 +69,7 @@
 .unfold {
     background-color: #fff;
     padding: 1rpx 0 30rpx 0;
+    border-radius: 30rpx;
 }
 .info {
     display: flex;
@@ -99,9 +96,3 @@
     /* transform:rotate(90deg); */
     margin-right: 20rpx;
 }
-
-/* 解决底部导航栏遮挡的占位view的样式 */
-.standView{
-    width: 100%;
-    height: 500rpx;     /*  自定义一下需要的高度 */
-  }

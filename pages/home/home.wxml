@@ -60,5 +60,3 @@
         </view>
 </view>
 
-<!-- 解决底部导航栏遮挡页面内容，自己加一个view -->
-<view class="standView"></view>

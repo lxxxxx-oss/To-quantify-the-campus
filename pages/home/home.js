@@ -12,10 +12,11 @@ Page({
         infoList: [
             {
                 "所属学院": "大数据与计算机科学学院",
-                "真实姓名": "黎鑫",
+                // "真实姓名": "黎鑫",
                 "所属专业": "软件工程",
                 "学号/工号": "2020211932",
-                "辅 导 员": "彭崇清"
+                "辅 导 员": "彭崇清",
+                "寝 室 号": "B2-406"
             }
         ],
         name: "黎鑫",
@@ -96,19 +97,23 @@ Page({
     unfoldInfo() {
         let data = this.data
         // 展示数据
+        // 一个展开另一个就收回
         this.setData({
             isShowInfo: !data.isShowInfo,
             info: data.infoList[0],
             name: data.name,
-            number: data.number
+            number: data.number,
+            isShowSet: false
         })
     },
 
     // 点击展开更多设置选项
     unfoldSetting() {
         let data = this.data
+        // 一个展开另一个就收回
         this.setData({
-            isShowSet: !data.isShowSet
+            isShowSet: !data.isShowSet,
+            isShowInfo: false,
         })
     },
     // 页面跳转
