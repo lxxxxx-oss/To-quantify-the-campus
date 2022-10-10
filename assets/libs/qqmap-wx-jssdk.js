@@ -1,5 +1,6 @@
 /**
  * 微信小程序JavaScriptSDK
+ * 腾讯地图接口
  * 
  * @version 1.1
  * @date 2019-01-20

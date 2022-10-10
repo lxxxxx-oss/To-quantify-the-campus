@@ -1,0 +1,42 @@
+/* 页面全局样式 */
+page {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    background-color: #2B58AB ;
+}
+
+/* 用户信息区域 */
+.message {
+    display: flex;
+    align-items: center;
+    height: 150rpx;
+    width: 500rpx;
+    background-color: #fff;
+    margin-top: 30rpx;
+    border-radius: 20rpx;
+}
+/* 用户头像 */
+.avatar image {
+    height: 100rpx;
+    width: 100rpx;
+    border-radius: 50%;
+    margin-left: 30rpx;
+}
+/* 用户基本信息 */
+.introduce {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50rpx;
+}
+/* 用户名称 */
+.userName {
+    font-size: 40rpx;
+    font-weight: bold;
+}
+/* 用户身份 */
+.identity {
+    margin-top: 5rpx;
+}

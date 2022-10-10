@@ -1,2 +1,18 @@
 <!-- 学生动向 -->
-<view>这里是学生动向页面</view>
+<view class="header">
+    <view bindtap="spread">
+        <image src="/assets/img/index/cou-icon/list.png" class="list"></image>
+    </view>
+    <view class="content">
+      我管理的班级
+    </view>
+    <view class="add">
+        <image src="/assets/img/index/cou-icon/sign.png" class="sign"></image>
+        <view>添加班级</view>
+    </view>
+  </view>
+
+<!-- 当未进行班级选择时的提示语 -->
+<view class="prompt">请选择所管理专业，并添加班级</view>
+
+  

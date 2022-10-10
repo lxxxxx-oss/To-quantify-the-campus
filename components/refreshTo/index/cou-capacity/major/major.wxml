@@ -1,0 +1,10 @@
+<!-- 老师管理专业选择 -->
+<view class="message">
+    <view class="avatar">
+        <image src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view class="introduce">
+        <view class="userName">{{userInfo.nickName}}</view>
+        <view class="identity">辅导员</view>
+    </view>
+</view>

@@ -1,1 +1,46 @@
-/* components/refreshTo/destination/destination.wxss */
+
+/* 清除全局样式 */
+page {
+    margin: 0;
+    padding: 0;
+}
+/* 头部样式 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 130rpx;
+    background-color: #2B58AB;
+    color: #fff;
+    font-weight: Bold;
+}
+/* 列表样式 */
+.list {
+    height: 50rpx;
+    width: 70rpx;
+    margin-left: 15rpx;
+}
+
+/* 添加班级 */
+.add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20rpx;
+}
+/* 加号图标 */
+.sign {
+    height: 50rpx;
+    width: 50rpx;
+    margin-right: 15rpx;
+}
+
+/* 提示信息 */
+.prompt {
+    margin: 100rpx 0 30rpx 180rpx;
+    font-size: 28rpx;
+    font-weight: 200;
+    color: #A0A0A0 ;
+}
+
+

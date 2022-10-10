@@ -34,7 +34,8 @@
         "components/pageComponents/space/counselor/cou-capacity/cou-capacity",
         "components/pageComponents/space/student/stu-capacity/stu-capacity",
         "custom-tab-bar/index",
-        "components/refreshTo/my/stu-capacity/setting/customerService/customerService"
+        "components/refreshTo/my/stu-capacity/setting/customerService/customerService",
+        "components/refreshTo/index/cou-capacity/major/major"
     ],
     "window": {
         "backgroundTextStyle": "light",

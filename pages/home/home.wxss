@@ -71,13 +71,18 @@
     padding: 1rpx 0 30rpx 0;
     border-radius: 30rpx;
 }
+/* 标题 */
+.title {
+    margin-left: -330rpx;
+}
+
 .info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     /* !important提高了border的优先级 */
     border-bottom: 2rpx solid #cecece !important;
-    padding: 35rpx 0 15rpx 20rpx;
+    padding: 35rpx 0 15rpx 60rpx;
     font-size: 35rpx;
     font-weight: 500;
 }

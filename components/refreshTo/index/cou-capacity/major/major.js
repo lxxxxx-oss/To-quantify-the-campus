@@ -1,4 +1,4 @@
-// components/destination/destination.js
+// components/refreshTo/index/cou-capacity/major/major.js
 Page({
 
     /**
@@ -12,7 +12,19 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        //异步获取缓存,如果该用户信息已存在，则直接显示该用户信息，避免重复弹窗
+        wx.getStorage({
+            key:"userInfo",//本地缓存中指定的 key
+            success:(res)=>{ 
+            console.log('获取缓存成功',res.data)      
+                this.setData({
+                    userInfo:res.data, //将得到的缓存给key             
+                }) 
+                fail:(err)=>{
+                    console.log("获取失败",err);
+                }                 
+            }
+        })
     },
 
     /**
@@ -62,12 +74,5 @@ Page({
      */
     onShareAppMessage() {
 
-    },
-
-    // 跳转
-    spread() {
-        wx.navigateTo({
-          url: '../major/major',
-        })
     }
 })

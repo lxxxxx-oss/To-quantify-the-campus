@@ -27,7 +27,7 @@ swiper-item{
     display: flex;
     /* flex-direction: column; */
     justify-content: space-between;
-    height: 60rpx;
+    height: 80rpx;
     width: 700rpx;
     background-color: #C9FAE0;
     overflow: hidden;
