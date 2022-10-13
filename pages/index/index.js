@@ -22,17 +22,26 @@ Page({
         console.log(h);
         //根据登录时携带的ID信息,选择要展示的功能选项卡
        const app =getApp();
+       // 普通学生
        if(app.globalData.isStu){
            this.setData({
                isStu: true
            })
        };
+       // 宿管
        if(app.globalData.isHou){
             this.setData({
                 isHou: true
             })
         };
+        // 辅导员
         if(app.globalData.isCou){
+            this.setData({
+                isCou: true
+            })
+        };
+        // 班委
+        if(app.globalData.isCom){
             this.setData({
                 isCou: true
             })

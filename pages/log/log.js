@@ -184,6 +184,7 @@ Page({
         wx.switchTab({
             url: '/pages/index/index',
         })
+        console.log("isCom:" + app.globalData.isCom);
     },
 
     // 辅导员登录时的页面
