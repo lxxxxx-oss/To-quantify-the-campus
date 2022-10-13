@@ -1,14 +1,19 @@
 <!-- 这是学生空间页面的功能选项 -->
-<view class="cspaceWelcome">
+<view class="spaceWelcome">
     <view class="Title">迎新服务</view>
     <view class="management">
         <view  bindtap="gotoDorm">
-            <image src="/assets/img/space/stu-icon/dorm.png" class="managementUi"></image>
+            <image src="/assets/img/space/stu-icon/dorm.png" class="managementUi" ></image>
             <view class="manageText redText">宿舍选择</view>
         </view>
         <view bindtap="gotoPayment">
             <image src="/assets/img/space/stu-icon/payment.png" class="managementUi"></image>
             <view class="manageText redText">学费缴纳</view>
+        </view>
+        <!-- 占位 -->
+        <view bindtap="gotoPayment">
+            <image src="" class="managementUi"></image>
+            <view class="manageText redText"></view>
         </view>
     </view>
 </view>   
@@ -35,15 +40,15 @@
     <view class="Title">班级管理</view>
     <view class="management">
         <view bindtap="gotoAmmeter">
-            <image src="/assets/img/space/stu-icon/ammeter.png" class="elseUi"></image>
+            <image src="/assets/img/space/com-icon/upload.png" class="elseUi"></image>
             <view class="elseText blueText">上传文件</view>
         </view>
         <view bindtap="gotoCard">
-            <image src="/assets/img/space/stu-icon/card.png" class="elseUi"></image>
+            <image src="/assets/img/space/com-icon/message.png" class="elseUi"></image>
             <view class="elseText purpleText">接发消息</view>
         </view>
         <view bindtap="gotoUp">
-            <image src="/assets/img/space/stu-icon/upload.png" class="elseUi"></image>
+            <image src="/assets/img/space/com-icon/attendance.png" class="elseUi"></image>
             <view class="elseText yellowText">出勤状况</view>
         </view>
     </view>

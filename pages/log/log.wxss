@@ -42,7 +42,7 @@ page {
     width: 24rpx;
     height: 24rpx;
     z-index: 100;
-  }
+}
   
 .pass {
     display: none;

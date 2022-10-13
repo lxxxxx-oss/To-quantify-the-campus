@@ -1,14 +1,16 @@
+page {
+    background-color: #fff;
+}
 /* 迎新服务 */
 .spaceWelcome {
-    background-color: #fff;
-    margin-top: 30rpx;
+    /* background-color: #fff; */
+    margin-top: 50rpx;
 }
 /* 标题 */
 .Title {
-    height: 45rpx;
     border-bottom: 3rpx solid #F5F6FA;
     font-size: 32rpx;
-    padding: 10rpx 0 5rpx 40rpx;
+    padding: 30rpx 0 20rpx 30rpx;
 }
 /* 功能选项 */
 .management {
@@ -17,7 +19,7 @@
     height:200rpx;
     background-color: #fff;
     margin-top: 30rpx;
-    box-shadow: 20px 30px 20px 2px rgba(0,0,0,0.1);
+    /* box-shadow: 20px 30px 20px 2px rgba(0,0,0,0.1); */
 }
 /* 各个功能图标 */
 .managementUi {

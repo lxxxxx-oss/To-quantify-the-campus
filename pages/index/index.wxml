@@ -20,8 +20,9 @@
 <!-- 辅导员的功能选项 -->
 <cou-capacity wx:if="{{isCou}}"></cou-capacity>
 
-<!-- 学生的功能选项 -->
-<stu-capacity wx:if="{{isStu}}|{{isCom}}"></stu-capacity>
+<!-- 学生/班委的功能选项 -->
+<stu-capacity wx:if="{{isStu || isCom}}"></stu-capacity>
+
 
 <!-- 宿管的功能选项 -->
 <hou-capacity wx:if="{{isHou}}"></hou-capacity>

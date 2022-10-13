@@ -10,6 +10,10 @@
             <image src="/assets/img/space/stu-icon/payment.png" class="managementUi"></image>
             <view class="manageText redText">学费缴纳</view>
         </view>
+        <view bindtap="gotoPayment">
+            <image class="managementUi"></image>
+            <view class="manageText redText"></view>
+        </view>
     </view>
 </view>   
 
