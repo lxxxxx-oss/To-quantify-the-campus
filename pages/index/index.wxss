@@ -46,7 +46,8 @@ swiper-item{
 /* 纯CSS实现滚动播放 */
 .scoll {
     white-space: nowrap;
-    animation: 7s loop linear infinite normal;
+    /* 动画对象 速度控制 */
+    animation: 9s loop linear infinite normal;
     display: inline-block;
     vertical-align: top;
     font-size: 30rpx;

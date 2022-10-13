@@ -15,6 +15,11 @@ Page({
                 isStu: true
             })
         }
+        if(app.globalData.isCom) {
+            this.setData({
+                isCom: true
+            })
+        }
         if(app.globalData.isCou) {
             this.setData({
                 isCou: true

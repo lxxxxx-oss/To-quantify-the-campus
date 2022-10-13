@@ -1,0 +1,72 @@
+/* 迎新服务 */
+.spaceWelcome {
+    background-color: #fff;
+    margin-top: 30rpx;
+}
+/* 标题 */
+.Title {
+    height: 45rpx;
+    border-bottom: 3rpx solid #F5F6FA;
+    font-size: 32rpx;
+    padding: 10rpx 0 5rpx 40rpx;
+}
+/* 功能选项 */
+.management {
+    display: flex;
+    justify-content: space-around;
+    height:200rpx;
+    background-color: #fff;
+    margin-top: 30rpx;
+    box-shadow: 20px 30px 20px 2px rgba(0,0,0,0.1);
+}
+/* 各个功能图标 */
+.managementUi {
+    display: block;
+    height: 70rpx;
+    width: 80rpx;
+    margin: 30rpx 0 13rpx 0;
+}
+/* 功能名称 */
+.manageText {
+    font-size: 30rpx;
+    font-weight: 500;
+    margin-left: -20rpx;
+}
+/* 颜色 */
+.redText {
+    color: #B70707;
+}
+
+
+
+/* 其他 */
+.spaceElse {
+    background-color: #fff;
+    margin-top: 30rpx;
+}
+
+/* 各个功能图标 */
+.elseUi {
+    display: block;
+    height: 70rpx;
+    width: 80rpx;
+    margin: 30rpx 0 13rpx 0;
+}
+/* 功能名称 */
+.elseText {
+    font-size: 35rpx;
+    font-weight: 500;
+    margin-left: -20rpx;
+}
+/* 颜色 */
+.blueText {
+    color: #5F8BA9;
+}
+.purpleText {
+    color: #7462A0;
+}
+.yellowText {
+    color: #DFD11D;
+}
+
+

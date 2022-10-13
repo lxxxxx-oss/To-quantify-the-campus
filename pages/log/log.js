@@ -175,8 +175,15 @@ Page({
     
     //班委登录时的页面
     comLoginAll() {
-        this.stuLogin()
+        this.comLogin()
         this.LoginTab()
+    },
+    comLogin() {
+        const app = getApp();
+        app.globalData.isCom = true;
+        wx.switchTab({
+            url: '/pages/index/index',
+        })
     },
 
     // 辅导员登录时的页面

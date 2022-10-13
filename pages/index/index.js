@@ -28,10 +28,10 @@ Page({
            })
        };
        if(app.globalData.isHou){
-        this.setData({
-            isHou: true
-        })
-    };
+            this.setData({
+                isHou: true
+            })
+        };
         if(app.globalData.isCou){
             this.setData({
                 isCou: true

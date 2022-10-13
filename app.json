@@ -31,8 +31,9 @@
         "components/pageComponents/index/counselor/cou-capacity/cou-capacity",
         "components/pageComponents/index/student/stu-capacity/stu-capacity",
         "components/pageComponents/index/houseparent/hou-capacity/hou-capacity",
-        "components/pageComponents/space/counselor/cou-capacity/cou-capacity",
-        "components/pageComponents/space/student/stu-capacity/stu-capacity",
+        "components/pageComponents/space/committee/com-capacity",
+        "components/pageComponents/space/counselor/cou-capacity",
+        "components/pageComponents/space/student/stu-capacity",
         "custom-tab-bar/index",
         "components/refreshTo/my/stu-capacity/setting/customerService/customerService",
         "components/refreshTo/index/cou-capacity/major/major"

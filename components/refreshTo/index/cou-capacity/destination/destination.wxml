@@ -1,10 +1,35 @@
 <!-- 学生动向 -->
 <view class="header">
     <view bindtap="spread">
+        <!-- 专业列表 -->
         <image src="/assets/img/index/cou-icon/list.png" class="list"></image>
+        <scroll-view class="allMajor" wx:if="{{isShow}}">
+            <!-- 辅导员信息展示 -->
+            <view class="message">
+                <view class="avatar">
+                    <image src="{{userInfo.avatarUrl}}"></image>
+                </view>
+                <view class="introduce">
+                    <view class="userName">{{userInfo.nickName}}</view>
+                    <view class="identity">辅导员</view>
+                </view>
+            </view>
+            <!-- 所有专业信息展示 -->
+            <view class="majorInfor" wx:for="{{major}}" wx:key="classify">
+                <!-- 分类 -->
+                <view class="classify">{{item.classify}}</view>
+                <!-- 专业细分 -->
+                <view class="sub" bindtap="changeMajor" data-text='{{item.sub}}'>{{item.sub}}</view>
+            </view>
+        </scroll-view>
     </view>
-    <view class="content">
+    <!-- 当没有选择专业时 展示我管理的班级 -->
+    <view class="content" wx:if="{{!changeMajor}}">
       我管理的班级
+    </view>
+    <!-- 当选择了专业后，则展示所选专业 -->
+    <view class="content" wx:if="{{changeMajor}}">
+        {{changeMajor}}
     </view>
     <view class="add">
         <image src="/assets/img/index/cou-icon/sign.png" class="sign"></image>
@@ -12,7 +37,8 @@
     </view>
   </view>
 
-<!-- 当未进行班级选择时的提示语 -->
-<view class="prompt">请选择所管理专业，并添加班级</view>
+<!-- 当未进行专业选择时的提示语 -->
+<!-- 当选择了专业后，隐藏该提示语 -->
+<view class="prompt" wx:if="{{!changeMajor}}">请选择所管理专业，并添加班级</view>
 
   
