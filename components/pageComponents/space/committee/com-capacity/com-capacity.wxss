@@ -3,7 +3,6 @@ page {
 }
 /* 迎新服务 */
 .spaceWelcome {
-    /* background-color: #fff; */
     margin-top: 50rpx;
 }
 /* 标题 */

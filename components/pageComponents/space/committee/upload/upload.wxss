@@ -1,0 +1,29 @@
+page {
+    background-color: #F5F6FA;
+}
+/* 上传文件区域 */
+.upload {
+    position: absolute;
+    top: 120rpx;
+    left: 0;
+    width: 100%;
+    margin-top: 30rpx;
+    padding: 20rpx 50rpx 50rpx 50rpx;
+    background-color: #fff;
+    font-size: 40rpx;
+    font-weight: 600;
+    text-align: center;
+}
+/* 描述文本 */
+.title {
+    padding-bottom: 20rpx;
+    margin-bottom: 50rpx;
+    border-bottom: 2rpx solid #cecece;
+}
+
+/* 富文本编辑器 */
+.upload image {
+    /* margin-top: -200rpx; */
+    height: 1rpx;
+    /* width: 1000rpx; */
+}

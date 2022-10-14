@@ -1,4 +1,4 @@
-// components/pageComponents/space/student/stu-capacity.js
+// components/pageComponents/space/committee/check/check.js
 Page({
 
     /**

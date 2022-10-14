@@ -1,0 +1,10 @@
+{
+    "component": true,
+    "usingComponents": {
+        "upload": "/components/pageComponents/space/committee/upload/upload",
+        "check": "/components/pageComponents/space/committee/check/check"
+    },
+    "navigationBarTitleText": "文件管理",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#8F0105"
+}

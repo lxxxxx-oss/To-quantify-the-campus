@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "hg-editor": "/assets/libs/hg-editor/hg-editor"
+    }
+}

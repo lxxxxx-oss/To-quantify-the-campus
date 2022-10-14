@@ -43,7 +43,7 @@ Page({
         // 班委
         if(app.globalData.isCom){
             this.setData({
-                isCou: true
+                isCom: true
             })
         }
     },

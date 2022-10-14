@@ -8,7 +8,7 @@
     height: 250rpx;
     margin: 30rpx 0 25rpx 0;
     background-color: white;
-    box-shadow: 25px 20px 18px 2px rgba(0,0,0,0.1);
+    /* box-shadow: 25px 20px 18px 2px rgba(0,0,0,0.1); */
     border-radius: 40rpx;
 }
 /* 用户头像 */
@@ -49,7 +49,7 @@
     height: 135rpx;
     margin-top: 30rpx;
     background-color: #fff;
-    box-shadow: 20rpx 20rpx 18rpx 2rpx rgba(0,0,0,0.1);
+    /* box-shadow: 20rpx 20rpx 18rpx 2rpx rgba(0,0,0,0.1); */
     border-radius: 30rpx;
 }
 

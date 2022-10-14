@@ -1,0 +1,9 @@
+<!-- 上传文件 -->
+    <view class="upload">
+        <view class="title">上传图片</view>
+        <!-- 使用富文本组件 -->
+        <hg-editor id="editor" placeholder="请输入需要备注" bind:input="userInput"></hg-editor>
+        <image src="{{imgSrc}}"></image>
+    </view>
+    
+

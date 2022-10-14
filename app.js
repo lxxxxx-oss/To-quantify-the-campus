@@ -16,6 +16,9 @@ App({
         isStu: false,
         isCou: false,
         isHou: false,
-        list:[] //存放tabBar的数据
+        list:[], //存放tabBar的数据
+
+        // 用户上传图片
+        imgSrc: ""
     }
 })
