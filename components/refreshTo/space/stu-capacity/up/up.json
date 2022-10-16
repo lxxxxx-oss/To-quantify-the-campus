@@ -1,4 +1,6 @@
 {
     "component": true,
-    "usingComponents": {}
+    "usingComponents": {
+        "upload": "/components/pageComponents/space/committee/upload/upload"
+    }
 }

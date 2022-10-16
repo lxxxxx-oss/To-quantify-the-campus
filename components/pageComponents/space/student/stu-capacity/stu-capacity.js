@@ -18,14 +18,31 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        // 未到时间暂不开放
         gotoDorm() {
-            wx.navigateTo({
-              url: '/components/refreshTo/space/stu-capacity/dorm/dorm',
+            wx.showModal({
+                title: '提示',
+                content: '还未到开放时间',
+                success (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
             })
         },
         gotoPayment() {
-            wx.navigateTo({
-              url: '/components/refreshTo/space/stu-capacity/payment/payment',
+            wx.showModal({
+                title: '提示',
+                content: '还未到开放时间',
+                success (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
             })
         },
         gotoAmmeter() {

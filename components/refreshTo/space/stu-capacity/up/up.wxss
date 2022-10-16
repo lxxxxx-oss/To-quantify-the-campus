@@ -1,1 +1,26 @@
-/* components/refreshTo/space/stu-capacity/up/up.wxss */
+/* 清除全局样式 */
+page {
+    margin: 0;
+    padding: 0;
+}
+/* 功能子项 */
+.item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100rpx;
+    width: 50%;
+    font-size: large;
+    color: #fff;
+}
+
+/* 选中效果 */
+.item-selected {
+    background-color: #9B5557;
+}
+.item-bottom {
+    position: absolute;
+    top: 100rpx;
+    width: 300rpx;
+    border-bottom: 3rpx solid #000000;
+}

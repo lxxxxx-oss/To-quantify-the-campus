@@ -1,2 +1,7 @@
 <!-- 文件上传 -->
-<view>这里是文件上传页面</view>
+<view class="upload">
+    <!-- 文件审核 -->
+    <view class="item division">上传文件</view>
+    <view class="item-bottom2 item-bottom" wx:if="{{selectedCheck}}"></view>
+    <upload></upload>
+</view>
