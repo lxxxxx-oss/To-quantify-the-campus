@@ -35,8 +35,11 @@ page {
     margin-left: -20rpx;
 }
 /* 颜色 */
-.redText {
-    color: #B70707;
+.colorText1 {
+    color: #D1A87E;
+}
+.colorText2 {
+    color: #FFA937;
 }
 
 
@@ -61,11 +64,14 @@ page {
     margin-left: -20rpx;
 }
 /* 颜色 */
-.blueText {
+.blueText1 {
     color: #5F8BA9;
 }
-.purpleText {
-    color: #7462A0;
+.blueText2 {
+    color: #80B8F8;
+}
+.greenText {
+    color: #ecd576;
 }
 .yellowText {
     color: #DFD11D;

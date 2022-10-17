@@ -17,27 +17,14 @@ page {
     justify-content: space-around;
     align-items: center;
     height: 100rpx;
-    width: 50%;
+    width: 100%;
     font-size: large;
-    color: #fff;
-}
-/* 中间的分界线 */
-.division {
-    border-left: 2rpx solid #fff;
-}
-/* 选中效果 */
-.item-selected {
     background-color: #9B5557;
+    color: #fff;
 }
 .item-bottom {
     position: absolute;
     top: 100rpx;
     width: 300rpx;
     border-bottom: 3rpx solid #000000;
-}
-.item-bottom1 {
-    left: 40rpx;
-}
-.item-bottom2 {
-    left: 410rpx;
 }

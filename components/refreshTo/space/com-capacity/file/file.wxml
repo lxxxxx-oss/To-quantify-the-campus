@@ -1,16 +1,8 @@
 <!-- 文件管理 -->
 <view class="capacity">
-    <!-- 上传导员 -->
-    <!-- 选中则展示特定样式 -->
-    <view class="item" style="background-color:{{selectedUpload? '#9B5557' : ''}}" bindtap="upload">上传导员</view>
-    <!-- 选中展示下划线 -->
-    <view class="item-bottom1 item-bottom" wx:if="{{selectedUpload}}"></view>
-    <!-- 上传文件页面 -->
-    <upload wx:if="{{selectedUpload}}"></upload>
-
     <!-- 文件审核 -->
-    <view class="item division" style="background-color:{{selectedCheck? '#9B5557' : ''}}" bindtap="check">文件审核</view>
-    <view class="item-bottom2 item-bottom" wx:if="{{selectedCheck}}"></view>
+    <view class="item division">文件审核</view>
+    <view class="item-bottom"></view>
     <!-- 文件审核页面 -->
-    <check wx:if="{{selectedCheck}}"></check>
+    <check></check>
 </view>

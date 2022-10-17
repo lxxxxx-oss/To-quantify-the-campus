@@ -1,2 +1,26 @@
 <!-- 文件审核页面 -->
-<view class="check">这里是文件审核页面</view>
+<!-- colorUI向右滑动组件 -->
+<view class="cu-list check">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{img}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+        <view class="card">
+            <image src="{{item.imgAddress}}" class="img"></image>
+            <view class="message">
+                <view>上传人：<text>{{item.name}}</text></view>
+                <view>上传时间：{{item.date}}</view>
+                <!-- 根据是否已审核觉得文字样式 -->
+                <view style="color: red;" wx:if="{{!item.status}}">是否通过：{{item.des}}</view>
+                <view style="color: green;" wx:if="{{item.status}}">是否通过：{{item.des}}</view>
+            </view> 
+            <view class="statusIcon">
+                <!-- 根据状态不同，展示不同icon -->
+                <image src="{{item.iconPass}}" wx:if="{{status}}"></image> 
+                <image src="{{item.iconFail}}" wx:if="{{!status}}"></image>
+            </view>
+            <view class="move">
+                <!-- data-index 返回给JS点击索引 -->
+                <view class="bg-green" bindtap="pass" data-index='{{index}}'>通过</view>
+                <view class="bg-red" bindtap="fail" data-index='{{index}}'>打回</view>
+            </view>
+        </view>
+    </view>
+</view>

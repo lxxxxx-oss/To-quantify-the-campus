@@ -21,6 +21,7 @@
         "components/refreshTo/my/cou-capacity/setting/setting",
         "components/refreshTo/my/stu-capacity/setting/change/change",
         "components/refreshTo/space/com-capacity/file/file",
+        "components/refreshTo/space/com-capacity/left/left",
         "components/refreshTo/space/cou-capacity/stuAppoint/stuAppoint",
         "components/refreshTo/space/cou-capacity/stuGool/stuGool",
         "components/refreshTo/space/cou-capacity/stuRecord/stuRecord",
