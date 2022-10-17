@@ -4,10 +4,10 @@ page {
 /* 上传文件区域 */
 .upload {
     position: absolute;
-    top: 120rpx;
+    top: 0rpx;
     left: 0;
     width: 100%;
-    margin-top: 30rpx;
+    margin-top: 110rpx;
     padding: 20rpx 50rpx 50rpx 50rpx;
     background-color: #fff;
     font-size: 40rpx;

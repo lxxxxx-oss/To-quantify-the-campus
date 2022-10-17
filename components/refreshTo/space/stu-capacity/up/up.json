@@ -2,5 +2,8 @@
     "component": true,
     "usingComponents": {
         "upload": "/components/pageComponents/space/committee/upload/upload"
-    }
+    },
+    "navigationBarTitleText": "上传文件",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#8F0105"
 }

@@ -2,5 +2,8 @@
     "component": true,
     "usingComponents": {
         "hg-editor": "/assets/libs/hg-editor/hg-editor"
-    }
+    },
+    "navigationBarTitleText": "上传文件",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#8F0105"
 }

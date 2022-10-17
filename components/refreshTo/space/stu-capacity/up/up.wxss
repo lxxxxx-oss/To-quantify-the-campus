@@ -3,20 +3,24 @@ page {
     margin: 0;
     padding: 0;
 }
+/* 功能分类 */
+.upload {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100rpx;
+    background-color: #8F0105;
+}
 /* 功能子项 */
 .item {
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 100rpx;
-    width: 50%;
+    width: 100%;
     font-size: large;
-    color: #fff;
-}
-
-/* 选中效果 */
-.item-selected {
     background-color: #9B5557;
+    color: #fff;
 }
 .item-bottom {
     position: absolute;

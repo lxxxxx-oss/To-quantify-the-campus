@@ -1,5 +1,4 @@
 //app.js
-import Touches from './utils/Touches'
 App({
     onLaunch: function () {
     },
@@ -22,5 +21,4 @@ App({
         // 用户上传图片
         imgSrc: ""
     },
-    Touches: new Touches()
 })

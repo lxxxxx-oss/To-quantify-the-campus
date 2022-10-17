@@ -6,13 +6,13 @@
             <image src="/assets/img/space/com-icon/flieManage.png" class="elseUi"></image>
             <view class="elseText blueText">文件审核</view>
         </view>
-        <view bindtap="gotoCard">
-            <image src="/assets/img/space/com-icon/message.png" class="elseUi"></image>
-            <view class="elseText purpleText">接发消息</view>
-        </view>
         <view bindtap="gotoUp">
             <image src="/assets/img/space/com-icon/attendance.png" class="elseUi"></image>
-            <view class="elseText yellowText">出勤状况</view>
+            <view class="elseText redText">出勤状况</view>
+        </view>
+        <view>
+            <image src="" class="elseUi"></image>
+            <view class="elseText purpleText"></view>
         </view>
     </view>
 </view>   

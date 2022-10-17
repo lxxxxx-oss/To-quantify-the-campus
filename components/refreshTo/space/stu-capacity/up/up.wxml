@@ -2,6 +2,6 @@
 <view class="upload">
     <!-- 文件审核 -->
     <view class="item division">上传文件</view>
-    <view class="item-bottom2 item-bottom" wx:if="{{selectedCheck}}"></view>
+    <view class="item-bottom"></view>
     <upload></upload>
 </view>

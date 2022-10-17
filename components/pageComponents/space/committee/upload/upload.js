@@ -16,20 +16,6 @@ Component({
         // 上传图片地址
         // imgSrc: app.globalData.imgSrc
     },
-    // 组件生命周期
-    // lifetimes: {
-    //     created: function() {
-    //         console.log(this.data.imgSrc);
-    //         if(this.data.imgSrc) {
-    //             var app = getApp()
-    //             this.setData({
-    //                 imgSrc: app.globalData.imgSrc
-    //             })
-
-    //             console.log(this.data.imgSrc);
-    //         }
-    //     }
-    // },
     /**
      * 组件的方法列表
      */
