@@ -1,14 +1,13 @@
 <!-- 导员：首页 -->
 <!-- <loading></loading> -->
 <!-- 轮播图 -->
-<!-- 自动切换有问题！ -->
-    <swiper indicator-dots="true" indicator-color="#cacaca" indicator-active-color="#87ceeb" circular="true" auto-play="true" interval="3000">
-        <swiper-item>
-            <image src="/assets/img/index/swiper.jpg" class="swiperImg"></image>
-        </swiper-item>
-    <swiper-item>
-        <image src="/assets/img/index/swiper.jpg" class="swiperImg"></image>
-    </swiper-item>
+<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted objectFit="cover"></video>
+    </view>
+  </swiper-item>
 </swiper>
 
 <!-- 通知栏 -->

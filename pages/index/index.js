@@ -3,6 +3,16 @@ Page({
 
     // 在最开始将所有身份的功能卡全部隐藏
     data: {
+        swiperList: [{
+            id: 0,
+            type: 'image',
+            url: '/assets/img/index/swiper.jpg'
+          }, {
+            id: 1,
+              type: 'image',
+              url: '/assets/img/index/swiper.jpg',
+          }
+        ]
     },
 
     /**
@@ -100,5 +110,10 @@ Page({
     onShareAppMessage() {
 
     },
+    DotStyle(e) {
+        this.setData({
+          DotStyle: e.detail.value
+        })
+      },
 
 })

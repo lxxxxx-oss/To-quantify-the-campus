@@ -1,27 +1,3 @@
-
-/* 轮播图 */
-swiper {
-    /* background: red; */
-    height: 470rpx;
-    border: 4rpx soild red;
-    overflow: hidden;
-    border-radius: 40rpx;
-}
-/* 设置轮播图图片大小 */
-swiper-item{
-    height: 470rpx;
-    width: 500rpx;
-    border: 2rpx soild red;
-    /* margin: 20rpx 0; */
-    /* 实现轮播图图片垂直居中对齐 */
-    display: table-cell; 
-    vertical-align: middle;
-    text-align: center;
-}
-.swiperImg {
-    height: 100%;
-    width: 100%;
-}
 /* 通知栏 */
 .bulletinBoard {
     display: flex;

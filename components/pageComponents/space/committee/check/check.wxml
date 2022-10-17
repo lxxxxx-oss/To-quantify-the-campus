@@ -3,7 +3,8 @@
 <view class="cu-list check">
     <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{img}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
         <view class="card">
-            <image src="{{item.imgAddress}}" class="img"></image>
+            <image src="{{item.imgAddress}}" class="img" bindtap="preview"  
+            data-src="{{item.imgAddress}}" data-index='{{index}}'></image>
             <view class="message">
                 <view>上传人：<text>{{item.name}}</text></view>
                 <view>上传时间：{{item.date}}</view>
@@ -13,8 +14,8 @@
             </view> 
             <view class="statusIcon">
                 <!-- 根据状态不同，展示不同icon -->
-                <image src="{{item.iconPass}}" wx:if="{{status}}"></image> 
-                <image src="{{item.iconFail}}" wx:if="{{!status}}"></image>
+                <image src="{{item.iconPass}}" wx:if="{{item.status}}"></image> 
+                <image src="{{item.iconFail}}" wx:if="{{!item.status}}"></image>
             </view>
             <view class="move">
                 <!-- data-index 返回给JS点击索引 -->
