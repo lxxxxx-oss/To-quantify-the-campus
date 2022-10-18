@@ -1,2 +1,31 @@
-<!-- 今日通知 -->
-<view>这里是今日通知页面</view>
+<!-- <view class="action">
+    <switch class="sm" bindchange="DotStyle"></switch>
+  </view> -->
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text> 校园活动
+  </view>
+</view>
+<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{activeList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <!-- 轮播图点击放大 -->
+    <view class="swiper-item" bindtap="previewActive" data-index="{{index}}" 
+        data-src="{{item.url}}">
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </view>
+  </swiper-item>
+</swiper>
+
+<view class="cu-bar bg-white">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text> 导员通知
+  </view>
+</view>
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{informList}}" wx:key bindtap="previewInform" data-index="{{index}}" 
+        data-src="{{item.url}}">
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}" bindtap="preview" data-index="{{index}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>

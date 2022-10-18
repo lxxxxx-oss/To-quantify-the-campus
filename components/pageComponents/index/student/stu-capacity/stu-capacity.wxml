@@ -7,7 +7,7 @@
         </view>
         <view class="stu-box" bindtap="gotoInform">
             <image src="/assets/img/index/stu-icon/inform.png" mode="aspectFit" class="box-img"></image>
-            <text>今日通知</text>
+            <text>今日热点</text>
         </view>
         <view class="stu-box" bindtap="gotoPunch">
             <image src="/assets/img/index/stu-icon/punch.png" mode="aspectFit" class="box-img"></image>

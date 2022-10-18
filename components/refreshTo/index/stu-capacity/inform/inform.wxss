@@ -1,1 +1,3 @@
-/* components/refreshTo/index/stu-capacity/inform/inform.wxss */
+page {
+    /* background-color: #cecece; */
+}
