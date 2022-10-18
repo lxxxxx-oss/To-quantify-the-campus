@@ -1,1 +1,122 @@
-/* components/refreshTo/index/stu-capacity/punch/punch.wxss */
+page {
+    margin: 0;
+    padding: 0;
+}
+/* 用户信息 */
+
+.head {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10rpx 0 10rpx 0;
+    border-bottom: 2rpx solid #E5E5E5;
+}
+/* 整个头部盒子 */
+.head_box {
+    width: 750rpx;
+    box-sizing: border-box;
+}
+/* 用户信息 */
+.user_ava image{
+    width: 116rpx;
+    height: 116rpx;
+    overflow: hidden;
+    border-radius: 25%;
+    margin-right: 32rpx;
+}
+.user_name {
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 18rpx;
+}
+.user_name text {
+    font-size: 24rpx;
+    color: #999999;
+    font-weight: 400;
+    margin-left: 40rpx;
+}
+.user_add {
+    font-size: 28rpx;
+    color: #3380F3;
+}
+/* 是否通过的icon */
+.icon image{
+    height: 100rpx;
+    width: 100rpx;
+}
+.iconText {
+    margin-left: 10rpx;
+}
+
+/* 日期 */
+.dateInfo{
+    text-align: center;
+    font-size: 35rpx;
+    margin: 30rpx 0 30rpx 0;
+}
+
+/* 地图 */
+.map {
+    height: 400rpx;
+    width: 100%;
+    margin-top: 20rpx;
+    border: 2rpx solid #cceecc;
+}
+/* 搜索按钮 */
+.searchBtn {
+    margin-top: 30rpx;
+}
+
+/* 展示位置信息 */
+.searchMessaeg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30rpx;
+    font-size: large;
+}
+
+/* 打卡信息 */
+.punch {
+    height: 400rpx;
+    padding-top: 30rpx;
+    margin: 30rpx 0 30rpx 0;
+}
+.punch button {
+    height: 350rpx;
+    width: 350rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(236, 88, 88);
+    border-radius: 50%;
+    font-size: 50rpx;
+    color: white;
+}
+/* 打卡按钮下方的地址 */
+.clock_address {
+    text-align: center;
+    font-size: 30rpx;
+    color: #333333;
+    width: 80%;
+    margin: auto;
+    overflow:hidden;  
+    text-overflow:ellipsis;
+}
+.clock_address image {
+    width: 28rpx;
+    height: 36rpx;
+    margin-right: 16rpx;
+    vertical-align: middle;
+}
+
+/* 刷新位置 */
+.refresh {
+    margin-top: 25px;
+    color: #307CED;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

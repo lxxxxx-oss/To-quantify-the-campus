@@ -1,0 +1,52 @@
+<!-- 展示用户信息 -->
+<!-- 用户信息 -->
+<view class="head ">
+    <view class="user_ava">
+        <image src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view>
+        <view class="user_name">用户名称：{{userInfo.nickName}}</view>
+        <view class="user_add">新的一天开始了，加油哦~</view>
+    </view>
+    <!-- 是否打卡 -->
+    <view class="icon">
+        <!-- 根据状态不同，展示不同icon和文本 -->
+        <image src="/assets/img/index/stu-icon/pass.png" wx:if="{{status}}"></image> 
+        <image src="/assets/img/index/stu-icon/fail.png" wx:if="{{!status}}"></image>
+        <view class="iconText" wx:if="{{!status}}" style="color: {{status?'black':'red'}};">未打卡</view>
+        <view class="iconText" wx:if="{{status}}" style="color: {{status?'green':'black'}};">已打卡</view>
+    </view>
+</view>
+
+<!-- 当前日期 -->
+<view class="dateInfo ">
+      <text>{{nowDate}} {{nowDay}}</text>
+</view>
+<!-- 使用地图组件 -->
+<!-- longitude latitude中心位置经纬度-->
+<!-- 点击可以进入搜索页面 -->
+<map  class="map" latitude="29.998516667194192" longitude="106.23854474834057" markers="{{markers}}" bindtap="chooseLocation" ></map>
+
+<view wx:if="{{address}}" class="searchMessaeg">
+    <view>位置名称:{{name}}</view>
+    <view>详细地址:{{address}}</view>
+    <view>纬度:{{latitude}}</view>
+    <view>经度:{{longitude}}</view>
+</view>
+
+<!-- 签到按钮 -->
+<view class="punch">
+    <button bindtap="punch" wx:if="{{!status}}">打卡</button>
+    <button wx:if="{{status}}" style="background-color: rgb(94, 240, 94);">已打卡</button>
+    <!-- 当前时间 -->
+</view>
+
+<!-- 当前定位 -->
+<view class="clock_address">
+      <image src="/assets/img/index/stu-icon/location.png" class="add_icon" />
+      <text>{{current_address}}</text>
+</view>
+
+<!-- 刷新当前位置 -->
+<view class="refresh" catchtap="refreshAdd">刷新位置</view>
+
