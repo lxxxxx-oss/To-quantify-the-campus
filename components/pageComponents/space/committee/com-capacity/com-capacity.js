@@ -18,29 +18,10 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        gotoDorm() {
+        // 跳转页面
+        gotoAttendance() {
             wx.navigateTo({
-              url: '/components/refreshTo/space/stu-capacity/dorm/dorm',
-            })
-        },
-        gotoPayment() {
-            wx.navigateTo({
-              url: '/components/refreshTo/space/stu-capacity/payment/payment',
-            })
-        },
-        gotoAmmeter() {
-            wx.navigateTo({
-              url: '/components/refreshTo/space/stu-capacity/ammeter/ammeter',
-            })
-        },
-        gotoCard() {
-            wx.navigateTo({
-              url: '/components/refreshTo/space/stu-capacity/card/card',
-            })
-        },
-        gotoUp() {
-            wx.navigateTo({
-              url: '/components/refreshTo/space/stu-capacity/up/up',
+              url: '/components/refreshTo/space/com-capacity/attendance/attendance',
             })
         },
         gotoFile() {

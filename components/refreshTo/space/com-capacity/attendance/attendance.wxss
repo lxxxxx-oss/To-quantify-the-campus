@@ -1,0 +1,62 @@
+/* 班级整体情况 */
+.entirety {
+    margin-top: 80rpx;
+}
+.inform {
+    height: 200rpx;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 30rpx;
+}
+.proportion {
+    color: #000000;
+    font-size: 55rpx;
+}
+.leave {
+    font-size: 40rpx;
+    color: #9c9595 ;
+}
+.date {
+    float: right;
+    font-size: 35rpx;
+    color: #9c9595 ;
+}
+
+/* 个人的情况 */
+.person {
+    display: flex;
+    justify-content: space-between;
+    margin-top:150rpx;
+    padding: 10rpx 20rpx 0 20rpx;
+    color: #000000;
+    border-bottom: 2rpx solid #707070 ;
+}
+
+.personItem {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30rpx;
+    padding: 10rpx 20rpx 0 20rpx;
+    color: black ;
+    font-size: 40rpx;
+    border-bottom: 2rpx solid #707070 ;
+}
+
+/* 图标 */
+.icon {
+    height: 100rpx; 
+    width: 100rpx;
+    margin-top: -20rpx;
+}
+.icon image {
+    height: 80rpx; 
+    width: 100rpx;
+}
+.leaveText {
+    position: relative;
+    bottom: 30rpx;
+    right: -60rpx;
+    font-size: 28rpx;
+    color: #707070;
+}

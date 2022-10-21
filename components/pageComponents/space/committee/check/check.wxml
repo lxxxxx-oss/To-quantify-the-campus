@@ -8,7 +8,7 @@
             <view class="message">
                 <view>上传人：<text>{{item.name}}</text></view>
                 <view>上传时间：{{item.date}}</view>
-                <!-- 根据是否已审核觉得文字样式 -->
+                <!-- 根据是否已审核决定文字样式 -->
                 <view style="color: red;" wx:if="{{!item.status}}">是否通过：{{item.des}}</view>
                 <view style="color: green;" wx:if="{{item.status}}">是否通过：{{item.des}}</view>
             </view> 

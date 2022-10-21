@@ -6,7 +6,7 @@
             <image src="/assets/img/space/com-icon/flieManage.png" class="elseUi"></image>
             <view class="elseText blueText">文件审核</view>
         </view>
-        <view bindtap="gotoUp">
+        <view bindtap="gotoAttendance">
             <image src="/assets/img/space/com-icon/attendance.png" class="elseUi"></image>
             <view class="elseText redText">出勤状况</view>
         </view>
