@@ -217,6 +217,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/stu-capacity/card/card",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
