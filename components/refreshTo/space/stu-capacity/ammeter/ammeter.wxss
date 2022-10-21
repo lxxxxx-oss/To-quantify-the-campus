@@ -39,7 +39,6 @@ page {
 ec-canvas {
   width: 600rpx;
   height: 500rpx;
-  overflow: hidden;
 }
 
 /* 日期 */

@@ -11,6 +11,7 @@ function initChart(canvas, width, height, dpr) {
   canvas.setChart(chart);
 
   var option = {
+    color: ['#BF0000', '#3E74CD'],
     legend: {
       bottom: '3%',
       left: 'center'
@@ -18,7 +19,7 @@ function initChart(canvas, width, height, dpr) {
     series: [{
       label: {
         normal: {
-          fontSize: 15
+          fontSize: 18
         }
       },
       type: 'pie',
@@ -32,16 +33,17 @@ function initChart(canvas, width, height, dpr) {
       },
       emphasis: {
         label: {
+          formatter: '{b}\n{c}度',
           show: true,
-          fontSize: '30',
+          fontSize: '25',
           fontWeight: 'bold'
         }
       },
       data: [{
-        value: 55,
+        value: 75,
         name: '已用'
       }, {
-        value: 20,
+        value: 25,
         name: '余额'
       }]
     }]
