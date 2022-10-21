@@ -1,0 +1,55 @@
+/* 班级详细信息 */
+.classMessage {
+    width: 90%;
+    height: 400rpx;
+    margin: auto;
+    margin-top: 50rpx;
+    padding-left: 50rpx;
+    background-color: #B54036 ;
+    border-radius: 25rpx;
+}
+.majorName {
+    padding-top: 30rpx;
+    color: #fff;
+    font-size: 40rpx;
+}
+.num {
+    padding-top: 30rpx;
+    color: #fff;
+}
+.classInform {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 250rpx;
+    margin-top: 30rpx;
+    font-size: 38rpx;
+    color: #fff;
+}
+
+/* 请假人员详细信息 */
+.leaveMessage {
+    width: 90%;
+    height: 350rpx;
+    margin: auto;
+    margin-top: 150rpx;
+    padding-left: 50rpx;
+    background-color: #2B58AB  ;
+    border-radius: 25rpx;
+}
+.leaveInform1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100rpx;
+    font-size: 40rpx;
+    color: #fff;
+}
+.leaveInform2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 240rpx;
+    font-size: 40rpx;
+    color: #fff;
+}

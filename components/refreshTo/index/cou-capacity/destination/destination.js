@@ -5,37 +5,38 @@ Page({
      * 页面的初始数据
      */
     data: {
+        // 是否展示专业列表
         isShow: false,
+        // 选择的专业信息
+        changeMajor:"",
+        // 是否展示班级信息
+        isShowclass: false,
         major: [
             {
                 "classify": "工学",
-                // "sub": "电气工程及其自动化\n人工智能\n自动化\n信息安全\n轨道交通电气与控制交通"
-                "sub": "电气工程及其自动化"
+                "sub": ["电气工程及其自动化", "人工智能", "自动化", "信息安全", "软件工程"]
             },
             {
                 "classify": "管理学",
-                // "sub": "供应链管理\n工商管理\n财务管理\n工程管理\n大数据管理与应用"
-                "sub": "供应链管理"
+                "sub": ["供应链管理", "工商管理", "财务管理", "工程管理", "大数据管理与应用"]
             },
             {
                 "classify": "艺术性",
-                // "sub": "动画\n广播电视编导\n数字媒体技术\n戏剧影视文学"
-                "sub": "动画"
+                "sub": ["动画", "广播电视编导", "数字媒体技术", "戏剧影视文学"]
             },
             {
                 "classify": "文学",
-                // "sub": "汉语\n英语\n德语"
-                "sub": "汉语"
+                "sub": ["汉语", "英语", "德语"]
             },
             {
                 "classify": "经济学",
-                // "sub": "数字经济\n互联网金融"
-                "sub": "数字经济"
+                "sub": ["数字经济", "互联网金融"]
             }
 
         ],
-        changeMajor:"",
-        majorNew: [],
+        // 班级信息
+        classInform: ["一班", "二班", "三班", "四班", "五班", "六班", "七班", "八班", "九班", "十班", "十一班", ],
+        num: ""
     },
 
     /**
@@ -57,77 +58,53 @@ Page({
         })
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
-    },
-
-    // 跳转
+    // 展示列表
     spread() {
-        // wx.navigateTo({
-        //   url: '../major/major',
-        // })
-        // 点击展示专业列表
         this.setData({
             isShow: !this.data.isShow
         })
         // console.log(this.data.isShow);
     },
+
     // 点击选择专业
     changeMajor(e) {
-        // console.log(e.target.dataset.text);
-        // 存储页面返回的文本内容
-        let major = e.target.dataset.text
-        // 但有多个文本时，进行切割
-        let majorNew = major.split("\n")
-        // console.log(majorNew);
+        // 存储索引值
+        let index = e.currentTarget.dataset.index
+        // 匹配数组中的数据
+        let major = e.target.dataset.text[index]
+
+        // 更新数据,并渲染
         this.setData({
-            changeMajor: majorNew
+            changeMajor: major
         })
-        // console.log(this.data.changeMajor);
+    },
+
+    // 点击添加班级，展示班级列表
+    addClass() {
+        // 匹配数组中的数据
+        // let classNum = e.target.dataset.text[index]
+        // 更改班级列表的状态
+        this.setData({
+            isShowclass: !this.data.isShowclass,
+            // num: classNum
+        })
+    },
+
+    // 选择班级信息并展示
+    changeClass(e) {
+        //  匹配数组中的数据
+         let classNum = e.target.dataset.text
+        //  console.log(classNum);
+         // 更改班级列表的状态
+         this.setData({
+             num: classNum
+         })
+    },
+
+    // 进入班级学生动向的详细页面,并传递数据
+    gotoDetail() {
+        wx.navigateTo({
+          url: '/components/refreshTo/index/cou-capacity/des-item/des-item?major='+this.data.changeMajor+"&num="+this.data.num,
+        })
     }
 })

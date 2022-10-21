@@ -19,7 +19,9 @@
                 <!-- 分类 -->
                 <view class="classify">{{item.classify}}</view>
                 <!-- 专业细分 -->
-                <view class="sub" bindtap="changeMajor" data-text='{{item.sub}}'>{{item.sub}}</view>
+                <view class="sub" bindtap="changeMajor" data-text='{{item.sub}}' wx:for="{{item.sub}}" wx:for-item="sub" wx:key="" data-index="{{index}}"> 
+                    {{sub}}
+                </view>
             </view>
         </scroll-view>
     </view>
@@ -31,14 +33,22 @@
     <view class="content" wx:if="{{changeMajor}}">
         {{changeMajor}}
     </view>
-    <view class="add">
+    <!-- 选择班级信息 -->
+    <view class="add" bindtap="addClass">
         <image src="/assets/img/index/cou-icon/sign.png" class="sign"></image>
         <view>添加班级</view>
     </view>
-  </view>
+</view>
+<view class="classNum">
+    <view class="temp" wx:if="{{isShowclass}}" wx:for="{{classInform}}" data-index="{{index}}" data-text="{{item}}" bindtap="changeClass">{{item}}</view>
+</view>
 
 <!-- 当未进行专业选择时的提示语 -->
-<!-- 当选择了专业后，隐藏该提示语 -->
-<view class="prompt" wx:if="{{!changeMajor}}">请选择所管理专业，并添加班级</view>
+<!-- 当选择了专业或班级后，隐藏该提示语 -->
+<view class="prompt" wx:if="{{!changeMajor || !num}}">请选择所管理专业，并添加班级</view>
 
-  
+<!-- 当选择了专业或班级后,则展示专业班级信息 -->
+<view class="classMessage" wx:if="{{changeMajor || num}}" bindtap="gotoDetail"> 
+    <view class="majorName">{{changeMajor}}</view>
+    <view class="num">{{num}}</view>
+</view>

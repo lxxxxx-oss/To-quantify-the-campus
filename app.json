@@ -11,6 +11,7 @@
         "components/refreshTo/index/hou-capacity/punch/punch",
         "components/refreshTo/index/hou-capacity/state/state",
         "components/refreshTo/index/cou-capacity/destination/destination",
+        "components/refreshTo/index/cou-capacity/des-item/des-item",
         "components/refreshTo/index/cou-capacity/gather/gather",
         "components/refreshTo/index/cou-capacity/inform/inform",
         "components/refreshTo/index/stu-capacity/career/career",

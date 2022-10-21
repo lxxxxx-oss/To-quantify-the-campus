@@ -3,6 +3,7 @@
 page {
     margin: 0;
     padding: 0;
+    background-color: #F5F6FA ;
 }
 /* 头部样式 */
 .header {
@@ -86,10 +87,8 @@ page {
 .sub {
     /* 设置如何处理文本中的空白 */
     /* pre：连续的空白符会被保留。在遇到换行符或者<br>元素时才会换行 */
-    white-space: pre; 
+    /* white-space: pre;  */
     margin: 30rpx 0 20rpx 50rpx;
-    /* 设置每个专业之间的间隔 ---> 行高*/
-    line-height: 80rpx;
 }
 /* 显示在页眉的专业名字 */
 .changeMajor {
@@ -108,7 +107,20 @@ page {
     width: 50rpx;
     margin-right: 15rpx;
 }
-
+/* 班级信息 */
+.classNum {
+    width: 200rpx;
+    margin: -20rpx 300rpx 0 530rpx;
+    line-height:60rpx;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2)
+}
+.temp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 /* 提示信息 */
 .prompt {
     margin: 100rpx 0 30rpx 180rpx;
@@ -117,4 +129,23 @@ page {
     color: #A0A0A0 ;
 }
 
+/* 展示专业班级信息 */
+.classMessage {
+    height: 200rpx;
+    width: 90%;
+    margin: auto;
+    margin-top: 50rpx;
+    padding-left: 50rpx;
+    background-color: #B54036 ;
+    border-radius: 25rpx;
+}
+.majorName {
+    padding-top: 30rpx;
+    color: #fff;
+    font-size: 40rpx;
+}
+.num {
+    padding-top: 30rpx;
+    color: #fff;
+}
 

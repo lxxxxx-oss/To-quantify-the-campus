@@ -1,0 +1,20 @@
+<!-- 学生动向详细页面 -->
+<view class="classMessage"> 
+    <view class="majorName">{{major}}  {{num}}</view>
+    <view class="classInform" wx:for="{{classInform}}">
+        <view>班级人数：{{item.stuNum}}</view>
+        <view>请假人数：{{item.leaveNum}}</view>
+        <view>日期：{{date}}</view>
+    </view>
+</view>
+
+<!-- 请假人员详细信息 -->
+<view class="leaveMessage">
+    <view class="leaveInform1" wx:for="{{classInform}}">
+        <view>请假人数：{{item.leaveNum}}</view>
+    </view>
+    <view wx:for="{{leaveInform}}" class="leaveInform2" wx:key="">
+        <view>请假人员：{{item.name}}</view>
+        <view>请假原因：{{item.cause}}</view>
+    </view>
+</view>
