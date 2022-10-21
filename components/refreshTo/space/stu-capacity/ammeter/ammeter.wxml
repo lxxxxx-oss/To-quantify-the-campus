@@ -1,2 +1,13 @@
 <!-- 电费余额 -->
-<view>这里是电费余额页面</view>
+<view class="title">
+    <image src="/assets/img/space/stu-icon/ammeter.png"></image>
+    <view class="text">电费余额</view>
+    <view class="bottom"></view>
+</view>
+<!-- 引用echarts图表 -->
+<view class="echart">
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+</view>
+
+<!-- 日期 -->
+<view class="date">日期:{{date}}</view>

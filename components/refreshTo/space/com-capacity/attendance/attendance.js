@@ -56,6 +56,7 @@ Page({
         // 计数器
         let count1 = 0
         let count2 = 0
+        // 遍历整个数组对象
         this.data.className.forEach(e => {
             if(e.status) count1 ++
             if(!e.status && e.leave) count2++

@@ -42,7 +42,7 @@
         },
         "disableUseStrict": false,
         "useCompilerPlugins": false,
-        "ignoreUploadUnusedFiles": true
+        "ignoreUploadUnusedFiles": false
     },
     "compileType": "miniprogram",
     "libVersion": "2.17.0",

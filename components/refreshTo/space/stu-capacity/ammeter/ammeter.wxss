@@ -1,1 +1,51 @@
-/* components/refreshTo/space/stu-capacity/ammeter/ammeter.wxss */
+page {
+  background-color: #F5F6FA ;
+}
+/* 标题 */
+.title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 100rpx 0 80rpx 0;
+  padding-bottom: 25rpx;
+}
+.bottom {
+  position: absolute;
+  top: 185rpx;
+  height: 4rpx;
+  width: 260rpx;
+  background-color: #8F0105;
+}
+.title image {
+  height: 60rpx;
+  width: 60rpx;
+  margin-right: 30rpx;
+}
+.text {
+  font-size: 40rpx;
+  color: #000000;
+  font-weight: light;
+}
+/* echarts图表 */
+.echart{
+  width: 650rpx;
+  height: 500rpx;
+  margin: auto;
+  border: 2rpx solid #fff;
+  border-radius: 50rpx;
+  overflow: hidden;
+  box-shadow: 20rpx 14rpx 30rpx 5rpx rgba(0, 0, 0, .2);
+}
+ec-canvas {
+  width: 600rpx;
+  height: 500rpx;
+  overflow: hidden;
+}
+
+/* 日期 */
+.date {
+  float: left;
+  margin: 40rpx 0 0 43rpx;
+  font-size: 35rpx;
+  color: #9c9595 ;
+}
