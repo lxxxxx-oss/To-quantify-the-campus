@@ -53,7 +53,7 @@ Component({
         wx.chooseImage({
         count: 1,
         sizeType: ['compressed'],
-        sourceType: ['album'],
+        sourceType: ['album', 'camera'],
         success: function (res) {
             //   wx.showLoading({
             //     title: '上传中',
@@ -71,6 +71,7 @@ Component({
         this.setData({
             imgSrc: app.globalData.imgSrc
         })
+        // console.log(this.data.imgSrc);
     },
     _uploadImage: function (tempFilePath, uploadImageURL) {
       let _this = this;

@@ -29,3 +29,11 @@
     <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
   </swiper-item>
 </swiper>
+
+<!-- 更新轮播图图片 -->
+<view class="update" wx:if="{{isCou}}">
+    <view class="uploadImg" bindtap="uploadImg">
+        <view>点击上传</view>
+    </view>
+    <view class="refresh" bindtap="refresh">刷新</view>
+</view>

@@ -3,7 +3,7 @@
     <view class="capacity-item">
         <view class="box" bindtap="gotoDestinat">
             <image src="/assets/img/index/cou-icon/destination.png" mode="aspectFit" class="box-img"></image>
-            <text>学生动向</text>
+            <text>学生管理</text>
         </view>
         <view class="box" bindtap="gotoInform">
             <image src="/assets/img/index/cou-icon/inform.png" mode="aspectFit" class="box-img"></image>

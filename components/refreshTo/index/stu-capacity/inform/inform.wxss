@@ -1,3 +1,25 @@
-page {
-    /* background-color: #cecece; */
+.update {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* 上传图片按钮 */
+.uploadImg {
+    width: 50%;
+    margin: 50rpx 0 0 0;
+    font-size: 60rpx;
+    /* background-color: red; */
+    text-align: center;
+    border: 2rpx solid red;
+    border-radius: 30rpx;
+}
+/* 刷新按钮 */
+.refresh {
+    width: 50%;
+    margin: 50rpx 0 0 0;
+    font-size: 60rpx;
+    text-align: center;
+    border: 2rpx solid red;
+    border-radius: 30rpx;
 }

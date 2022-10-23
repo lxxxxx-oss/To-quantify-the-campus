@@ -26,10 +26,10 @@ Page({
         //     icon: 'loading',
         //     duration: 200    //提示的延迟时间
         // });
-        var w = wx.getSystemInfoSync().windowWidth;
-        var h = wx.getSystemInfoSync().windowHeight;
-        console.log(w);
-        console.log(h);
+        // var w = wx.getSystemInfoSync().windowWidth;
+        // var h = wx.getSystemInfoSync().windowHeight;
+        // console.log(w);
+        // console.log(h);
         //根据登录时携带的ID信息,选择要展示的功能选项卡
        const app =getApp();
        // 普通学生
@@ -56,6 +56,7 @@ Page({
                 isCom: true
             })
         }
+        console.log(app.globalData);
     },
 
     /**
@@ -71,7 +72,7 @@ Page({
         //添加选中效果,避免自定义tabbar闪烁
          if (typeof this.getTabBar === 'function' && this.getTabBar()) {
              this.getTabBar().setData({
-             selected: 0 //这个数是，tabBar从左到右的下标，从0开始
+                selected: 0 //这个数是，tabBar从左到右的下标，从0开始
              })
         }
     },
@@ -110,10 +111,10 @@ Page({
     onShareAppMessage() {
 
     },
-    DotStyle(e) {
-        this.setData({
-          DotStyle: e.detail.value
-        })
-      },
+    // DotStyle(e) {
+    //     this.setData({
+    //       DotStyle: e.detail.value
+    //     })
+    //   },
 
 })

@@ -98,7 +98,6 @@ Page({
                 }
             })
         }
-        console.log(app.globalData.hasUserInfo);
     },
 
     // 除宿管外其他用户登录时展示的tabbar
@@ -184,7 +183,6 @@ Page({
         wx.switchTab({
             url: '/pages/index/index',
         })
-        console.log("isCom:" + app.globalData.isCom);
     },
 
     // 辅导员登录时的页面

@@ -1,1 +1,31 @@
-/* components/refreshTo/index/stu-capacity/career/career.wxss */
+page {
+    margin: 0;
+    padding:0 50rpx 0 50rpx;
+}
+/* 标题 */
+.careerTitle {
+    display: flex;
+    margin: 60rpx 0 0 0;
+    font-size: 50rpx;
+    font-weight: bolder;
+}
+.careerTitle image {
+    height: 60rpx;
+    width: 54rpx;
+    margin-right: 20rpx;
+}
+.titleBottom {
+    height: 6rpx;
+    width: 300rpx;
+    background-color: #D3594C;
+    margin: 10rpx 0 0 0;
+}
+
+/* 成绩展示 */
+.gradeBox {
+    height: 500rpx;
+    width: 650rpx;
+    margin-top: 50rpx;
+    border-radius: 35rpx;
+    border: 2rpx solid red;
+}

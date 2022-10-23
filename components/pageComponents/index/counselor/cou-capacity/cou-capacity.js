@@ -24,7 +24,7 @@ Component({
         },
         gotoInform() {
             wx.navigateTo({
-              url: '/components/refreshTo/index/cou-capacity/inform/inform',
+              url: '/components/refreshTo/index/stu-capacity/inform/inform',
             })
         },
         gotoGather() {

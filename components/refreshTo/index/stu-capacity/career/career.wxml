@@ -1,2 +1,11 @@
 <!-- 大学生涯 -->
-<view>这里是大学生涯页面</view>
+<view class="careerTitle">
+    <image src="/assets/img/index/stu-icon/grade.png"></image>
+    <view>大学生涯</view>
+</view>
+<view class="titleBottom"></view>
+
+<!-- 展示成绩 -->
+<view class="gradeBox">
+    <view class="time"></view>
+</view>

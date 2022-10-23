@@ -1,4 +1,5 @@
 {
     "component": true,
-    "usingComponents": {}
+    "usingComponents": {},
+    "navigationBarTitleText": "大学生涯"   
 }
