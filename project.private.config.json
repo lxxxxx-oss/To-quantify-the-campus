@@ -280,6 +280,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/stu-capacity/inform/inform",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

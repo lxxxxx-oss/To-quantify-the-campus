@@ -19,6 +19,7 @@ App({
         list:[], //存放tabBar的数据
 
         // 用户上传图片
-        imgSrc: ""
+        imgSrc: "",
+        index: ""
     },
 })

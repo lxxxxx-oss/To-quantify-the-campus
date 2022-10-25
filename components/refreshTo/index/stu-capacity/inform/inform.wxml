@@ -35,5 +35,18 @@
     <view class="uploadImg" bindtap="uploadImg">
         <view>点击上传</view>
     </view>
-    <view class="refresh" bindtap="refresh">刷新</view>
+    <view class="refresh" bindtap="openModel">选择次序</view>
 </view>
+<!-- 弹窗蒙版 -->
+<view class="model" catchtouchmove='preventTouchMove' wx:if='{{showModal}}'></view>
+<view class="modalDlg" catchtouchmove='preventTouchMove' wx:if='{{showModal}}'>
+    <view class='windowRow'>
+        <text class='userTitle'>选择要更换的图片</text>
+        <view class='back' bindtap='back'>返回</view>
+    </view>
+    <view style="width:100%" class='wishName'>
+        <input style="width:100%" bindinput='wish_put' placeholder-class="holder_cls" class='wish_put'></input>
+    </view>
+    <view class='wishbnt' bindtap='refresh'>确定</view>
+</view>
+

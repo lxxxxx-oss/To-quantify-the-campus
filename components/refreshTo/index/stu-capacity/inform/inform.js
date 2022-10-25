@@ -1,7 +1,6 @@
 // components/refreshTo/index/stu-capacity/inform/inform.js
 Page({
     onLoad() {
-        console.log(111);
             // 判断身份
             const app =getApp();
             // 普通学生
@@ -11,7 +10,7 @@ Page({
                 })
             }; 
     },
-    
+
     data: {
         isCou: "",
         DotStyle:"",
@@ -32,21 +31,23 @@ Page({
               url: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.LvliALh2Ba7MkmN8AXKa4wHaE6?w=243&h=180&c=7&r=0&o=5&pid=1.7',
         }],
         informList: [{
-            id: 0,
-            type: 'image',
-            url: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.ycbUdGWUTdx9D4TqxhOcUAHaFG?w=204&h=140&c=7&r=0&o=5&pid=1.7'
-          }, 
-          {
-            id: 1,
-              type: 'image',
-              url: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.HStrMCdVCUNEdadhXLZLFgHaE7?w=242&h=180&c=7&r=0&o=5&pid=1.7',
-          },
-          {
-              id: 1,
+                id: 0,
                 type: 'image',
-                url: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.LvliALh2Ba7MkmN8AXKa4wHaE6?w=243&h=180&c=7&r=0&o=5&pid=1.7',
+                url: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.ycbUdGWUTdx9D4TqxhOcUAHaFG?w=204&h=140&c=7&r=0&o=5&pid=1.7'
+            }, 
+            {
+                id: 1,
+                type: 'image',
+                url: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.HStrMCdVCUNEdadhXLZLFgHaE7?w=242&h=180&c=7&r=0&o=5&pid=1.7',
             },
-    ]
+            {
+                id: 1,
+                    type: 'image',
+                    url: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.LvliALh2Ba7MkmN8AXKa4wHaE6?w=243&h=180&c=7&r=0&o=5&pid=1.7',
+            },
+        ],
+        // 控制弹窗的显示和隐藏
+        showModal: false,
     },
 
     // 点击实现活动图片放大
@@ -118,13 +119,57 @@ Page({
             }
         })
     },
+    // 打开蒙版
+    openModel () {
+        this.setData({
+            // 弹窗显示，捕获用户想要更换的图片
+            showModal: true,
+        })
+    },
     // 更新地址后刷新 
     refresh() {
         const app = getApp()
-        // // 用之前存储的地址来替换轮播图展示的地址
-        this.data.informList[0].url = app.globalData.imgSrc
+        
+        // 拿到用户输入的图片次序
+        let index = this.data.textV - 1
+        // 用之前存储的地址来替换轮播图展示的地址
+        // 动态更改数组的值，目前只发现这种方式可以
+
+        // 判断数字是否合法
+        if(index > 3 || index < 0) {
+            wx.showToast({
+                title: '输入数字不合法',
+                icon: 'error',
+                duration: 3000
+            }) 
+        }else this.data.informList[`${index}`].url = app.globalData.imgSrc
+
+        // 如果数字合法，就更改数据
         this.setData({
-            informList: this.data.informList
+            informList: this.data.informList,
+            // 关闭弹窗
+            showModal: false,
+        })     
+        wx.showToast({
+            title: '刷新成功',
+            icon: 'success',
+            duration: 3000
+        })       
+    },
+    // 弹窗的函数
+    back:function(){
+        this.setData({
+          showModal:false
         })
-    }  
+    },
+     
+      // 获取input输入值
+ 
+      wish_put:function(e){
+        this.setData({
+            textV:  e.detail.value,
+        })
+
+      },
+
 })
