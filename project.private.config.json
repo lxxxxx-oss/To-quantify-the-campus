@@ -287,6 +287,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/destination/destination",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

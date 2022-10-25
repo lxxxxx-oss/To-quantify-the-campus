@@ -1,4 +1,5 @@
-// components/destination/destination.js
+// 使用请求方法的封装
+const {request} = require("../../../../../utils/request")
 Page({
 
     /**
@@ -56,6 +57,9 @@ Page({
                 }                 
             }
         })
+
+        // 使用封装的请求方法，请求数据
+        console.log(request('/user/leagueList', 'post'));
     },
 
     // 展示列表

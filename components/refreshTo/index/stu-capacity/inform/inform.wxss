@@ -74,9 +74,8 @@
 }
 .wishName{
     width: 100%;
-    justify-content: center;
-    flex-direction: row;
     display: flex;
+    justify-content: center;
     margin: 40rpx 0rpx;
 }
 .wish_put{

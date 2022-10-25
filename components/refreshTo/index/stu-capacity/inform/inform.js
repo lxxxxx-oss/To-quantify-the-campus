@@ -134,15 +134,7 @@ Page({
         let index = this.data.textV - 1
         // 用之前存储的地址来替换轮播图展示的地址
         // 动态更改数组的值，目前只发现这种方式可以
-
-        // 判断数字是否合法
-        if(index > 3 || index < 0) {
-            wx.showToast({
-                title: '输入数字不合法',
-                icon: 'error',
-                duration: 3000
-            }) 
-        }else this.data.informList[`${index}`].url = app.globalData.imgSrc
+        this.data.informList[`${index}`].url = app.globalData.imgSrc
 
         // 如果数字合法，就更改数据
         this.setData({
@@ -166,9 +158,25 @@ Page({
       // 获取input输入值
  
       wish_put:function(e){
-        this.setData({
-            textV:  e.detail.value,
-        })
+        // 判断输入数字是否合法
+        if(e.detail.value > 3 || e.detail.value < 0) {
+            wx.showModal({
+                title: '报错',
+                content: '输入数字不合法，请重新输入',
+                showCancel: false,
+                success (res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定')
+                    }
+                }
+            })
+            // 如果数字不合法，则直接清空
+            e.detail.value = null      
+        }else 
+            this.setData({
+                textV:  e.detail.value,
+            })
+        
 
       },
 
