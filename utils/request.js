@@ -18,14 +18,12 @@ const request = function (url, options) {
             },
 
             // 请求成功与否
-            success: (res) => {
+            success(res) {
                 if (res.data.code == 500) {
-                    Toast(res.data);
-                } else {
                     resolve(res.data)
                 }
               },
-            fail: (err) => {
+            fail(err) {
                 reject(err)
             }
         })

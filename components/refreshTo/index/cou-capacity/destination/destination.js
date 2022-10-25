@@ -56,10 +56,17 @@ Page({
                     console.log("获取失败",err);
                 }                 
             }
-        })
-
+        });
+        // console.log(request('/user', 'post'));
         // 使用封装的请求方法，请求数据
-        console.log(request('/user/leagueList', 'post'));
+        // request('/user/leagueList?id=40772', 'post').then(res => {
+        //     console.log(res);
+        // }).catch(err => {
+        //     console.log(err);
+        // })
+
+
+
     },
 
     // 展示列表

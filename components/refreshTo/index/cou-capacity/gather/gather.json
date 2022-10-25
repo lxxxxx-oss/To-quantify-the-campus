@@ -1,3 +1,7 @@
 {
-    "usingComponents": {}
+    "usingComponents": {
+        "punch": "/components/refreshTo/index/cou-capacity/gather/item-punch/item-punch",
+        "file": "/components/refreshTo/index/cou-capacity/gather/item-file/item-file"
+    },
+    "navigationBarTitleText": "信息采集"
 }

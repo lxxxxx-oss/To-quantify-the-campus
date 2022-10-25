@@ -1,0 +1,41 @@
+.finishConditon {
+    width: 90%;
+    background-color: #E1B33F;
+    margin: auto;
+    margin-top: 60rpx;
+    padding: 20rpx 30rpx 20rpx 30rpx;
+    color: #fff;
+    border-radius: 30rpx;
+}
+.classNickname {
+    margin-bottom: 30rpx;
+    font-size: 50rpx;
+}
+/* 班级信息 */
+.classInfo {
+    display: flex;
+    justify-content: space-between;
+    font-size: 35rpx;
+}
+/* 未完成 */
+.unfinish {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.unfinishList {
+    background-color: #fff;
+    color: black;
+    margin-top: 30rpx;
+    padding-left: 20rpx;
+    font-size: 40rpx;
+}
+.unfinishName {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    padding: 30rpx;
+    border-bottom: 2rpx solid #cecece;
+}
