@@ -1,23 +1,60 @@
 // components/refreshTo/index/stu-capacity/career/career.js
-Component({
-    /**
-     * 组件的属性列表
-     */
-    properties: {
+Page({
 
-    },
 
-    /**
-     * 组件的初始数据
-     */
     data: {
-
+         // 成绩类别
+         category: "",
+         time: "",
     },
 
-    /**
-     * 组件的方法列表
-     */
-    methods: {
-
+    // 选择查询成绩的类别
+    scoreQuery() {
+        var that = this
+        wx.showActionSheet({
+            itemList: ['期末成绩', '综测成绩'],
+            success (res) {
+                console.log(res.tapIndex);
+                that.setData({
+                    category: res.tapIndex ? '综测成绩' : '期末成绩'
+                })
+            },
+            fail (res) {
+                console.log(res.errMsg)
+            }
+        })
+        // console.log(this.data.category);
+    },
+    // 选择要查询的时间
+    timeQuery() {
+        var that = this
+        wx.showActionSheet({
+            itemList: ['2021-2022学年第二学期','2021-2022学年第一学期','2020-2021学年第二学期', '2020-2021学年第一学期'],
+            success (res) {
+                console.log(res.tapIndex);
+                
+                if(res.tapIndex == 0) {
+                    that.setData({
+                        time: '2021-2022学年第二学期'
+                    })
+                }else if(res.tapIndex == 1) {
+                    that.setData({
+                        time: '2021-2022学年第一学期'
+                    })
+                }else if(res.tapIndex == 2) {
+                    that.setData({
+                        time: '2020-2021学年第二学期'
+                    })
+                }else if(res.tapIndex == 3) {
+                    that.setData({
+                        time: '2020-2021学年第一学期'
+                    })
+                }
+            },
+            fail (res) {
+                console.log(res.errMsg)
+            }
+        })
+        console.log(this.data.time);
     }
 })

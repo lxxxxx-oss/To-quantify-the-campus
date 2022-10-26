@@ -1,0 +1,22 @@
+<view>
+    <!-- 类别分类 -->
+    <view class="cateTitle"><text>课程名称</text><text>成绩</text><text>学分</text><text>绩点</text><text>类别</text></view>
+    <!-- 成绩等信息的展示 -->
+    <view class="gradeShow">
+        <view wx:for="{{gradeInfo}}" wx:key="{{index}}">
+            <view wx:for="{{item.courseName}}" class="courseName">{{item}}</view>
+        </view>
+        <view wx:for="{{gradeInfo}}" wx:key="{{index}}">
+            <view wx:for="{{item.grade}}" class="grade">{{item}}</view>
+        </view>
+        <view wx:for="{{gradeInfo}}" wx:key="{{index}}">
+            <view wx:for="{{item.credit}}" class="credit">{{item}}</view>
+        </view>
+        <view wx:for="{{gradeInfo}}" wx:key="{{index}}">
+            <view wx:for="{{item.point}}" class="point">{{item}}</view>
+        </view>
+        <view wx:for="{{gradeInfo}}" wx:key="{{index}}">
+            <view wx:for="{{item.category}}" class="category">{{item}}</view>
+        </view>
+    </view>
+</view>

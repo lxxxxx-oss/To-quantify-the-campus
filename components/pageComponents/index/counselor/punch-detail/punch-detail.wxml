@@ -9,9 +9,9 @@
         <view>班级码：{{classId}}</view>
     </view>
     <!-- 展示未完成的人员名单 -->
-    <view>未完成的名单</view>
-    <view class="unfinishList">
-        <view wx:if="{{!status}}" wx:for="{{unfinishName}}" wx:key="{{index}}">
+    <view wx:if="{{!status}}">未完成的名单</view>
+    <view class="unfinishList" wx:if="{{!status}}">
+        <view wx:for="{{unfinishName}}" wx:key="{{index}}">
             <view class="unfinishName">
                 <view>{{item}}</view>
                 <view>不合格</view>

@@ -1,0 +1,4 @@
+<view class="noUpload" bindtap="uploadAwards">
+    <view>你还未进行综测上传，快上传你所获得的奖项吧！</view>
+    <image src="/assets/img/index/stu-icon/moralCulture.png"></image>
+</view>

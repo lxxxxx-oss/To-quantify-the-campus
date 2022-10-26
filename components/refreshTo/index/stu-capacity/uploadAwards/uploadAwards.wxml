@@ -6,17 +6,17 @@
 	</view>
 	<view class="cu-form-group margin-top">
 		<view class="title">获奖级别</view>
-		<picker bindchange="categoryChange" value="{{index}}" range="{{category}}">
+		<picker bindchange="categoryChange" value="{{awardsCate}}" range="{{category}}">
 			<view class="picker">
-				{{index ? category[index] : '请选择获奖级别'}}
+				{{awardsCate ? category[awardsCate] : '请选择获奖级别'}}
 			</view>
 		</picker>
 	</view>
     <view class="cu-form-group">
 		<view class="title">获奖等级</view>
-		<picker bindchange="levelChange" value="{{index}}" range="{{level}}">
+		<picker bindchange="levelChange" value="{{awardsLevel}}" range="{{level}}">
 			<view class="picker">
-				{{index ? category[index] : '请选择获奖级别'}}
+				{{awardsLevel ? level[awardsLevel] : '请选择获奖等级'}}
 			</view>
 		</picker>
 	</view>
@@ -53,6 +53,11 @@
 
 	<!-- !!!!! placeholder 在ios表现有偏移 建议使用 第一种样式 -->
 	<view class="cu-form-group margin-top">
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="可在此输入备注信息"></textarea>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="如同时上传多张图片可在此分别注明"></textarea>
 	</view>
 </form>
+
+<!-- 提交信息 -->
+<view class="submit">
+    <button bindtap="submit">提交</button>
+</view>

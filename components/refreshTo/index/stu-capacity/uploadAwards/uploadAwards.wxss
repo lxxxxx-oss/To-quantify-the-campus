@@ -9,3 +9,11 @@ page {
     font-weight: 600;
     color: rgb(243, 70, 70);
 }
+
+/* 提交按钮 */
+.submit {
+    margin-top: 50rpx;
+}
+.submit button {
+    background-color: rgb(54, 216, 54);
+}

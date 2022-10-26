@@ -5,10 +5,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-        index: "",
         // 奖项级别
+        awardsCate: "",
         category: ["校级", "区级", "市级", "省级", "国家级"],
         // 获奖等级
+        awardsLevel: "",
         level: ["一等奖", "二等奖", "三等奖", "优秀奖"],
         // 获奖时间
         date: "2021-09-01",
@@ -23,15 +24,21 @@ Page({
     },
     // 奖项级别的选择
     categoryChange(e) {
-        console.log(e);
+        // console.log(e);
         this.setData({
-          index: e.detail.value
+            awardsCate: e.detail.value
+        })
+    },
+    // 获奖等级的选择
+    levelChange(e) {
+        this.setData({
+            awardsLevel: e.detail.value
         })
     },
     // 获奖时间的选择
     DateChange(e) {
         this.setData({
-          date: e.detail.value
+            date: e.detail.value
         })
     },
 
@@ -78,4 +85,18 @@ Page({
           }
         })
       },
+    //  提交信息
+    submit() {
+        wx.setStorage({
+            key: "awardsCate",
+            data: this.data.category[this.data.awardsCate],
+            key: "awardsLevel",
+            data: this.data.level[this.data.awardsLevel],
+            key: "date",
+            data: this.data.date,
+            key: "imgSrc",
+            data: this.data.imgList
+        })
+        console.log(111);
+    }
 })

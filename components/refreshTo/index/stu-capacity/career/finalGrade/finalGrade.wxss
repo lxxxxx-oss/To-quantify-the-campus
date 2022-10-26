@@ -1,0 +1,55 @@
+/* 标题 */
+.cateTitle {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20rpx;
+    font-size: 38rpx;
+    color: rgb(64, 156, 231);
+    border-bottom: 2rpx solid #cecece;
+}
+/* 展示成绩 */
+.gradeShow {
+    display: flex; 
+    justify-content: space-between;
+    margin-top: 20rpx;
+    font-size: 30rpx;
+}
+/* 几种类别 */
+.courseName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150rpx;
+    height: 180rpx;
+}
+.grade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100rpx;
+    height: 180rpx;
+    font-size: 40rpx;
+    color: rgb(64, 226, 64);
+}
+.credit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100rpx;
+    height: 180rpx;
+    margin-left: -20rpx;
+}
+.point {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80rpx;
+    height: 180rpx;
+}
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80rpx;
+    height: 180rpx;
+}

@@ -8,24 +8,17 @@ page {
     margin: 60rpx 0 0 0;
     font-size: 50rpx;
     font-weight: bolder;
+    border-bottom: 5rpx solid #cecece;
 }
 .careerTitle image {
     height: 60rpx;
     width: 54rpx;
     margin-right: 20rpx;
 }
-.titleBottom {
-    height: 6rpx;
-    width: 300rpx;
-    background-color: #D3594C;
-    margin: 10rpx 0 0 0;
-}
-
-/* 成绩展示 */
-.gradeBox {
-    height: 500rpx;
-    width: 650rpx;
-    margin-top: 50rpx;
-    border-radius: 35rpx;
-    border: 2rpx solid red;
+/* 时间的选择 */
+.changeTime {
+    margin: 20rpx 0 20rpx 0;
+    text-align: center;
+    font-size: 30rpx;
+    color: rgb(0, 225, 255)
 }

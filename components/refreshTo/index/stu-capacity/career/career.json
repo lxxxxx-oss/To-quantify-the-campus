@@ -1,5 +1,7 @@
 {
-    "component": true,
-    "usingComponents": {},
+    "usingComponents": {
+        "finalGrade": "/components/refreshTo/index/stu-capacity/career/finalGrade/finalGrade",
+        "moralCulture": "/components/refreshTo/index/stu-capacity/career/moralCulture/moralCulture"
+    },
     "navigationBarTitleText": "大学生涯"   
 }
