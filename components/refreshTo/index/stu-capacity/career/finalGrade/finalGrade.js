@@ -1,13 +1,14 @@
 
-Component({
+Page({
     lifetimes: {
         attached: function() {
+            console.log(111);
         },
         detached: function() {
           // 在组件实例被从页面节点树移除时执行
         },
       },
-
+    
     /**
      * 组件的初始数据
      */

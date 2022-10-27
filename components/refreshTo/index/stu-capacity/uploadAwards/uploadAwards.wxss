@@ -15,5 +15,5 @@ page {
     margin-top: 50rpx;
 }
 .submit button {
-    background-color: rgb(54, 216, 54);
+    background-color: #66CC66;
 }

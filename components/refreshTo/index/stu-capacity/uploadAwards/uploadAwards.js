@@ -5,6 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
+        // 获奖名称
+        awardsName: "",
         // 奖项级别
         awardsCate: "",
         category: ["校级", "区级", "市级", "省级", "国家级"],
@@ -13,14 +15,49 @@ Page({
         level: ["一等奖", "二等奖", "三等奖", "优秀奖"],
         // 获奖时间
         date: "2021-09-01",
+        // 综测得分
+        marks: "",
+        // 图片列表
         imgList: [],
+        // 所有信息列表
+        infoList: [],
+        // 信息列表总览，可修改
+        currentInfo: ""
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
     onLoad(options) {
+        var that = this
+        // 读取缓存中的获奖信息数组,如果有数据则拿出来,如果没有则为空
+        wx.getStorage({
+            key: 'infoList',
+            success(res) {
+                that.setData({
+                    infoList: res.data
+                })
+            }
+        }) || []
+        
+        // 修改填写的信息
+        // console.log(options.currentInfo);
+        // 如果是修改数据，则进行下面的操作，如果是填写获奖信息，则不进行下面的操作
+        if(options.currentInfo) {
+            // 将JSON格式的数据转换为JS对象
+            var currentInfo = JSON.parse(options.currentInfo)
+            // console.log(currentInfo);
+            this.data.currentInfo = currentInfo
+            this.setData({
+                currentInfo: this.data.currentInfo
+            })
+            // console.log(currentInfo.awardsName);
+        }
+    },
 
+    // 奖项名称的获取
+    userInput(e) {
+        this.setData({
+            awardsName: e.detail.value
+        })
+        // console.log(e.detail.value);
     },
     // 奖项级别的选择
     categoryChange(e) {
@@ -42,6 +79,14 @@ Page({
         })
     },
 
+    // 奖项得分的获取
+    inputMarks(e) {
+        this.setData({
+            marks: e.detail.value
+        })
+        // console.log(e.detail.value);
+    },
+
     // 图片的上传
     ChooseImage() {
         wx.chooseImage({
@@ -49,14 +94,27 @@ Page({
           sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
           sourceType: ['album'], //从相册选择
           success: (res) => {
+            // 当填写信息的时候
             if (this.data.imgList.length != 0) {
               this.setData({
                 imgList: this.data.imgList.concat(res.tempFilePaths)
               })
-            } else {
+            } else{
               this.setData({
                 imgList: res.tempFilePaths
               })
+            }
+            // 当修改信息的时候
+            if(this.data.currentInfo.imgSrc != 0) {
+                this.data.currentInfo.imgSrc = this.data.currentInfo.imgSrc.concat(res.tempFilePaths)
+                this.setData({
+                    currentInfo: this.data.currentInfo
+                })
+            }else if(this.data.currentInfo.imgSrc == 0){
+                this.data.currentInfo.imgSrc = res.tempFilePaths
+                this.setData({
+                    currentInfo: this.data.currentInfo
+                })
             }
           }
         });
@@ -64,7 +122,7 @@ Page({
     // 预览图片 
     ViewImage(e) {
         wx.previewImage({
-            urls: this.data.imgList,
+            urls: this.data.currentInfo ? this.data.currentInfo.imgSrc : this.data.imgList,
             current: e.currentTarget.dataset.url
         });
     },
@@ -77,26 +135,63 @@ Page({
           confirmText: '确定',
           success: res => {
             if (res.confirm) {
-              this.data.imgList.splice(e.currentTarget.dataset.index, 1);
-              this.setData({
-                imgList: this.data.imgList
-              })
+                // console.log(this.data.currentInfo.imgSrc);
+                // console.log(e.currentTarget.dataset.index);
+                
+                (this.data.currentInfo ? this.data.currentInfo.imgSrc : this.data.imgList).splice(e.currentTarget.dataset.index, 1);
+
+                this.setData({
+                    imgList: this.data.imgList,
+                    currentInfo: this.data.currentInfo
+                })
+                console.log(this.data.currentInfo);
             }
           }
         })
       },
     //  提交信息
     submit() {
-        wx.setStorage({
-            key: "awardsCate",
-            data: this.data.category[this.data.awardsCate],
-            key: "awardsLevel",
-            data: this.data.level[this.data.awardsLevel],
-            key: "date",
-            data: this.data.date,
-            key: "imgSrc",
-            data: this.data.imgList
-        })
-        console.log(111);
+        var that = this
+        // 创建一个对象，存储用户填入的信息
+        let info = {
+            awardsName: this.data.awardsName,
+            awardsCate: this.data.category[this.data.awardsCate],
+            awardsLevel: this.data.level[this.data.awardsLevel],
+            date: this.data.date,
+            marks: this.data.marks,
+            imgSrc: this.data.imgList
+        }
+
+        // 进行表单验证，不允许有未填项
+        if(that.data.marks == "" || that.data.awardsName == "" || that.data.awardsCate == "" ||that.data.awardsLevel == "" || that.data.imgSrc == "") {
+            wx.showToast({
+                title: '有信息未填',
+                icon: 'error',
+                duration: 2000
+            })
+        }else {
+            // 如果所有信息填写完毕，着将其存入缓存， 再显示提示信息，再跳转页面
+            // 将新添加的数据放入缓存的奖项数组里
+            that.data.infoList.push(info)
+            // console.log(that.data.infoList);
+            that.setData({
+                infoList: that.data.infoList
+            })
+            // console.log(that.data.infoList);
+            // 将信息存入缓存
+            wx.setStorage({
+                key: "infoList",
+                data: that.data.infoList,
+            })
+            wx.showToast({
+                title: '提交成功',
+                icon: 'success',
+                duration: 2000
+            })
+            // 进行页面跳转
+            wx.navigateTo({
+                url: '/components/refreshTo/index/stu-capacity/career/career?category='+"综测成绩",
+            })
+        }
     }
 })

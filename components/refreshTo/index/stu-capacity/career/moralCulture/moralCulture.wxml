@@ -1,4 +1,47 @@
-<view class="noUpload" bindtap="uploadAwards">
+<!-- 综测总分 -->
+<view class="totalPoints" bindtap="totalPoints">
+    综测总分: <text class="points">{{total}}</text>
+    <!-- 刷新按钮 -->
+    <view bindtap="refresh" class="refresh">刷新</view>
+</view>
+
+<!-- 当一条获奖信息都没填写时，展示该提示信息 -->
+<view class="noUpload" wx:if="{{!infoList}}">
     <view>你还未进行综测上传，快上传你所获得的奖项吧！</view>
     <image src="/assets/img/index/stu-icon/moralCulture.png"></image>
 </view>
+
+<!-- 展示获奖信息 -->
+<view class="cu-card case">
+    <!-- 循环渲染从缓存里面,拿到的获奖信息 -->
+    <view class="cu-item shadow" wx:for="{{infoList}}" wx:key="index" data-index="{{index}}"  bindtap="viewInfo">
+        <view class="image">
+            <image src="{{item.imgSrc}}" mode="widthFix"></image>
+            <view class="cu-tag bg-blue">{{item.awardsCate}}</view>
+            <view class="cu-bar bg-shadeBottom">
+            <!-- <text class="text-cut"></text> -->
+            </view>
+        </view>
+        <view class="cu-list menu-avatar">
+            <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});"></view>
+            <view class="content flex-sub">
+                <view class="text-grey">{{item.awardsName}}-{{item.awardsCate}}-{{item.awardsLevel}}</view>
+                <view class="text-gray text-sm flex justify-between">
+                {{item.date}}
+                <view class="text-gray">
+                    综测加分：{{item.marks}}分
+                </view>
+                </view>
+            </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 可拖动的悬浮按钮 -->
+<movable-area class="movable-area" bindtap="uploadAwards">
+    <movable-view class="movable-view" direction="all">
+        点击上传
+    </movable-view>
+</movable-area>
