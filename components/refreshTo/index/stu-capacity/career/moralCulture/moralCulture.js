@@ -80,7 +80,7 @@ Component({
             // 对传递的对象数据进行转换（转换为json格式的数据）
             var data = JSON.stringify(currentInfo);
             wx.navigateTo({
-              url: '/components/refreshTo/index/stu-capacity/uploadAwards/uploadAwards?currentInfo='+data,
+              url: '/components/refreshTo/index/stu-capacity/uploadAwards/uploadAwards?currentInfo='+data+'&index='+index,
             })
             
         }

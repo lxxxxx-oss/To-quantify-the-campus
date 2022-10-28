@@ -21,8 +21,12 @@ Page({
         imgList: [],
         // 所有信息列表
         infoList: [],
+        
+        // 点击修改
         // 信息列表总览，可修改
-        currentInfo: ""
+        currentInfo: "",
+        // 要修改的信息，在缓存中的索引
+        infoIndex: ""
     },
 
     onLoad(options) {
@@ -36,53 +40,78 @@ Page({
                 })
             }
         }) || []
-        
+        console.log(options.currentInfo);
         // 修改填写的信息
         // console.log(options.currentInfo);
         // 如果是修改数据，则进行下面的操作，如果是填写获奖信息，则不进行下面的操作
         if(options.currentInfo) {
             // 将JSON格式的数据转换为JS对象
             var currentInfo = JSON.parse(options.currentInfo)
+            let index = options.index
             // console.log(currentInfo);
             this.data.currentInfo = currentInfo
+            this.data.infoIndex = index
             this.setData({
-                currentInfo: this.data.currentInfo
+                currentInfo: this.data.currentInfo,
+                infoIndex: this.data.infoIndex
             })
-            // console.log(currentInfo.awardsName);
+            // console.log(this.data.infoIndex);
         }
     },
 
     // 奖项名称的获取
     userInput(e) {
+        // 如果是修改信息
+        if(this.data.currentInfo) {
+            this.data.currentInfo.awardsName = e.detail.value
+        }
+        console.log(e.detail.value);
         this.setData({
-            awardsName: e.detail.value
+            awardsName: e.detail.value,
+            currentInfo: this.data.currentInfo
+            
         })
-        // console.log(e.detail.value);
+        console.log(e.detail.value);
     },
     // 奖项级别的选择
     categoryChange(e) {
-        // console.log(e);
+        if(this.data.currentInfo) {
+            this.data.currentInfo.awardsCate = this.data.category[e.detail.value] || ""
+        }
         this.setData({
-            awardsCate: e.detail.value
+            awardsCate: e.detail.value,
+            currentInfo: this.data.currentInfo
         })
     },
     // 获奖等级的选择
     levelChange(e) {
+        if(this.data.currentInfo) {
+            this.data.currentInfo.awardsLevel = this.data.level[e.detail.value] || ""
+        }
         this.setData({
-            awardsLevel: e.detail.value
+            awardsLevel: e.detail.value,
+            currentInfo: this.data.currentInfo
         })
     },
     // 获奖时间的选择
     DateChange(e) {
+        if(this.data.currentInfo) {
+            this.data.currentInfo.date = e.detail.value || ""
+        }
         this.setData({
-            date: e.detail.value
+            date: e.detail.value,
+            currentInfo: this.data.currentInfo
         })
     },
 
     // 奖项得分的获取
     inputMarks(e) {
+        if(this.data.currentInfo) {
+            this.data.currentInfo.marks = e.detail.value
+        }
         this.setData({
-            marks: e.detail.value
+            marks: e.detail.value,
+            currentInfo: this.data.currentInfo
         })
         // console.log(e.detail.value);
     },
@@ -161,16 +190,18 @@ Page({
             marks: this.data.marks,
             imgSrc: this.data.imgList
         }
-
+        console.log(info);
         // 进行表单验证，不允许有未填项
-        if(that.data.marks == "" || that.data.awardsName == "" || that.data.awardsCate == "" ||that.data.awardsLevel == "" || that.data.imgSrc == "") {
-            wx.showToast({
-                title: '有信息未填',
-                icon: 'error',
-                duration: 2000
-            })
-        }else {
-            // 如果所有信息填写完毕，着将其存入缓存， 再显示提示信息，再跳转页面
+        // if(that.data.marks == "" || that.data.awardsName == "" || that.data.awardsCate == "" ||that.data.awardsLevel == "" || that.data.imgSrc == "") {
+        //     wx.showToast({
+        //         title: '有信息未填',
+        //         icon: 'error',
+        //         duration: 2000
+        //     })
+        // }
+        // 判断是新填写信息还是修改信息
+        if(this.data.currentInfo == 0) {
+            // 如果所有信息填写完毕，则将其存入缓存， 再显示提示信息，再跳转页面
             // 将新添加的数据放入缓存的奖项数组里
             that.data.infoList.push(info)
             // console.log(that.data.infoList);
@@ -191,6 +222,33 @@ Page({
             // 进行页面跳转
             wx.navigateTo({
                 url: '/components/refreshTo/index/stu-capacity/career/career?category='+"综测成绩",
+            })
+        }else {
+        // 修改信息后，点击提交
+            var that = this
+            wx.getStorage({
+                key: 'infoList',
+                success(res) {
+                    // console.log(res);
+                    that.data.infoList = res.data
+                    // 将缓存中该条信息替换成，修改后的信息
+                    that.data.infoList[that.data.infoIndex] = that.data.currentInfo 
+                    // 进行数据更新
+                    that.setData({
+                        infoList: that.data.infoList
+                    })
+                }
+            })
+            // console.log(this.data.infoList);
+            // 再重新设置缓存
+            wx.setStorage({
+                key: "infoList",
+                data: that.data.infoList,
+            })
+            wx.showToast({
+                title: '提交成功',
+                icon: 'success',
+                duration: 2000
             })
         }
     }

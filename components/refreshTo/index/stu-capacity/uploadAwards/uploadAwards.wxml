@@ -2,23 +2,25 @@
 <form>
 	<view class="cu-form-group">
 		<view class="title">奖项名称</view>
-		<input placeholder="请输入奖项名称" bindinput='userInput' model:value="{{currentInfo.awardsName}}"></input>
+		<input placeholder="请输入奖项名称" bindinput='userInput' wx:if="{{!currentInfo}}"></input>
+        <input bindinput='userInput' wx:if="{{currentInfo}}" model:value="{{currentInfo.awardsName}}"></input>
 	</view>
 	<view class="cu-form-group margin-top">
 		<view class="title">获奖级别</view>
         <!-- 当填写信息的时候 -->
-		<picker bindchange="levelChange" value="{{awardsCate}}" range="{{category}}" wx:if="{{!currentInfo.awardsCate}}">
+		<picker bindchange="categoryChange" value="{{awardsCate}}" range="{{category}}" wx:if="{{!currentInfo.awardsCate}}">
 			<view class="picker">
-				{{currentInfo.awardsLevel}}
+				{{awardsCate ? category[awardsCate] : '请选择获奖级别'}}
 			</view>
 		</picker>
         <!-- 当修改信息的时候 -->
-        <picker bindchange="levelChange" value="{{awardsCate}}" range="{{category}}" wx:if="{{currentInfo.awardsCate}}">
+        <picker bindchange="categoryChange" value="{{awardsCate}}" range="{{category}}" wx:if="{{currentInfo.awardsCate}}">
 			<view class="picker">
-				{{currentInfo.awardsCate}}
-			</view>
+                {{awardsCate ? category[awardsCate] : currentInfo.awardsCate}}
+            </view>
 		</picker>
 	</view>
+
     <view class="cu-form-group">
 		<view class="title">获奖等级</view>
         <!-- 当填写信息的时候 -->
@@ -30,7 +32,7 @@
         <!-- 当修改信息的时候 -->
         <picker bindchange="levelChange" value="{{awardsLevel}}" range="{{level}}" wx:if="{{currentInfo.awardsLevel}}">
 			<view class="picker">
-				{{currentInfo.awardsLevel}}
+				{{awardsLevel ? level[awardsLevel] : currentInfo.awardsLevel}}
 			</view>
 		</picker>
 	</view>
@@ -52,7 +54,8 @@
 
     <view class="cu-form-group margin-top">
 		<view class="title">综测加分</view>
-		<input placeholder="请根据加分规则输入奖项所得分数" bindinput='inputMarks' model:value="{{currentInfo.marks}}"></input>
+		<input placeholder="请根据加分规则输入奖项所得分数" bindinput='inputMarks' wx:if="{{!currentInfo}}"></input>
+        <input bindinput='inputMarks' wx:if="{{currentInfo}}" model:value="{{currentInfo.marks}}"></input>
 	</view>
     
 	<view class="cu-bar bg-white margin-top">
