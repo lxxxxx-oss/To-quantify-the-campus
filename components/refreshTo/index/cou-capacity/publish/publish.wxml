@@ -1,0 +1,70 @@
+<view class="reminder">请填写下列信息进行通知的发布</view>
+<form>
+	<view class="cu-form-group">
+		<view class="title">通知标题</view>
+		<input placeholder="请输入通知标题" bindinput='publishTitle'></input>
+	</view>
+
+	<view class="cu-form-group margin-top">
+		<view class="title">通知类型</view>
+        <!-- 当填写信息的时候 -->
+		<picker bindchange="tagChange" value="{{publishTag}}" range="{{tag}}">
+			<view class="picker">
+				{{publishTag ? tag[publishTag] : '请选择通知类型'}}
+			</view>
+		</picker>
+	</view>
+    <view class="cu-form-group margin-top">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaInput" placeholder="请输入通知的详细内容"></textarea>
+	</view>
+
+	<!-- <view class="cu-form-group margin-top">
+		<view class="title">发布时间</view>
+		<picker mode="date" value="{{publishDate}}" start="2015-09-01" end="2024-09-01" bindchange="publishDate">
+			<view class="picker">
+				{{publishDate}}
+			</view>
+		</picker> 
+	</view>
+
+    <view class="cu-form-group">
+		<view class="title">截至时间</view>
+		<picker mode="date" value="{{deadline}}" start="2015-09-01" end="2024-09-01" bindchange="deadline">
+			<view class="picker">
+				{{deadline}}
+			</view>
+		</picker> 
+	</view> -->
+    <view class="cu-form-group margin-top">
+		<view class="title">截至时间</view>
+		<input placeholder="请输入截至时间" bindinput='deadline'></input>
+	</view>
+    
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			通知配图
+		</view>
+		<view class="action">
+			{{imgList.length}}/4
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+</form>
+
+<!-- 提交信息 -->
+<view class="publish">
+    <button bindtap="publish">发布</button>
+</view>

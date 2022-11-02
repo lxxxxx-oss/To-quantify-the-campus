@@ -31,7 +31,7 @@
             <block>
             <view>{{index}}</view>
             <view>{{item}}</view>
-                <view class="info" wx:for="{{info}}" wx:key="number">{{index}} : {{item}}</view>
+                <text class="info text-bold" wx:for="{{info}}" wx:key="number" >{{index}} : {{item}}</text>
             </block>
     </view>
     <!-- 我的设置选项 -->
@@ -48,55 +48,35 @@
     <view wx:if="{{isShowSet}}" class="unfold">
             <view class="info">
                 <button class="cu-bar bg-white" bindtap="gotoChange">
-                    <view class="action sub-title">
-                        <text class="text-xl text-bold text-black">修改密码</text>
-                        <text class="text-ABC text-black">change</text>
-                        <!-- last-child选择器-->
-                    </view>
+                    <text class="text-xl text-black margin-left">修改密码</text>
                 </button>
                 <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
             </view>
 
             <view class="info">
                 <button class="cu-bar bg-white" open-type="contact">
-                    <view class="action sub-title">
-                        <text class="text-xl text-bold text-black">联系我们</text>
-                        <text class="text-ABC text-black">cantact</text>
-                        <!-- last-child选择器-->
-                    </view>
+                    <text class="text-xl  text-black margin-left">联系我们</text>
                 </button>
                 <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
             </view>
 
             <view class="info">
                 <button class="cu-bar bg-white" open-type="share">
-                    <view class="action sub-title">
-                        <text class="text-xl text-bold text-black">分享我们</text>
-                        <text class="text-ABC text-black">share</text>
-                        <!-- last-child选择器-->
-                    </view>
+                    <text class="text-xl text-black margin-left">分享我们</text>
                 </button>
                 <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
             </view>
 
             <view class="info">
-                <button class="cu-bar bg-white">
-                    <view class="action sub-title">
-                        <text class="text-xl text-bold text-black">关于我们</text>
-                        <text class="text-ABC text-black">about</text>
-                        <!-- last-child选择器-->
-                    </view>
+                <button class="cu-bar bg-white" bindtap="aboutUs">
+                    <text class="text-xl text-black margin-left">关于我们</text>
                 </button>
                 <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
             </view>
 
             <view class="info">
-                <button class="cu-bar bg-white">
-                    <view class="action sub-title">
-                        <text class="text-xl text-bold text-black">清除缓存</text>
-                        <text class="text-ABC text-black">clear</text>
-                        <!-- last-child选择器-->
-                    </view>
+                <button class="cu-bar bg-white" bindtap="clearStorage">
+                    <text class="text-xl text-black margin-left">清除缓存</text>
                 </button>
                 <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
             </view>

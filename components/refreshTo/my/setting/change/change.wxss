@@ -1,0 +1,32 @@
+/* components/refreshTo/my/stu-capacity/setting/change/change.wxss */
+.changePass {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+input {
+    display: flex;
+    align-items: center;
+    height: 80rpx;
+    width: 500rpx;
+    padding-left: 20rpx;
+    margin: 50rpx 0 50rpx 0;
+    border: 2rpx solid #FF0033;
+    border-radius: 20rpx;
+}
+
+.notarize {
+    background-color: #FF9966;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90rpx;
+    width: 65%;
+    margin: auto;
+    border-radius: 30rpx;
+    color: #fff;
+    font-size: 35rpx;
+}

@@ -71,5 +71,19 @@ Component({
             })
             // console.log(e.currentTarget.dataset.index);
         }
-    }
+    },
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh() {
+        console.log("下拉刷新");
+        wx.showNavigationBarLoading() //在标题栏中显示加载
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom() {
+        console.log("上拉加载");
+    },
 })

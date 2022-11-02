@@ -15,13 +15,13 @@
                 </view>
             </view>
             <!-- 所有专业信息展示 -->
-            <view class="majorInfor" wx:for="{{major}}" wx:key="classify">
+            <view class="majorInfor" wx:key="classify">
                 <!-- 分类 -->
-                <view class="classify">{{item.classify}}</view>
+                <view class="classify" wx:for="{{faculty}}">{{item}}</view>
                 <!-- 专业细分 -->
-                <view class="sub" bindtap="changeMajor" data-text='{{item.sub}}' wx:for="{{item.sub}}" wx:for-item="sub" wx:key="" data-index="{{index}}"> 
+                <!-- <view class="sub" bindtap="changeMajor" data-text='{{major}}' wx:for="{{major}}" wx:for-item="sub" wx:key="" data-index="{{index}}"> 
                     {{sub}}
-                </view>
+                </view> -->
             </view>
         </scroll-view>
     </view>

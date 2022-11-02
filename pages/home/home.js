@@ -5,6 +5,9 @@ Page({
      * 页面的初始数据
      */
     data: {
+        // 用户ID
+        userId: "",
+        // 用户信息
         userInfo: {},
         // 控制是否展开详细信息，默认不展开
         isShowInfo: false,
@@ -23,14 +26,6 @@ Page({
         number: "2020211932"
     },
 
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-    
-    },
-
     /**
      * 生命周期函数--监听页面显示
      */
@@ -43,27 +38,33 @@ Page({
         }
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-    
     onLoad(){
+        var that = this
         //异步获取缓存,如果该用户信息已存在，则直接显示该用户信息，避免重复弹窗
         wx.getStorage({
             key:"userInfo",//本地缓存中指定的 key
             success:(res)=>{ 
             console.log('获取缓存成功',res.data)      
-                this.setData({
+                that.setData({
                     userInfo:res.data, //将得到的缓存给key             
                 }) 
                 fail:(err)=>{
                     console.log("获取失败",err);
                 }                 
+            },
+        })
+        wx.getStorage({
+            // 从缓存中读取用户Id
+            key: 'userId',
+            success(res) {
+                console.log(res);
+                that.setData({
+                    userId: res.data
+                })
+                console.log(that.data.userId);
             }
         })
+
     },
     /**
      * 生命周期函数--监听页面卸载
@@ -76,20 +77,6 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
 
     },
 
@@ -119,12 +106,38 @@ Page({
     // 页面跳转
     gotoChange() {
         wx.navigateTo({
-          url: '/components/refreshTo/my/stu-capacity/setting/change/change',
+          url: '/components/refreshTo/my/setting/change/change',
         })
     },
     gotoService() {
         wx.navigateTo({
-          url: '/components/refreshTo/my/stu-capacity/setting/customerService/customerService',
+          url: '/components/refreshTo/my/setting/customerService/customerService',
         })
+    },
+    // 关于我们
+    aboutUs() {
+        wx.navigateTo({
+          url: '/components/refreshTo/my/setting/aboutUs/aboutUs',
+        })
+    },
+
+    // 清除缓存
+    clearStorage() {
+        wx.showModal({
+          title: '谨慎选择',
+          content: '确定要清除缓存吗？',
+          success (res) {
+            if (res.confirm) {
+                wx.clearStorage()
+                wx.showToast({
+                  title: '清除缓存成功',
+                  icon: 'success',
+                  duration: 3000
+                })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+      })
     }
 })

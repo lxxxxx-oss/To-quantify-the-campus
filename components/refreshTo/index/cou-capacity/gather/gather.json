@@ -1,7 +1,8 @@
 {
     "usingComponents": {
         "punch": "/components/refreshTo/index/cou-capacity/gather/item-punch/item-punch",
-        "file": "/components/refreshTo/index/cou-capacity/gather/item-file/item-file"
+        "file": "/components/refreshTo/index/cou-capacity/gather/item-file/item-file",
+        "scroller": "/miniprogram_npm/coolui-scroller/scroller/index"
     },
     "navigationBarTitleText": "信息采集"
 }

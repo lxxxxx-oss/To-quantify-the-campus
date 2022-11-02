@@ -1,4 +1,5 @@
 // pages/log/log.js
+const {requestTwo} = require("../../utils/request")
 Page({
 
     /**
@@ -7,13 +8,31 @@ Page({
     data: {
         sel_pass: false,
         sel_number: false,
-        sel_code: false,
+        // 账号
         number: '',
+        // 密码
         pass: '',
         show: 0,
-        userId: ""
+        // 登录凭证
+        userCode: "",
+        // 不同身份类型
+        userType: ""
     },
-    
+    // #region
+    onLoad() {
+      var that = this
+        // 获取登录凭证code
+        wx.login({
+            success(res) {
+                that.setData({
+                    userCode: res.code
+                })
+            }
+        })
+        // console.log(this.data.userCode);
+
+    },
+    // #region 
     //获取焦点
     bindfocus (e) {
         let type = e.currentTarget.dataset.type;
@@ -34,70 +53,100 @@ Page({
         })
     },
     // 获取用户输入值
-    bindPhone(e) {
+    bindNumber(e) {
         // console.log(e.detail);
         this.setData({
             number: e.detail.value
         })
     },
+    bindPass(e) {
+      // console.log(e.detail);
+      this.setData({
+          pass: e.detail.value
+      })
+    },
+    // #endregion
     // 登录按钮
     login() {
-        let inputNum = getCurrentPages()[0].data.number
         const app =getApp();
-        // this.setData({
-        //     userId: getCurrentPages()[0].data.number,
-        // })
-
-        // if(app.globalData.userId === 0) {
-        //     this.setData({
-        //         userId: 0
-        //     })
-        // }else if(app.globalData.userId === 1) {
-        //     this.setData({
-        //         userId: 1
-        //     })
-        // }else if(app.globalData.userId === 2) {
-        //     this.setData({
-        //         userId: 2
-        //     })
-        // }else if(app.globalData.userId === 3) {
-        //     this.setData({
-        //         userId: 3
-        //     })
-        // }
-        // 直接访问当前页面数据并且可以直接对其赋值进行修改
-        // getCurrentPages()[0].data.userId = 3
-        // console.log(getCurrentPages()[0].data.userId);
-
-        // 后端传来当前用户的权限ID，则进行判断
-        if(inputNum == 0) {
-            this.stuLoginAll();
-        } else if(inputNum == 1) {
-            this.comLoginAll();
-        } else if(inputNum == 2) {
-            this.couLoginAll()
-        }else{
-            this.houLoginAll()
-        }
-
-        // 请求用户权限
-        // 获取用户头像,当用户数据已经在缓存中时，不再请求权限，直接展示
-        if(!app.globalData.hasUserInfo) {
-            wx.getUserProfile({
-                desc: '获取用户头像', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-                success: (res) => {
-                    this.setData({
-                        userInfo: res.userInfo,
+        var that = this
+        wx.request({
+            url : "https://alaskaboo.cn/login",
+            method: "POST",
+            data: {
+                username : that.data.number,
+                password : that.data.pass,
+                code: JSON.stringify(that.data.userCode)
+            },
+            header: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            success: function (res) {
+                console.log(res);
+                let loginStatus = res.data.flag
+                let userId = res.data.data.currentUser.id;
+                // 将用户的id存入缓存，方便其他页面调用
+                wx.setStorage({
+                    key: 'userId',
+                    data: userId
+                })
+                // 账号密码不能为空
+                if(that.data.number == "" || that.data.pass == "" ) {
+                    wx.showToast({
+                        title: '账号或密码为空',
+                        icon: 'error'
+                    });
+                // 判断登录状态
+                }else if(loginStatus) {
+                    that.setData({
+                        // 获取登录用户的身份类型
+                        userType: res.data.data.currentUser.userType
                     })
-                    app.globalData.hasUserInfo = true
-                    // 将获取的用户数据存入缓存，避免用户再次登入小程序时重复弹窗  
-                    wx.setStorage({
-                        key: 'userInfo',
-                        data: res.userInfo,
+                    let inputNum = that.data.userType
+                    console.log(loginStatus);
+                    // 后端传来当前用户的类型ID，则展示不同页面
+                    if(inputNum == 4) {
+                        that.stuLoginAll();
+                    } else if(inputNum == 5) {
+                        that.comLoginAll();
+                    } else if(inputNum == 2) {
+                        that.couLoginAll()
+                    }else{
+                        that.houLoginAll()
+                    }
+                    // 请求用户权限
+                    // 获取用户头像,当用户数据已经在缓存中时，不再请求权限，直接展示
+                    if(!app.globalData.hasUserInfo) {
+                        wx.getUserProfile({
+                            desc: '获取用户头像', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+                            success: (res) => {
+                                that.setData({
+                                    userInfo: res.userInfo,
+                                })
+                                app.globalData.hasUserInfo = true
+                                // 将获取的用户数据存入缓存，避免用户再次登入小程序时重复弹窗  
+                                wx.setStorage({
+                                    key: 'userInfo',
+                                    data: res.userInfo,
+                                })
+                            }
+                        })
+                    }
+                }else if(!loginStatus) {
+                    wx.showToast({
+                      title: '账号或密码错误',
+                      icon: 'error'
                     })
                 }
-            })
-        }
+               
+            },
+            fail: function (err) {
+                wx.showModal({
+                    title: '提示',
+                    content: err,
+                })
+            }
+        })
     },
 
     // 除宿管外其他用户登录时展示的tabbar
@@ -155,14 +204,15 @@ Page({
     wx.switchTab({
         url: '/pages/index/index',
     })
-},
+    },
 
     // 不同用户展示不同页面
     // 学生登录时的页面
     // 可以在一个按钮上绑定多个点击函数
     stuLoginAll() {
-        this.stuLogin()
-        this.LoginTab()
+        var that = this
+        that.stuLogin()
+        that.LoginTab()
     },
     stuLogin() {
         const app = getApp();
@@ -174,8 +224,9 @@ Page({
     
     //班委登录时的页面
     comLoginAll() {
-        this.comLogin()
-        this.LoginTab()
+        var that = this
+        that.comLogin()
+        that.LoginTab()
     },
     comLogin() {
         const app = getApp();
@@ -187,8 +238,9 @@ Page({
 
     // 辅导员登录时的页面
     couLoginAll() {
-        this.couLogin()
-        this.LoginTab()
+        var that = this
+        that.couLogin()
+        that.LoginTab()
     },
     couLogin() {
         const app = getApp();
@@ -199,8 +251,9 @@ Page({
     },
     // 宿管登录时的页面
     houLoginAll() {
-        this.houLogin()
-        this.houLoginTab()
+        var that = this
+        that.houLogin()
+        that.houLoginTab()
     },
     houLogin() {
         const app = getApp();
@@ -209,4 +262,48 @@ Page({
             url: '/pages/index/index',
         })
     },
+    // #endregion
+    userLogin() {
+        // var that = this
+        // console.log(that.data.number);
+        // console.log(that.data.pass);
+        // wx.request({
+        //     url : "https://alaskaboo.cn/login",
+        //     method: "POST",
+        //     data: {
+        //         username : that.data.number,
+        //         password : that.data.pass,
+        //         code: JSON.stringify(that.data.userCode)
+        //     },
+        //     header: {
+        //         "Content-Type": "application/x-www-form-urlencoded"
+        //     },
+        //     success: function (res) {
+        //         console.log(res);
+        //         // 获取登录用户的身份类型
+        //         // console.log(res.data.data.currentUser.userType);
+        //         that.setData({
+        //             userType: res.data.data.currentUser.userType
+        //         })
+        //         let inputNum = that.data.userType
+        //         console.log(inputNum);
+        //         // 后端传来当前用户的权限ID，则进行判断
+        //         if(inputNum == 4) {
+        //             that.stuLoginAll();
+        //         } else if(inputNum == 5) {
+        //             that.comLoginAll();
+        //         } else if(inputNum == 2) {
+        //             that.couLoginAll()
+        //         }else{
+        //             that.houLoginAll()
+        //         }
+        //     },
+        //     fail: function (err) {
+        //         wx.showModal({
+        //             title: '提示',
+        //             content: err,
+        //         })
+        //     }
+        // })
+    }
 })

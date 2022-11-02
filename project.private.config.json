@@ -399,6 +399,181 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/stu-capacity/schedule/schedule",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/inform/inform",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/stu-capacity/career/career",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/publish/publish",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/inform/inform",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/stu-capacity/publishDetail/publishDetail",
+                    "query": "index=3",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/destination/destination",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/destination/destination",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/stu-capacity/schedule/schedule",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/home/home",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/my/setting/aboutUs/aboutUs",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/my/setting/aboutUs/aboutUs",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/stu-capacity/schedule/schedule",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/gather/gather",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/gather/gather",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/com-capacity/file/file",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/com-capacity/attendance/attendance",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/inform/inform",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/com-capacity/attendance/attendance",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/my/setting/aboutUs/aboutUs",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/my/setting/change/change",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/my/setting/change/change",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/my/setting/change/change",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/my/setting/change/change",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/home/home",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

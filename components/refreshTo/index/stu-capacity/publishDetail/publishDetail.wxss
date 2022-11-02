@@ -1,0 +1,76 @@
+/* 通知的信息 */
+.publishInfo {
+    /* padding: 10rpx 20rpx 10rpx 20rpx; */
+    border: 2rpx solid #99CCFF;
+    border-radius: 25rpx;
+}
+/* 题目 */
+.publishTitle {
+    font-size: 50rpx;
+    font-weight: 600;
+    margin: 0 0 10rpx 0;
+    padding: 10rpx 20rpx 0 20rpx;
+}
+/* 截至时间 */
+.deadline {
+    font-size: 30rpx;
+    color: rgb(238, 82, 82);
+    border-bottom: 2rpx solid #cecece;
+    margin: 0 0 20rpx 0;
+    padding: 0 20rpx 20rpx 20rpx;
+}
+/* 下半部分的信息 */
+.infoBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20rpx 20rpx 20rpx;
+}
+.infoBottom image {
+    height: 70rpx;
+    width: 70rpx;
+    border-radius: 50%;
+}
+.userInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120rpx;
+}
+.publishTag {
+    padding: 10rpx 20rpx 10rpx 20rpx;
+    border: 2rpx solid #99CCFF;
+    border-radius: 20rpx;
+}
+
+/* 通知的内容 */
+.publishContent {
+    margin: 50rpx 0 0 0;
+    padding-bottom: 30rpx; 
+    border-bottom: 2rpx solid #cecece;
+    font-size: 30rpx;
+}
+.contentTitle {
+    margin: 0 0 30rpx 0;
+    font-size: 50rpx;
+    font-weight: 600;
+}
+
+/* 通知配图 */
+.imgTitle {
+    margin: 50rpx 0 0 0;
+    font-size: 50rpx;
+    font-weight: 600;
+}
+.pulishImg {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; 
+    align-items: center;
+    margin: 30rpx 0 0 0;
+}
+.pulishImg image{
+    width: 200rpx;
+    height: 200rpx;
+    margin: 0 50rpx 0 0;
+}

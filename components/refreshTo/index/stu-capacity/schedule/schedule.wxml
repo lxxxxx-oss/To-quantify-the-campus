@@ -1,33 +1,91 @@
-<!--index.wxml-->
-<view class="top">
-  <view wx:for="{{['一','二','三','四','五','六','日']}}" class="top-text">周{{item}}</view>
-</view>
-<scroll-view scroll-y="true" class="scroll">
-  <view style="height:1200rpx;width:730rpx;display:flex;">
-    <view style="background-color:#D2E6B3;color:#7cba23;">
-      <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" class="left">
-        {{item}}
-      </view>
-    </view>
-    <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}">
-      <view style="width:750rpx;margin-top:{{(index+1)*100}}rpx;  position: absolute;border-bottom:1rpx solid {{index==3?'red':'lightgray'}};">
-      </view>
-    </view>
+<view class="scheduleHeader">
 
-    <!--课表-->
-    <view wx:for="{{courseList}}">
-      <view class="flex-item kcb-item" bindtap="getDetail" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.whatDay-1)*100}}rpx;margin-top:{{(item.which-1)*100+5}}rpx;height:{{item.length*100-5}}rpx;background-color:{{colorArrays[index%9]}}">
-        <view class="smalltext" >{{item.course}}</view>
-      </view>
-    </view>
-  </view>
+	<l-collapse type="accordion" l-class="collapse">
+		<l-collapse-item title="第{{currentWeeks+2}}周" l-title-class="l-title-class">
+			<l-segment height="120" l-active-class="segment-active-class" l-inactive-class="segment-class" bind:linchange="changeWeeks" active-key="{{currentWeeks}}" l-header-line-class="l-header-line-class" even="{{false}}" scrollable animated-for-line="{{true}}" l-header-class="l-header-class">
+				<l-segment-item dot-badge="{{thisWeek==index?true:false}}" tab="{{'第'+(index+2)+'周'}}" key="{{index}}" wx:for="{{20}}" l-class="segment" item-height="120">
+					<view class="tab-content" style="{{thisWeek==index?'color:red':''}}">{{'第'+(index+2)+'周'}}</view>
+				</l-segment-item>
+			</l-segment>
+		</l-collapse-item>
+	</l-collapse>
+
+	<!-- 星期几 -->
+	<view class="weekContainer">
+		<view class="weekConntent">
+			<view class="weekDate" style="width:8vw;font-size: 28rpx;">
+				<view class="weekDateInfo">
+					<text>{{weeksData[currentWeeks].month+'月'}}</text>
+				</view>
+			</view>
+			<view class="weekDate" style="width:13vw;{{weeksData[currentWeeks].isDay==index?'background: #6f6f6f;color: #EAEAEA;':''}}" wx:for="{{weeks}}" wx:key="index+1" key="{{index+1}}">
+				<view class="weekDateInfo">
+					<text class="text-center">{{item}}</text>
+					<text style="font-size:20rpx;text-align: center">{{weeksData[currentWeeks].date[index]}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<!-- 课表主体 -->
+<scroll-view class="scheduleContainer" scroll-y enable-flex >
+
+	<!--	左侧的节数-->
+	<view class="classNumberContainer " style="width:8vw;">
+		<view class="classNumber ywl-animation" wx:for="{{classTimes}}" style="{{isBig?'height:10vh':''}}">
+			{{index+1}}
+			<text class="classTimeText">{{item.start}}</text>
+			<text class="classTimeText">{{item.end}}</text>
+		</view>
+	</view>
+
+	<!--	右侧主体内容-->
+	<view class="classBodyContainer">
+		<view class="classBodyNodeContainer" wx:for="{{classListNumber}}">
+			<l-transition show="{{ item != null }}"  l-class="case-custom-class">
+				<view class="ywl-animation classBodyNode" bindtap="tapClassNode" data-index="{{item}}">
+					<block wx:if="{{item != null}}">
+						<block wx:if="{{currentWeeksClass[item].isCover}}">
+							<block wx:for="{{currentWeeksClass[item].courseName.length}}" wx:for-item="items" wx:for-index="idx">
+								<view class="">
+									<view class=""><text>{{currentWeeksClass[item].isHide?'':currentWeeksClass[item].courseName[idx]}}</text></view>
+								</view>
+								<view class="">
+									<view class=""><text>{{currentWeeksClass[item].isHide?'':currentWeeksClass[item].classLocation[idx]}}</text></view>
+								</view>
+							</block>
+						</block>
+						<block wx:else>
+							<view class="classTitle ywl-animation">
+								<view class="text-center"><text>{{currentWeeksClass[item].isHide?'':currentWeeksClass[item].className}}</text></view>
+							</view>
+							<view class="classAddress ywl-animation">
+								<view class="text-center "><text>{{currentWeeksClass[item].isHide?'':currentWeeksClass[item].classroom}}</text></view>
+							</view>
+						</block>
+					</block>
+				</view>
+			</l-transition>
+		</view>
+	</view>
 </scroll-view>
 
 
-<!-- 详情弹框 -->
-<view class="mask" hidden="{{!isShow}}" catchtap="close"></view>
-<view class="modal flex-column j_c {{isShow ? 'show':'noShow'}}" style="background: {{current.color}};">
-  <view>{{current.sub}}</view>
-  <view>{{current.add}}</view>
-  <view>{{current.tec}}</view>
-</view>
+<!--弹出层-->
+<l-popup show="{{isShow && tapClassIndex != null}}">
+	<view class="classContent">
+		<block wx:if="{{currentWeeksClass[tapClassIndex].isCover}}">
+			<block wx:for="{{currentWeeksClass[tapClassIndex].courseName.length}}">
+				<text>{{currentWeeksClass[tapClassIndex].courseName[item]}}</text>
+				<text>{{currentWeeksClass[tapClassIndex].classLocation[item]}}</text>
+				<text>{{currentWeeksClass[tapClassIndex].teacherName[item]}}</text>
+			</block>
+		</block>
+		<block wx:else>
+			<text>{{currentWeeksClass[tapClassIndex].courseName}}</text>
+			<text>{{currentWeeksClass[tapClassIndex].classLocation}}</text>
+			<text>{{currentWeeksClass[tapClassIndex].teacherName}}</text>
+		</block>
+	</view>
+</l-popup>

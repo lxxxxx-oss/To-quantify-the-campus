@@ -5,62 +5,40 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        // 通知列表的数据
+        publishList: "",
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        var that = this
+        // 获取缓存中通知的信息
+        wx.getStorage({
+            key: 'publishList',
+            // 将缓存中的数据存储到页面数据中
+            success(res) {
+                that.setData({
+                    publishList: res.data
+                })
+            },
+        })
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-
+    // 跳转到发布通知的操作页
+    publishInform() {
+        wx.navigateTo({
+          url: '/components/refreshTo/index/cou-capacity/publish/publish',
+        })
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
+    // 跳转到通知详情页
+    publishDetail(e) {
+        // 拿到点击的那条通知的索引
+        let index = e.currentTarget.dataset.index
+        wx.navigateTo({
+          url: '/components/refreshTo/index/stu-capacity/publishDetail/publishDetail?index='+index,
+        })
     }
 })

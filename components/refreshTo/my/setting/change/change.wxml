@@ -1,0 +1,9 @@
+<!-- 更改密码 -->
+<view class="changePass">
+    <input type="text" placeholder="学号/工号"/>
+    <input type="password" placeholder="原密码"/>
+    <input type="password" placeholder="更改密码" bindinput="changePassword"/>
+    <input type="password" placeholder="确认密码"/>
+</view>
+
+<view class="notarize" bindtap="notarizeChange">确认</view>

@@ -1,100 +1,66 @@
-.update {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+page {
+    padding: 0;
+    margin: 0;
 }
-/* 上传图片按钮 */
-.uploadImg {
-    width: 80%;
-    margin: 50rpx 0 0 0;
-    padding: 0 30rpx 0 30rpx;
-    font-size: 50rpx;
-    text-align: center;
-    background-color: #0081FF;
-    border-radius: 30rpx;
-    padding: 25rpx;
-    color: white;
+/* 没有任何通知的时候的提醒语和图片 */
+.unpublish{
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    margin-top: 100rpx;
 }
-/* 刷新按钮 */
-.refresh {
-    width: 80%;
-    margin: 50rpx 0 30rpx 0;
-    padding: 0 30rpx 0 30rpx;
-    font-size: 50rpx;
-    text-align: center;
-    background-color: #0081FF;
-    text-align: center;
-    border-radius: 30rpx;
-    padding: 25rpx;
-    color: white;
-}
-/* 弹窗样式 */
-/* 弹窗样式 */
-.model{
-    position: absolute;
+.unpublish image{
     width: 100%;
-    height: 100%;
-    background: #000;
-    z-index: 999;
-    opacity: 0.5;
-    top: 0;
-    left:0;
+    height: 70%;
 }
-.modalDlg{
-    width: 80%;
-    position: fixed;
-    top:300rpx;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    margin: 0 auto;
-    padding: 55rpx;
-    background-color: #fff;
-    border-radius: 20rpx;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.unpulishText {
+    text-align: center;
+    font-size: 40rpx;
+    font-weight: 600;
 }
-.windowRow{
+
+/* 通知信息的展示 */
+.publishContent {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 20rpx 0 20rpx;
+}
+/* 通知配图 */
+.publishContent image{
+    width: 240rpx;
+    height: 190rpx;
+}
+/* 通知详细内容 */
+.publishDetail {
+    width: 380rpx;
+    color: #887e7e;
+    /* 多行文本溢出省略 */
+    overflow: hidden;
+    /* 多出部分用...代替 */
+    text-overflow: ellipsis;
+    /* 定义为盒子模型显示 */
+    display: -webkit-box;
+    /* 用来限制在一个块元素显示的文本的行数 */
+    -webkit-line-clamp: 5;
+    /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式） */
+    -webkit-box-orient: vertical;
+
+}
+
+.publishElse {
+    display: flex;
+    justify-content: space-between;
+    margin: 20rpx 20rpx 0 20rpx;
+    /* background-color:red; */
+}
+/* 通知标签 */
+.publishTag {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 15rpx;
-    width: 100%;
+    width: 170rpx;
 }
-.userTitle{
-    font-size: 42rpx;
-}
-.back{
-    text-align: center;
-    color: #0081FF;
-    font-size: 30rpx;
-}
-.wishName{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 40rpx 0rpx;
-}
-.wish_put{
-    width: 100%;
-    height: 70rpx;
-    border: #cecece 1rpx solid;
-    background-color: #f6f7fb;
-    border-radius: 12rpx;
-    padding: 20rpx 0 20rpx 20rpx;
-    margin: 20rpx 0rpx;
-}
-.holder_cls{
-    color: #909399;
-}
-.wishbnt{
-    width: 94%;
-    background-color: #0081FF;
-    text-align: center;
-    border-radius: 50rpx;
-    padding: 25rpx;
-    color: white;
+.publishTag image{
+    width: 45rpx;
+    height: 45rpx;
 }

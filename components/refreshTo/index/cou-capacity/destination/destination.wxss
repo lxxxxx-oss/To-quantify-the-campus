@@ -72,7 +72,7 @@ page {
 }
 /* 专业信息展示 */
 .majorInfor {
-    font-size: 40rpx;
+    font-size: 35rpx;
     font-weight: lighter;
 }
 .classify {
@@ -80,9 +80,9 @@ page {
     justify-content: center;
     align-items: center;
     background-color: #8B0000 ;
-    width: 150rpx;
+    /* width: 150rpx; */
     height: 80rpx;
-    margin: 50rpx 0 20rpx 50rpx;
+    margin: 50rpx 50rpx 20rpx 50rpx;
 }
 .sub {
     /* 设置如何处理文本中的空白 */

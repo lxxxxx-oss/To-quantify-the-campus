@@ -1,0 +1,43 @@
+<!--pages/school/aboutus.wxml-->
+<view class="container page">
+  <view class="bg-wegreen">
+    <view class="bg-white radius">
+      <view class="radius">
+        <view class="version radius">
+          <view class="version-title">
+            <text class="title-name">量化校园</text>
+            <view class="cu-tag line-wegreen">内测 {{version}}</view>
+          </view>
+          <view class="weui-cell__ft">
+            <view bindtap="checkUpdate" class="cu-tag bg-wegreen"><text class="cuIcon-down"></text> 检测更新</view>
+          </view>
+        </view>
+        <view class="padding">
+          <view class="desc-title"> <text class="cuIcon-titles text-wegreen"></text> 简介</view>
+          <view class="desc-content" style='text-indent:2em;'>
+            量化校园是一款微信小程序，致力于帮助师生更方便的进行日常工作和学习。</view>
+          <view class="desc-content" style='text-indent:2em;'>量化校园目前还处于内测阶段，有一系列新的功能正在我们的开发计划中。“你想要的，都在这里！”</view>
+          <view class="desc-content text-red margin-top">*: 微信小程序版本开发维护由几位在校大学生开发和维护，不完善的地方还有很多，可以多多给我们提意见！期待您的反馈</view>
+
+          <view class="desc-title margin-top">
+            <text class="cuIcon-titles text-wegreen"></text> 开发贡献
+          </view>
+          <view class="flex">
+            <view bindtap="goWeibo" data-weibo="{{item.weibo}}" class="flex flex-direction text-center margin-left" wx:for="{{coder}}" wx:key="coderkey">
+              <view class="text-center cu-avatar lg round avatar-border" style="background-image:url({{item.avatar}});">
+              </view>
+              <view class="text-center" style="width:90rpx;">{{item.nickName}}</view>
+            </view>
+          </view>
+
+          <view class="desc-title margin-top">
+            <text class="cuIcon-titles text-wegreen"></text>关联量化校园
+          </view>
+          <view class="desc-content" style='text-indent:2em;'>
+            <text>若您或者您的朋友在运营校园相关的公众号（学生组织/社团/校园自媒体等），「量化校园」诚挚地欢迎您的公众号关联我们的小程序，并期待合作！\r\n </text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

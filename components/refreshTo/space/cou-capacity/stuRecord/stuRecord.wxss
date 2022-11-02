@@ -1,1 +1,12 @@
-/* components/stuRecord/stuRecord.wxss */
+page {
+    padding: 0;
+    margin: 0;
+}
+
+.stu-category {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100rpx;
+    border-bottom: 2rpx solid #cecece;
+}

@@ -1,0 +1,24 @@
+<!-- 通知详情页 -->
+<view class="publishInfo">
+    <view class="publishTitle">{{publishList[index].publishTitle}}</view>
+    <view class="deadline">截至时间：{{publishList[index].deadline}}</view>
+    <view class="infoBottom">
+        <view class="userInfo">
+            <image src="{{userInfo.avatarUrl}}"></image>
+            <view>{{userInfo.nickName}}</view>
+        </view>
+        <view class="publishTag">{{publishList[index].publishTag}}</view>
+    </view>
+</view>
+<!-- 通知的内容 -->
+<view class="publishContent">
+    <view class="contentTitle">通知内容</view>
+    <view>{{publishList[index].textareaValue}}</view>
+</view>
+<!-- 通知配图 -->
+<view class="imgTitle">通知配图</view>
+<view class="pulishImg">
+    <view wx:for="{{publishList[index].imgSrc}}">
+        <image src="{{item}}" bindtap="viewImg"  data-index="{{index}}" mode="aspectFill"></image>
+    </view>
+</view>

@@ -2,5 +2,6 @@
     "usingComponents": {},
     "navigationBarTitleText": "出勤状况",
     "navigationBarBackgroundColor": "#8F0105",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance":100
 }

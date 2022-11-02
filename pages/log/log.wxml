@@ -9,7 +9,7 @@
 <!-- 输入框 -->
 <view class="con">
     <block>
-        <input class="{{sel_number ?'border_bot': ''}}" data-type="1" type="number" placeholder="学号/工号" placeholder-class="p_class" bindfocus="bindfocus" bindblur="bindblur" bindinput="bindPhone" value="{{number}}" maxlength="11"></input>
+        <input class="{{sel_number ?'border_bot': ''}}" data-type="1" type="number" placeholder="学号/工号" placeholder-class="p_class" bindfocus="bindfocus" bindblur="bindblur" bindinput="bindNumber" value="{{number}}" maxlength="11"></input>
         <input class="{{sel_pass ?'border_bot': ''}}" data-type="2" type="password" placeholder="密码（默认身份证号后六位）" placeholder-class="p_class" bindfocus="bindfocus" bindblur="bindblur" bindinput="bindPass" value="{{pass}}"></input>
     </block>
 </view>

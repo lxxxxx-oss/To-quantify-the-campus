@@ -1,5 +1,5 @@
 // 使用请求方法的封装
-const {request} = require("../../../../../utils/request")
+const {requestOne, requestTwo} = require("../../../../../utils/request")
 Page({
 
     /**
@@ -12,31 +12,14 @@ Page({
         changeMajor:"",
         // 是否展示班级信息
         isShowclass: false,
-        major: [
-            {
-                "classify": "工学",
-                "sub": ["电气工程及其自动化", "人工智能", "自动化", "信息安全", "软件工程"]
-            },
-            {
-                "classify": "管理学",
-                "sub": ["供应链管理", "工商管理", "财务管理", "工程管理", "大数据管理与应用"]
-            },
-            {
-                "classify": "艺术性",
-                "sub": ["动画", "广播电视编导", "数字媒体技术", "戏剧影视文学"]
-            },
-            {
-                "classify": "文学",
-                "sub": ["汉语", "英语", "德语"]
-            },
-            {
-                "classify": "经济学",
-                "sub": ["数字经济", "互联网金融"]
-            }
-
-        ],
+        // 学院
+        faculty: [],
+        // 每个学院的id
+        facultyId: [],
+        // 专业
+        major: [],
         // 班级信息
-        classInform: ["一班", "二班", "三班", "四班", "五班", "六班", "七班", "八班", "九班", "十班", "十一班", ],
+        classInform: "",
         num: ""
     },
 
@@ -44,11 +27,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        var that = this
         //异步获取缓存,如果该用户信息已存在，则直接显示该用户信息，避免重复弹窗
         wx.getStorage({
             key:"userInfo",//本地缓存中指定的 key
             success:(res)=>{ 
-            console.log('获取缓存成功',res.data)      
+            // console.log('获取缓存成功',res.data)      
                 this.setData({
                     userInfo:res.data, //将得到的缓存给key             
                 }) 
@@ -57,15 +41,34 @@ Page({
                 }                 
             }
         });
-        // console.log(request('/user', 'post'));
-        // 使用封装的请求方法，请求数据
-        // request('/user/leagueList?id=40772', 'post').then(res => {
-        //     console.log(res);
-        // }).catch(err => {
-        //     console.log(err);
-        // })
 
+        // 获取全部学院
+        this.getList().then((res) => {
+            res.data.list.forEach(e => {
+                that.data.faculty.push(e.name)
+                that.data.facultyId.push(e.id)
+                that.setData({
+                    faculty: that.data.faculty,
+                    facultyId: that.data.facultyId
+                })
+            })
+            console.log(that.data.facultyId);
+        }).catch((err) => {
+            console.log(err);
+        }),
 
+        // 获取学院下属的专业
+        this.getMajor().then((res) => {
+            res.data.list.forEach(e => {
+                that.data.major.push(e.name)
+            })
+            that.setData({
+                major: that.data.major
+            })
+            console.log(that.data.major);
+        }).catch((err) => {
+            console.log(err);
+        })
 
     },
 
@@ -117,5 +120,20 @@ Page({
         wx.navigateTo({
           url: '/components/refreshTo/index/cou-capacity/des-item/des-item?major='+this.data.changeMajor+"&num="+this.data.num,
         })
+    },
+
+    // 调取接口，请求数据
+    getList() {
+        return requestOne({
+            url: '/user/leagueList?id=297', 
+            method: 'GET'
+        })
+    },
+    getMajor() {
+        return requestOne({
+            url: '/user/leagueList?id=40772', 
+            method: 'GET'
+        })
     }
+    
 })

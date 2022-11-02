@@ -2,8 +2,8 @@
 <!-- 班级整体情况 -->
 <view class="entirety">
     <view class="inform">
-        <view class="proportion">班级整体出勤率: <text style="color: red;">{{proportion}}%</text></view>
-        <view class="leave">请假人数:  <text style="color: red;">{{leaveNum}}</text></view>
+        <view class="proportion">班级整体出勤率: <text style="color: red;">100%</text></view>
+        <view class="leave">请假人数:  <text style="color: red;">0</text></view>
     </view>
     <view class="date">日期: {{date}}</view>
 </view>
@@ -15,12 +15,12 @@
 </view>
 <view  wx:for="{{className}}" wx:key="index">
     <view class="personItem">
-        <view>{{item.name}}</view>
+        <view>{{item}}</view>
         <view class="icon">
             <!-- 根据是否出勤展示不同的图标 -->
-            <image src="/assets/img/index/stu-icon/pass.png" wx:if="{{item.status}}"></image>
-            <image src="/assets/img/index/stu-icon/fail.png" wx:if="{{!item.status}}"></image>
-            <text class="leaveText" wx:if="{{item.leave}}">请假</text>
+            <image src="/assets/img/index/stu-icon/pass.png"></image>
+            <!-- <image src="/assets/img/index/stu-icon/fail.png"></image>
+            <text class="leaveText" wx:if="{{item.leave}}">请假</text>  -->
         </view>
     </view>
 </view>

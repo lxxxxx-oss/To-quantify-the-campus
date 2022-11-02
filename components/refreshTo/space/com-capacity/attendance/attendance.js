@@ -1,5 +1,6 @@
 // components/refreshTo/space/com-capacity/attendance/attendance.js
-Page({
+const {requestTwo} = require("../../../../../utils/request")
+Page({  
 
     /**
      * 页面的初始数据
@@ -12,67 +13,37 @@ Page({
         // 日期
         date: "2022/10/21",
         // 班级名单
-        className: [
-            {
-                "name": "黎鑫",
-                "status": true,
-                "leave": false
-            },
-            {
-                "name": "黎鑫",
-                "status": true,
-                "leave": false
-            },
-            {
-                "name": "黎鑫",
-                "status": false,
-                "leave": false
-            },
-            {
-                "name": "黎鑫",
-                "status": false,
-                "leave": true
-            },
-            {
-                "name": "黎鑫",
-                "status": false,
-                "leave": false
-            },
-            {
-                "name": "黎鑫",
-                "status": false,
-                "leave": true
-            },
-        ]
+        className: []
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad(options) {
+    onLoad(options) {      
+        this.getClassInfo()
+        // #region 
         // 计算出勤率
         // 班级总人数
-        let sum = this.data.className.length
-        // 计数器
-        let count1 = 0
-        let count2 = 0
-        // 遍历整个数组对象
-        this.data.className.forEach(e => {
-            if(e.status) count1 ++
-            if(!e.status && e.leave) count2++
-        })
-        // 出勤率
-        let attendance = count1 / sum * 100
-        // 请假人数
-        let leave = count2
-        // 保留两位小数
-        attendance = attendance.toFixed(2)
-        this.setData({
-            proportion: attendance,
-            leaveNum: leave
-        })
-
-
+        // let sum = this.data.className.length
+        // // 计数器
+        // let count1 = 0
+        // let count2 = 0
+        // // 遍历整个数组对象
+        // this.data.className.forEach(e => {
+        //     if(e.status) count1 ++
+        //     if(!e.status && e.leave) count2++
+        // })
+        // // 出勤率
+        // let attendance = count1 / sum * 100
+        // // 请假人数
+        // let leave = count2
+        // // 保留两位小数
+        // attendance = attendance.toFixed(2)
+        // this.setData({
+        //     proportion: attendance,
+        //     leaveNum: leave
+        // })
+        //#endregion
     },
 
     /**
@@ -114,13 +85,28 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom() {
-
+        // this.getClassInfo()
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
+    // 获取班级信息
+    getClassInfo() {
+        var that = this  
+        return requestTwo({
+            url: '/api/student/1/20', 
+            method: 'GET',
+            // data: {
+            //     currentPage: 1,
+            //     pageSize: 10,
+            // }
+        }).then((res) => {
+            // console.log(res.data.studentInfo.records);
+            let infoList = res.data.studentInfo.records
+            infoList.forEach(e => {
+                that.data.className.push(e.name)
+            })
+            that.setData({
+                className: that.data.className
+            })
+        })
     }
 })

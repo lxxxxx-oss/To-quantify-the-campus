@@ -1,3 +1,6 @@
+.viewPage {
+    padding: 0 20rpx 0 20rpx;
+}
 /* 标题 */
 .cateTitle {
     display: flex;

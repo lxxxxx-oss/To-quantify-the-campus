@@ -41,7 +41,7 @@
 
 <!-- 可拖动的悬浮按钮 -->
 <movable-area class="movable-area" bindtap="uploadAwards">
-    <movable-view class="movable-view" direction="all">
-        点击上传
+    <movable-view class="movable-view" direction="all" x="580rpx" y="1200rpx">
+        <image src="/assets/img/index/cou-icon/add.png"></image>
     </movable-view>
 </movable-area>

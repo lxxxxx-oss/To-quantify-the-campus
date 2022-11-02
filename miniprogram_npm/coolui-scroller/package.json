@@ -1,0 +1,57 @@
+{
+  "_from": "coolui-scroller@^3.1.2",
+  "_id": "coolui-scroller@3.1.2",
+  "_inBundle": false,
+  "_integrity": "sha512-jT4hpExHopUnqzdyIDg4KZvF90QM+PJh3ZQQ7VPM5ZJE0kJ7s6GJgxmNHNnJ6UCPno/ZeIeVy49lde7tWMFTkA==",
+  "_location": "/coolui-scroller",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "coolui-scroller@^3.1.2",
+    "name": "coolui-scroller",
+    "escapedName": "coolui-scroller",
+    "rawSpec": "^3.1.2",
+    "saveSpec": null,
+    "fetchSpec": "^3.1.2"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmmirror.com/coolui-scroller/-/coolui-scroller-3.1.2.tgz",
+  "_shasum": "b649b7e70a139d9d8733bcaab140b4d3cfefb80e",
+  "_spec": "coolui-scroller@^3.1.2",
+  "_where": "C:\\Users\\黎\\WeChatProjects\\quantification",
+  "author": {
+    "name": "wzs"
+  },
+  "bugs": {
+    "url": "https://github.com/wzs28150/coolui-scroller/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "微信小程序Scroll 上拉加载下拉刷新组件 ",
+  "homepage": "https://github.com/wzs28150/coolui-scroller#readme",
+  "keywords": [
+    "weapp",
+    "scroller",
+    "pull-to-refresh",
+    "push-to-loadmore"
+  ],
+  "license": "MIT",
+  "main": "./index.js",
+  "miniprogram": "./",
+  "name": "coolui-scroller",
+  "publishConfig": {
+    "@wzs28150:registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wzs28150/coolui-scroller.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "3.1.2"
+}

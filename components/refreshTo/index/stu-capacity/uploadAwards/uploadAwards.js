@@ -40,7 +40,7 @@ Page({
                 })
             }
         }) || []
-        console.log(options.currentInfo);
+
         // 修改填写的信息
         // console.log(options.currentInfo);
         // 如果是修改数据，则进行下面的操作，如果是填写获奖信息，则不进行下面的操作
@@ -190,7 +190,7 @@ Page({
             marks: this.data.marks,
             imgSrc: this.data.imgList
         }
-        console.log(info);
+        // console.log(info);
         // 进行表单验证，不允许有未填项
         // if(that.data.marks == "" || that.data.awardsName == "" || that.data.awardsCate == "" ||that.data.awardsLevel == "" || that.data.imgSrc == "") {
         //     wx.showToast({
@@ -224,7 +224,7 @@ Page({
                 url: '/components/refreshTo/index/stu-capacity/career/career?category='+"综测成绩",
             })
         }else {
-        // 修改信息后，点击提交
+            // 修改信息后，点击提交
             var that = this
             wx.getStorage({
                 key: 'infoList',
