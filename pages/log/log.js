@@ -82,14 +82,9 @@ Page({
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             success: function (res) {
-                console.log(res);
+                // console.log(res);
+                // 判断是否登录成功的标识
                 let loginStatus = res.data.flag
-                let userId = res.data.data.currentUser.id;
-                // 将用户的id存入缓存，方便其他页面调用
-                wx.setStorage({
-                    key: 'userId',
-                    data: userId
-                })
                 // 账号密码不能为空
                 if(that.data.number == "" || that.data.pass == "" ) {
                     wx.showToast({
@@ -98,6 +93,13 @@ Page({
                     });
                 // 判断登录状态
                 }else if(loginStatus) {
+                    // 登录成功
+                    let userId = res.data.data.currentUser.id;
+                    // 将用户的id存入缓存，方便其他页面调用
+                    wx.setStorage({
+                        key: 'userId',
+                        data: userId
+                    })
                     that.setData({
                         // 获取登录用户的身份类型
                         userType: res.data.data.currentUser.userType
