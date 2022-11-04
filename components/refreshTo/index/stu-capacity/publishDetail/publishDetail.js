@@ -11,8 +11,8 @@ Page({
         publishTag: [],
         // 所点击的通知的索引
         index: "",
-        // 当前的通知详情
-        currentPublish: ""
+        // 数据库中的id
+        infoId: ""
     },
 
     /**
@@ -32,21 +32,27 @@ Page({
         that.data.index = options.index
         // 从数据库获取数据
         getInfo().then((res) => {
-            // console.log(res.data.infoList.records);
-            // 将数据库里的图片遍历出来
+            console.log(res.data.infoList.records);
+            // 每组数据在数据库中的id
+            let id = res.data.infoList.records.id
             res.data.infoList.records.forEach(e => {
+                // 将数据库里的图片遍历出来
                 that.data.imgList.push(e.imgSrc)
                 // 获取活动类型
                 that.data.publishTag.push(that.data.allTag[e.publishTag])
             })
             
-            console.log(that.data.imgList);
+            // console.log(that.data.imgList);
             this.setData({
                 publishList: res.data.infoList.records,
                 imgList: that.data.imgList,
-                publishTag: that.data.publishTag
+                publishTag: that.data.publishTag,
+                infoId: res.data.infoList.records.id
             })
+        }).catch((err) => {
+            console.log(err);
         })
+    
         this.setData({
             index: this.data.index
         })
@@ -54,8 +60,9 @@ Page({
 
     // 预览图片 
     viewImg(e) {
+        var that = this
         wx.previewImage({
-            urls: this.data.publishList[this.data.index].imgSrc,
+            urls: this.data.imgList,
             current: e.currentTarget.dataset.index
         });
         // console.log(e.currentTarget.dataset.index);
