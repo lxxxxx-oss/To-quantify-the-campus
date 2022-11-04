@@ -27,14 +27,14 @@ function requestOne(params = { methods, url, data }) {
     })
 }
 // 请求方法其二 ---> 访问后端接口
-function requestTwo(params = { methods, url, data }) {
+function requestTwo(params = { methods, url, data}) {
   return  new Promise(function (resolve,reject) {
       wx.request({
           url: baseUrlTwo + params.url,
           method: params.method,
           data: params.data ? JSON.stringify(params.data) : null,
           header: { 
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json'
           },
           timeout: 5000,
           success(res) { 

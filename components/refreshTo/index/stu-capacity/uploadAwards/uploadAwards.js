@@ -158,7 +158,7 @@ Page({
     // 删除按钮
     DelImg(e) {
         wx.showModal({
-          title: '同学',
+          title: '删除图片',
           content: '确定要删除吗？',
           cancelText: '取消',
           confirmText: '确定',
