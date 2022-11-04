@@ -1,13 +1,16 @@
 <!-- 通知详情页 -->
 <view class="publishInfo">
+    <!-- 通知标题和截止时间 -->
     <view class="publishTitle">{{publishList[index].publishTitle}}</view>
     <view class="deadline">截至时间：{{publishList[index].deadline}}</view>
     <view class="infoBottom">
+        <!-- 用户信息展示区域 -->
         <view class="userInfo">
             <image src="{{userInfo.avatarUrl}}"></image>
             <view>{{userInfo.nickName}}</view>
         </view>
-        <view class="publishTag">{{publishList[index].publishTag}}</view>
+        <!-- 通知类型 -->
+        <view class="publishTag">{{publishTag[index]}}</view>
     </view>
 </view>
 <!-- 通知的内容 -->
@@ -18,7 +21,7 @@
 <!-- 通知配图 -->
 <view class="imgTitle">通知配图</view>
 <view class="pulishImg">
-    <view wx:for="{{publishList[index].imgSrc}}">
-        <image src="{{item}}" bindtap="viewImg"  data-index="{{index}}" mode="aspectFill"></image>
+    <view>
+        <image src="{{imgList[index]}}" bindtap="viewImg"  data-index="{{index}}" mode="aspectFill"></image>
     </view>
 </view>

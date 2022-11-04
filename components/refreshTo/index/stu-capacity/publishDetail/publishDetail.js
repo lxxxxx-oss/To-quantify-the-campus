@@ -1,9 +1,14 @@
-// components/refreshTo/index/stu-capacity/publishDetail/publishDetail.js
+const {getInfo} = require("../../cou-capacity/inform/getInfo")
 Page({
 
     data: {
         // 通知列表
         publishList: "",
+        // 单独存储图片数据、
+        imgList: [],
+        // 几种活动类型
+        allTag: ["学校通知", "活动通知", "比赛通知", "考试通知"],
+        publishTag: [],
         // 所点击的通知的索引
         index: "",
         // 当前的通知详情
@@ -25,16 +30,22 @@ Page({
         })
         let that = this
         that.data.index = options.index
-        // 获取缓存中通知的信息
-        wx.getStorage({
-            key: 'publishList',
-            // 将缓存中的数据存储到页面数据中
-            success(res) {
-                that.setData({
-                    publishList: res.data,
-                    index: that.data.index
-                })
-            },
+        // 从数据库获取数据
+        getInfo().then((res) => {
+            // console.log(res.data.infoList.records);
+            // 将数据库里的图片遍历出来
+            res.data.infoList.records.forEach(e => {
+                that.data.imgList.push(e.imgSrc)
+                // 获取活动类型
+                that.data.publishTag.push(that.data.allTag[e.publishTag])
+            })
+            
+            console.log(that.data.imgList);
+            this.setData({
+                publishList: res.data.infoList.records,
+                imgList: that.data.imgList,
+                publishTag: that.data.publishTag
+            })
         })
         this.setData({
             index: this.data.index

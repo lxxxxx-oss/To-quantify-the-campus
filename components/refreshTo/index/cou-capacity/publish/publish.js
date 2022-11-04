@@ -1,4 +1,5 @@
-// components/refreshTo/index/cou-capacity/publish/publish.js
+// 引入formdata,进行文件上传
+const FormData = require("../../../../../utils/formdata")
 Page({
 
     /**
@@ -80,10 +81,12 @@ Page({
         })
         // console.log(that.data.infoList);
         // 将信息存入缓存
-        wx.setStorage({
-            key: "publishList",
-            data: that.data.publishList,
-        })
+        // wx.setStorage({
+        //     key: "publishList",
+        //     data: that.data.publishList,
+        // })
+        // 调用存储数据的方法
+        this.postInfo()
         wx.showToast({
             title: '提交成功',
             icon: 'success',
@@ -140,5 +143,30 @@ Page({
         this.setData({
           textareaValue: e.detail.value
         })
-      }
+      },
+    // 将数据存入数据库
+    postInfo() {
+        var that = this
+        //new一个FormData对象
+        // 实例化，用它来上传文件和添加字段
+        let formData = new FormData();
+
+        //调用它的append()方法来添加字段或者调用appendFile()方法添加文件
+
+        formData.append("publishTitle", that.data.publishTitle);
+        formData.append("publishTag", that.data.publishTag);
+        formData.append("textareaValue", that.data.textareaValue);
+        formData.append("deadline", that.data.deadline);
+        formData.appendFile("multipartFile", that.data.imgList[0], "jpg");
+
+        let data = formData.getData();
+        wx.request({
+            url: 'https://alaskaboo.cn/api/info',
+            method: 'POST',
+            header: {
+                "Content-Type": data.contentType,
+            },
+            data: data.buffer
+        })
+    }
 })

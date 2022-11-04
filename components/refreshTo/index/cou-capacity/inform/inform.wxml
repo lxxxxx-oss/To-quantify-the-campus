@@ -11,19 +11,20 @@
 </view>
 
 <!-- 展示通知列表 -->
-<view class="cu-card article" wx:for="{{publishList}}" bindtap="publishDetail" data-index="{{index}}">
+<view class="cu-card article" wx:for="{{publishList}}" bindtap="publishDetail" data-index="{{index}}" wx:if="{{publishList}}">
     <view class="cu-item shadow">
         <view class="title">
             <view class="text-cut">{{item.publishTitle}}</view>
         </view>
         <view class="publishContent">
-            <image src="{{item.imgSrc[0]}}" mode="aspectFill"></image>
+            <image src="{{imgList[index]}}" mode="aspectFill"></image>
+            <!-- <image src="http://qny.alaskaboo.cn/bcf27af5-8804-4de6-b1a2-effb58037c07.jpg"></image> -->
             <view class="publishDetail"> {{item.textareaValue}}</view>
         </view>
         <view class="publishElse">
             <view class="publishTag">
                 <image src="/assets/img/index/cou-icon/publishIcon.png"></image>
-                {{item.publishTag}}
+                {{publishTag[index]}}
             </view>
             <view class="date">
                 <!-- <view class="text-green">发布时间：{{item.publishDate}}</view> -->

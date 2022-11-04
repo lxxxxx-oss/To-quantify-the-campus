@@ -41,7 +41,8 @@ Page({
                 url: '/api/user',
                 method: 'PUT',
                 data: {
-                    id: "1",
+                    // 根据用户的ID来更改密码
+                    id: that.data.userId,
                     password: that.data.changePassword
                 }
             }).then((res) => {

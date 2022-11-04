@@ -1,4 +1,5 @@
-// components/inform/inform.js
+// 引入获取数据的请求
+const {getInfo} = require("./getInfo")
 Page({
 
     /**
@@ -7,6 +8,11 @@ Page({
     data: {
         // 通知列表的数据
         publishList: "",
+        // 单独存储图片数据、
+        imgList: [],
+        // 几种活动类型
+        allTag: ["学校通知", "活动通知", "比赛通知", "考试通知"],
+        publishTag: []
     },
 
     /**
@@ -23,6 +29,22 @@ Page({
                     publishList: res.data
                 })
             },
+        })
+        // 从数据库获取数据
+        getInfo().then((res) => {
+            console.log(res.data.infoList.records);
+            // 将数据库里的图片遍历出来
+            res.data.infoList.records.forEach(e => {
+                that.data.imgList.push(e.imgSrc)
+                that.data.publishTag.push(that.data.allTag[e.publishTag])
+            })
+            // 获取活动类型
+            console.log(that.data.publishTag);
+            this.setData({
+                publishList: res.data.infoList.records,
+                imgList: that.data.imgList,
+                publishTag: that.data.publishTag
+            })
         })
     },
 
