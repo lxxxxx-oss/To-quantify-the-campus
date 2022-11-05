@@ -9,10 +9,10 @@
             <image src="/assets/img/index/hou-icon/affiche.png" mode="aspectFit" class="box-img"></image>
             <text>公告发布</text>
         </view>
-        <view class="hou-box" bindtap="gotoState">
+        <!-- <view class="hou-box" bindtap="gotoState">
             <image src="/assets/img/index/hou-icon/state.png" mode="aspectFit" class="box-img"></image>
             <text>寝况查询</text>
-        </view>
+        </view> -->
         <view class="hou-box" bindtap="gotoPunch">
             <image src="/assets/img/index/hou-icon/punch.png" mode="aspectFit" class="box-img"></image>
             <text>打卡查询</text>

@@ -1,1 +1,29 @@
-/* components/refreshTo/index/hou-capacity/punch/punch.wxss */
+/* 总的打卡情况 */
+.allPunch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50rpx;
+}
+/* 每个楼层的情况 */
+.floorCondition {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 200rpx;
+    width: 90%;
+    background-color: #ffffff ;
+    padding: 0 35rpx 0 35rpx;
+    font-size: 40rpx;
+    font-weight: 550;
+    border-radius: 25rpx;
+    box-shadow:
+    1.9px 1.3px 1.4px -8px rgba(0, 0, 0, 0.05),
+    15px 10px 11px -8px rgba(0, 0, 0, 0.1)
+}
+.dormCount {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30rpx;
+    font-weight: 500;
+}

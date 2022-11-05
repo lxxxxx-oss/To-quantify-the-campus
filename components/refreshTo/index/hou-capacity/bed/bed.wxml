@@ -1,2 +1,10 @@
 <!-- 床位管理 -->
-<view>这里是床位管理页面</view>
+<view class="dormEmpty" wx:for="{{dormEmpty}}" wx:if="{{!item.status}}">
+    <view class="emptyDoors">
+        <view>{{item.doors}}</view>
+    </view>
+    <view class="emptyNum">
+        <view>空位：{{item.emptyCount}}</view>
+        <view>空床号码：{{item.empty}}</view>
+    </view>
+</view>

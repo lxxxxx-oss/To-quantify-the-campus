@@ -1,2 +1,11 @@
 <!-- 打卡查询 -->
-<view>这里是打卡查询页面</view>
+<view class="allPunch" wx:for="{{dormPunch}}" wx:key="{{index}}">
+    <view class="floorCondition" bindtap="punchDetail" data-index="{{index}}">
+        <view>{{item.floor}}打卡情况</view>
+        <view class="dormCount">
+            <view wx:if="{{item.status}}" style="color: rgb(52, 224, 52);">全部完成</view>
+            <view wx:if="{{!item.status}}" style="color: rgb(252, 15, 15);">未全部完成</view>
+            <view>剩余宿舍：{{item.remain}}</view>
+        </view>
+    </view>
+</view>
