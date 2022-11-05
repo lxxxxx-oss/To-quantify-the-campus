@@ -1,2 +1,38 @@
-<!-- 公告发布 -->
-<view>这里是公告发布页面</view>
+<!-- 今日通知 -->
+<!-- 没有任何通知时的缺省页 -->
+<view class="unpublish" wx:if="{{!publishList}}">
+    <image src="/assets/img/index/cou-icon/publish.png"></image>
+    <view class="unpulishText">还没发布任何通知哦</view>
+</view>
+
+<!-- 发布通知按钮 -->
+<view class="publishBtn" bindtap="publishInform">
+    <image src="/assets/img/index/cou-icon/add.png"></image>
+</view>
+
+<!-- 展示通知列表 -->
+<view class="cu-card article" wx:for="{{publishList}}" bindtap="publishDetail" data-index="{{index}}" wx:if="{{publishList && show}}">
+    <view class="cu-item shadow">
+        <view class="cu-tag bg-gray" style="float: right;" catchtap="DelImg" data-index="{{index}}">
+            <text class="cuIcon-close"></text>
+        </view>
+        <view class="title">
+            <view class="text-cut">{{item.publishTitle}}</view>
+        </view>
+        <view class="publishContent">
+            <image src="{{imgList[index]}}" mode="aspectFill"></image>
+            <!-- <image src="http://qny.alaskaboo.cn/bcf27af5-8804-4de6-b1a2-effb58037c07.jpg"></image> -->
+            <view class="publishDetail"> {{item.textareaValue}}</view>
+        </view>
+        <view class="publishElse">
+            <view class="publishTag">
+                <image src="/assets/img/index/cou-icon/publishIcon.png"></image>
+                {{publishTag[index]}}
+            </view>
+            <view class="date">
+                <!-- <view class="text-green">发布时间：{{item.publishDate}}</view> -->
+                <view class="text-red">截至时间：{{item.deadline}}</view>
+            </view>
+        </view>
+    </view>
+</view>

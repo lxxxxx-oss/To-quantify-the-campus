@@ -14,8 +14,7 @@ Page({
         imgList: [],
         // 几种活动类型
         allTag: ["学校通知", "活动通知", "比赛通知", "考试通知"],
-        publishTag: [],
-        show: false
+        publishTag: []
     },
 
     /**
