@@ -18,20 +18,13 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        // 未到时间暂不开放
+        
         gotoDorm() {
-            wx.showModal({
-                title: '提示',
-                content: '还未到开放时间',
-                success (res) {
-                  if (res.confirm) {
-                    console.log('用户点击确定')
-                  } else if (res.cancel) {
-                    console.log('用户点击取消')
-                  }
-                }
-            })
+           wx.navigateTo({
+             url: '/components/refreshTo/space/stu-capacity/dorm/dorm',
+           })
         },
+        // 未到时间暂不开放
         gotoPayment() {
             wx.showModal({
                 title: '提示',

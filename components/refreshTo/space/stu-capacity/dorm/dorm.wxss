@@ -1,1 +1,32 @@
-/* components/refreshTo/space/stu-capacity/dorm/dorm.wxss */
+
+.sign{
+    float: left;
+    margin-left: 2%;
+    width:22%;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #999999;
+    font-size: 14px;
+    text-align: center;
+    /* font-family: -apple-system; */
+    margin-bottom:15px;
+    border:1px solid #DBDBDB;
+}
+.selected{
+    background-color: #FFA404;
+    color: rgba(255, 255, 255, 1);
+    border:1px solid #FFA404;
+}
+
+.submitBtn {
+    position: absolute;
+    background-color: #009999;
+    height: 80rpx;
+    /* margin-top: 100rpx; */
+    padding-top: 18rpx;
+    bottom: 120rpx;
+    left: 180rpx;
+    color: #fff;
+}

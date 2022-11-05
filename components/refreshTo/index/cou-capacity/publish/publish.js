@@ -46,12 +46,7 @@ Page({
             publishTag: e.detail.value
         })
     },
-    // 选择时间
-    // publishDate(e) {
-    //     this.setData({
-    //         publishDate: e.detail.value
-    //     })
-    // },
+
     deadline(e) {
         this.setData({
             deadline: e.detail.value

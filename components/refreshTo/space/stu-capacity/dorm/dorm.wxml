@@ -1,2 +1,50 @@
 <!-- 宿舍选择 -->
-<view>这里是宿舍选择页面</view>
+<view class="cu-form-group margin-top">
+    <view class="title">喜欢安静还是热闹</view>
+    <picker bindchange="tagChangeOne" value="{{selectOne}}" range="{{radioOne}}">
+        <view class="picker">
+            {{selectOne ? radioOne[selectOne] : '单选'}}
+        </view>
+    </picker>
+</view>
+<view class="cu-form-group margin-top">
+    <view class="title">喜欢早睡还是晚睡</view>
+    <picker bindchange="tagChangeTwo" value="{{selectTwo}}" range="{{radioTwo}}">
+        <view class="picker">
+            {{selectTwo ? radioTwo[selectTwo] : '单选'}}
+        </view>
+    </picker>
+</view>
+<view class="cu-form-group margin-top">
+    <view class="title">睡觉时间固定还是随性</view>
+    <picker bindchange="tagChangeThree" value="{{selectThree}}" range="{{radioThree}}">
+        <view class="picker">
+            {{selectThree ? radioThree[selectThree] : '单选'}}
+        </view>
+    </picker>
+</view>
+<view class="cu-form-group margin-top">
+    <view class="title">睡眠质量好还是不好</view>
+    <picker bindchange="tagChangeFour" value="{{selectFour}}" range="{{radioFour}}">
+        <view class="picker">
+            {{selectFour ? radioFour[selectFour] : '单选'}}
+        </view>
+    </picker>
+</view>
+<view class="cu-form-group margin-top">
+    <view class="title">内向还是外向</view>
+    <picker bindchange="tagChangeFive" value="{{selectFive}}" range="{{radioFive}}">
+        <view class="picker">
+            {{selectFive ? radioFive[selectFive] : '单选'}}
+        </view>
+    </picker>
+</view>
+<view class="cu-form-group margin-top">
+    <view class="title">你的兴趣爱好有什么：</view>
+</view>
+<view class="sign margin-top {{item.isSelect?'selected':''}}" wx:for="{{hobbies}}" wx:key="" bindtap='selectApply'  data-index='{{index}}'>
+    {{item.hobbyName}}
+</view>
+
+<!-- 提交按钮 -->
+<button class="submitBtn" bindtap="submitBtn">提交</button>
