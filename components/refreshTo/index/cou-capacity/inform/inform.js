@@ -96,7 +96,7 @@ Page({
                             that.data.infoId = []
                             that.data.imgList = []
                             // 刷新页面
-                            this.onLoad()
+                            that.onLoad()
                             // console.log(that.data.infoId);
 
                             // 提示用户
