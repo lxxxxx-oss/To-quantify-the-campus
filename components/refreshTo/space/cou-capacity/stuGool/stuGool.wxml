@@ -1,2 +1,40 @@
 <!-- 学生违规 -->
-<view>这里是学生违规页面</view>
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center .nav-border">
+    <view class="cu-item flex-sub {{index==TabCur?'bg-purple':''}}" wx:for="{{category}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+        {{item}}
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 不同类别展示不同信息 -->
+<!-- 逃课人员的信息 -->
+<view wx:if="{{TabCur == 0}}" class="cateTab">
+    <view class="tabCard" bindtap="detailInfo" wx:for="{{className}}" data-index="{{index}}">
+        <view class="cardTitle">大数据与计算机科学学院</view>
+        <view class="maginClass">
+            <view>{{item.name}}</view>
+            <view>{{category[0]}}信息查看</view>
+        </view>
+    </view>
+</view>
+<!-- 未归人员的信息 -->
+<view wx:if="{{TabCur == 1}}" class="cateTab" wx:for="{{className}}">
+    <view class="tabCard" bindtap="detailInfo">
+        <view class="cardTitle">大数据与计算机科学学院</view>
+        <view class="maginClass">
+            <view>{{item.name}}</view>
+            <view>{{category[1]}}信息查看</view>
+        </view>
+    </view>
+</view>
+<!-- 违纪人员的信息 -->
+<view wx:if="{{TabCur == 2}}" class="cateTab" wx:for="{{className}}">
+    <view class="tabCard" bindtap="detailInfo">
+        <view class="cardTitle">大数据与计算机科学学院</view>
+        <view class="maginClass">
+            <view>{{item.name}}</view>
+            <view>{{category[2]}}信息查看</view>
+        </view>
+    </view>
+</view>

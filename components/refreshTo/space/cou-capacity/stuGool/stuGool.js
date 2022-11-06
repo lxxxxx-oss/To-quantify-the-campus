@@ -1,66 +1,57 @@
-// components/stuGool/stuGool.js
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+        TabCur: 0,
+        scrollLeft:0,
+        category: ['逃课', '未归', '违纪'],
+        className: [
+            {
+                "name": "软工一班"
+            },
+            {
+                "name": "软工二班"
+            },
+            {
+                "name": "软工三班"
+            },
+            {
+                "name": "软工四班"
+            },
+            {
+                "name": "软工五班"
+            },
+            {
+                "name": "软工六班"
+            },
+            {
+                "name": "软工七班"
+            },
+            {
+                "name": "软工八班"
+            },
+            {
+                "name": "软工九班"
+            },
+            {
+                "name": "软工十班"
+            }
+        ]
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
-
+    // 切换类别
+    tabSelect(e) {
+        this.setData({
+            TabCur: e.currentTarget.dataset.id,
+            scrollLeft: (e.currentTarget.dataset.id-1)*60
+        })
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
+    // 点击查看详情
+    detailInfo(e) {
+        // console.log(e.currentTarget.dataset.index);
+        // 存储索引值
+        let index = e.currentTarget.dataset.index
+        wx.navigateTo({
+          url: './detailInfo/detailInfo?className='+this.data.className[index].name,
+        })
     }
-})
+  })

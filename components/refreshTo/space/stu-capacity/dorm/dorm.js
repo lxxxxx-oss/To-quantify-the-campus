@@ -1,3 +1,4 @@
+const {requestTwo} = require("../../../../../utils/request")
 Page({
     data: {
         // 单选
@@ -97,6 +98,21 @@ Page({
             ...this.data.hobbyList
         ]
         console.log(infoArr);
+
+        // 将学生选择的数据传入数据库，进行匹配
+        requestTwo({
+            url: '/api/match',
+            methods: 'GET',
+            data: [1665,5828,9376],
+            success(res) {
+                console.log(res);
+            },
+            fail(err) {
+                console.log(err);
+            }
+        }).then((res) => {
+            console.log(res);
+        })
     }
     
 })

@@ -665,6 +665,20 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/stu-capacity/dorm/dorm",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/cou-capacity/stuGool/stuGool",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

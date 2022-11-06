@@ -52,7 +52,8 @@
         "components/refreshTo/index/cou-capacity/major/major",
         "custom-tab-bar/index",
         "assets/libs/hg-editor/hg-editor",
-        "components/refreshTo/index/hou-capacity/punchDetail/punchDetail"
+        "components/refreshTo/index/hou-capacity/punchDetail/punchDetail",
+        "components/refreshTo/space/cou-capacity/stuGool/detailInfo/detailInfo"
     ],
     "window": {
         "backgroundTextStyle": "light",
