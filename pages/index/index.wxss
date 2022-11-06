@@ -23,7 +23,7 @@
 .scoll {
     white-space: nowrap;
     /* 动画对象 速度控制 */
-    animation: 9s loop linear infinite normal;
+    animation: 13s loop linear infinite normal;
     display: inline-block;
     vertical-align: top;
     font-size: 30rpx;

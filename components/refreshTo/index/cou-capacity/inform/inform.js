@@ -33,8 +33,14 @@ Page({
                 // 所有数据的ID
                 that.data.infoId.push(e.id)
             })
-            
-            console.log(that.data.infoId);
+            // 把活动主要内容存入缓存
+            // console.log(res.data.infoList.records[0].textareaValue);
+            let mainText = res.data.infoList.records[0].textareaValue
+            console.log(mainText);
+            wx.setStorage({
+                key: 'mainText',
+                data: mainText
+            })
             this.setData({
                 publishList: res.data.infoList.records,
                 imgList: that.data.imgList,

@@ -11,9 +11,9 @@
 </swiper>
 
 <!-- 通知栏 -->
-<view class="bulletinBoard">
+<view class="bulletinBoard" bindtap="detailText">
     <view><image src="/assets/img/index/trumpet.png" class="trumpet"></image></view>
-    <text class="scoll">今日任务今日任务今日任务今日任务今日任务今日任务今日任务今日任务</text>
+    <text class="scoll">{{mainText}}</text>
 </view>
 
 <!-- 辅导员的功能选项 -->

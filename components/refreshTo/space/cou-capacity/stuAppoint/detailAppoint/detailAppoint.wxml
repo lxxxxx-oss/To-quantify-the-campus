@@ -1,0 +1,8 @@
+<!-- 班委任命的详情页 -->
+<view class="appointTitle">{{classNum}}人员名单</view>
+
+<view wx:for="{{className}}" class="member">
+    {{item}}
+    <!-- 指定该学生为班委的按钮 -->
+    <view class="appointBtn" bindtap="appointBtn" data-index="{{index}}">指定</view>
+</view>

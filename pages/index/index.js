@@ -12,24 +12,16 @@ Page({
               type: 'image',
               url: '/assets/img/index/swiper.jpg',
           }
-        ]
+        ],
+        mainText: ""
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // 显示加载中loading效果 
-        // wx.showLoading({  
-        //     title: "加载中",
-        //     mask: false, //开启蒙版遮罩
-        //     icon: 'loading',
-        //     duration: 200    //提示的延迟时间
-        // });
-        // var w = wx.getSystemInfoSync().windowWidth;
-        // var h = wx.getSystemInfoSync().windowHeight;
-        // console.log(w);
-        // console.log(h);
+        var that = this
+        //#region 
         //根据登录时携带的ID信息,选择要展示的功能选项卡
        const app =getApp();
        // 普通学生
@@ -56,7 +48,28 @@ Page({
                 isCom: true
             })
         }
-        console.log(app.globalData);
+        // console.log(app.globalData);
+        //#endregion
+        // 拿到通知的主要内容
+        wx.getStorage({
+            key: 'mainText',
+            success(res) {
+                console.log(res.data.length);
+                // console.log(res.data.split("",208));
+                // 将内容切割成数组
+                let splited = res.data.split("",208)
+                // 过滤掉数组中的空格和换行
+                let newArr = splited.filter((item) => {
+                    return item != " " && item != "\n"
+                })
+                // 将数组转换成字符串，不用分隔符
+                let strText = newArr.join("")
+                // console.log(strText);
+                that.setData({
+                    mainText: strText
+                })
+            }
+        })
     },
 
     /**
@@ -77,44 +90,19 @@ Page({
         }
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
-    },
-    // DotStyle(e) {
-    //     this.setData({
-    //       DotStyle: e.detail.value
-    //     })
-    //   },
+    // 点击查看详细通知内容
+    detailText() {
+        wx.showModal({
+            title: '全部内容',
+            content: this.data.mainText,
+            success (res) {
+                if (res.confirm) {
+                    console.log('用户点击确定')
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
+    }
 
 })

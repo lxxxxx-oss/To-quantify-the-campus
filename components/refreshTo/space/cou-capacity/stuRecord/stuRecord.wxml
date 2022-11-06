@@ -1,5 +1,44 @@
 <!-- 学生履历 -->
-<view class="stu-category">
-    <view>综测</view>
-    <view>获奖</view>
+<scroll-view scroll-x class="bg-white nav">
+    <view class="flex text-center">
+        <view class="cu-item flex-sub {{index==TabCur?'bg-white nav-border':''}}" wx:for="{{category}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+            {{item}}
+        </view>
+    </view>
+</scroll-view>
+
+<!-- 综测和获奖 -->
+<view wx:if="{{TabCur == 0}}" class="tabCard" wx:for="{{className}}">
+    <view>大数据与计算机科学学院</view>
+    <view>{{item.name}}</view>
+    <view>查看</view>
+</view>
+<view wx:if="{{TabCur == 1}}">
+    <!-- 展示获奖信息 -->
+    <view class="cu-card case">
+        <!-- 循环渲染从缓存里面,拿到的获奖信息 -->
+        <view class="cu-item shadow" wx:for="{{infoList}}" wx:key="index" data-index="{{index}}"  bindtap="viewInfo">
+            <view class="image">
+                <image src="{{item.imgSrc}}" mode="widthFix"></image>
+                <view class="cu-tag bg-blue">{{item.awardsCate}}</view>
+                <view class="cu-bar bg-shadeBottom">
+                <!-- <text class="text-cut"></text> -->
+                </view>
+            </view>
+            <view class="cu-list menu-avatar">
+                <view class="cu-item">
+                <view class="cu-avatar round lg" style="background-image:url({{userInfo}});"></view>
+                <view class="content flex-sub">
+                    <view class="text-grey">{{item.awardsName}}-{{item.awardsCate}}-{{item.awardsLevel}}</view>
+                    <view class="text-gray text-sm flex justify-between">
+                    {{item.date}}
+                    <view class="text-gray">
+                        综测加分：{{item.marks}}分
+                    </view>
+                    </view>
+                </view>
+                </view>
+            </view>
+        </view>
+    </view>
 </view>

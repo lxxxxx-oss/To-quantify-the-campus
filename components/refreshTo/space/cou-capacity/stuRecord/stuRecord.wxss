@@ -1,12 +1,25 @@
-page {
-    padding: 0;
-    margin: 0;
+.nav-border {
+    border-bottom: 2rpx solid #6F36A1;
 }
-
-.stu-category {
+.cateTab {
+    margin: 50rpx 0 0 10rpx;
+    width: 100%;
+}
+.tabCard {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
-    height: 100rpx;
-    border-bottom: 2rpx solid #cecece;
+    height: 220rpx;
+    margin-top: 60rpx;
+    padding: 0 80rpx 20rpx 30rpx;
+    background-color: #6F36A1 ;
+    color: #fff;
+    border-radius: 20rpx;
+}
+.cardTitle {
+    font-size: 43rpx;
+}
+.maginClass {
+    display: flex;
+    justify-content: space-between;
 }

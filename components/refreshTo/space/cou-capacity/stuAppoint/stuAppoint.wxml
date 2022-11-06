@@ -1,2 +1,10 @@
 <!-- 学生任命 -->
-<view>这里是学生任命页面</view>
+<view class="cateTab">
+    <view class="tabCard" bindtap="detailAppoint" wx:for="{{className}}" data-index="{{index}}">
+        <view class="cardTitle">大数据与计算机科学学院</view>
+        <view class="maginClass">
+            <view>{{item.name}}</view>
+            <view>班委任命</view>
+        </view>
+    </view>
+</view>

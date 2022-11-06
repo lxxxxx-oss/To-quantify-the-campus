@@ -1,1 +1,18 @@
-/* components/stuAppoint/stuAppoint.wxss */
+.tabCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 220rpx;
+    margin-top: 60rpx;
+    padding: 0 80rpx 20rpx 30rpx;
+    background-color: #6F36A1 ;
+    color: #fff;
+    border-radius: 20rpx;
+}
+.cardTitle {
+    font-size: 43rpx;
+}
+.maginClass {
+    display: flex;
+    justify-content: space-between;
+}
