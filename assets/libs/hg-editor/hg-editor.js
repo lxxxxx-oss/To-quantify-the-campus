@@ -1,136 +1,66 @@
-// components/hg-editor/hg-editor.js
+// assets/libs/hg-editor/hg-editor.js
+Page({
 
-/**
- * @author 秦玉成
- * 未经允许，请不要擅自改动，如果使用，请在最后说明出处
- */
+    /**
+     * 页面的初始数据
+     */
+    data: {
 
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    /**是否显示工具栏 */
-    showTabBar: {
-      type: 'Boolean',
-      value: true
     },
-    placeholder: {
-      type: 'String',
-      value: '请输入相关内容'
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad(options) {
+
     },
-    name: {
-      type: 'String',
-      value: ''
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady() {
+
     },
-    uploadImageURL: {
-      type: 'String',
-      value: ''
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow() {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide() {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload() {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh() {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom() {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage() {
+
     }
-  },
-
-  /**
-   * 组件的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-    _onEditorReady: function () {
-        const that = this;
-        that.createSelectorQuery().select('#editor').context(function (res) {
-        that.editorCtx = res.context
-        }).exec()
-    },
-    //插入图片
-    _addImage: function (event) {
-        var app = getApp()
-        var _this = this;
-        wx.chooseImage({
-        count: 1,
-        sizeType: ['compressed'],
-        sourceType: ['album', 'camera'],
-        success: function (res) {
-            //   wx.showLoading({
-            //     title: '上传中',
-            //     mask: true
-            //   });
-            _this._uploadImage(res.tempFilePaths[0], event.currentTarget.dataset.uploadimageurl)
-            // console.log(event.currentTarget.dataset.uploadimageurl);
-            app.globalData.imgSrc = res.tempFilePaths[0]
-            // console.log(app.globalData.imgSrc);
-        }
-        });
-    },
-    showImg() {
-        var app = getApp()
-        this.setData({
-            imgSrc: app.globalData.imgSrc
-        })
-        // console.log(this.data.imgSrc);
-    },
-    _uploadImage: function (tempFilePath, uploadImageURL) {
-      let _this = this;
-      wx.uploadFile({
-        filePath: tempFilePath,
-        name: 'image',
-        url: uploadImageURL,
-        success: function (res) {
-          res = JSON.parse(res.data);
-          wx.hideLoading({
-            success: () => {
-              if (res.code === 200) {
-                _this.editorCtx.insertImage({
-                  src: res.data
-                });
-              } else {
-                wx.showToast({
-                  icon: 'error',
-                  title: '服务器错误,稍后重试！',
-                  mask: true
-                })
-              }
-            },
-          });
-        }
-      });
-    },
-    //设置斜体
-    _addItalic: function () {
-      this.editorCtx.format("italic")
-    },
-    //添加粗体样式
-    _addBold: function () {
-      this.editorCtx.format("bold")
-    },
-    //设置标题
-    _addHeader: function (e) {
-      let headerType = e.currentTarget.dataset.header;
-      this.editorCtx.format("header", headerType)
-    },
-    //设置文字的排列方式
-    _addAlign: function (e) {
-      let alignType = e.currentTarget.dataset.align;
-      this.editorCtx.format("align", alignType);
-    },
-    //设置列表
-    _addList: function (e) {
-      let listType = e.currentTarget.dataset.list;
-      this.editorCtx.format("list", listType);
-    },
-    //撤销
-    _undo: function () {
-      this.editorCtx.undo();
-    },
-    //监控输入
-    _onInputting: function (e) {
-      let html = e.detail.html;
-      let text = e.detail.text;
-      this.triggerEvent("input", { html: html, text: text }, {});
-    }
-  }
 })

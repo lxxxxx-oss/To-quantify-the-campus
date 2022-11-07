@@ -3,13 +3,63 @@ Component({
   data: {
     selectedColor: "#468AFB",
     selected: 0,
-    list: []
+    list: [],
+    elselist: [
+        {
+            "pagePath": "pages/index/index",
+            "text": "首页",
+            "iconPath": "/assets/img/tabBar/index.png",
+            "selectedIconPath": "/assets/img/tabBar/index-active.png"
+        },
+        {
+            "pagePath": "pages/space/space",
+            "text": "空间",
+            "iconPath": "/assets/img/tabBar/space.png",
+            "selectedIconPath": "/assets/img/tabBar/space-active.png",
+            "isSpecial": true
+        },
+        {
+            "pagePath": "pages/home/home",
+            "text": "我的",
+            "iconPath": "/assets/img/tabBar/my.png",
+            "selectedIconPath": "/assets/img/tabBar/my-active.png"
+        }
+    ],
+    houList: [
+        {
+            "pagePath": "pages/index/index",
+            "text": "首页",
+            "iconPath": "/assets/img/tabBar/index.png",
+            "selectedIconPath": "/assets/img/tabBar/index-active.png"
+        },
+        {
+            "pagePath": "pages/print/print",
+            "text": "打印",
+            "iconPath": "/assets/img/tabBar/print.png",
+            "selectedIconPath": "/assets/img/tabBar/print-active.png",
+            "isSpecial": true
+        },
+        {
+            "pagePath": "pages/home/home",
+            "text": "我的",
+            "iconPath": "/assets/img/tabBar/my.png",
+            "selectedIconPath": "/assets/img/tabBar/my-active.png"
+        }
+    ]
+    
   },
     //组件的生命周期函数
     attached() {
-     this.setData({
-      list: app.globalData.list
-     })
+        if(app.globalData.isHou) {
+            this.setData({
+                list: this.data.houList
+            })
+        }else {
+            this.setData({
+                list: this.data.elselist
+            })
+        }
+        
     },
   methods: {
     switchTab(event) {

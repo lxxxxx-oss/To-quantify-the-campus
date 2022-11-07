@@ -5,7 +5,6 @@
         "pages/home/home",
         "pages/space/space",
         "pages/print/print",
-        "components/loading/loading",
         "components/refreshTo/index/hou-capacity/affiche/affiche",
         "components/refreshTo/index/hou-capacity/bed/bed",
         "components/refreshTo/index/hou-capacity/punch/punch",

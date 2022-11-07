@@ -151,70 +151,12 @@ Page({
         })
     },
 
-    // 除宿管外其他用户登录时展示的tabbar
-    LoginTab() {
-        const app =getApp();
-        app.globalData.list = [
-            {
-                "pagePath": "pages/index/index",
-                "text": "首页",
-                "iconPath": "/assets/img/tabBar/index.png",
-                "selectedIconPath": "/assets/img/tabBar/index-active.png"
-            },
-            {
-                "pagePath": "pages/space/space",
-                "text": "空间",
-                "iconPath": "/assets/img/tabBar/space.png",
-                "selectedIconPath": "/assets/img/tabBar/space-active.png",
-                "isSpecial": true
-            },
-            {
-                "pagePath": "pages/home/home",
-                "text": "我的",
-                "iconPath": "/assets/img/tabBar/my.png",
-                "selectedIconPath": "/assets/img/tabBar/my-active.png"
-            }
-        ]
-        wx.switchTab({
-         url: '/pages/index/index',
-        })
-       },
-    //宿管登录时展示的tabbar    
-    houLoginTab() {
-    const app =getApp();
-    app.globalData.list = [
-        {
-            "pagePath": "pages/index/index",
-            "text": "首页",
-            "iconPath": "/assets/img/tabBar/index.png",
-            "selectedIconPath": "/assets/img/tabBar/index-active.png"
-        },
-        {
-            "pagePath": "pages/print/print",
-            "text": "打印",
-            "iconPath": "/assets/img/tabBar/print.png",
-            "selectedIconPath": "/assets/img/tabBar/print-active.png",
-            "isSpecial": true
-        },
-        {
-            "pagePath": "pages/home/home",
-            "text": "我的",
-            "iconPath": "/assets/img/tabBar/my.png",
-            "selectedIconPath": "/assets/img/tabBar/my-active.png"
-        }
-    ]
-    wx.switchTab({
-        url: '/pages/index/index',
-    })
-    },
-
     // 不同用户展示不同页面
     // 学生登录时的页面
     // 可以在一个按钮上绑定多个点击函数
     stuLoginAll() {
         var that = this
         that.stuLogin()
-        that.LoginTab()
     },
     stuLogin() {
         const app = getApp();
@@ -228,7 +170,6 @@ Page({
     comLoginAll() {
         var that = this
         that.comLogin()
-        that.LoginTab()
     },
     comLogin() {
         const app = getApp();
@@ -242,7 +183,6 @@ Page({
     couLoginAll() {
         var that = this
         that.couLogin()
-        that.LoginTab()
     },
     couLogin() {
         const app = getApp();
@@ -255,7 +195,6 @@ Page({
     houLoginAll() {
         var that = this
         that.houLogin()
-        that.houLoginTab()
     },
     houLogin() {
         const app = getApp();
@@ -263,49 +202,5 @@ Page({
         wx.switchTab({
             url: '/pages/index/index',
         })
-    },
-    // #endregion
-    userLogin() {
-        // var that = this
-        // console.log(that.data.number);
-        // console.log(that.data.pass);
-        // wx.request({
-        //     url : "https://alaskaboo.cn/login",
-        //     method: "POST",
-        //     data: {
-        //         username : that.data.number,
-        //         password : that.data.pass,
-        //         code: JSON.stringify(that.data.userCode)
-        //     },
-        //     header: {
-        //         "Content-Type": "application/x-www-form-urlencoded"
-        //     },
-        //     success: function (res) {
-        //         console.log(res);
-        //         // 获取登录用户的身份类型
-        //         // console.log(res.data.data.currentUser.userType);
-        //         that.setData({
-        //             userType: res.data.data.currentUser.userType
-        //         })
-        //         let inputNum = that.data.userType
-        //         console.log(inputNum);
-        //         // 后端传来当前用户的权限ID，则进行判断
-        //         if(inputNum == 4) {
-        //             that.stuLoginAll();
-        //         } else if(inputNum == 5) {
-        //             that.comLoginAll();
-        //         } else if(inputNum == 2) {
-        //             that.couLoginAll()
-        //         }else{
-        //             that.houLoginAll()
-        //         }
-        //     },
-        //     fail: function (err) {
-        //         wx.showModal({
-        //             title: '提示',
-        //             content: err,
-        //         })
-        //     }
-        // })
     }
 })
