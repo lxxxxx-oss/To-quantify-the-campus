@@ -13,7 +13,10 @@ Page({
               url: '/assets/img/index/swiper.jpg',
           }
         ],
-        mainText: ""
+        // 存储通知栏里面的内容
+        mainText: "",
+        // 用来标识通知是否被阅读
+        flag: false
     },
 
     /**
@@ -92,12 +95,16 @@ Page({
 
     // 点击查看详细通知内容
     detailText() {
+        var that = this
         wx.showModal({
             title: '全部内容',
             content: this.data.mainText,
             success (res) {
                 if (res.confirm) {
-                    console.log('用户点击确定')
+                    // 点击确定，收到通知
+                    that.setData({
+                        flag: true
+                    })
                 } else if (res.cancel) {
                     console.log('用户点击取消')
                 }

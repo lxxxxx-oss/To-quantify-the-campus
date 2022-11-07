@@ -5,11 +5,12 @@
     justify-content: space-between;
     height: 80rpx;
     width: 700rpx;
-    background-color: #C9FAE0;
+    background-color: #FF0033;
     overflow: hidden;
     margin-top: 30rpx;
     padding-top: 20rpx;
     border-radius: 30rpx;
+    color: #000000;
     box-shadow: 21px 18px 13px -11px rgba(0,0,0,0.1);
 } 
 .trumpet {
@@ -27,7 +28,7 @@
     display: inline-block;
     vertical-align: top;
     font-size: 30rpx;
-    color: #6e7074;
+    /* color: #6e7074; */
 }
 
 @keyframes loop {
