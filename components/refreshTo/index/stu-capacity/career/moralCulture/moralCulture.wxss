@@ -53,18 +53,20 @@ page {
     right: 0;
     bottom: 0;
 }
-/* 悬浮按钮的样式 */
-.movable-view{ 
-    pointer-events:auto;
+/* 发布通知按钮 */
+.publishBtn {
+    position: fixed;
+    bottom: 100rpx;
+    right: 20rpx;
     height: 150rpx;
     width: 150rpx;
+    background-color:#5ec6e6;
     border-radius: 50%;
-    background-color: #99CCCC;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.movable-view image {
+.publishBtn image {
     height: 130rpx;
     width: 130rpx;
 }
