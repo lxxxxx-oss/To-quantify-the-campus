@@ -55,3 +55,86 @@
     }
   }
 
+/* 天气预报 */
+ /* 工具类 */
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.mb-32{
+    margin-bottom: 30rpx;
+}
+/* 整个天气预报卡片 */
+.header-modular {
+    height: 300rpx;
+    background-color: #64C8FA;
+    background: linear-gradient(to bottom, #56CCF2, #2F80ED);
+    position: relative;
+    padding: 30rpx;
+    margin-top: 30rpx;
+    border-radius: 30rpx;
+}
+/* 波浪的效果 */
+.header-modular .bg-wave {
+    width: 100vw;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 100rpx;
+    mix-blend-mode: screen;
+    border-radius: 30rpx;
+}
+/* 温馨提示 */
+.prompt {
+    margin: 10rpx 30rpx 10rpx 30rpx;
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #FFFFFF;
+    /* border-bottom: 2rpx solid #cecece; */
+}
+.header-modular .location-wrap {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 36rpx;
+}
+
+.header-modular .location-wrap .icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 8rpx;
+}
+
+.header-modular .tmp {
+    font-size: 100rpx;
+    /* font-weight: bold; */
+    color: #ffffff;
+    margin-right: auto;
+}
+
+.header-modular .icon-weather {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.header-modular .tips-wrap {
+    display: flex;
+    justify-content: space-between;
+    }
+
+.header-modular .tips {
+    margin: 10rpx;
+    font-size: 30rpx;
+    opacity: 0.8;
+    color: #ffffff;
+    flex: 1;
+}
+
+.header-modular .tips:nth-child(3) {
+    text-align: right;
+}
+
+.header-modular .tips:nth-child(2) {
+    text-align: center;
+}

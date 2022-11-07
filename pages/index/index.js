@@ -1,4 +1,5 @@
-// pages/index/index.js
+// 和风天气申请的Key
+const APIKEY = "804506a95ce74d1b870cbf7b0e5da6a9";
 Page({
 
     // 在最开始将所有身份的功能卡全部隐藏
@@ -16,7 +17,25 @@ Page({
         // 存储通知栏里面的内容
         mainText: "",
         // 用来标识通知是否被阅读
-        flag: false
+        flag: false,
+        // 存储天气信息
+        now: "",
+        // 根据当天天气状况决定提示消息
+        prompt: [
+            {
+                "tips": "今天天气很好出去走走吧"
+            },
+            {
+                "tips": "出门前记得带伞哦"
+            },
+            {
+                "tips": "今天风很大，记得收衣服哦"
+            },
+            {
+                "tips": "天气转冷注意保暖哦"
+            },
+        ],
+        currentPrompt: ""
     },
 
     /**
@@ -57,7 +76,7 @@ Page({
         wx.getStorage({
             key: 'mainText',
             success(res) {
-                console.log(res.data.length);
+                // console.log(res.data.length);
                 // console.log(res.data.split("",208));
                 // 将内容切割成数组
                 let splited = res.data.split("",208)
@@ -73,6 +92,9 @@ Page({
                 })
             }
         })
+
+        // 调用天气预报接口
+        this.getLocation()
     },
 
     /**
@@ -118,6 +140,238 @@ Page({
                 }
             }
         })
+    },
+    //#region 
+    // 天气预报的展示
+    //选择定位
+  selectLocation() {
+    var that = this
+    wx.chooseLocation({
+      success(res) {
+        //console.log(res)
+        that.setData({
+            location: res.longitude + "," + res.latitude
+        })
+        that.getWeather()
+        that.getCityByLoaction()
+      }
+      , fail() {
+        wx.getLocation({
+          type: 'gcj02',
+          fail() {
+            wx.showModal({
+              title: '获取地图位置失败',
+              content: '为了给您提供准确的天气预报服务,请在设置中授权【位置信息】',
+              success(mRes) {
+                if (mRes.confirm) {
+                  wx.openSetting({
+                    success: function (data) {
+                      if (data.authSetting["scope.userLocation"] === true) {
+                        that.selectLocation()
+                      } else {
+                        wx.showToast({
+                          title: '授权失败',
+                          icon: 'none',
+                          duration: 1000
+                        })
+                      }
+                    }, fail(err) {
+                      console.log(err)
+                      wx.showToast({
+                        title: '唤起设置页失败，请手动打开',
+                        icon: 'none',
+                        duration: 1000
+                      })
+                    }
+                  })
+                }
+              }
+            })
+          }
+        })
+
+      }
+    })
+  },
+  /**
+   * 获取定位
+   */
+  getLocation() {
+    var that = this
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        that.setData({
+          location: res.longitude + "," + res.latitude
+        })
+        that.getWeather()
+        that.getCityByLoaction()
+      }, fail(err) {
+        wx.showModal({
+          title: '获取定位信息失败',
+          content: '为了给您提供准确的天气预报服务,请在设置中授权【位置信息】',
+          success(mRes) {
+            if (mRes.confirm) {
+              wx.openSetting({
+                success: function (data) {
+                  if (data.authSetting["scope.userLocation"] === true) {
+                    wx.showToast({
+                      title: '授权成功',
+                      icon: 'success',
+                      duration: 1000
+                    })
+                    that.getLocation()
+                  } else {
+                    wx.showToast({
+                      title: '授权失败',
+                      icon: 'none',
+                      duration: 1000
+                    })
+                    that.setData({
+                      location: "116.41,39.92"
+                    })
+                    that.getWeather()
+                    that.getCityByLoaction()
+                  }
+                }, fail(err) {
+                  console.log(err)
+                  wx.showToast({
+                    title: '唤起设置页失败，请手动打开',
+                    icon: 'none',
+                    duration: 1000
+                  })
+                  that.setData({
+                    location: "116.41,39.92"
+                  })
+                  that.getWeather()
+                  that.getCityByLoaction()
+                }
+              })
+            } else if (mRes.cancel) {
+              that.setData({
+                location: "116.41,39.92"
+              })
+              that.getWeather()
+              that.getCityByLoaction()
+            }
+          }
+        })
+      }
+    })
+  },
+  /**
+   * 根据坐标获取城市信息
+   */
+  getCityByLoaction() {
+    var that = this
+    wx.request({
+      url: 'https://geoapi.qweather.com/v2/city/lookup?key=' + APIKEY + "&location=" + that.data.location,
+      success(result) {
+        var res = result.data
+        if (res.code == "200") {
+          var data = res.location[0]
+          that.setData({
+            City: data.adm2,
+            County: data.name
+          })
+        } else {
+          wx.showToast({
+            title: '获取城市信息失败',
+            icon: 'none'
+          })
+        }
+
+      }
+    })
+  },
+  //#endregion
+  /**
+   * 获取天气
+   */
+  getWeather() {
+    var that = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: 'https://devapi.qweather.com/v7/weather/now?key=' + APIKEY + "&location=" + that.data.location,
+      success(result) {
+        var res = result.data
+        //console.log(res)
+        that.setData({
+          now: res.now
+        })
+        console.log(that.data.now);
+        console.log(that.data.now.temp);
+        // 根据天气状况，决定提醒信息
+        if(that.data.now.temp <= 20) {
+            that.setData({
+                currentPrompt: that.data.prompt[3].tips
+            })
+        }else if(that.data.now.precip > 0.0) {
+            that.setData({
+                currentPrompt: that.data.prompt[1].tips
+            })
+        }else if(that.data.now.text == '晴天') {
+            that.setData({
+                currentPrompt: that.data.prompt[0].tips
+            })
+        }else if(that.data.now.windScale >= 5) {
+            that.setData({
+                currentPrompt: that.data.prompt[2].tips
+            })
+        }
+      }
+    })
+    wx.request({
+      url: 'https://devapi.qweather.com/v7/weather/24h?key=' + APIKEY + "&location=" + that.data.location,
+      success(result) {
+        var res = result.data
+        //console.log(res)
+        res.hourly.forEach(function (item) {
+          item.time = that.formatTime(new Date(item.fxTime)).hourly
+        })
+        that.setData({
+          hourly: res.hourly
+        })
+      }
+    })
+    wx.request({
+      url: 'https://devapi.qweather.com/v7/weather/7d?key=' + APIKEY + "&location=" + that.data.location,
+      success(result) {
+        var res = result.data
+        //console.log(res)
+        res.daily.forEach(function (item) {
+          item.date = that.formatTime(new Date(item.fxDate)).daily
+          item.dateToString = that.formatTime(new Date(item.fxDate)).dailyToString
+        })
+        that.setData({
+          daily: res.daily
+        })
+        wx.hideLoading()
+      }
+    })
+  },
+  // 格式时间
+  formatTime(date) {
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    const hour = date.getHours()
+    const minute = date.getMinutes()
+    const second = date.getSeconds()
+    const weekArray = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
+    const isToday = date.setHours(0, 0, 0, 0) == new Date().setHours(0, 0, 0, 0)
+    return {
+      hourly: [hour, minute].map(this.formatNumber).join(":"),
+      daily: [month, day].map(this.formatNumber).join("-"),
+      dailyToString: isToday ? "今天" : weekArray[date.getDay()]
     }
+  },
+  // 补零
+  formatNumber(n) {
+    n = n.toString()
+    return n[1] ? n : '0' + n
+  },
 
 })
