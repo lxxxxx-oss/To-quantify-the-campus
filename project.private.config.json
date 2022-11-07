@@ -749,6 +749,20 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/stu-capacity/schedule/schedule",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/stu-capacity/schedule/schedule",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

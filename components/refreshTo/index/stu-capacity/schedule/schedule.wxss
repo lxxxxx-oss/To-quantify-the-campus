@@ -165,9 +165,9 @@ page {
     background: #fff;
     box-sizing: border-box;
     padding: 20px;
-    color: #7e7a7a;
-    font-size: 27rpx;
-    line-height: 40rpx;
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 70rpx;
   }
   
   .modal.noShow {
