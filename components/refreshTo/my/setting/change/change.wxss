@@ -1,4 +1,9 @@
-/* components/refreshTo/my/stu-capacity/setting/change/change.wxss */
+.changeHint {
+    margin: 30rpx 0 30rpx 0;
+    text-align: center;
+    font-size: 45rpx;
+    color:#009933;
+}
 .changePass {
     display: flex;
     flex-direction: column;
@@ -14,18 +19,19 @@ input {
     width: 500rpx;
     padding-left: 20rpx;
     margin: 50rpx 0 50rpx 0;
-    border: 2rpx solid #FF0033;
+    border: 2rpx solid #666666;
     border-radius: 20rpx;
 }
 
 .notarize {
-    background-color: #FF9966;
+    background-color: #CC9900;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90rpx;
     width: 65%;
     margin: auto;
+    margin-top: 50rpx;
     border-radius: 30rpx;
     color: #fff;
     font-size: 35rpx;

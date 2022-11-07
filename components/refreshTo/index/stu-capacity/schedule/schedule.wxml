@@ -1,91 +1,92 @@
-<view class="scheduleHeader">
-
-	<l-collapse type="accordion" l-class="collapse">
-		<l-collapse-item title="第{{currentWeeks+2}}周" l-title-class="l-title-class">
-			<l-segment height="120" l-active-class="segment-active-class" l-inactive-class="segment-class" bind:linchange="changeWeeks" active-key="{{currentWeeks}}" l-header-line-class="l-header-line-class" even="{{false}}" scrollable animated-for-line="{{true}}" l-header-class="l-header-class">
-				<l-segment-item dot-badge="{{thisWeek==index?true:false}}" tab="{{'第'+(index+2)+'周'}}" key="{{index}}" wx:for="{{20}}" l-class="segment" item-height="120">
-					<view class="tab-content" style="{{thisWeek==index?'color:red':''}}">{{'第'+(index+2)+'周'}}</view>
-				</l-segment-item>
-			</l-segment>
-		</l-collapse-item>
-	</l-collapse>
-
-	<!-- 星期几 -->
-	<view class="weekContainer">
-		<view class="weekConntent">
-			<view class="weekDate" style="width:8vw;font-size: 28rpx;">
-				<view class="weekDateInfo">
-					<text>{{weeksData[currentWeeks].month+'月'}}</text>
-				</view>
-			</view>
-			<view class="weekDate" style="width:13vw;{{weeksData[currentWeeks].isDay==index?'background: #6f6f6f;color: #EAEAEA;':''}}" wx:for="{{weeks}}" wx:key="index+1" key="{{index+1}}">
-				<view class="weekDateInfo">
-					<text class="text-center">{{item}}</text>
-					<text style="font-size:20rpx;text-align: center">{{weeksData[currentWeeks].date[index]}}</text>
-				</view>
-			</view>
-		</view>
-	</view>
+<!--pages/actualPage/scheduleCard/index.wxml-->
+<view class="flex-row head">
+  <view class="head-left flex-column j_c">
+    <image src="https://s3.bmp.ovh/imgs/2022/07/27/6289fe4ab016c74a.png" class="head-icon" />
+    <text class="head-left-text one">第</text>
+    <text class="head-left-text two">周</text>
+    <text class="head-curr-week">{{currentWeek}}</text>
+  </view>
+  <view class="head-right flex-row j_b">
+    <view class="flex-column j_c" wx:for="{{weekList}}" wx:key="list">
+      <text class="head-week {{item.isCurr && 'head-right-curr'}}">{{item.week}}</text>
+      <text class=" {{item.isCurr && 'head-right-curr'}}">{{item.isCurr?'今天':item.day}}</text>
+    </view>
+  </view>
 </view>
-
-<!-- 课表主体 -->
-<scroll-view class="scheduleContainer" scroll-y enable-flex >
-
-	<!--	左侧的节数-->
-	<view class="classNumberContainer " style="width:8vw;">
-		<view class="classNumber ywl-animation" wx:for="{{classTimes}}" style="{{isBig?'height:10vh':''}}">
-			{{index+1}}
-			<text class="classTimeText">{{item.start}}</text>
-			<text class="classTimeText">{{item.end}}</text>
-		</view>
-	</view>
-
-	<!--	右侧主体内容-->
-	<view class="classBodyContainer">
-		<view class="classBodyNodeContainer" wx:for="{{classListNumber}}">
-			<l-transition show="{{ item != null }}"  l-class="case-custom-class">
-				<view class="ywl-animation classBodyNode" bindtap="tapClassNode" data-index="{{item}}">
-					<block wx:if="{{item != null}}">
-						<block wx:if="{{currentWeeksClass[item].isCover}}">
-							<block wx:for="{{currentWeeksClass[item].courseName.length}}" wx:for-item="items" wx:for-index="idx">
-								<view class="">
-									<view class=""><text>{{currentWeeksClass[item].isHide?'':currentWeeksClass[item].courseName[idx]}}</text></view>
-								</view>
-								<view class="">
-									<view class=""><text>{{currentWeeksClass[item].isHide?'':currentWeeksClass[item].classLocation[idx]}}</text></view>
-								</view>
-							</block>
-						</block>
-						<block wx:else>
-							<view class="classTitle ywl-animation">
-								<view class="text-center"><text>{{currentWeeksClass[item].isHide?'':currentWeeksClass[item].className}}</text></view>
-							</view>
-							<view class="classAddress ywl-animation">
-								<view class="text-center "><text>{{currentWeeksClass[item].isHide?'':currentWeeksClass[item].classroom}}</text></view>
-							</view>
-						</block>
-					</block>
-				</view>
-			</l-transition>
-		</view>
-	</view>
-</scroll-view>
-
-
-<!--弹出层-->
-<l-popup show="{{isShow && tapClassIndex != null}}">
-	<view class="classContent">
-		<block wx:if="{{currentWeeksClass[tapClassIndex].isCover}}">
-			<block wx:for="{{currentWeeksClass[tapClassIndex].courseName.length}}">
-				<text>{{currentWeeksClass[tapClassIndex].courseName[item]}}</text>
-				<text>{{currentWeeksClass[tapClassIndex].classLocation[item]}}</text>
-				<text>{{currentWeeksClass[tapClassIndex].teacherName[item]}}</text>
-			</block>
-		</block>
-		<block wx:else>
-			<text>{{currentWeeksClass[tapClassIndex].courseName}}</text>
-			<text>{{currentWeeksClass[tapClassIndex].classLocation}}</text>
-			<text>{{currentWeeksClass[tapClassIndex].teacherName}}</text>
-		</block>
-	</view>
-</l-popup>
+<view class="container flex-row mb20">
+  <view class="container-left flex-column j_b">
+    <block wx:for="{{time.one}}" wx:key="list">
+      <view class="flex-column j_c">
+        <text class="con-title">{{item.index}}</text>
+        <text>{{item.timeStart}}</text>
+        <text>{{item.timeEnd}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="container-right  flex col j_c">
+    <view class="flex-row mb10">
+      <view class="con-item flex-column j_c " wx:for="{{schedule.one}}" wx:key="list" style="background: {{item.color}};" catchtap="{{item.type ? 'getDetail':''}}" data-item="{{item}}">
+        <text class="con-item-subj line_ellipsis">{{item.sub}}</text>
+        <text class="line_ellipsis">{{item.tec}}</text>
+        <text class="line_ellipsis">{{item.add}}</text>
+      </view>
+    </view>
+    <view class="flex-row">
+      <view class="con-item flex-column j_c " wx:for="{{schedule.two}}" wx:key="list" style="background: {{item.color}};" catchtap="{{item.type ? 'getDetail':''}}" data-item="{{item}}">
+        <text class="con-item-subj">{{item.sub}}</text>
+        <text>{{item.tec}}</text>
+        <text>{{item.add}}</text>
+      </view>
+    </view>
+    <image src="https://s3.bmp.ovh/imgs/2022/07/27/85dabf1d5821a98b.png" class="con-icon" />
+  </view>
+</view>
+<view class="container flex-row mb20">
+  <view class="container-left left1">
+    <block wx:for="{{time.two}}" wx:key="list">
+      <view class="flex-column j_c">
+        <text class="con-title">{{item.index}}</text>
+        <text>{{item.timeStart}}</text>
+        <text>{{item.timeEnd}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="container-right right1  flex col j_c">
+    <view class="flex-row">
+      <view class="con-item flex-column j_c " wx:for="{{schedule.three}}" wx:key="list" style="background: {{item.color}};" catchtap="{{item.type ? 'getDetail':''}}" data-item="{{item}}">
+        <text class="con-item-subj line_ellipsis">{{item.sub}}</text>
+        <text class="line_ellipsis">{{item.tec}}</text>
+        <text class="line_ellipsis">{{item.add}}</text>
+      </view>
+    </view>
+    <image src="https://s3.bmp.ovh/imgs/2022/07/27/85dabf1d5821a98b.png" class="con-icon" />
+  </view>
+</view>
+<view class="container flex-row">
+  <view class="container-left left1">
+    <block wx:for="{{time.three}}" wx:key="list">
+      <view class="flex-column j_c">
+        <text class="con-title">{{item.index}}</text>
+        <text>{{item.timeStart}}</text>
+        <text>{{item.timeEnd}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="container-right right1 flex col j_c">
+    <view class="flex-row">
+      <view class="con-item flex-column j_c " wx:for="{{schedule.four}}" wx:key="list" style="background: {{item.color}};" catchtap="{{item.type ? 'getDetail':''}}" data-item="{{item}}">
+        <text class="con-item-subj line_ellipsis">{{item.sub}}</text>
+        <text class="line_ellipsis">{{item.tec}}</text>
+        <text class="line_ellipsis">{{item.add}}</text>
+      </view>
+    </view>
+    <image src="https://s3.bmp.ovh/imgs/2022/07/27/85dabf1d5821a98b.png" class="con-icon" />
+  </view>
+</view>
+<!-- 详情弹框 -->
+<view class="mask" hidden="{{!isShow}}" catchtap="close"></view>
+<view class="modal flex-column j_c {{isShow ? 'show':'noShow'}}" style="background: {{current.color}};">
+  <view>{{current.sub}}</view>
+  <view>{{current.add}}</view>
+  <view>{{current.tec}}</view>
+</view>

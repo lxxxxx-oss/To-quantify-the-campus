@@ -1,3 +1,5 @@
+<!-- 提示 -->、
+<view class="changeHint">请填写下列信息，进行密码的修改</view>
 <!-- 更改密码 -->
 <view class="changePass">
     <input type="text" placeholder="学号/工号"/>
