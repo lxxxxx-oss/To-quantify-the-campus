@@ -26,14 +26,13 @@
 <hou-capacity wx:if="{{isHou}}"></hou-capacity>
 
 <!-- 天气预报 -->
-<view class="header-modular" wx:if="{{now}}">
+<view class="header-modular" wx:if="{{now}}" bindtap="detailWeather">
 	<image class="bg-wave" src="https://codermoyv.gitee.io/coder-moyv/assets/images/wechat/bg_wave.gif"></image>
 	<view class="row">
 		<view class="row location-wrap" bindtap="selectLocation">
 			<!-- <image class="icon" src="/images/icon_location.png"></image> -->
 			<view class="title">{{City}} {{County}}</view>
 		</view>
-
 	</view>
 	<view class="row">
 		<view class="tmp">{{now.temp}}°</view>

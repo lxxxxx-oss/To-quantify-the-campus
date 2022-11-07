@@ -53,7 +53,8 @@
         "assets/libs/hg-editor/hg-editor",
         "components/refreshTo/index/hou-capacity/punchDetail/punchDetail",
         "components/refreshTo/space/cou-capacity/stuGool/detailInfo/detailInfo",
-        "components/refreshTo/space/cou-capacity/stuAppoint/detailAppoint/detailAppoint"
+        "components/refreshTo/space/cou-capacity/stuAppoint/detailAppoint/detailAppoint",
+        "components/refreshTo/index/common/weather/weather"
     ],
     "window": {
         "backgroundTextStyle": "light",

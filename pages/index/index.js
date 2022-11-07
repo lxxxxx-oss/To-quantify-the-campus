@@ -1,3 +1,5 @@
+// 获取通知消息
+const {getInfo} = require("../../components/refreshTo/index/cou-capacity/inform/getInfo")
 // 和风天气申请的Key
 const APIKEY = "804506a95ce74d1b870cbf7b0e5da6a9";
 Page({
@@ -73,24 +75,25 @@ Page({
         // console.log(app.globalData);
         //#endregion
         // 拿到通知的主要内容
-        wx.getStorage({
-            key: 'mainText',
-            success(res) {
-                // console.log(res.data.length);
-                // console.log(res.data.split("",208));
-                // 将内容切割成数组
-                let splited = res.data.split("",208)
-                // 过滤掉数组中的空格和换行
-                let newArr = splited.filter((item) => {
-                    return item != " " && item != "\n"
-                })
-                // 将数组转换成字符串，不用分隔符
-                let strText = newArr.join("")
-                // console.log(strText);
-                that.setData({
-                    mainText: strText
-                })
-            }
+        // 从数据库获取数据
+        getInfo().then((res) => {
+            // console.log(res.data.infoList.records);
+            // 拿到通知的主要内容
+            console.log(res.data.infoList.records[0].textareaValue);
+            // 将内容切割成数组
+            // 内容长度
+            // console.log(res.data.infoList.records[1].textareaValue.length);
+            let splited = res.data.infoList.records[1].textareaValue.split("",res.data.infoList.records[1].textareaValue.length)
+            // 过滤掉数组中的空格和换行
+            let newArr = splited.filter((item) => {
+                return item != " " && item != "\n"
+            })
+            // 将数组转换成字符串，不用分隔符
+            let strText = newArr.join("")
+            // console.log(strText);
+            that.setData({
+                mainText: strText
+            })
         })
 
         // 调用天气预报接口
@@ -144,234 +147,241 @@ Page({
     //#region 
     // 天气预报的展示
     //选择定位
-  selectLocation() {
+    selectLocation() {
     var that = this
     wx.chooseLocation({
-      success(res) {
+        success(res) {
         //console.log(res)
         that.setData({
             location: res.longitude + "," + res.latitude
         })
         that.getWeather()
         that.getCityByLoaction()
-      }
-      , fail() {
+        }
+        , fail() {
         wx.getLocation({
-          type: 'gcj02',
-          fail() {
+            type: 'gcj02',
+            fail() {
             wx.showModal({
-              title: '获取地图位置失败',
-              content: '为了给您提供准确的天气预报服务,请在设置中授权【位置信息】',
-              success(mRes) {
+                title: '获取地图位置失败',
+                content: '为了给您提供准确的天气预报服务,请在设置中授权【位置信息】',
+                success(mRes) {
                 if (mRes.confirm) {
-                  wx.openSetting({
+                    wx.openSetting({
                     success: function (data) {
-                      if (data.authSetting["scope.userLocation"] === true) {
+                        if (data.authSetting["scope.userLocation"] === true) {
                         that.selectLocation()
-                      } else {
+                        } else {
                         wx.showToast({
-                          title: '授权失败',
-                          icon: 'none',
-                          duration: 1000
+                            title: '授权失败',
+                            icon: 'none',
+                            duration: 1000
                         })
-                      }
+                        }
                     }, fail(err) {
-                      console.log(err)
-                      wx.showToast({
+                        console.log(err)
+                        wx.showToast({
                         title: '唤起设置页失败，请手动打开',
                         icon: 'none',
                         duration: 1000
-                      })
+                        })
                     }
-                  })
+                    })
                 }
-              }
+                }
             })
-          }
+            }
         })
 
-      }
+        }
     })
-  },
-  /**
-   * 获取定位
-   */
-  getLocation() {
+    },
+    /**
+     * 获取定位
+     */
+    getLocation() {
     var that = this
     wx.getLocation({
-      type: 'gcj02',
-      success(res) {
+        type: 'gcj02',
+        success(res) {
         that.setData({
-          location: res.longitude + "," + res.latitude
+            location: res.longitude + "," + res.latitude
         })
         that.getWeather()
         that.getCityByLoaction()
-      }, fail(err) {
+        }, fail(err) {
         wx.showModal({
-          title: '获取定位信息失败',
-          content: '为了给您提供准确的天气预报服务,请在设置中授权【位置信息】',
-          success(mRes) {
+            title: '获取定位信息失败',
+            content: '为了给您提供准确的天气预报服务,请在设置中授权【位置信息】',
+            success(mRes) {
             if (mRes.confirm) {
-              wx.openSetting({
+                wx.openSetting({
                 success: function (data) {
-                  if (data.authSetting["scope.userLocation"] === true) {
+                    if (data.authSetting["scope.userLocation"] === true) {
                     wx.showToast({
-                      title: '授权成功',
-                      icon: 'success',
-                      duration: 1000
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 1000
                     })
                     that.getLocation()
-                  } else {
+                    } else {
                     wx.showToast({
-                      title: '授权失败',
-                      icon: 'none',
-                      duration: 1000
+                        title: '授权失败',
+                        icon: 'none',
+                        duration: 1000
                     })
                     that.setData({
-                      location: "116.41,39.92"
+                        location: "116.41,39.92"
                     })
                     that.getWeather()
                     that.getCityByLoaction()
-                  }
+                    }
                 }, fail(err) {
-                  console.log(err)
-                  wx.showToast({
+                    console.log(err)
+                    wx.showToast({
                     title: '唤起设置页失败，请手动打开',
                     icon: 'none',
                     duration: 1000
-                  })
-                  that.setData({
+                    })
+                    that.setData({
                     location: "116.41,39.92"
-                  })
-                  that.getWeather()
-                  that.getCityByLoaction()
+                    })
+                    that.getWeather()
+                    that.getCityByLoaction()
                 }
-              })
+                })
             } else if (mRes.cancel) {
-              that.setData({
+                that.setData({
                 location: "116.41,39.92"
-              })
-              that.getWeather()
-              that.getCityByLoaction()
+                })
+                that.getWeather()
+                that.getCityByLoaction()
             }
-          }
+            }
         })
-      }
+        }
     })
-  },
-  /**
-   * 根据坐标获取城市信息
-   */
-  getCityByLoaction() {
+    },
+    /**
+     * 根据坐标获取城市信息
+     */
+    getCityByLoaction() {
     var that = this
     wx.request({
-      url: 'https://geoapi.qweather.com/v2/city/lookup?key=' + APIKEY + "&location=" + that.data.location,
-      success(result) {
+        url: 'https://geoapi.qweather.com/v2/city/lookup?key=' + APIKEY + "&location=" + that.data.location,
+        success(result) {
         var res = result.data
         if (res.code == "200") {
-          var data = res.location[0]
-          that.setData({
+            var data = res.location[0]
+            that.setData({
             City: data.adm2,
             County: data.name
-          })
+            })
         } else {
-          wx.showToast({
+            wx.showToast({
             title: '获取城市信息失败',
             icon: 'none'
-          })
+            })
         }
 
-      }
-    })
-  },
-  //#endregion
-  /**
-   * 获取天气
-   */
-  getWeather() {
-    var that = this
-    wx.showLoading({
-      title: '加载中',
-    })
-    wx.request({
-      url: 'https://devapi.qweather.com/v7/weather/now?key=' + APIKEY + "&location=" + that.data.location,
-      success(result) {
-        var res = result.data
-        //console.log(res)
-        that.setData({
-          now: res.now
-        })
-        console.log(that.data.now);
-        console.log(that.data.now.temp);
-        // 根据天气状况，决定提醒信息
-        if(that.data.now.temp <= 20) {
-            that.setData({
-                currentPrompt: that.data.prompt[3].tips
-            })
-        }else if(that.data.now.precip > 0.0) {
-            that.setData({
-                currentPrompt: that.data.prompt[1].tips
-            })
-        }else if(that.data.now.text == '晴天') {
-            that.setData({
-                currentPrompt: that.data.prompt[0].tips
-            })
-        }else if(that.data.now.windScale >= 5) {
-            that.setData({
-                currentPrompt: that.data.prompt[2].tips
-            })
         }
-      }
+    })
+    },
+    //#endregion
+    /**
+     * 获取天气
+     */
+    getWeather() {
+        var that = this
+        wx.showLoading({
+            title: '加载中',
+        })
+        wx.request({
+            url: 'https://devapi.qweather.com/v7/weather/now?key=' + APIKEY + "&location=" + that.data.location,
+            success(result) {
+            var res = result.data
+            //console.log(res)
+            that.setData({
+                now: res.now
+            })
+            console.log(that.data.now);
+            console.log(that.data.now.temp);
+            // 根据天气状况，决定提醒信息
+            if(that.data.now.temp <= 20) {
+                that.setData({
+                    currentPrompt: that.data.prompt[3].tips
+                })
+            }else if(that.data.now.precip > 0.0) {
+                that.setData({
+                    currentPrompt: that.data.prompt[1].tips
+                })
+            }else if(that.data.now.text == '晴天') {
+                that.setData({
+                    currentPrompt: that.data.prompt[0].tips
+                })
+            }else if(that.data.now.windScale >= 5) {
+                that.setData({
+                    currentPrompt: that.data.prompt[2].tips
+                })
+            }
+        }
     })
     wx.request({
-      url: 'https://devapi.qweather.com/v7/weather/24h?key=' + APIKEY + "&location=" + that.data.location,
-      success(result) {
+        url: 'https://devapi.qweather.com/v7/weather/24h?key=' + APIKEY + "&location=" + that.data.location,
+        success(result) {
         var res = result.data
         //console.log(res)
         res.hourly.forEach(function (item) {
-          item.time = that.formatTime(new Date(item.fxTime)).hourly
+            item.time = that.formatTime(new Date(item.fxTime)).hourly
         })
         that.setData({
-          hourly: res.hourly
+            hourly: res.hourly
         })
-      }
+        }
     })
     wx.request({
-      url: 'https://devapi.qweather.com/v7/weather/7d?key=' + APIKEY + "&location=" + that.data.location,
-      success(result) {
+        url: 'https://devapi.qweather.com/v7/weather/7d?key=' + APIKEY + "&location=" + that.data.location,
+        success(result) {
         var res = result.data
         //console.log(res)
         res.daily.forEach(function (item) {
-          item.date = that.formatTime(new Date(item.fxDate)).daily
-          item.dateToString = that.formatTime(new Date(item.fxDate)).dailyToString
+            item.date = that.formatTime(new Date(item.fxDate)).daily
+            item.dateToString = that.formatTime(new Date(item.fxDate)).dailyToString
         })
         that.setData({
-          daily: res.daily
+            daily: res.daily
         })
         wx.hideLoading()
-      }
+        }
     })
-  },
-  // 格式时间
-  formatTime(date) {
-    const year = date.getFullYear()
-    const month = date.getMonth() + 1
-    const day = date.getDate()
-    const hour = date.getHours()
-    const minute = date.getMinutes()
-    const second = date.getSeconds()
-    const weekArray = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
-    const isToday = date.setHours(0, 0, 0, 0) == new Date().setHours(0, 0, 0, 0)
-    return {
-      hourly: [hour, minute].map(this.formatNumber).join(":"),
-      daily: [month, day].map(this.formatNumber).join("-"),
-      dailyToString: isToday ? "今天" : weekArray[date.getDay()]
+    },
+    // 格式时间
+    formatTime(date) {
+        const year = date.getFullYear()
+        const month = date.getMonth() + 1
+        const day = date.getDate()
+        const hour = date.getHours()
+        const minute = date.getMinutes()
+        const second = date.getSeconds()
+        const weekArray = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
+        const isToday = date.setHours(0, 0, 0, 0) == new Date().setHours(0, 0, 0, 0)
+        return {
+            hourly: [hour, minute].map(this.formatNumber).join(":"),
+            daily: [month, day].map(this.formatNumber).join("-"),
+            dailyToString: isToday ? "今天" : weekArray[date.getDay()]
+        }
+    },
+    // 补零
+    formatNumber(n) {
+        n = n.toString()
+        return n[1] ? n : '0' + n
+    },
+
+    // 跳转到未来几天的天气页面
+    detailWeather() {
+        wx.navigateTo({
+          url: '/components/refreshTo/index/common/weather/weather',
+        })
     }
-  },
-  // 补零
-  formatNumber(n) {
-    n = n.toString()
-    return n[1] ? n : '0' + n
-  },
 
 })

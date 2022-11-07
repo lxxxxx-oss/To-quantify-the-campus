@@ -24,7 +24,7 @@
 .scoll {
     white-space: nowrap;
     /* 动画对象 速度控制 */
-    animation: 13s loop linear infinite normal;
+    animation: 40s loop linear infinite normal;
     display: inline-block;
     vertical-align: top;
     font-size: 30rpx;
@@ -56,7 +56,7 @@
   }
 
 /* 天气预报 */
- /* 工具类 */
+/* 工具类 */
 .row {
     display: flex;
     align-items: center;
