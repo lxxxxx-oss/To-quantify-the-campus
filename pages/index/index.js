@@ -101,6 +101,14 @@ Page({
             content: this.data.mainText,
             success (res) {
                 if (res.confirm) {
+                    // 第一次点击收到的时候展示提示框
+                    if(!that.data.flag) {
+                        wx.showToast({
+                            title: '你已接收该通知',
+                            icon: 'success',
+                            duration: 2000
+                        })
+                    }
                     // 点击确定，收到通知
                     that.setData({
                         flag: true
