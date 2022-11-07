@@ -5,7 +5,7 @@
     justify-content: space-between;
     height: 80rpx;
     width: 700rpx;
-    background-color: #FF0033;
+    background-color: #C9FAE0;
     overflow: hidden;
     margin-top: 30rpx;
     padding-top: 20rpx;
