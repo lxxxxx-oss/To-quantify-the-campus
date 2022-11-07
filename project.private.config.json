@@ -735,6 +735,20 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/cou-capacity/stuAppoint/detailAppoint/detailAppoint",
+                    "query": "className=%E8%BD%AF%E5%B7%A5%E4%B8%80%E7%8F%AD",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/com-capacity/attendance/attendance",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

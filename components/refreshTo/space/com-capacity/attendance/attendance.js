@@ -13,7 +13,9 @@ Page({
         // 日期
         date: "2022/10/21",
         // 班级名单
-        className: []
+        className: [],
+        // 是否出勤
+        isAttended: []
     },
 
     /**
@@ -92,21 +94,28 @@ Page({
     getClassInfo() {
         var that = this  
         return requestTwo({
-            url: '/api/student/1/20', 
+            url: '/attendance/9', 
             method: 'GET',
             // data: {
             //     currentPage: 1,
             //     pageSize: 10,
             // }
         }).then((res) => {
-            // console.log(res.data.studentInfo.records);
-            let infoList = res.data.studentInfo.records
-            infoList.forEach(e => {
-                that.data.className.push(e.name)
-            })
+            let infoList = res.data.data
+            console.log(infoList);
+            for (const i in infoList) {
+                console.log(i, ':', infoList[i].isAttended);
+                // console.log(i, ':', infoList[i].studentInfo.name);
+                // 存储所有学生的姓名
+                that.data.className.push(infoList[i].studentInfo.name)
+                // 存储所有学生是否出勤的标识
+                that.data.isAttended.push(infoList[i].isAttended)
+            } 
             that.setData({
-                className: that.data.className
+                className: that.data.className,
+                isAttended: that.data.isAttended
             })
+            console.log(this.data.isAttended);
         })
     }
 })

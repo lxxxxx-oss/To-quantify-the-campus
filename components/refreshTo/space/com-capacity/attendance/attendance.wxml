@@ -18,9 +18,9 @@
         <view>{{item}}</view>
         <view class="icon">
             <!-- 根据是否出勤展示不同的图标 -->
-            <image src="/assets/img/index/stu-icon/pass.png"></image>
-            <!-- <image src="/assets/img/index/stu-icon/fail.png"></image>
-            <text class="leaveText" wx:if="{{item.leave}}">请假</text>  -->
+            <image src="/assets/img/index/stu-icon/pass.png" wx:if="{{isAttended}}"></image>
+            <image src="/assets/img/index/stu-icon/fail.png" wx:if="{{!isAttended}}"></image>
+            <text class="leaveText" wx:if="{{item.leave}}">请假</text>
         </view>
     </view>
 </view>

@@ -33,10 +33,6 @@ Page({
         return requestTwo({
             url: '/api/student/1/20', 
             method: 'GET',
-            // data: {
-            //     currentPage: 1,
-            //     pageSize: 10,
-            // }
         }).then((res) => {
             console.log(res.data.studentInfo.records);
             let infoList = res.data.studentInfo.records

@@ -11,7 +11,7 @@
 </swiper>
 
 <!-- 通知栏 -->
-<view class="bulletinBoard" bindtap="detailText" style="background-color: {{flag ? '#C9FAE0' : 'red'}};">
+<view class="bulletinBoard" bindtap="detailText" style="background-color: {{flag || isCou ? '#C9FAE0' : 'red'}};">
     <view><image src="/assets/img/index/trumpet.png" class="trumpet"></image></view>
     <text class="scoll">{{mainText}}</text>
 </view>
