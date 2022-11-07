@@ -3,7 +3,7 @@
     <view class="head-left flex-column j_c">
         <text class="head-left-text one">第</text>
         <text class="head-left-text two">周</text>
-        <text class="head-curr-week">{{currentWeek}}</text>
+        <text class="head-curr-week">{{currentWeek + 1}}</text>
     </view>
     <!-- 当前日期 -->
     <view class="head-right flex-row j_b">
