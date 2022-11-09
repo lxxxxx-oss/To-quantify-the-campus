@@ -36,6 +36,9 @@ Page({
             {
                 "tips": "天气转冷注意保暖哦"
             },
+            {
+                "tips": "今天可以晒晒被子哦"
+            }
         ],
         currentPrompt: ""
     },
@@ -79,10 +82,10 @@ Page({
         getInfo().then((res) => {
             // console.log(res.data.infoList.records);
             // 拿到通知的主要内容
-            console.log(res.data.infoList.records[0].textareaValue);
-            // 将内容切割成数组
+            // console.log(res.data.infoList.records[0].textareaValue);
             // 内容长度
             // console.log(res.data.infoList.records[1].textareaValue.length);
+            // 将内容切割成数组 
             let splited = res.data.infoList.records[1].textareaValue.split("",res.data.infoList.records[1].textareaValue.length)
             // 过滤掉数组中的空格和换行
             let newArr = splited.filter((item) => {
@@ -317,11 +320,15 @@ Page({
                 })
             }else if(that.data.now.text == '晴天') {
                 that.setData({
-                    currentPrompt: that.data.prompt[0].tips
+                    currentPrompt: that.data.prompt[4].tips
                 })
             }else if(that.data.now.windScale >= 5) {
                 that.setData({
                     currentPrompt: that.data.prompt[2].tips
+                })
+            }else if(that.data.now.precip == 0.0 && that.data.now.temp > 20) {
+                that.setData({
+                    currentPrompt: that.data.prompt[0].tips
                 })
             }
         }

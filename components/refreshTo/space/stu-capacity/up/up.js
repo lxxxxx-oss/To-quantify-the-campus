@@ -1,16 +1,16 @@
-// components/refreshTo/index/stu-capacity/uploadAwards/uploadAwards.js
+const {requestTwo} = require("../../../../../utils/request") 
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        index: "",
-        // 奖项级别
-        category: ["校级", "区级", "市级", "省级", "国家级"],
+        fileCate: "",
+        // 文件类型
+        category: ["疫情相关", "青年大学习", "证明材料", "其他"],
         // 获奖等级
         level: ["一等奖", "二等奖", "三等奖", "优秀奖"],
-        // 获奖时间
+        // 上传时间
         date: "2021-09-01",
         imgList: [],
     },
@@ -21,20 +21,20 @@ Page({
     onLoad(options) {
 
     },
-    // 奖项级别的选择
+    // 文件类型的选择
     categoryChange(e) {
         console.log(e);
         this.setData({
-          index: e.detail.value
+            fileCate: e.detail.value
         })
     },
-    // 获奖时间的选择
+    // 上传时间的选择
     DateChange(e) {
         this.setData({
           date: e.detail.value
         })
     },
-
+    //#region 
     // 图片的上传
     ChooseImage() {
         wx.chooseImage({
@@ -77,5 +77,34 @@ Page({
             }
           }
         })
-      },
+    },
+    //#endregion
+    //  提交信息
+    submit() {
+        var that = this
+        // 创建一个对象，存储用户填入的信息
+        let info = {
+            fileCate: this.data.fileCate,
+            date: this.data.date,
+            imgSrc: this.data.imgList
+        }
+        
+        // 将该信息对象上传到数据库
+        // requestTwo({
+        //     url: '',
+        //     method: 'POST',
+        //     data: {
+
+        //     },
+
+        //     success(res) {
+        //         console.log(res);
+        //         wx.showToast({
+        //             title: '提交成功',
+        //             icon: 'success',
+        //             duration: 2000
+        //         })
+        //     }
+        // })
+    }
 })
