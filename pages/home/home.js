@@ -1,4 +1,4 @@
-// pages/home/home.js
+const {requestTwo} = require("../../utils/request")
 Page({
 
     /**
@@ -44,7 +44,7 @@ Page({
         wx.getStorage({
             key:"userInfo",//本地缓存中指定的 key
             success:(res)=>{ 
-            console.log('获取缓存成功',res.data)      
+            // console.log('获取缓存成功',res.data)      
                 that.setData({
                     userInfo:res.data, //将得到的缓存给key             
                 }) 
@@ -57,27 +57,31 @@ Page({
             // 从缓存中读取用户Id
             key: 'userId',
             success(res) {
-                console.log(res);
+                // console.log(res);
                 that.setData({
                     userId: res.data
                 })
-                console.log(that.data.userId);
+                // console.log(that.data.userId);
+                 // 根据用户登录携带的ID来获取用户信息
+                that.getUesrInfo()
             }
         })
 
     },
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
 
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
+    // 根据登录时存储的ID展示用户的信息
+    getUesrInfo() {
+        var that = this
+        console.log(this.data.userId);
+        requestTwo({
+            url: `/api/role/${that.data.userId}`,
+            // "https://xxxx.xxxx.com?aaa="+"bbb"
+            methods: 'GET',
+        }).then((res) => {
+            console.log(res);
+        }).catch((err) => {
+            console.log(err);
+        })
     },
 
     // 设置点击展示详细信息

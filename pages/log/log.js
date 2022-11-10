@@ -94,7 +94,8 @@ Page({
                 // 判断登录状态
                 }else if(loginStatus) {
                     // 登录成功
-                    let userId = res.data.data.currentUser.id;
+                    let userId = res.data.data.currentUser.userType;
+                    // console.log(res.data.data.currentUser);
                     // 将用户的id存入缓存，方便其他页面调用
                     wx.setStorage({
                         key: 'userId',
