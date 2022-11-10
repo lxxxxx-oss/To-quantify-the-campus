@@ -1,4 +1,4 @@
-
+const {requestTwo} = require("../../../../../../utils/request")
 Component({
     // 组件使用全局样式
     options: {
@@ -28,6 +28,8 @@ Component({
                 },
             })
 
+            // 获取数据库的综测数据
+            this.getMoral()
         }
     },
     
@@ -83,6 +85,23 @@ Component({
               url: '/components/refreshTo/index/stu-capacity/uploadAwards/uploadAwards?currentInfo='+data+'&index='+index,
             })
             
+        },
+        // 从数据库里拿到数据
+        getMoral() {
+            return requestTwo({
+                url: '/api/honor/student/3',
+                methods: "GET",
+                success(res) {
+                    console.log(res);
+                },
+                fail(err) {
+                    console.log(err);
+                }
+            }).then((res) => {
+                console.log(res);
+            }).catch((err) => {
+                console.log(err);
+            })
         }
     }
 })

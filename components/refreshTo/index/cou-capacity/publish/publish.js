@@ -56,30 +56,7 @@ Page({
     // 发布通知
     publish() {
         var that = this
-        // 存储通知的内容
-        let info = {
-            publishTitle: this.data.publishTitle,
-            publishTag: this.data.tag[this.data.publishTag],
-            textareaValue: this.data.textareaValue,
-            // publishDate: this.data.publishDate,
-            deadline: this.data.deadline,
-            imgSrc: this.data.imgList
-        }
-        console.log(info);
 
-        // 如果所有信息填写完毕，则将其存入缓存， 再显示提示信息，再跳转页面
-        // 将新添加的数据放入缓存的奖项数组里
-        that.data.publishList.push(info)
-        // console.log(that.data.infoList);
-        that.setData({
-            publishList: that.data.publishList
-        })
-        // console.log(that.data.infoList);
-        // 将信息存入缓存
-        // wx.setStorage({
-        //     key: "publishList",
-        //     data: that.data.publishList,
-        // })
         // 调用存储数据的方法
         this.postInfo()
         wx.showToast({

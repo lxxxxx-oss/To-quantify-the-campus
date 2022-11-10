@@ -40,6 +40,6 @@
 </view>
 
 <!-- 发布通知按钮 -->
-<view class="publishBtn" bindtap="publishInform">
+<view class="publishBtn" bindtap="uploadAwards">
     <image src="/assets/img/index/cou-icon/add.png"></image>
 </view>

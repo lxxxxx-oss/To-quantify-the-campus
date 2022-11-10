@@ -1,4 +1,6 @@
-// components/refreshTo/index/stu-capacity/uploadAwards/uploadAwards.js
+const {requestTwo} = require("../../../../../utils/request")
+// 引入formdata,进行文件上传
+const FormData = require("../../../../../utils/formdata")
 Page({
 
     /**
@@ -58,7 +60,7 @@ Page({
             // console.log(this.data.infoIndex);
         }
     },
-
+    //#region 
     // 奖项名称的获取
     userInput(e) {
         // 如果是修改信息
@@ -177,7 +179,8 @@ Page({
             }
           }
         })
-      },
+    },
+    //#endregion
     //  提交信息
     submit() {
         var that = this
@@ -190,30 +193,10 @@ Page({
             marks: this.data.marks,
             imgSrc: this.data.imgList
         }
-        // console.log(info);
-        // 进行表单验证，不允许有未填项
-        // if(that.data.marks == "" || that.data.awardsName == "" || that.data.awardsCate == "" ||that.data.awardsLevel == "" || that.data.imgSrc == "") {
-        //     wx.showToast({
-        //         title: '有信息未填',
-        //         icon: 'error',
-        //         duration: 2000
-        //     })
-        // }
         // 判断是新填写信息还是修改信息
         if(this.data.currentInfo == 0) {
-            // 如果所有信息填写完毕，则将其存入缓存， 再显示提示信息，再跳转页面
-            // 将新添加的数据放入缓存的奖项数组里
-            that.data.infoList.push(info)
-            // console.log(that.data.infoList);
-            that.setData({
-                infoList: that.data.infoList
-            })
-            // console.log(that.data.infoList);
-            // 将信息存入缓存
-            wx.setStorage({
-                key: "infoList",
-                data: that.data.infoList,
-            })
+            // 将信息存入数据库
+            this.postMoral()
             wx.showToast({
                 title: '提交成功',
                 icon: 'success',
@@ -240,16 +223,42 @@ Page({
                 }
             })
             // console.log(this.data.infoList);
-            // 再重新设置缓存
-            wx.setStorage({
-                key: "infoList",
-                data: that.data.infoList,
-            })
+            // 再重新向数据库提交修改后的信息
+            this.postMoral()
             wx.showToast({
                 title: '提交成功',
                 icon: 'success',
                 duration: 2000
             })
         }
+    },
+
+
+    // 向数据库提交信息
+    // 将数据存入数据库
+     postMoral() {
+        var that = this
+        //new一个FormData对象
+        // 实例化，用它来上传文件和添加字段
+        let formData = new FormData();
+
+        //调用它的append()方法来添加字段或者调用appendFile()方法添加文件
+
+        formData.append("awardsName", that.data.awardsName);
+        formData.append("awardsCate", that.data.awardsCate);
+        formData.append("awardsLevel", that.data.awardsLevel);
+        formData.append("date", that.data.date);
+        formData.append("marks", that.data.marks);
+        formData.appendFile("multipartFile", that.data.imgList[0], "jpg");
+
+        let data = formData.getData();
+        wx.request({
+            url: 'https://alaskaboo.cn/api/honor/3',
+            method: 'POST',
+            header: {
+                "Content-Type": data.contentType,
+            },
+            data: data.buffer
+        })
     }
 })

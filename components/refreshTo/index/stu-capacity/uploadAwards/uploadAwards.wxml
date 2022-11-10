@@ -91,5 +91,5 @@
 
 <!-- 提交信息 -->
 <view class="submit">
-    <button bindtap="submit">提交</button>
+    <button bindtap="postMoral">提交</button>
 </view>
