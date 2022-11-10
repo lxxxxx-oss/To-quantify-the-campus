@@ -7,8 +7,8 @@
     </view>
     <!-- 用户名称区域 -->
     <view class="userInfo">
-        <view class="infoOne">姓名：{{name}}</view>
-        <view class="infoOne">学号：{{number}}</view>
+        <view class="infoOne">用户类型：{{typeList[userType]}}</view>
+        <view class="infoOne">学号/工号：{{acount}}</view>
     </view>
 </view>
 

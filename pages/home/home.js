@@ -1,4 +1,5 @@
 const {requestTwo} = require("../../utils/request")
+const {FormData} = require("../../utils/formdata")
 Page({
 
     /**
@@ -7,8 +8,14 @@ Page({
     data: {
         // 用户ID
         userId: "",
+        // 用户类型
+        userType: "",
+        // 学号/工号
+        acount: "",
         // 用户信息
         userInfo: {},
+        // 所有用户类型
+        typeList: ["", "管理员", "辅导员", "宿舍管理员", "学生", "学生班委"],
         // 控制是否展开详细信息，默认不展开
         isShowInfo: false,
         isShowSet: false,
@@ -21,9 +28,7 @@ Page({
                 "辅导员": "彭崇清",
                 "寝室号": "B2-406"
             }
-        ],
-        name: "黎鑫",
-        number: "2020211932"
+        ]
     },
 
     /**
@@ -55,11 +60,13 @@ Page({
         })
         wx.getStorage({
             // 从缓存中读取用户Id
-            key: 'userId',
+            key: 'logInfo',
             success(res) {
                 // console.log(res);
                 that.setData({
-                    userId: res.data
+                    userType: res.data.userType,
+                    userId: res.data.userId,
+                    acount: res.data.userAccount
                 })
                 // console.log(that.data.userId);
                  // 根据用户登录携带的ID来获取用户信息
@@ -74,14 +81,14 @@ Page({
         var that = this
         console.log(this.data.userId);
         requestTwo({
-            url: `/api/role/${that.data.userId}`,
-            // "https://xxxx.xxxx.com?aaa="+"bbb"
+            url: `/api/student/info/${this.data.acount}`,
             methods: 'GET',
         }).then((res) => {
             console.log(res);
         }).catch((err) => {
             console.log(err);
         })
+
     },
 
     // 设置点击展示详细信息

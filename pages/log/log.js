@@ -93,13 +93,20 @@ Page({
                     });
                 // 判断登录状态
                 }else if(loginStatus) {
-                    // 登录成功
-                    let userId = res.data.data.currentUser.userType;
-                    // console.log(res.data.data.currentUser);
+                    // 登录成功,拿到用户的登录信息
+                    // 用来标识不同权限用户
+                    let userType = res.data.data.currentUser.userType;
+                    let userId = res.data.data.currentUser.id
+                    let userAccount = res.data.data.currentUser.account
+                    console.log(res.data.data.currentUser);
                     // 将用户的id存入缓存，方便其他页面调用
                     wx.setStorage({
-                        key: 'userId',
-                        data: userId
+                        key: 'logInfo',
+                        data: {
+                            userType: userType,
+                            userId: userId,
+                            userAccount: userAccount
+                        }
                     })
                     that.setData({
                         // 获取登录用户的身份类型

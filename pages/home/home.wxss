@@ -8,8 +8,8 @@
     height: 250rpx;
     margin: 30rpx 0 25rpx 0;
     background-color: white;
-    /* box-shadow: 25px 20px 18px 2px rgba(0,0,0,0.1); */
     border-radius: 40rpx;
+    box-shadow: 0 0 20rpx 0 rgba(0, 0, 0, 0.2);
 }
 /* 用户头像 */
 .headPortrait image{
@@ -27,7 +27,7 @@
     flex-direction: column;
     justify-content: space-around;
     height: 100rpx;
-    width: 300rpx;
+    width: 350rpx;
     margin: 0 0 0 20rpx;
 }
 .infoOne {
@@ -49,8 +49,8 @@
     height: 135rpx;
     margin-top: 30rpx;
     background-color: #fff;
-    /* box-shadow: 20rpx 20rpx 18rpx 2rpx rgba(0,0,0,0.1); */
     border-radius: 30rpx;
+    box-shadow: 0 0 20rpx 0 rgba(0, 0, 0, 0.2);
 }
 
 /* 图标 */
