@@ -1,0 +1,95 @@
+<view class="reminder">请填写下列信息进行奖项的上传</view>
+<form>
+	<view class="cu-form-group">
+		<view class="title">奖项名称</view>
+		<input placeholder="请输入奖项名称" bindinput='userInput' wx:if="{{!currentInfo}}"></input>
+        <input bindinput='userInput' wx:if="{{currentInfo}}" model:value="{{currentInfo.award}}"></input>
+	</view>
+	<view class="cu-form-group margin-top">
+		<view class="title">获奖级别</view>
+        <!-- 当填写信息的时候 -->
+		<picker bindchange="categoryChange" value="{{awardsCate}}" range="{{category}}" wx:if="{{!currentInfo.awardCategory}}">
+			<view class="picker">
+				{{awardsCate ? category[awardsCate] : '请选择获奖级别'}}
+			</view>
+		</picker>
+        <!-- 当修改信息的时候 -->
+        <picker bindchange="categoryChange" value="{{awardsCate}}" range="{{category}}" wx:if="{{currentInfo.awardCategory}}">
+			<view class="picker">
+                {{awardsCate ? category[awardsCate] : currentInfo.awardCategory}}
+            </view>
+		</picker>
+	</view>
+
+    <view class="cu-form-group">
+		<view class="title">获奖等级</view>
+        <!-- 当填写信息的时候 -->
+		<picker bindchange="levelChange" value="{{awardsLevel}}" range="{{level}}" wx:if="{{!currentInfo.awardLevel}}">
+			<view class="picker">
+				{{awardsLevel ? level[awardsLevel] : '请选择获奖等级'}}
+			</view>
+		</picker>
+        <!-- 当修改信息的时候 -->
+        <picker bindchange="levelChange" value="{{awardsLevel}}" range="{{level}}" wx:if="{{currentInfo.awardLevel}}">
+			<view class="picker">
+				{{awardsLevel ? level[awardsLevel] : currentInfo.awardLevel}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">日期选择</view>
+        <!-- 当填写信息的时候 -->
+		<picker mode="date" value="{{date}}" start="2015-09-01" end="2024-09-01" bindchange="DateChange" wx:if="{{!currentInfo.awardTime}}">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+        <!-- 当修改信息的时候 -->
+        <picker mode="date" value="{{date}}" start="2015-09-01" end="2024-09-01" bindchange="DateChange" wx:if="{{currentInfo.awardTime}}">
+			<view class="picker">
+				{{currentInfo.awardTime}}
+			</view>
+		</picker>    
+	</view>
+
+    <view class="cu-form-group margin-top">
+		<view class="title">综测加分</view>
+		<input placeholder="请根据加分规则输入奖项所得分数" bindinput='inputMarks' wx:if="{{!currentInfo}}"></input>
+        <input bindinput='inputMarks' wx:if="{{currentInfo}}" model:value="{{currentInfo.awardScore}}"></input>
+	</view>
+    
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			图片上传
+		</view>
+		<view class="action" wx:if="{{!currentInfo}}">
+			{{imgList.length}}/4
+		</view>
+        <view class="action" wx:if="{{currentInfo}}">
+			{{currentInfo.img.length}}/4
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+            <!-- 根据是否有当前数据，来判断是否是修改操作，是则展示用户曾选择的值 -->
+			<view class="bg-img" wx:for="{{currentInfo?currentInfo.img:imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{currentInfo?currentInfo.img[index]:imgList[index]}}">
+				<image src='{{currentInfo?currentInfo.img[index]:imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4 || currentInfo.img.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+	<view class="cu-form-group margin-top">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="如同时上传多张图片可在此分别注明"></textarea>
+	</view>
+</form>
+
+<!-- 提交信息 -->
+<view class="submit">
+    <button bindtap="submit">提交</button>
+</view>

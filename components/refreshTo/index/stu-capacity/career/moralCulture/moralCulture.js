@@ -24,32 +24,45 @@ Component({
                 // 判断数组是否为空
                 if(JSON.stringify(res.data.studentInfo.honorList) !== '[]') {
                     that.data.infoList = res.data.studentInfo.honorList
-                    that.setData({
-                        infoList: that.data.infoList
+                    // 格式化时间
+                    that.data.infoList.forEach(e => {
+                        e.awardTime = Array.from(e.awardTime)
+                        e.awardTime.splice(16)
+                        // e.awardTime.splice(10, 1, "-")
+                        e.awardTime = e.awardTime.join("")
+                    })
+                    this.setData({
+                        infoList: this.data.infoList
+                    })
+                    console.log(that.data.infoList[0].awardTime);
+                    // 在信息数据获取成功后，再调取图片数据
+                    // 获取数据库的图片数据
+                    this.getMoralImg().then((res) => {
+                        let that = this
+                        // console.log(res);
+                        if(JSON.stringify(res.data) !== '{}') {
+                            res.data.fileList.forEach(e => {
+                                // console.log(e.path);
+                                that.data.imgList.push(e.path)
+                                // console.log(that.data.imgList);
+                            })
+                        }   
+                        // 将图片数组里面的数据存入整个信息数组，方便页面渲染
+                        that.data.infoList.forEach((e, index)=> {
+                            e.img = []
+                            e.img.push(that.data.imgList[index])
+                            // console.log(e.img);
+                        })
+                        that.setData({
+                            infoList: that.data.infoList,
+                            imgList: that.data.imgList
+                        })
+                        // console.log(that.data.imgList);
                     })
                 }
             })
-            // 获取数据库的图片数据
-            this.getMoralImg().then((res) => {
-                let that = this
-                console.log(res.data);
-                res.data.fileList.forEach(e => {
-                    // console.log(e.path);
-                    that.data.imgList.push(e.path)
-                })
-                // for(var i = 0; i < that.data.infoList.length; i++) {
-                //     console.log(that.data.imgList[i]);
-                //     console.log(that.data.infoList[i]);
-                // }
-                that.setData({
-                    infoList: that.data.infoList,
-                    imgList: that.data.imgList
-                })
-                console.log(that.data.imgList);
-            })
         }
     },
-    
 
     /**
      * 组件的初始数据
@@ -75,16 +88,16 @@ Component({
             })
         },
 
-        // 计算综测总分
+        // 计算综测总分，刷新页面
         refresh() {
             // component.attached()
             // 计算综测总分
             let count1 = 0
             this.data.infoList.forEach(e => {
-                let count2 = parseInt(e.marks)
+                let count2 = parseInt(e.awardScore)
+                // console.log(e.awardScore);
                 count1 += count2
             })
-            console.log(count1);
             // 刷新数据
             this.setData({
                 infoList: this.data.infoList,
@@ -96,13 +109,12 @@ Component({
         viewInfo(e) {
             // 获取点击的对象索引
             let index = e.currentTarget.dataset.index;
-
             let currentInfo = this.data.infoList[index]
-            // console.log(currentInfo);
+            console.log(currentInfo);
             // 对传递的对象数据进行转换（转换为json格式的数据）
             var data = JSON.stringify(currentInfo);
             wx.navigateTo({
-              url: '/components/refreshTo/index/stu-capacity/uploadAwards/uploadAwards?currentInfo='+data+'&index='+index,
+                url: '/components/refreshTo/index/stu-capacity/amendMoral/amendMoral?currentInfo='+data+'&index='+index,
             })
             
         },
@@ -122,7 +134,7 @@ Component({
         // 从数据库里拿到图片数据
         getMoralImg() {
             return requestTwo({
-                url: '/api/honor/student/upload/id=16',
+                url: '/api/honor/student/upload/id=1',
                 methods: "GET",
                 success(res) {
                     console.log(res);

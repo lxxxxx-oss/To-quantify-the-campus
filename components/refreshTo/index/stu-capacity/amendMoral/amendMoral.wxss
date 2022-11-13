@@ -1,0 +1,19 @@
+page {
+    margin: 0;
+    padding: 0;
+}
+.reminder{
+    /* background-color: #fff; */
+    padding: 20rpx 0 20rpx 30rpx;
+    font-size: 40rpx;
+    font-weight: 600;
+    color: rgb(243, 70, 70);
+}
+
+/* 提交按钮 */
+.submit {
+    margin-top: 50rpx;
+}
+.submit button {
+    background-color: #66CC66;
+}

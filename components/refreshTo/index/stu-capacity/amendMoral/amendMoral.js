@@ -30,13 +30,20 @@ Page({
     },
 
     onLoad(options) {
+        // 解析JSON数据
+        this.data.currentInfo = JSON.parse(options.currentInfo)
+        // 将当前的综测信息存储起来
+        this.setData({
+            currentInfo: this.data.currentInfo
+        })
+        console.log(this.data.currentInfo.award);
     },
     //#region 
     // 奖项名称的获取
     userInput(e) {
         // 如果是修改信息
         if(this.data.currentInfo) {
-            this.data.currentInfo.awardsName = e.detail.value
+            this.data.currentInfo.award = e.detail.value
         }
         this.setData({
             awardsName: e.detail.value,
@@ -46,7 +53,7 @@ Page({
     // 奖项级别的选择
     categoryChange(e) {
         if(this.data.currentInfo) {
-            this.data.currentInfo.awardsCate = this.data.category[e.detail.value] || ""
+            this.data.currentInfo.awardCategory = this.data.category[e.detail.value] || ""
         }
         this.setData({
             awardsCate: e.detail.value,
@@ -56,7 +63,7 @@ Page({
     // 获奖等级的选择
     levelChange(e) {
         if(this.data.currentInfo) {
-            this.data.currentInfo.awardsLevel = this.data.level[e.detail.value] || ""
+            this.data.currentInfo.awardLevel = this.data.level[e.detail.value] || ""
         }
         this.setData({
             awardsLevel: e.detail.value,
@@ -66,7 +73,7 @@ Page({
     // 获奖时间的选择
     DateChange(e) {
         if(this.data.currentInfo) {
-            this.data.currentInfo.date = e.detail.value || ""
+            this.data.currentInfo.awardTime = e.detail.value || ""
         }
         this.setData({
             date: e.detail.value,
@@ -77,7 +84,7 @@ Page({
     // 奖项得分的获取
     inputMarks(e) {
         if(this.data.currentInfo) {
-            this.data.currentInfo.marks = e.detail.value
+            this.data.currentInfo.awardScore = e.detail.value
         }
         this.setData({
             marks: e.detail.value,
@@ -111,7 +118,7 @@ Page({
     // 预览图片 
     ViewImage(e) {
         wx.previewImage({
-            urls: this.data.currentInfo ? this.data.currentInfo.imgSrc : this.data.imgList,
+            urls: this.data.currentInfo ? this.data.currentInfo.img : this.data.imgList,
             current: e.currentTarget.dataset.url
         });
     },
@@ -143,7 +150,7 @@ Page({
     submit() {
         var that = this
         // 将图片存入数据库
-        this.postMoralImg()
+        // this.postMoralImg()
         // 将描述信息存入数据库
         that.postMoralStr()
         wx.showToast({
@@ -189,29 +196,22 @@ Page({
             }
         })
     },
-    // 将字符串信息上传到数据库
+    // 将修改后的字符串信息上传到数据库
     postMoralStr() {
         var that = this
-        // let info = {
-        //     award: that.data.awardsName,
-        //     awardCategory: that.data.category[that.data.awardsCate],
-        //     awardsLevel: that.data.level[that.data.awardsLevel],
-        //     awardTime: that.data.date,
-        //     awardScore: that.data.marks
-        // }
-        // console.log(info);
+        // console.log(this.data.currentInfo.id);
         wx.request({
-            url: 'https://alaskaboo.cn/api/honor/3',
-            method: 'POST',
+            url: `https://alaskaboo.cn/api/honor/${that.data.currentInfo.id}`,
+            method: 'PUT',
             header: {
                 "Content-Type": 'application/json',
             },
             data: {
-                award: that.data.awardsName,
-                awardCategory: that.data.category[that.data.awardsCate],
-                awardLevel: that.data.level[that.data.awardsLevel],
-                awardTime: that.data.date,
-                awardScore: that.data.marks
+                award: that.data.currentInfo.award,
+                awardCategory: that.data.category[that.data.currentInfo.awardCategory],
+                awardLevel: that.data.level[that.data.currentInfo.awardLevel],
+                awardTime: that.data.currentInfo.awardTime,
+                awardScore: that.data.currentInfo.awardScore
             },
 
             success(res) {
@@ -221,21 +221,5 @@ Page({
                 console.log(err);
             }
         })
-    },
-
-    // 当用户想修改的时候，从数据库获取信息
-    // getMoralInfo() {
-    //     requestTwo({
-    //         // 这里是动态的值，点击事件传递过来
-    //         // url: `/api/honor/user/${xx}`,
-    //         methods: 'GET',
-
-    //         success(res) {
-    //             console.log(res);
-    //         },
-    //         fail(err) {
-    //             console.log(err);
-    //         }
-    //     })
-    // }
+    }
 })

@@ -54,7 +54,8 @@
         "components/refreshTo/index/hou-capacity/punchDetail/punchDetail",
         "components/refreshTo/space/cou-capacity/stuGool/detailInfo/detailInfo",
         "components/refreshTo/space/cou-capacity/stuAppoint/detailAppoint/detailAppoint",
-        "components/refreshTo/index/common/weather/weather"
+        "components/refreshTo/index/common/weather/weather",
+        "components/refreshTo/index/stu-capacity/amendMoral/amendMoral"
     ],
     "window": {
         "backgroundTextStyle": "light",

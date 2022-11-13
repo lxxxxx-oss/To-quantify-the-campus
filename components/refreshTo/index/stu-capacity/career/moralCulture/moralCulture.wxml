@@ -15,8 +15,8 @@
 <view class="cu-card case">
     <!-- 循环渲染从缓存里面,拿到的获奖信息 -->
     <view class="cu-item shadow" wx:for="{{infoList}}" wx:key="index" data-index="{{index}}"  bindtap="viewInfo">
-        <view class="image" wx:for="{{imgList}}" wx:for-item="img">
-            <image src="{{img}}" mode="widthFix"></image>
+        <view class="image">
+            <image src="{{item.img}}" mode="widthFix"></image>
             <view class="cu-tag bg-blue">{{item.awardCategory}}</view>
             <view class="cu-bar bg-shadeBottom">
             <!-- <text class="text-cut"></text> -->
@@ -30,7 +30,7 @@
                 <view class="text-gray text-sm flex justify-between">
                 {{item.awardTime}}
                 <view class="text-gray">
-                    加分：{{item.awardScore}}分
+                    综测加分：{{item.awardScore}}分
                 </view>
                 </view>
             </view>

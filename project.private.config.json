@@ -1,7 +1,7 @@
 {
     "projectname": "quantification-school",
     "setting": {
-        "compileHotReLoad": false,
+        "compileHotReLoad": true,
         "urlCheck": false
     },
     "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
@@ -893,6 +893,27 @@
                 {
                     "name": "",
                     "pathName": "components/refreshTo/index/stu-capacity/uploadAwards/uploadAwards",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/stu-capacity/career/career",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/stu-capacity/career/career",
+                    "query": "category=%E7%BB%BC%E6%B5%8B%E6%88%90%E7%BB%A9",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/stu-capacity/career/career",
                     "query": "",
                     "launchMode": "default",
                     "scene": null
