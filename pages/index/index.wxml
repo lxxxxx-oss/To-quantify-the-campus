@@ -1,8 +1,8 @@
 <!-- 导员：首页 -->
 <!-- <loading></loading> -->
 <!-- 轮播图 -->
-<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
-  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key="{{index}}" class="{{cardCur==index?'cur':''}}">
     <view class="swiper-item">
       <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
       <video src="{{item.url}}" autoplay loop muted objectFit="cover"></video>
@@ -13,7 +13,7 @@
 <!-- 通知栏 -->
 <view class="bulletinBoard" bindtap="detailText" style="color: {{flag || isCou ? '#000000' : 'red'}};">
     <view><image src="/assets/img/index/trumpet.png" class="trumpet"></image></view>
-    <text class="scoll">{{mainText}}</text>
+    <text class="scoll" user-select>{{mainText}}</text>
 </view>
 
 <!-- 辅导员的功能选项 -->

@@ -129,7 +129,10 @@ Page({
         formData.append("publishTag", that.data.publishTag);
         formData.append("textareaValue", that.data.textareaValue);
         formData.append("deadline", that.data.deadline);
-        formData.appendFile("multipartFile", that.data.imgList[0], "jpg");
+        // 将数组中的图片地址遍历出来
+        this.data.imgList.forEach(e => {
+            formData.appendFile("multipartFile", e, that.data.publishTitle);
+        })
 
         let data = formData.getData();
         wx.request({

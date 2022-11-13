@@ -8,16 +8,6 @@ Component({
     lifetimes: {
         attached() {
             var that = this
-            // 获取缓存中用户填入的信息
-            wx.getStorage({
-                key: 'infoList',
-                // 将缓存中的数据存储到页面数据中
-                success(res) {
-                    that.setData({
-                        infoList: res.data
-                    })
-                },
-            })
             // 获取用户头像
             wx.getStorage({
                 key: 'userInfo',
@@ -28,8 +18,35 @@ Component({
                 },
             })
 
-            // 获取数据库的综测数据
-            this.getMoral()
+            // 获取数据库的综测描述数据
+            this.getMoralinfo().then((res) => {
+                // console.log(res.data.studentInfo.honorList);
+                // 判断数组是否为空
+                if(JSON.stringify(res.data.studentInfo.honorList) !== '[]') {
+                    that.data.infoList = res.data.studentInfo.honorList
+                    that.setData({
+                        infoList: that.data.infoList
+                    })
+                }
+            })
+            // 获取数据库的图片数据
+            this.getMoralImg().then((res) => {
+                let that = this
+                console.log(res.data);
+                res.data.fileList.forEach(e => {
+                    // console.log(e.path);
+                    that.data.imgList.push(e.path)
+                })
+                // for(var i = 0; i < that.data.infoList.length; i++) {
+                //     console.log(that.data.imgList[i]);
+                //     console.log(that.data.infoList[i]);
+                // }
+                that.setData({
+                    infoList: that.data.infoList,
+                    imgList: that.data.imgList
+                })
+                console.log(that.data.imgList);
+            })
         }
     },
     
@@ -38,7 +55,10 @@ Component({
      * 组件的初始数据
      */
     data: {
+        // 存储描述信息
         infoList: "",
+        // 存储图片
+        imgList: [],
         userInfo: "",
         // 总计综测总分
         total: "0"
@@ -86,8 +106,8 @@ Component({
             })
             
         },
-        // 从数据库里拿到数据
-        getMoral() {
+        // 从数据库里拿到描述数据
+        getMoralinfo() {
             return requestTwo({
                 url: '/api/honor/student/3',
                 methods: "GET",
@@ -97,10 +117,19 @@ Component({
                 fail(err) {
                     console.log(err);
                 }
-            }).then((res) => {
-                console.log(res);
-            }).catch((err) => {
-                console.log(err);
+            })
+        },
+        // 从数据库里拿到图片数据
+        getMoralImg() {
+            return requestTwo({
+                url: '/api/honor/student/upload/id=16',
+                methods: "GET",
+                success(res) {
+                    console.log(res);
+                },
+                fail(err) {
+                    console.log(err);
+                }
             })
         }
     }

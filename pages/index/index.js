@@ -307,8 +307,8 @@ Page({
             that.setData({
                 now: res.now
             })
-            console.log(that.data.now);
-            console.log(that.data.now.temp);
+            // console.log(that.data.now);
+            // console.log(that.data.now.temp);
             // 根据天气状况，决定提醒信息
             if(that.data.now.temp <= 20) {
                 that.setData({
