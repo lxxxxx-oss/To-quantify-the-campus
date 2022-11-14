@@ -11,3 +11,8 @@
 
 <!-- 日期 -->
 <view class="date">日期:{{date}}</view>
+
+<!-- 折线图 -->
+<view class="line">
+  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+</view>

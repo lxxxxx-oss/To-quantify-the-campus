@@ -1,5 +1,5 @@
-import * as echarts from '../../../../../ec-canvas/echarts';
-
+import * as echarts from '../../../../../ec-canvas/echarts'
+const formateDate = require("../../../../../utils/tools")
 const app = getApp();
 
 function initChart(canvas, width, height, dpr) {
@@ -54,21 +54,29 @@ function initChart(canvas, width, height, dpr) {
 }
 
 Page({
-  onShareAppMessage: function (res) {
+    onShareAppMessage: function (res) {
     return {
-      title: 'ECharts 可以在微信小程序中使用啦！',
-      path: '/pages/index/index',
-      success: function () { },
-      fail: function () { }
+        title: 'ECharts 可以在微信小程序中使用啦！',
+        path: '/pages/index/index',
+        success: function () { },
+        fail: function () { }
     }
-  },
-  data: {
-    ec: {
-      onInit: initChart
     },
-    date: "2022.10.21"
-  },
+    data: {
+        ec: {
+            onInit: initChart
+        },
+        date: "2022.10.21"
+    },
 
-  onReady() {
-  }
+    onLoad() {
+        // 格式化时间
+        let time = new Date()
+        let year = time.getFullYear();
+        let month = time.getMonth() + 1 < 10 ? '0' + (time.getMonth() + 1) : (time.getMonth() + 1);
+        let day = time.getDate() < 10 ? '0' + time.getDate() : time.getDate();
+        this.setData({
+            date: year + '.' + month + '.' + day
+        })
+    }
 });

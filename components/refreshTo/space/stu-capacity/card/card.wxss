@@ -12,6 +12,10 @@
   overflow: hidden;
   box-shadow: 20rpx 14rpx 30rpx 5rpx rgba(0, 0, 0, .2);
 }
+.card image {
+  position: fixed; 
+  z-index: -1;
+}
 .moneyText {
   font-size: 60rpx;
   margin: 50rpx 0 0 40rpx;

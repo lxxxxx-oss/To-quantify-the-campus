@@ -1,6 +1,7 @@
 <!-- 一卡通 -->
 <view class="title">2022学年第二学期</view>
 <view class="card">
+    <image src="/assets/img/space/stu-icon/cardBgi.png"></image>
     <view class="moneyText">金额 (元)</view>
     <view class="moneyText">¥   {{money}}</view>
 </view>
