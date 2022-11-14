@@ -959,6 +959,27 @@
                     "query": "category=%E7%BB%BC%E6%B5%8B%E6%88%90%E7%BB%A9",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/com-capacity/attendance/attendance",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/com-capacity/attendance/attendance",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/com-capacity/attendance/attendance",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
