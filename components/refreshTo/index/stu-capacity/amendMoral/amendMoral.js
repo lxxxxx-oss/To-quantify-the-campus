@@ -201,12 +201,15 @@ Page({
         var that = this
         // console.log(this.data.currentInfo.id);
         wx.request({
-            url: `https://alaskaboo.cn/api/honor/${that.data.currentInfo.id}`,
+            // 3 => 是用户学生的ID
+            url: 'https://alaskaboo.cn/api/honor',
             method: 'PUT',
             header: {
                 "Content-Type": 'application/json',
             },
+            // id => 是该荣誉的ID
             data: {
+                id: that.data.currentInfo.id,
                 award: that.data.currentInfo.award,
                 awardCategory: that.data.category[that.data.currentInfo.awardCategory],
                 awardLevel: that.data.level[that.data.currentInfo.awardLevel],
