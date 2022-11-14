@@ -27,7 +27,7 @@ Component({
                     // 格式化时间
                     that.data.infoList.forEach(e => {
                         e.awardTime = Array.from(e.awardTime)
-                        e.awardTime.splice(16)
+                        e.awardTime.splice(10)
                         // e.awardTime.splice(10, 1, "-")
                         e.awardTime = e.awardTime.join("")
                     })
