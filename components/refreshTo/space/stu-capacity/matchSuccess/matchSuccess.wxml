@@ -1,0 +1,15 @@
+<!-- 匹配成功页面 -->
+<view class="matchTitle">与你具有相似度的同学</view>
+<view wx:for="{{matchInfo}}" class="matchInfo">
+    <view class="matchStu">
+        <view class="matchStuInfo">
+            <image src="{{item.avatar}}"></image>
+            <view>{{item.name}}</view>
+        </view>
+        <view class="matchResult">
+            <view>学号：{{item.account}}</view>
+            <view>匹配指数：<text style="color: rgb(233, 66, 66);">{{item.score}}%</text></view>
+            <view>匹配标签：<text style="color: rgb(69, 243, 69);">{{item.labels}}</text></view>
+        </view>
+    </view>
+</view>

@@ -80,38 +80,39 @@ Page({
         this.setData({
             hobbyList: this.data.hobbyList
         })
-        // console.log(this.data.hobbyList);
-        // let submitInfo = {
-        //     selectOne: this.data.radioOne[this.data.selectOne],
-        //     selectTwo: this.data.radioTwo[this.data.selectTwo],
-        //     selectThree: this.data.radioThree[this.data.selectThree],
-        //     selectFour: this.data.radioFour[this.data.selectFour],
-        //     selectFive: this.data.radioFive[this.data.selectFive],
-        //     hobbyList: this.data.hobbyList
-        // }
         let infoArr = [
-            this.data.radioOne[this.data.selectOne],
-            this.data.radioTwo[this.data.selectTwo],
-            this.data.radioThree[this.data.selectThree],
-            this.data.radioFour[this.data.selectFour],
-            this.data.radioFive[this.data.selectFive],
+            this.data.radioOne[this.data.selectOne]?this.data.radioOne[this.data.selectOne] : "",
+            this.data.radioTwo[this.data.selectTwo]?this.data.radioTwo[this.data.selectTwo] : "",
+            this.data.radioThree[this.data.selectThree]?this.data.radioThree[this.data.selectThree] : "",
+            this.data.radioFour[this.data.selectFour]?this.data.radioFour[this.data.selectFour] : "",
+            this.data.radioFive[this.data.selectFive]?this.data.radioFive[this.data.selectFive] : "",
             ...this.data.hobbyList
         ]
+       
         console.log(infoArr);
-
         // 将学生选择的数据传入数据库，进行匹配
-        requestTwo({
-            url: '/api/match',
-            methods: 'GET',
-            data: [1665,5828,9376],
+        wx.request({
+            url: 'https://alaskaboo.cn/api/match',
+            method: 'POST',
+            header: {
+                'content-type':'application/json',
+            },
+            data: infoArr,
             success(res) {
-                console.log(res);
+                console.log(res.data.data.match);
+                let info = JSON.stringify(res.data.data.match)
+                wx.showToast({
+                    title: '提交成功',
+                    icon: 'success'
+                })
+                // 跳转到匹配成功页面
+                wx.navigateTo({
+                    url: '../matchSuccess/matchSuccess?matchInfo='+info,
+                })
             },
             fail(err) {
                 console.log(err);
             }
-        }).then((res) => {
-            console.log(res);
         })
     }
     

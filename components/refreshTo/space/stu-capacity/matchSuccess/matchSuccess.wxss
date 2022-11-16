@@ -1,0 +1,40 @@
+.matchTitle {
+    margin: 40rpx 0 20rpx 0;
+    font-size: 40rpx;
+    font-weight: 600;
+    text-align: center;
+}
+.matchInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.matchStu {
+    display: flex;
+    justify-content: space-between;
+    height: 230rpx;
+    width: 95%;
+    margin: 20rpx 0;
+    padding: 20rpx 10rpx 20rpx 30rpx;
+    background-color: #fff;
+    box-shadow: 0 0 20rpx 0 rgba(0, 0, 0, 0.2);
+}
+.matchStuInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.matchStuInfo image {
+    height: 150rpx;
+    width: 150rpx;
+    margin-bottom: 10rpx;
+    background-color: #cecece;
+    border-radius: 50%;
+}
+
+.matchResult {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 400rpx;
+}
