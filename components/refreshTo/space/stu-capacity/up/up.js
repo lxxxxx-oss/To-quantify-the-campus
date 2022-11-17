@@ -1,18 +1,22 @@
-const {requestTwo} = require("../../../../../utils/request") 
+const FormData = require('../../../../../utils/formdata')
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        // 文件名称
+        fileNam: "",
         fileCate: "",
         // 文件类型
-        category: ["疫情相关", "青年大学习", "证明材料", "其他"],
+        category: ["疫情相关", "青年大学习", "班级作业", "证明材料"],
         // 获奖等级
         level: ["一等奖", "二等奖", "三等奖", "优秀奖"],
         // 上传时间
-        date: "2021-09-01",
+        date: "2022-09-01",
         imgList: [],
+        // 备注信息
+        remark: ""
     },
 
     /**
@@ -21,6 +25,14 @@ Page({
     onLoad(options) {
 
     },
+    // 获取文件名称
+    getInputValue(e) {
+      // console.log(e.detail.value);
+      this.setData({
+        fileName: e.detail.value
+      })
+    },
+
     // 文件类型的选择
     categoryChange(e) {
         console.log(e);
@@ -33,6 +45,14 @@ Page({
         this.setData({
           date: e.detail.value
         })
+    },
+
+    // 获取备注信息
+    textareaAInput(e) {
+      // console.log(e.detail.value);
+      this.setData({
+        remark: e.detail.value
+      })
     },
     //#region 
     // 图片的上传
@@ -82,29 +102,30 @@ Page({
     //  提交信息
     submit() {
         var that = this
-        // 创建一个对象，存储用户填入的信息
-        let info = {
-            fileCate: this.data.fileCate,
-            date: this.data.date,
-            imgSrc: this.data.imgList
-        }
         
         // 将该信息对象上传到数据库
-        // requestTwo({
-        //     url: '',
-        //     method: 'POST',
-        //     data: {
+        let formData = new FormData();
+        console.log(that.data.imgList);
+        formData.append("fileName", that.data.fileName);
+        formData.append("fileType", that.data.category[that.data.fileCate]);
+        formData.append("remark", that.data.remark);
+        that.data.imgList.forEach(e => {
+          formData.appendFile("file", e, that.data.category[that.data.fileCate]);
+        })
+        
 
-        //     },
+        let data = formData.getData();
+        wx.request({
+          url: 'https://alaskaboo.cn/api/file/upload',
+          method: 'POST',
+          header: {
+            'content-type': data.contentType
+          },
+          data: data.buffer,
 
-        //     success(res) {
-        //         console.log(res);
-        //         wx.showToast({
-        //             title: '提交成功',
-        //             icon: 'success',
-        //             duration: 2000
-        //         })
-        //     }
-        // })
+          success(res) {
+            console.log(res);
+          }
+        });
     }
 })

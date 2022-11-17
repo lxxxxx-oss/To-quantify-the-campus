@@ -3,14 +3,14 @@
 <view class="cu-list check">
     <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{img}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
         <view class="card">
-            <image src="{{item.imgAddress}}" class="img" bindtap="preview"  
+            <image src="{{item.imgAddress}}" class="img" bindtap="viewImg"  
             data-src="{{item.imgAddress}}" data-index='{{index}}'></image>
             <view class="message">
                 <view>上传人：<text>{{item.name}}</text></view>
                 <view>上传时间：{{item.date}}</view>
                 <!-- 根据是否已审核决定文字样式 -->
-                <view style="color: red;" wx:if="{{!item.status}}">是否通过：{{item.des}}</view>
-                <view style="color: green;" wx:if="{{item.status}}">是否通过：{{item.des}}</view>
+                <view wx:if="{{!item.status}}">是否通过：<text style="color: rgb(231, 58, 58);">{{item.des}}</text></view>
+                <view wx:if="{{item.status}}">是否通过：<text style="color: rgb(65, 240, 65);">{{item.des}}</text></view>
             </view> 
             <view class="statusIcon">
                 <!-- 根据状态不同，展示不同icon -->

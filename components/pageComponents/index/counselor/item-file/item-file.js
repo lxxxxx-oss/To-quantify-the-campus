@@ -36,7 +36,7 @@ Component({
                 },
                 data: {
                     "school": "重庆移通学院",
-	                "clazzNum": "02132002"
+	                "clazzNum": "02132208"
                 },
 
                 success(res) {

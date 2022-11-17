@@ -2,7 +2,7 @@
 <form>
 	<view class="cu-form-group">
 		<view class="title">文件名称</view>
-		<input placeholder="请输入文件名称"></input>
+		<input placeholder="请输入文件名称" bindinput='getInputValue'></input>
 	</view>
 	<view class="cu-form-group margin-top">
 		<view class="title">文件类别</view>
@@ -12,15 +12,15 @@
 			</view>
 		</picker>
 	</view>
-    <view class="cu-form-group">
+  <!-- <view class="cu-form-group">
 		<view class="title">文件XX</view>
 		<picker bindchange="levelChange" value="{{index}}" range="{{level}}">
 			<view class="picker">
 				{{index ? level[index] : '请选择文件XX'}}
 			</view>
 		</picker>
-	</view>
-	<view class="cu-form-group">
+	</view> -->
+	<view class="cu-form-group margin-top">
 		<view class="title">日期选择</view>
 		<picker mode="date" value="{{date}}" start="2015-09-01" end="2024-09-01" bindchange="DateChange">
 			<view class="picker">
