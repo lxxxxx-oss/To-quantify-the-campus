@@ -3,6 +3,6 @@
     <!-- 文件审核 -->
     <view class="item division">文件审核</view>
     <view class="item-bottom"></view>
-    <!-- 文件审核页面 -->
-    <check></check>
 </view>
+<!-- 文件审核页面 -->
+<check></check>

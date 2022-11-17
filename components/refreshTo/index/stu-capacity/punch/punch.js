@@ -49,8 +49,6 @@ Component({
             this.setData({
                 now_time: this.getTime(),
                 nowDate: util.formatTime(new Date()),
-                nowDay: util.formatDay(new Date()),
-                tip: util.formatSole(),
             })
         },
     },
@@ -85,7 +83,6 @@ Component({
                     now_time: this.getTime()
                 })
             }, 1000)
-            console.log(this.data.now_time);
         },
         // 获取具体时间
         getTime() {

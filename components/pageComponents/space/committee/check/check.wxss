@@ -31,12 +31,6 @@ page {
     font-size: 30rpx;
 }
 
-/* 是否通过的图标 */
-.statusIcon image{
-    height: 160rpx;
-    width: 160rpx;
-    margin: 30rpx 20rpx 0 30rpx;
-}
 
 /* 滑动后的按钮 */
 .item-oper {
