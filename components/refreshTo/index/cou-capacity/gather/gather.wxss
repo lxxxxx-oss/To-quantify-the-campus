@@ -1,48 +1,28 @@
 page {
-    padding: 0;
-    margin: 0;
+    background-color: #fff;
 }
-
-/* 功能选项 */
-.capacityTab {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100rpx;
-    font-size: 36rpx;
-    color: #fff;
-}
-/* 打卡情况 */
-.punchItem {
-    width: 50%;
-    height: 100%;
-    background-color: #896CC6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* 文件收集 */
-.fileItem {
-    width: 50%;
-    height: 100%;
-    background-color: #896CC6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* 自定义的下边框 */
-.tabBottom {
+.classList {
     position: absolute;
-    top: 101rpx;
-    left: 20rpx;
-    height: 5rpx;
-    width: 45%;
-    background-color: #6D00B6;
+    top: 0rpx;
+    left: 0rpx;
+    width: 100%;
 }
-/* 打卡功能选项卡 */
-.capacityTab file{
-    position: absolute;
-    top: 110rpx;
-    background-color: red;
+.punchCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 200rpx;
+    width: 700rpx;
+    margin: 20rpx 20rpx 40rpx 20rpx;
+    padding: 20rpx 0 20rpx 40rpx;
+    background-color: #896CC6;
+    border-radius: 30rpx;
+    font-size: 40rpx;
 }
-
+.finishStatus {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    font-size: 33rpx
+}

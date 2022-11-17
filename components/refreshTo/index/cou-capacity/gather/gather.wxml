@@ -1,22 +1,13 @@
 <!-- 信息采集 -->
-<!-- 功能分类tab -->
-<view class="capacityTab">
-        <!-- 打卡 -->
-        <view class="punchItem" bindtap="punchItem">
-            <view>
-                打卡
+<view class="classList">
+    <view wx:for="{{punchCondition}}" wx:key="{{index}}">
+        <view class="punchCard" bindtap="punchDetail" data-index="{{index}}">
+            <view class="className">{{item.className}}完成情况</view>
+            <view class="finishStatus">
+                <view style="color: rgb(125, 252, 125);" wx:if="{{item.status}}">全部完成</view>
+                <view style="color: rgb(245, 77, 77);" wx:if="{{!item.status}}">未完成</view>
+                <view class="classId">班级码:{{item.classId}}</view>
             </view>
-            <!-- 自定义的下边框 -->
-            <view class="tabBottom" wx:if="{{!isShow}}"></view>
-            <punch wx:if="{{!isShow}}"></punch>
         </view>
-
-        <!-- 文件收集 -->
-        <view class="fileItem"  bindtap="fileItem">
-            <view>
-                文件收集
-            </view>
-            <view class="tabBottom" style="left: 390rpx" wx:if="{{isShow}}"></view>
-            <file wx:if="{{isShow}}"></file>
-        </view>
+    </view>
 </view>

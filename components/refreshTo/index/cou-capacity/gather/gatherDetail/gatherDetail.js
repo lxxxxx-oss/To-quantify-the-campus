@@ -5,6 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
+        // 显示和隐藏
+        isShow: false,
         // 存储传递过来的值
         name: "",
         unfinishName: "",
@@ -16,7 +18,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // console.log(options);
+        console.log(options);
         
         // 根据传递过来的值，动态决定页面标题
         wx.setNavigationBarTitle({
@@ -30,7 +32,7 @@ Page({
 
         // 将字符串切割为数组，原因如上
         let arr = options.unfinishName.split(",")
-        console.log(arr);
+        // console.log(arr);
 
         // 存储传递过来的值
         this.setData({
@@ -40,55 +42,22 @@ Page({
             classId: options.classId
         })
         // console.log(this.data.name);
-        console.log(typeof(this.data.unfinishName));
+        // console.log(typeof(this.data.unfinishName));
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-
+    // 点击切换功能选项卡
+    // 打卡功能
+    punchItem() {
+        // 点击则显示该选项卡的内容
+        
+        this.setData({
+            isShow:false
+        })
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
+    // 文件收集功能
+    fileItem() {
+        this.setData({
+            isShow: true
+        })
     }
+
 })

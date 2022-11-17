@@ -1,0 +1,45 @@
+.codeName {
+    font-size: 40rpx;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20rpx;
+}
+/* 个人的情况 */
+.person {
+    display: flex;
+    justify-content: space-between;
+    margin-top:150rpx;
+    padding: 10rpx 20rpx 0 20rpx;
+    color: #000000;
+}
+
+.personItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 130rpx;
+    margin-top: 30rpx;
+    padding: 10rpx 20rpx 0 20rpx;
+    color: black ;
+    font-size: 40rpx;
+    background-color: #fff;
+    box-shadow: 0 0 20rpx 0 rgba(0, 0, 0, 0.2);
+}
+
+/* 图标 */
+.icon {
+    height: 100rpx; 
+    width: 100rpx;
+    margin-top: 0rpx;
+}
+.icon image {
+    height: 80rpx; 
+    width: 100rpx;
+}
+.leaveText {
+    position: relative;
+    bottom: 30rpx;
+    right: -60rpx;
+    font-size: 28rpx;
+    color: #707070;
+}

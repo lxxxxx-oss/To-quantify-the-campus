@@ -1,29 +1,89 @@
-// components/gather/gather.js
-Page({
+// components/refreshTo/index/stu-capacity/career/career.js
+Component({
+    /**
+     * 组件的属性列表
+     */
+    properties: {
 
+    },
+
+    /**
+     * 组件的初始数据
+     */
     data: {
-        // 显示和隐藏
-        isShow: false
+        punchCondition: [
+            {
+                "className": "软工十班",
+                "status": true,
+                "unfinishName": "无",
+                "classId": "42050"
+            },
+            {
+                "className": "软工九班",
+                "status": false,
+                "unfinishName": "小黎,小徐,小咪渣",
+                "classId": "42049"
+            },
+            {
+                "className": "软工八班",
+                "status": true,
+                "unfinishName": "无",
+                "classId": "42048"
+            },
+            {
+                "className": "软工七班",
+                "status": true,
+                "unfinishName": "无",
+                "classId": "42047"
+            },
+            {
+                "className": "软工六班",
+                "status": false,
+                "unfinishName": "小黎,小徐,小咪渣,小黎,小徐,小咪渣,小黎,小徐,小咪渣",
+                "classId": "42046"
+            },
+            {
+                "className": "软工五班",
+                "status": true,
+                "unfinishName": "无",
+                "classId": "42045"
+            },
+            {
+                "className": "软工四班",
+                "status": true,
+                "unfinishName": "无",
+                "classId": "42044"
+            },
+        ]
     },
 
-    onLoad(options) {
-
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+        // 打卡详情页面
+        punchDetail(e) {
+            // 存储点击的索引值
+            let index = e.currentTarget.dataset.index
+            wx.navigateTo({
+                // 导航并传值
+                url: './gatherDetail/gatherDetail?name='+this.data.punchCondition[index].className+"&unfinishName="+this.data.punchCondition[index].unfinishName+"&status="+this.data.punchCondition[index].status+"&classId="+this.data.punchCondition[index].classId
+            })
+            // console.log(e.currentTarget.dataset.index);
+        }
     },
-     
-
-    // 点击切换功能选项卡
-    // 打卡功能
-    punchItem() {
-        // 点击则显示该选项卡的内容
-        
-        this.setData({
-            isShow:false
-        })
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh() {
+        console.log("下拉刷新");
+        wx.showNavigationBarLoading() //在标题栏中显示加载
     },
-    // 文件收集功能
-    fileItem() {
-        this.setData({
-            isShow: true
-        })
-    }
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom() {
+        console.log("上拉加载");
+    },
 })

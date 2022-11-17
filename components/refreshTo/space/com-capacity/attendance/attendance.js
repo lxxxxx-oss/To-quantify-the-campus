@@ -54,7 +54,7 @@ Page({
         // this.getClassInfo()
     },
 
-    // 获取班级信息
+    // 获取班级考勤信息
     getClassInfo() {  
         let that = this
         wx.request({

@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "punch": "/components/pageComponents/index/counselor/item-punch/item-punch",
+        "file": "/components/pageComponents/index/counselor/item-file/item-file",
+        "scroller": "/miniprogram_npm/coolui-scroller/scroller/index"
+    }
+}

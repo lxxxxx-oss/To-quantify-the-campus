@@ -1,0 +1,10 @@
+<view wx:for="{{fileInfo}}" class="clazzList">
+    <view class="codeName">文件收集</view>
+    <view wx:for="{{item.fileUploadList}}" wx:for-item="file" class="fileInfo">
+        <image src="{{file.path}}" mode="widthFix" bindtap="viewImg" data-index="{{index}}"></image>
+        <view class="describeInfo">
+            <view style="margin-bottom: 20rpx;">{{file.remark}}</view>
+            <view>文件类型:<text style="color: rgb(79, 231, 79);">{{file.fileType}}</text></view>
+        </view>
+    </view>
+</view>

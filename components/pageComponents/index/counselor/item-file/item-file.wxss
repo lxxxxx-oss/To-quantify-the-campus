@@ -1,0 +1,27 @@
+.clazzList {
+    margin-top: 20rpx;
+}
+.codeName {
+    font-size: 40rpx;
+    font-weight: 600;
+    text-align: center;
+}
+.fileInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200rpx;
+    margin: 20rpx;
+    padding: 20rpx 50rpx 20rpx 20rpx;
+    background-color: #fff;
+    box-shadow: 0 0 20rpx 0 rgba(0, 0, 0, 0.2);
+}
+.fileInfo image{
+    width: 300rpx;
+}
+.describeInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 600;
+}

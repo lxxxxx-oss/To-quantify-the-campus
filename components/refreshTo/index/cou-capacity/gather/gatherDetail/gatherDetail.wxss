@@ -1,0 +1,43 @@
+page {
+    padding: 0;
+    margin: 0;
+}
+
+/* 功能选项 */
+.capacityTab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100rpx;
+    font-size: 36rpx;
+    color: #fff;
+}
+/* 打卡情况 */
+.punchItem {
+    width: 50%;
+    height: 100%;
+    background-color: #896CC6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 文件收集 */
+.fileItem {
+    width: 50%;
+    height: 100%;
+    background-color: #896CC6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 自定义的下边框 */
+.tabBottom {
+    position: absolute;
+    top: 101rpx;
+    left: 20rpx;
+    height: 5rpx;
+    width: 45%;
+    background-color: #6D00B6;
+}
+
+
