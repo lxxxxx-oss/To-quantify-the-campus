@@ -14,45 +14,63 @@ Component({
         punchCondition: [
             {
                 "className": "软工十班",
-                "status": true,
+                "status": false,
                 "unfinishName": "无",
-                "classId": "42050"
+                "classId": "021320010"
             },
             {
                 "className": "软工九班",
                 "status": false,
-                "unfinishName": "小黎,小徐,小咪渣",
-                "classId": "42049"
+                "unfinishName": "...",
+                "classId": "02132009"
             },
             {
                 "className": "软工八班",
                 "status": true,
                 "unfinishName": "无",
-                "classId": "42048"
+                "classId": "02132008"
             },
             {
                 "className": "软工七班",
                 "status": true,
                 "unfinishName": "无",
-                "classId": "42047"
+                "classId": "02132007"
             },
             {
                 "className": "软工六班",
                 "status": false,
-                "unfinishName": "小黎,小徐,小咪渣,小黎,小徐,小咪渣,小黎,小徐,小咪渣",
-                "classId": "42046"
+                "unfinishName": "...",
+                "classId": "02132006"
             },
             {
                 "className": "软工五班",
                 "status": true,
                 "unfinishName": "无",
-                "classId": "42045"
+                "classId": "02132005"
             },
             {
                 "className": "软工四班",
                 "status": true,
                 "unfinishName": "无",
-                "classId": "42044"
+                "classId": "02132004"
+            },
+            {
+                "className": "软工三班",
+                "status": true,
+                "unfinishName": "无",
+                "classId": "02132003"
+            },
+            {
+                "className": "软工二班",
+                "status": true,
+                "unfinishName": "无",
+                "classId": "02132002"
+            },
+            {
+                "className": "软工一班",
+                "status": true,
+                "unfinishName": "无",
+                "classId": "02132001"
             },
         ]
     },

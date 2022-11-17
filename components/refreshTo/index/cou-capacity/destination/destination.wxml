@@ -1,8 +1,8 @@
 <!-- 学生动向 -->
 <view class="header">
-    <view bindtap="spread">
+    <view>
         <!-- 专业列表 -->
-        <image src="/assets/img/index/cou-icon/list.png" class="list"></image>
+        <image src="/assets/img/index/cou-icon/list.png" class="list" bindtap="spread"></image>
         <scroll-view class="allMajor" wx:if="{{isShow}}">
             <!-- 辅导员信息展示 -->
             <view class="message">
@@ -14,15 +14,16 @@
                     <view class="identity">辅导员</view>
                 </view>
             </view>
-            <!-- 所有专业信息展示 -->
-            <view class="majorInfor" wx:key="classify">
-                <!-- 分类 -->
-                <view class="classify" wx:for="{{faculty}}">{{item}}</view>
-                <!-- 专业细分 -->
-                <!-- <view class="sub" bindtap="changeMajor" data-text='{{major}}' wx:for="{{major}}" wx:for-item="sub" wx:key="" data-index="{{index}}"> 
-                    {{sub}}
-                </view> -->
-            </view>
+            <radio-group class="classify" bindchange="changeMajor" wx:if="{{isShowFaculty}}" wx:for="{{faculty}}" data-index="{{index}}">
+                    <label class="radio" >
+                        <radio value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
+                    </label>
+            </radio-group>
+            <radio-group class="classify" bindchange="showMajor" wx:if="{{isShowMajor}}" wx:for="{{major}}" data-id="{{item.id}}">
+                    <label class="radio" >
+                        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
+                    </label>
+            </radio-group>
         </scroll-view>
     </view>
     <!-- 当没有选择专业时 展示我管理的班级 -->
@@ -34,21 +35,22 @@
         {{changeMajor}}
     </view>
     <!-- 选择班级信息 -->
-    <view class="add" bindtap="addClass">
+    <view class="add" bindtap="showClass">
         <image src="/assets/img/index/cou-icon/sign.png" class="sign"></image>
         <view>添加班级</view>
     </view>
 </view>
 <view class="classNum">
-    <view class="temp" wx:if="{{isShowclass}}" wx:for="{{classInform}}" data-index="{{index}}" data-text="{{item}}" bindtap="changeClass">{{item}}</view>
+    <view class="temp" wx:if="{{isShowclass}}" wx:for="{{classInform}}" data-index="{{index}}" data-text="{{item}}" bindtap="changeClass">{{item.name}}</view>
+</view>
+
+<!-- 当选择了专业或班级后,则展示专业班级信息 -->
+<view class="classMessage" wx:if="{{changeMajor || num}}" bindtap="gotoDetail"> 
+    <view class="faculty">{{changeFaculty}}</view>
+    <view class="majorName">{{changeMajor}} <text style="margin-left: 30rpx">{{classNum}}</text></view>
+    <!-- <view class="num">{{classNum}}</view> -->
 </view>
 
 <!-- 当未进行专业选择时的提示语 -->
 <!-- 当选择了专业或班级后，隐藏该提示语 -->
-<view class="prompt" wx:if="{{!changeMajor || !num}}">请选择所管理专业，并添加班级</view>
-
-<!-- 当选择了专业或班级后,则展示专业班级信息 -->
-<view class="classMessage" wx:if="{{changeMajor || num}}" bindtap="gotoDetail"> 
-    <view class="majorName">{{changeMajor}}</view>
-    <view class="num">{{num}}</view>
-</view>
+<view class="prompt" wx:if="{{!changeMajor || !classNum}}">请选择所管理专业，并添加班级</view>

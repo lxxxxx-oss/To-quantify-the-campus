@@ -6,21 +6,23 @@ Page({
      * 页面的初始数据
      */
     data: {
-        // 是否展示专业列表
+        // 是否展示
         isShow: false,
+        isShowFaculty: false,
+        isShowMajor: false,
         // 选择的专业信息
         changeMajor:"",
         // 是否展示班级信息
         isShowclass: false,
-        // 学院
+        // 学院信息
         faculty: [],
-        // 每个学院的id
-        facultyId: [],
+        // 选择学院信息
+        changeFaculty: "",
         // 专业
         major: [],
         // 班级信息
         classInform: "",
-        num: ""
+        classNum: ""
     },
 
     /**
@@ -44,15 +46,14 @@ Page({
 
         // 获取全部学院
         this.getList().then((res) => {
+            let that = this
+            // console.log(res.data.list);
             res.data.list.forEach(e => {
-                that.data.faculty.push(e.name)
-                that.data.facultyId.push(e.id)
+                that.data.faculty.push(e)
                 that.setData({
                     faculty: that.data.faculty,
-                    facultyId: that.data.facultyId
                 })
             })
-            console.log(that.data.facultyId);
         }).catch((err) => {
             console.log(err);
         }),
@@ -65,7 +66,7 @@ Page({
             that.setData({
                 major: that.data.major
             })
-            console.log(that.data.major);
+            // console.log(that.data.major);
         }).catch((err) => {
             console.log(err);
         })
@@ -75,43 +76,70 @@ Page({
     // 展示列表
     spread() {
         this.setData({
-            isShow: !this.data.isShow
+            isShow: !this.data.isShow,
+            isShowFaculty: !this.data.isShisShowFacultyowMajor
         })
         // console.log(this.data.isShow);
     },
 
     // 点击选择专业
     changeMajor(e) {
+        let that = this
         // 存储索引值
         let index = e.currentTarget.dataset.index
-        // 匹配数组中的数据
-        let major = e.target.dataset.text[index]
+        // 存储学院id
+        let changeId = e.detail.value
+        this.data.faculty.checked = true
+        wx.showToast({
+            title: '选择学院成功',
+            icon: 'success',
+            success(res) {
+                return requestOne({
+                    url: `/user/leagueList?id=${changeId}`, 
+                    method: 'GET'
+                }).then((res) => {
+                    console.log(res);
+                    that.setData({
+                        major: res.data.list,
+                        changeFaculty: that.data.faculty[index].name,
+                        isShowFaculty: !that.data.isShowFaculty,
+                        isShowMajor: !that.data.isShowMajor
+                    })
+                })
+            }
+        },2000)
+    },
 
-        // 更新数据,并渲染
+    // 选择专业
+    showMajor(e) {
         this.setData({
-            changeMajor: major
+            currentMajor: e.currentTarget.dataset.id,
+            changeMajor: e.detail.value,
+            isShow: !this.data.isShow
         })
     },
 
     // 点击添加班级，展示班级列表
-    addClass() {
-        // 匹配数组中的数据
-        // let classNum = e.target.dataset.text[index]
-        // 更改班级列表的状态
-        this.setData({
-            isShowclass: !this.data.isShowclass,
-            // num: classNum
+    showClass() {
+        let that = this
+        return requestOne({
+            url: `/user/leagueList?id=${this.data.currentMajor}`, 
+            method: 'GET'
+        }).then((res) => {
+            console.log(res);
+            let classList = res.data.list.splice(47, 20)
+            that.setData({
+                classInform: classList,
+                isShowclass: !this.data.isShowclass,
+            })
         })
     },
-
     // 选择班级信息并展示
     changeClass(e) {
-        //  匹配数组中的数据
-         let classNum = e.target.dataset.text
-        //  console.log(classNum);
-         // 更改班级列表的状态
-         this.setData({
-             num: classNum
+         let that = this
+         let index = e.currentTarget.dataset.index
+         that.setData({
+             classNum: that.data.classInform[index].name
          })
     },
 

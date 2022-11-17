@@ -84,6 +84,9 @@ page {
     height: 80rpx;
     margin: 50rpx 50rpx 20rpx 50rpx;
 }
+.radio {
+    margin: 0 20rpx 0 20rpx;
+}
 .sub {
     /* 设置如何处理文本中的空白 */
     /* pre：连续的空白符会被保留。在遇到换行符或者<br>元素时才会换行 */
@@ -131,21 +134,26 @@ page {
 
 /* 展示专业班级信息 */
 .classMessage {
-    /* position: absolute;
-    top: 130rpx;
-    left: 35rpx; */
+    position: fixed;
+    top: 200rpx;
+    left: 40rpx;
+    z-index: -1;
     height: 200rpx;
     width: 90%;
-    margin: auto;
     margin-top: 50rpx;
     padding-left: 50rpx;
     background-color: #B54036 ;
     border-radius: 25rpx;
 }
+.faculty {
+    padding-top: 30rpx;
+    color: #fff;
+    font-size: 40rpx
+}
 .majorName {
     padding-top: 30rpx;
     color: #fff;
-    font-size: 40rpx;
+    font-size: 30rpx;
 }
 .num {
     padding-top: 30rpx;
