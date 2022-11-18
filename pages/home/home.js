@@ -1,5 +1,4 @@
 const {requestTwo} = require("../../utils/request")
-const {FormData} = require("../../utils/formdata")
 Page({
 
     /**
@@ -20,14 +19,26 @@ Page({
         isShowInfo: false,
         isShowSet: false,
         infoList: [
+            {},
             {
-                "所属学院": "大数据与计算机科学学院",
-                // "真实姓名": "黎鑫",
-                "所属专业": "软件工程",
-                "学号/工号": "2020211932",
-                "辅导员": "彭崇清",
-                "寝室号": "B2-406"
-            }
+              "身份": "超级管理员"
+            },
+            {
+              "所属学院": "大数据与计算机科学学院",
+              "管理专业": "软件工程",
+              "工号": "2132009",
+            },
+            {
+              "所属书院": "廊桥书院",
+              "管理楼层": "二、三、四楼"
+          },
+          {
+            "所属学院": "大数据与计算机科学学院",
+            "所属专业": "软件工程",
+            "工号": "2020211932",
+            "辅导员": "彭崇清",
+            "寝室号": "B2-406"
+          },
         ]
     },
 
@@ -98,7 +109,7 @@ Page({
         // 一个展开另一个就收回
         this.setData({
             isShowInfo: !data.isShowInfo,
-            info: data.infoList[0],
+            info: data.infoList[this.data.userType],
             name: data.name,
             number: data.number,
             isShowSet: false

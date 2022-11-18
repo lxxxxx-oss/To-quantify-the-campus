@@ -28,11 +28,11 @@
     </view>
     <!-- 可以折叠的详细描述信息 -->
     <view wx:if="{{isShowInfo}}" class="unfold">
-            <block>
-            <view>{{index}}</view>
-            <view>{{item}}</view>
-                <text class="info text-bold" wx:for="{{info}}" wx:key="number" >{{index}} : {{item}}</text>
-            </block>
+      <block>
+        <view>{{index}}</view>
+        <view>{{item}}</view>
+            <text class="info text-bold" wx:for="{{info}}" wx:key="number" >{{index}} : {{item}}</text>
+      </block>
     </view>
     <!-- 我的设置选项 -->
     <view class="tab" bindtap="unfoldSetting">
@@ -80,6 +80,6 @@
                 </button>
                 <image src="/assets/img/home/rightArrows.png" class="arrow"></image>    
             </view>
-        </view>
+    </view>
 </view>
 
