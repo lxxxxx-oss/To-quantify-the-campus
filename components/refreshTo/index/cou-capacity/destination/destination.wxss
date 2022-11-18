@@ -6,43 +6,27 @@ page {
     background-color: #F5F6FA ;
 }
 /* 头部样式 */
-.header {
+.headerTitle {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 130rpx;
-    background-color: #2B58AB;
+    background-color: #336699;
     color: #fff;
+    font-size: 35rpx;
     font-weight: Bold;
 }
-/* 列表样式 */
-.list {
-    height: 50rpx;
-    width: 70rpx;
-    margin-left: 15rpx;
-}
 
-/* 专业列表 */
-.allMajor {
-    /* 绝对定位 */
-    position: absolute;
-    top: 0;
-    background-color: #2B58AB ;
-    /* height: 1400rpx; */
-    width: 81%;
-    /* 使其置于页面最上层 */
-    z-index: 999;
-    overflow: hidden;
-}
 /* 用户信息区域 */
 .message {
     display: flex;
     align-items: center;
     height: 150rpx;
-    width: 500rpx;
+    width: 95%;
     background-color: #fff;
-    margin: 30rpx 20rpx 0 50rpx;
+    margin: 30rpx 20rpx 0 20rpx;
     border-radius: 20rpx;
+    box-shadow: 0 2rpx 0 0 #cecece;
 }
 /* 用户头像 */
 .avatar image {
@@ -58,17 +42,16 @@ page {
     align-items: center;
     justify-content: center;
     margin-left: 50rpx;
+    font-size: 35rpx;
 }
 /* 用户名称 */
 .userName {
-    font-size: 40rpx;
-    font-weight: bold;
     color: black;
+    margin: 0 20rpx 0 0;
 }
 /* 用户身份 */
 .identity {
     margin-top: 5rpx;
-    color: #cecece;
 }
 /* 专业信息展示 */
 .majorInfor {
@@ -84,31 +67,12 @@ page {
     height: 80rpx;
     margin: 50rpx 50rpx 20rpx 50rpx;
 }
-.radio {
-    margin: 0 20rpx 0 20rpx;
-}
-.sub {
-    /* 设置如何处理文本中的空白 */
-    /* pre：连续的空白符会被保留。在遇到换行符或者<br>元素时才会换行 */
-    /* white-space: pre;  */
-    margin: 30rpx 0 20rpx 50rpx;
-}
-/* 显示在页眉的专业名字 */
-.changeMajor {
-    font-size: 100rpx;
-}
 /* 添加班级 */
 .add {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-right: 20rpx;
-}
-/* 加号图标 */
-.sign {
-    height: 50rpx;
-    width: 50rpx;
-    margin-right: 15rpx;
 }
 /* 班级信息 */
 .classNum {
@@ -118,41 +82,32 @@ page {
     background-color: #fff;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
-.temp {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-/* 提示信息 */
-.prompt {
-    margin: 100rpx 0 30rpx 180rpx;
-    font-size: 28rpx;
-    font-weight: 200;
-    color: #A0A0A0 ;
-}
 
 /* 展示专业班级信息 */
 .classMessage {
-    position: fixed;
-    top: 200rpx;
-    left: 40rpx;
-    z-index: -1;
     height: 200rpx;
-    width: 90%;
-    margin-top: 50rpx;
-    padding-left: 50rpx;
-    background-color: #B54036 ;
-    border-radius: 25rpx;
-}
-.faculty {
-    padding-top: 30rpx;
+    width: 95%;
+    margin: 30rpx 20rpx 0 20rpx;
+    padding: 0 40rpx 0 40rpx;
+    background-color: #5fa9f3;
+    border-radius: 15rpx;
     color: #fff;
-    font-size: 40rpx
+    box-shadow: 0 3rpx 0 2rpx #cecece;
+}
+.college {
+    padding: 20rpx 0 10rpx 0;
+    font-size: 43rpx;
+    font-weight: 550;
 }
 .majorName {
-    padding-top: 30rpx;
-    color: #fff;
+  padding-bottom: 10rpx;
+  font-size: 35rpx;
+  font-weight: 550;
+}
+.majorClass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: 30rpx;
 }
 .num {

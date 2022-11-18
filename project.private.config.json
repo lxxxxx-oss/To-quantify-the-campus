@@ -1085,6 +1085,48 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/com-capacity/attendance/attendance",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/com-capacity/attendance/attendance",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/space/com-capacity/attendance/attendance",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/gather/gatherDetail/gatherDetail",
+                    "query": "name=%E8%BD%AF%E5%B7%A5%E5%8D%81%E7%8F%AD&unfinishName=%E6%97%A0&status=false&classId=021320010",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/destination/destination",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "components/refreshTo/index/cou-capacity/destination/destination",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

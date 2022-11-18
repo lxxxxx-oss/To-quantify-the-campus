@@ -58,7 +58,7 @@ Page({
     getClassInfo() {  
         let that = this
         wx.request({
-            url: 'https://alaskaboo.cn/attendance/9', 
+            url: 'https://alaskaboo.cn/attendance/309', 
             method: 'POST',
             header: 'application/json',
             data: {
@@ -67,6 +67,7 @@ Page({
                 "attend": JSON.stringify(1)
             },
             success(res) {
+                console.log(res);
                 let infoList = res.data.data.data
                 // 拿到该对象的所有键
                 let keys = Object.keys(infoList)

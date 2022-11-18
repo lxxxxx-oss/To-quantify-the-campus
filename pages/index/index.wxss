@@ -66,7 +66,7 @@
     margin-bottom: 30rpx;
 }
 /* 整个天气预报卡片 */
-.header-modular {
+.header-modular { 
     height: 300rpx;
     background-color: #64C8FA;
     background: linear-gradient(to bottom, #56CCF2, #2F80ED);

@@ -22,7 +22,12 @@ Page({
         major: [],
         // 班级信息
         classInform: "",
-        classNum: ""
+        classNum: "",
+
+        // 老师信息
+        teacherInfo: '',
+        // 管理的班级信息
+        managerInfo: ''
     },
 
     /**
@@ -44,124 +49,29 @@ Page({
             }
         });
 
-        // 获取全部学院
-        this.getList().then((res) => {
-            let that = this
-            // console.log(res.data.list);
-            res.data.list.forEach(e => {
-                that.data.faculty.push(e)
-                that.setData({
-                    faculty: that.data.faculty,
-                })
-            })
-        }).catch((err) => {
-            console.log(err);
-        }),
-
-        // 获取学院下属的专业
-        this.getMajor().then((res) => {
-            res.data.list.forEach(e => {
-                that.data.major.push(e.name)
-            })
-            that.setData({
-                major: that.data.major
-            })
-            // console.log(that.data.major);
-        }).catch((err) => {
-            console.log(err);
+        // 通过工号直接获取该老师管理的班级
+        // 工号通过老师登录时，直接获取
+        this.getTeacherInfo().then((res) => {
+          console.log(res);
+          this.setData({
+            teacherInfo: res.data.teacherClazzList,
+            managerInfo: res.data.teacherClazzList.clazzList
+          })
         })
 
     },
-
-    // 展示列表
-    spread() {
-        this.setData({
-            isShow: !this.data.isShow,
-            isShowFaculty: !this.data.isShisShowFacultyowMajor
-        })
-        // console.log(this.data.isShow);
-    },
-
-    // 点击选择专业
-    changeMajor(e) {
-        let that = this
-        // 存储索引值
-        let index = e.currentTarget.dataset.index
-        // 存储学院id
-        let changeId = e.detail.value
-        this.data.faculty.checked = true
-        wx.showToast({
-            title: '选择学院成功',
-            icon: 'success',
-            success(res) {
-                return requestOne({
-                    url: `/user/leagueList?id=${changeId}`, 
-                    method: 'GET'
-                }).then((res) => {
-                    console.log(res);
-                    that.setData({
-                        major: res.data.list,
-                        changeFaculty: that.data.faculty[index].name,
-                        isShowFaculty: !that.data.isShowFaculty,
-                        isShowMajor: !that.data.isShowMajor
-                    })
-                })
-            }
-        },2000)
-    },
-
-    // 选择专业
-    showMajor(e) {
-        this.setData({
-            currentMajor: e.currentTarget.dataset.id,
-            changeMajor: e.detail.value,
-            isShow: !this.data.isShow
-        })
-    },
-
-    // 点击添加班级，展示班级列表
-    showClass() {
-        let that = this
-        return requestOne({
-            url: `/user/leagueList?id=${this.data.currentMajor}`, 
-            method: 'GET'
-        }).then((res) => {
-            console.log(res);
-            let classList = res.data.list.splice(47, 20)
-            that.setData({
-                classInform: classList,
-                isShowclass: !this.data.isShowclass,
-            })
-        })
-    },
-    // 选择班级信息并展示
-    changeClass(e) {
-         let that = this
-         let index = e.currentTarget.dataset.index
-         that.setData({
-             classNum: that.data.classInform[index].name
-         })
-    },
-
     // 进入班级学生动向的详细页面,并传递数据
     gotoDetail() {
         wx.navigateTo({
-          url: '/components/refreshTo/index/cou-capacity/des-item/des-item?major='+this.data.changeMajor+"&num="+this.data.num,
+          url: '/components/refreshTo/space/com-capacity/attendance/attendance'
         })
     },
 
     // 调取接口，请求数据
-    getList() {
-        return requestOne({
-            url: '/user/leagueList?id=297', 
-            method: 'GET'
-        })
-    },
-    getMajor() {
-        return requestOne({
-            url: '/user/leagueList?id=40772', 
-            method: 'GET'
-        })
+    getTeacherInfo() {
+      return requestTwo({
+        url: '/api/clazz/queryTeacherClazz/teacherAccount=2132009',
+        method: 'GET',
+      })
     }
-    
 })

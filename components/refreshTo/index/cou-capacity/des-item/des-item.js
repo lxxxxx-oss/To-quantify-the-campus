@@ -5,37 +5,14 @@ Page({
      * 页面的初始数据
      */
     data: {
-        // 接收从des页面传递过来的数据
-        num:"",
-        major:"",
-        // 班级信息
-        classInform: [
-            {
-                "stuNum": "35",
-                "leaveNum": "3"
-            }
-        ],
-        // 请假人员详细信息
-        leaveInform: [
-            {
-                "name": ["小咪", "小咪渣", "小咪渣"],
-                "cause": ["事假", "事假", "事假"]
-            },
 
-        ],
-        // 日期
-        date: "2022/10/21"
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        console.log(options);
-        this.setData({
-            num: options.num,
-            major: options.major
-        })
+
     },
 
     /**

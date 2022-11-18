@@ -35,8 +35,7 @@ Component({
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 data: {
-                    "school": "重庆移通学院",
-	                "clazzNum": "02132208"
+	                "clazzNum": "42000"
                 },
 
                 success(res) {
