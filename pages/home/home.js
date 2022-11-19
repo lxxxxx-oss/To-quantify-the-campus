@@ -90,14 +90,14 @@ Page({
     // 根据登录时存储的ID展示用户的信息
     getUesrInfo() {
         var that = this
-        console.log(this.data.userId);
+        // console.log(this.data.userId);
         requestTwo({
-            url: `/api/student/info/${this.data.acount}`,
+            url: `/api/student/info/${that.data.acount}`,
             methods: 'GET',
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
         }).catch((err) => {
-            console.log(err);
+            // console.log(err);
         })
 
     },

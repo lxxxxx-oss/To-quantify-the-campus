@@ -29,12 +29,11 @@ Page({
                 // 将数据库里的图片遍历出来
                 that.data.imgList.push(e.imgSrc)
                 // 获取活动类型
-                that.data.publishTag.push(that.data.allTag[e.publishTag])
+                that.data.publishTag.push(e.publishTag)
                 // 所有数据的ID
                 that.data.infoId.push(e.id)
             })
             // 把活动主要内容存入缓存
-            // console.log(res.data.infoList.records[0].textareaValue);
             let mainText = res.data.infoList.records[0].textareaValue
             wx.setStorage({
                 key: 'mainText',

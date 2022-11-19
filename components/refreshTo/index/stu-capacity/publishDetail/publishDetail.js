@@ -39,7 +39,7 @@ Page({
                 // 将数据库里的图片遍历出来
                 that.data.imgList.push(e.imgSrc)
                 // 获取活动类型
-                that.data.publishTag.push(that.data.allTag[e.publishTag])
+                that.data.publishTag.push(e.publishTag)
             })
             
             // console.log(that.data.imgList);
@@ -61,8 +61,8 @@ Page({
     // 预览图片 
     viewImg(e) {
         var that = this
-        console.log(that.data.index);
-        console.log(that.data.imgList);
+        // console.log(that.data.index);
+        // console.log(that.data.imgList);
         wx.previewImage({
             urls: that.data.imgList,
             current: that.data.imgList[that.data.index]

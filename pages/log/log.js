@@ -113,7 +113,6 @@ Page({
                         userType: res.data.data.currentUser.userType
                     })
                     let inputNum = that.data.userType
-                    console.log(loginStatus);
                     // 后端传来当前用户的类型ID，则展示不同页面
                     if(inputNum == 4) {
                         that.stuLoginAll();

@@ -25,7 +25,7 @@ Page({
             // 将数据库里的图片遍历出来
             res.data.infoList.records.forEach(e => {
                 that.data.imgList.push(e.imgSrc)
-                that.data.publishTag.push(that.data.allTag[e.publishTag])
+                that.data.publishTag.push(e.publishTag)
             })
             // 获取活动类型
             console.log(that.data.publishTag);
