@@ -18,6 +18,7 @@
 }
 .fileInfo image{
     width: 300rpx;
+    margin: 10rpx;
 }
 .describeInfo {
     display: flex;

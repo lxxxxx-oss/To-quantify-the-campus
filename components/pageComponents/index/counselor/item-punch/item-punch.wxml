@@ -1,4 +1,17 @@
 <view class="codeName">班级考勤</view>
+<view class="entirety">
+    <view class="inform">
+        <view class="proportion">班级整体出勤率: <text style="color: red;">{{proportion}}%</text></view>
+        <view class="leave">请假人数:  <text style="color: red;">{{leaveNum}}</text></view>
+    </view>
+    <view class="date">日期: {{date}}</view>
+</view>
+
+<!-- 班级名单/个人情况 -->
+<view class="person">
+  <view>班级名单</view>
+  <view>本节课出勤</view>
+</view>
 <view  wx:for="{{infoList}}" wx:key="index">
     <view class="personItem">
         <view>{{item.studentInfo.name}}</view>

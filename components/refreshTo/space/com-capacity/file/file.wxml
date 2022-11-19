@@ -5,4 +5,24 @@
     <view class="item-bottom"></view>
 </view>
 <!-- 文件审核页面 -->
-<check></check>
+<!-- 文件审核页面 -->
+<!-- colorUI向右滑动组件 -->
+<view class="cu-list check">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{fileInfo}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+        <view class="card">
+            <image src="{{item.path}}" class="img" bindtap="viewImg" data-index='{{index}}' mode="widthFix"></image>
+            <view class="message">
+                <view>文件名：<text>{{item.remark}}</text></view>
+                <view>文件类别：{{item.fileType}}</view>
+                <!-- 根据是否已审核决定文字样式 -->
+                <view wx:if="{{!item.status}}">是否通过：<text style="color: rgb(231, 58, 58);">未审核</text></view>
+                <view wx:if="{{item.status}}">是否通过：<text style="color: rgb(65, 240, 65);">已审核</text></view>
+            </view> 
+          
+            <view class="move">
+                <view class="bg-green" bindtap="pass" data-index='{{index}}'>通过</view>
+                <view class="bg-red" bindtap="fail" data-index='{{index}}'>打回</view>
+            </view>
+        </view>
+    </view>
+</view>

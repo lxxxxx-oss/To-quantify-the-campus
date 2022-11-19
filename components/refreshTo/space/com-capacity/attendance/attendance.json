@@ -1,5 +1,6 @@
 {
     "usingComponents": {},
     "navigationBarTitleText": "出勤状况",
-    "onReachBottomDistance":100
+    "onReachBottomDistance":100,
+    "navigationBarBackgroundColor": "#993333"
 }

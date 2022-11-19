@@ -1,7 +1,4 @@
-// components/refreshTo/space/com-capacity/attendance/attendance.js
-const {requestTwo} = require("../../../../../utils/request")
 Page({  
-
     /**
      * 页面的初始数据
      */
@@ -36,22 +33,6 @@ Page({
         setTimeout(() => {
             this.countRate()
         }, 1000);
-        
-    },
-
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-        // this.getClassInfo()
     },
 
     // 获取班级考勤信息
@@ -67,7 +48,7 @@ Page({
                 "attend": JSON.stringify(1)
             },
             success(res) {
-                console.log(res);
+                // console.log(res);
                 let infoList = res.data.data.data
                 // 拿到该对象的所有键
                 let keys = Object.keys(infoList)

@@ -1,8 +1,6 @@
 // components/pageComponents/space/committee/check/check.js
 const App = getApp()
 Component({
-
-
     lifetimes: {
       attached() {
         this.getFileInfo()
@@ -81,12 +79,11 @@ Component({
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             data: {
-                "school": "重庆移通学院",
-                "clazzNum": "02132208"
+                "clazzNum": "42000"
             },
   
             success(res) {
-              // console.log(res.data.data.clazzList[0].fileUploadList);
+            //   console.log(res.data.data.clazzList[0].fileUploadList);
               that.data.fileInfo = res.data.data.clazzList[0].fileUploadList
               that.data.fileInfo.forEach(e => {
                 e.status = false
@@ -94,7 +91,6 @@ Component({
               that.setData({
                 fileInfo: that.data.fileInfo
               })
-              console.log(that.data.fileInfo);
             },
             fail(err) {
                 console.log(err);
