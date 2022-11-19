@@ -7,7 +7,7 @@ Page({
         // 单独存储图片数据、
         imgList: [],
         // 几种活动类型
-        allTag: ["学校通知", "活动通知", "比赛通知", "考试通知"],
+        allTag: ["学校通知", "活动通知", "比赛通知", "考试通知", "宿管通知"],
         publishTag: [],
         // 所点击的通知的索引
         index: "",
@@ -61,9 +61,11 @@ Page({
     // 预览图片 
     viewImg(e) {
         var that = this
+        console.log(that.data.index);
+        console.log(that.data.imgList);
         wx.previewImage({
-            urls: this.data.imgList,
-            current: e.currentTarget.dataset.index
+            urls: that.data.imgList,
+            current: that.data.imgList[that.data.index]
         });
         // console.log(e.currentTarget.dataset.index);
     },

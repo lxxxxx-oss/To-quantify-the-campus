@@ -1,0 +1,20 @@
+page {
+  margin: 0;
+  padding: 0;
+}
+.reminder{
+  /* background-color: #fff; */
+  padding: 20rpx 0 20rpx 30rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #99CCFF;
+}
+
+/* 提交按钮 */
+.publish {
+  margin-top: 50rpx;
+}
+.publish button {
+  background-color: #336699;
+  color: #FFFFFF;
+}

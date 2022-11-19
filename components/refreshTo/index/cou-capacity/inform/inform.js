@@ -24,7 +24,7 @@ Page({
         var that = this
         // 从数据库获取数据
         getInfo().then((res) => {
-            // console.log(res.data.infoList.records);           
+            console.log(res.data.infoList.records);           
             res.data.infoList.records.forEach(e => {
                 // 将数据库里的图片遍历出来
                 that.data.imgList.push(e.imgSrc)
@@ -36,7 +36,6 @@ Page({
             // 把活动主要内容存入缓存
             // console.log(res.data.infoList.records[0].textareaValue);
             let mainText = res.data.infoList.records[0].textareaValue
-            console.log(mainText);
             wx.setStorage({
                 key: 'mainText',
                 data: mainText

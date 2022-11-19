@@ -12,7 +12,7 @@
 
 <!-- 展示通知列表 -->
 <view class="cu-card article" wx:for="{{publishList}}" bindtap="publishDetail" data-index="{{index}}" wx:if="{{publishList && show}}">
-    <view class="cu-item shadow">
+    <view class="cu-item shadow" wx:if="{{item.publishTag == '宿管通知'}}">
         <view class="cu-tag bg-gray" style="float: right;" catchtap="DelImg" data-index="{{index}}">
             <text class="cuIcon-close"></text>
         </view>

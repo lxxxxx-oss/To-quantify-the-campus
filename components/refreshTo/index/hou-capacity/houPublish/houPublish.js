@@ -10,7 +10,7 @@ Page({
         publishTitle: "",
         // 通知类型
         publishTag: "",
-        tag: ['学校通知', '活动通知', '比赛通知', '考试通知'],
+        tag: ['宿管通知'],
         // 详细的通知内容
         textareaValue: "",
         // 时间的选择
@@ -44,6 +44,8 @@ Page({
 
     // 发布通知
     publish() {
+        var that = this
+
         // 调用存储数据的方法
         this.postInfo()
         wx.showToast({
@@ -53,7 +55,7 @@ Page({
         })
         // 进行页面跳转
         wx.navigateTo({
-            url: '/components/refreshTo/index/cou-capacity/inform/inform',
+            url: '../affiche/affiche',
         })
     },
 
@@ -128,7 +130,14 @@ Page({
             header: {
                 "Content-Type": data.contentType,
             },
-            data: data.buffer
+            data: data.buffer,
+
+            success(res) {
+              console.log(res);
+            },
+            fail(err) {
+              console.log(err);
+            }
         })
     }
 })

@@ -13,7 +13,7 @@ Page({
         // 单独存储图片数据、
         imgList: [],
         // 几种活动类型
-        allTag: ["学校通知", "活动通知", "比赛通知", "考试通知"],
+        allTag: ["学校通知", "活动通知", "比赛通知", "考试通知", "宿管通知"],
         publishTag: []
     },
 
@@ -24,12 +24,12 @@ Page({
         var that = this
         // 从数据库获取数据
         getInfo().then((res) => {
-            // console.log(res.data.infoList.records);           
+            console.log(res.data.infoList);           
             res.data.infoList.records.forEach(e => {
                 // 将数据库里的图片遍历出来
                 that.data.imgList.push(e.imgSrc)
                 // 获取活动类型
-                that.data.publishTag.push(that.data.allTag[e.publishTag])
+                that.data.publishTag.push(e.publishTag)
                 // 所有数据的ID
                 that.data.infoId.push(e.id)
             })
@@ -45,12 +45,16 @@ Page({
         }).catch((err) => {
             console.log(err);
         })
+
+        setTimeout(() => {
+          console.log(this.data.publishTag);
+        },2000)
     },
 
     // 跳转到发布通知的操作页
     publishInform() {
         wx.navigateTo({
-          url: '/components/refreshTo/index/cou-capacity/publish/publish',
+          url: '../houPublish/houPublish',
         })
     },
 
