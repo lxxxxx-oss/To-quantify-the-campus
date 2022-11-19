@@ -1,14 +1,9 @@
 Component({
-    /**
-     * 组件的属性列表
-     */
-    properties: {
-
+    options: {
+      styleIsolation: 'apply-shared'
     },
     lifetimes: {
         attached(options) {
-            console.log(options);
-            let that = this
             this.getFileInfo()
         }
     },
@@ -17,7 +12,9 @@ Component({
      */
     data: {
         // 学生上传的文件列表
-        fileInfo: []
+        fileInfo: [],
+        // 图片列表
+        imgList: []
     },
 
     /**
@@ -37,12 +34,16 @@ Component({
                 data: {
 	                "clazzNum": "42000"
                 },
-
                 success(res) {
-                    console.log(res.data.data.clazzList);
-                    that.setData({
-                        fileInfo: res.data.data.clazzList
+                    // console.log(res.data.data.clazzList);
+                    res.data.data.clazzList.forEach(e => {
+                        that.data.fileInfo = e.fileUploadList
                     })
+                    that.setData({
+                        fileInfo: that.data.fileInfo,
+                        imgList: that.data.imgList
+                    })
+                    console.log(that.data.fileInfo);
                 },
                 fail(err) {
                     console.log(err);
@@ -53,16 +54,13 @@ Component({
         // 预览图片
         viewImg(e) {
             let that = this
-            console.log(e.currentTarget.dataset.index);
-            let imgList = []
             that.data.fileInfo.forEach(e => {
-                e.fileUploadList.forEach(img => {
-                    imgList.push(img.path)
-                })
+              that.data.imgList.push(e.path)
             })
+            // console.log(that.data.imgList);
             wx.previewImage({
-                urls: imgList,
-                current: imgList[e.currentTarget.dataset.index],
+                urls: that.data.imgList,
+                current: that.data.imgList[e.currentTarget.dataset.index],
             })
         }
     }

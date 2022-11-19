@@ -1,10 +1,20 @@
-<view wx:for="{{fileInfo}}" class="clazzList">
+<view class="cu-card case">
     <view class="codeName">文件收集</view>
-    <view wx:for="{{item.fileUploadList}}" wx:for-item="file" class="fileInfo">
-        <image src="{{file.path}}" mode="widthFix" bindtap="viewImg" data-index="{{index}}"></image>
-        <view class="describeInfo">
-            <view style="margin-bottom: 20rpx;">{{file.remark}}</view>
-            <view>文件类型:<text style="color: rgb(79, 231, 79);">{{file.fileType}}</text></view>
+    <view class="cu-item shadow" style="margin-top: 20rpx;" wx:for="{{fileInfo}}" wx:key="index" data-index="{{index}}"  bindtap="viewInfo">
+        <view class="image">
+            <image src="{{item.path}}" mode="widthFix" bindtap="viewImg" data-index="{{index}}"></image>
+            <!-- <view class="cu-tag bg-blue">{{file.remark}}</view> -->
+            <view class="cu-tag bg-blue">{{item.fileType}}</view>
+            <view class="cu-bar bg-shadeBottom">
+            </view>
+        </view>
+        <view class="cu-list menu-avatar">
+            <view class="cu-item">
+              <view class="content flex-sub">
+                <view class="text-black" style="margin-left: -130rpx; font-weight: 550;">文件名称：{{item.remark}}</view>
+                <view class="text-green flex justify-between" style="margin-left: -130rpx; font-weight: 550;">已审核</view>
+              </view>
+            </view>
         </view>
     </view>
 </view>

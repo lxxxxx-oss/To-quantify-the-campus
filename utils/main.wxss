@@ -2233,7 +2233,8 @@ button.icon.lg {
 	display: block;
 	background-color: var(--white);
 	overflow: hidden;
-	border-radius: 10rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 0 0 #cecece;
 	margin: 30rpx;
 }
 
