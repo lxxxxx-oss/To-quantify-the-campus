@@ -16,61 +16,61 @@ Component({
                 "className": "软工十班",
                 "status": false,
                 "unfinishName": "无",
-                "classId": "021320010"
+                "classId": "42001"
             },
             {
                 "className": "软工九班",
                 "status": false,
                 "unfinishName": "...",
-                "classId": "02132009"
+                "classId": "42000"
             },
             {
                 "className": "软工八班",
                 "status": true,
                 "unfinishName": "无",
-                "classId": "02132008"
+                "classId": "41999"
             },
             {
                 "className": "软工七班",
                 "status": true,
                 "unfinishName": "无",
-                "classId": "02132007"
+                "classId": "41998"
             },
             {
                 "className": "软工六班",
                 "status": false,
                 "unfinishName": "...",
-                "classId": "02132006"
+                "classId": "41997"
             },
             {
                 "className": "软工五班",
                 "status": true,
                 "unfinishName": "无",
-                "classId": "02132005"
+                "classId": "41996"
             },
             {
                 "className": "软工四班",
                 "status": true,
                 "unfinishName": "无",
-                "classId": "02132004"
+                "classId": "41995"
             },
             {
                 "className": "软工三班",
                 "status": true,
                 "unfinishName": "无",
-                "classId": "02132003"
+                "classId": "41994"
             },
             {
                 "className": "软工二班",
                 "status": true,
                 "unfinishName": "无",
-                "classId": "02132002"
+                "classId": "41993"
             },
             {
                 "className": "软工一班",
                 "status": true,
                 "unfinishName": "无",
-                "classId": "02132001"
+                "classId": "41992"
             },
         ]
     },

@@ -7,7 +7,7 @@
         <!-- 用户信息展示区域 -->
         <view class="userInfo">
             <image src="{{userInfo.avatarUrl}}"></image>
-            <view>{{userInfo.nickName}}</view>
+            <view>黎鑫</view>
         </view>
         <!-- 通知类型 -->
         <view class="publishTag">{{publishTag[index]}}</view>

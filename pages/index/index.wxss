@@ -72,7 +72,7 @@
     background: linear-gradient(to bottom, #56CCF2, #2F80ED);
     position: relative;
     padding: 30rpx;
-    margin-top: 30rpx;
+    margin-top: 100rpx;
     border-radius: 30rpx;
 }
 /* 波浪的效果 */

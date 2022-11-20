@@ -113,20 +113,22 @@ Component({
 
       // 计算出勤率
       countRate() {
-          let that = this
-          // 计算出勤率
-          // 班级总人数
-          let sum = that.data.className.length
-          // 出勤率
-          let attendance = that.data.isAttended.length / sum * 100
-          // 请假人数
-          let leave = that.data.leaveName.length
-          // 保留两位小数
-          attendance = attendance.toFixed(1)
-          this.setData({
-              proportion: attendance,
-              leaveNum: leave
-          })
+        let that = this
+        console.log(that.data.isAttended);
+        console.log(that.data.leaveName);
+        // 计算出勤率
+        // 班级总人数
+        let sum = that.data.className.length
+        // 出勤率
+        let attendance = that.data.isAttended.length / sum * 100
+        // 请假人数
+        let leave = that.data.leaveName.length
+        // 保留两位小数
+        attendance = attendance.toFixed(1)
+        this.setData({
+            proportion: attendance,
+            leaveNum: leave
+        })
       }
     }
 })

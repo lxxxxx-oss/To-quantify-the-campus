@@ -3,7 +3,7 @@
 <view wx:for="{{matchInfo}}" class="matchInfo">
     <view class="matchStu">
         <view class="matchStuInfo">
-            <image src="{{item.avatar}}"></image>
+            <image src="{{avatar}}" ></image>
             <view>{{item.name}}</view>
         </view>
         <view class="matchResult">

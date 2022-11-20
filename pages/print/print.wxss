@@ -1,1 +1,33 @@
-/* pages/print/print.wxss */
+page {
+    margin: 0;
+    padding: 0;
+}
+.print {
+    /* background-color: red; */
+}
+.printTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20rpx 0 20rpx 0;
+    padding: 20rpx 50rpx 20rpx 50rpx;
+    font-size: 50rpx;
+    text-align: center;
+    font-weight: 550;
+}
+.printBtn {
+    background-color: #36B5A0;
+    padding: 15rpx 60rpx 15rpx 60rpx;
+    border-radius: 40rpx;
+    font-size: 35rpx;
+    color: #fff;
+}
+.punchDetail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 50rpx 20rpx 50rpx;
+    background-color: #fff;
+    font-size: 35rpx;
+    box-shadow: 0 2rpx 0 0 #cecece;
+}

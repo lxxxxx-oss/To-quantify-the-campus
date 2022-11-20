@@ -17,7 +17,8 @@
         <view>{{item.studentInfo.name}}</view>
         <view class="icon">
             <!-- 根据是否出勤展示不同的图标 -->
-            <image src="/assets/img/index/stu-icon/pass.png" wx:if="{{item.status === '出勤'}}"></image>
+            <image src="/assets/img/index/stu-icon/pass.png" wx:if="{{item.status === '出勤' || item.status === '迟到'}}"></image>
+            <text class="leaveText" wx:if="{{item.status === '迟到'}}">迟到</text>
             <image src="/assets/img/index/stu-icon/fail.png" wx:if="{{item.status === '请假' || item.status === '旷课'}}"></image>
             <text class="leaveText" wx:if="{{item.status === '请假'}}">请假</text>
         </view>

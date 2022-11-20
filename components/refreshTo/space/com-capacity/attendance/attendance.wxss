@@ -58,5 +58,5 @@
     bottom: 30rpx;
     right: -60rpx;
     font-size: 28rpx;
-    color: #707070;
+    color: rgb(247, 56, 56);
 }

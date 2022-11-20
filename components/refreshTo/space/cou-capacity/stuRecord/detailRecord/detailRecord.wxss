@@ -1,0 +1,25 @@
+page {
+    background-color: #fff;
+}
+.member {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100rpx;
+    background-color: #FFFFFF;
+    margin-top: 20rpx;
+    padding: 10rpx 10rpx 20rpx 30rpx;
+    border-bottom: 2rpx solid #cecece;
+}
+
+.stuMroal {
+    /* background-color: #f3eeee; */
+    box-shadow: 2rpx 2rpx 2rpx 0 #cecece;
+    margin: 20rpx -10rpx 20rpx -10rpx;
+}
+.nameInfo {
+    font-size: 40rpx;
+    font-weight: 550;
+    text-align: center;
+    padding: 20rpx 0 0 0;
+}

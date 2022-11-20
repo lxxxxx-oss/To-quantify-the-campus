@@ -1,3 +1,7 @@
+page {
+    margin: 0;
+    padding: 0;
+}
 .nav-border {
     border-bottom: 2rpx solid #6F36A1;
 }
@@ -9,9 +13,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 220rpx;
-    margin-top: 60rpx;
-    padding: 0 80rpx 20rpx 30rpx;
+    height: 200rpx;
+    margin: 60rpx 30rpx 0 30rpx;
+    padding: 0 50rpx 20rpx 30rpx;
     background-color: #6F36A1 ;
     color: #fff;
     border-radius: 20rpx;

@@ -10,7 +10,7 @@
 <view class="cu-list check">
     <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{fileInfo}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
         <view class="card">
-            <image src="{{item.path}}" class="img" bindtap="viewImg" data-index='{{index}}' mode="widthFix"></image>
+            <image src="{{item.path}}" class="img" bindtap="viewImg" data-index='{{index}}'></image>
             <view class="message">
                 <view>文件名：<text>{{item.remark}}</text></view>
                 <view>文件类别：{{item.fileType}}</view>

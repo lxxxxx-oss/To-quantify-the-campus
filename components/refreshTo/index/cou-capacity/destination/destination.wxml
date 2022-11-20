@@ -1,5 +1,7 @@
 <!-- 学生动向 -->
-<view class="headerTitle">{{teacherInfo.name}}管理的班级</view>
+<!-- <view class="headerTitle">{{teacherInfo.name}}管理的班级</view> -->
+<view class="headerTitle">赵老师管理的班级</view>
+
 
 <!-- 辅导员信息展示 -->
 <view class="message">
@@ -8,7 +10,8 @@
   </view>
   <view class="introduce">
       <view style="display: flex; margin-bottom:20rpx;">
-        <view class="userName">姓名：<text style="color: #FF6666;">{{teacherInfo.name}}</text></view>
+        <!-- <view class="userName">姓名：<text style="color: #FF6666;">{{teacherInfo.name}}</text></view> -->
+        <view class="userName">姓名：<text style="color: #FF6666;">赵老师</text></view>
         <view class="identity">工号：<text style="color: rgb(87, 231, 87);">{{teacherInfo.account}}</text></view>
       </view>
       <view>学院：<text style="color: #336699;">{{managerInfo[0].college}}</text></view>

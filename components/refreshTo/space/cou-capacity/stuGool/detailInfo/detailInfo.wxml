@@ -1,2 +1,13 @@
 <!-- 详细信息页面 -->
-<view>详细信息页面</view>
+<view class="nameList" wx:if="{{category == '逃课'}}">
+    <view class="listTitle">{{category}}人员名单</view>
+    <view>无</view>
+</view>
+<view class="nameList" wx:if="{{category == '未归'}}">
+    <view class="listTitle">{{category}}人员名单</view>
+    <view>无</view>
+</view>
+<view class="nameList" wx:if="{{category == '违纪'}}">
+    <view class="listTitle">{{category}}人员名单</view>
+    <view>无</view>
+</view>

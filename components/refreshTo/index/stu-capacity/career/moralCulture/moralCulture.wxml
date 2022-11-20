@@ -17,7 +17,10 @@
     <view class="cu-item shadow" wx:for="{{infoList}}" wx:key="index" data-index="{{index}}"  bindtap="viewInfo">
         <view class="image">
             <image src="{{item.img}}" mode="widthFix"></image>
-            <view class="cu-tag bg-blue">{{item.awardCategory}}</view>
+            <view class="cu-tag bg-blue">
+              <text>{{item.awardCategory}}</text>
+              <!-- <text class="cuIcon-close" style="font-size: 30rpx;"></text> -->
+            </view>
             <view class="cu-bar bg-shadeBottom">
             <!-- <text class="text-cut"></text> -->
             </view>

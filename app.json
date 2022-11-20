@@ -10,7 +10,6 @@
         "components/refreshTo/index/hou-capacity/punch/punch",
         "components/refreshTo/index/hou-capacity/state/state",
         "components/refreshTo/index/cou-capacity/destination/destination",
-        "components/refreshTo/index/cou-capacity/des-item/des-item",
         "components/refreshTo/index/cou-capacity/gather/gather",
         "components/refreshTo/index/cou-capacity/gather/gatherDetail/gatherDetail",
         "components/refreshTo/index/cou-capacity/inform/inform",
@@ -47,7 +46,6 @@
         "components/pageComponents/space/committee/upload/upload",
         "components/pageComponents/space/counselor/cou-capacity/cou-capacity",
         "components/pageComponents/space/student/stu-capacity/stu-capacity",
-        "components/refreshTo/my/stu-capacity/setting/customerService/customerService",
         "components/refreshTo/index/cou-capacity/major/major",
         "custom-tab-bar/index",
         "components/refreshTo/index/hou-capacity/punchDetail/punchDetail",
@@ -56,7 +54,9 @@
         "components/refreshTo/index/common/weather/weather",
         "components/refreshTo/index/stu-capacity/amendMoral/amendMoral",
         "components/refreshTo/space/stu-capacity/matchSuccess/matchSuccess",
-        "components/refreshTo/index/hou-capacity/houPublish/houPublish"
+        "components/refreshTo/index/hou-capacity/houPublish/houPublish",
+        "components/refreshTo/space/cou-capacity/stuRecord/detailRecord/detailRecord",
+        "pages/print/exlUrl/exlUrl"
     ],
     "window": {
         "backgroundTextStyle": "light",

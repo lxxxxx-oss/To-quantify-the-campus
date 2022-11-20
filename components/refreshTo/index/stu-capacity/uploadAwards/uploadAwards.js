@@ -142,10 +142,10 @@ Page({
     //  提交信息
     submit() {
         var that = this
-        // 将图片存入数据库
-        this.postMoralImg()
         // 将描述信息存入数据库
         that.postMoralStr()
+        // 将图片存入数据库
+        // that.postMoralImg()
         wx.showToast({
             title: '提交成功',
             icon: 'success',
@@ -173,7 +173,7 @@ Page({
         
         let data = formData.getData();
         wx.request({
-            url: 'https://alaskaboo.cn/api/honor/upload/1',
+            url: 'http://alaskaboo.cn/api/honor/upload/1',
             method: 'POST',
             header: {
                 "Content-Type": data.contentType,
@@ -192,13 +192,6 @@ Page({
     // 将字符串信息上传到数据库
     postMoralStr() {
         var that = this
-        // let info = {
-        //     award: that.data.awardsName,
-        //     awardCategory: that.data.category[that.data.awardsCate],
-        //     awardsLevel: that.data.level[that.data.awardsLevel],
-        //     awardTime: that.data.date,
-        //     awardScore: that.data.marks
-        // }
         // console.log(info);
         wx.request({
             url: 'https://alaskaboo.cn/api/honor/3',
@@ -215,27 +208,12 @@ Page({
             },
 
             success(res) {
-                console.log(res);
+                // 将图片存入数据库
+                that.postMoralImg()
             },
             fail(err) {
                 console.log(err);
             }
         })
     },
-
-    // 当用户想修改的时候，从数据库获取信息
-    // getMoralInfo() {
-    //     requestTwo({
-    //         // 这里是动态的值，点击事件传递过来
-    //         // url: `/api/honor/user/${xx}`,
-    //         methods: 'GET',
-
-    //         success(res) {
-    //             console.log(res);
-    //         },
-    //         fail(err) {
-    //             console.log(err);
-    //         }
-    //     })
-    // }
 })

@@ -8,10 +8,19 @@
 </scroll-view>
 
 <!-- 综测和获奖 -->
-<view wx:if="{{TabCur == 0}}" class="tabCard" wx:for="{{className}}">
-    <view>大数据与计算机科学学院</view>
-    <view>{{item.name}}</view>
-    <view>查看</view>
+<view wx:if="{{TabCur == 0}}" class="tabCard" wx:for="{{className}}" bindtap="changeDetail">
+    <view class="cardTitle">大数据与计算机科学学院</view>
+    <view class="maginClass">
+        <view>{{item.name}}</view>
+        <view>{{category[0]}}信息查看</view>
+    </view>
+</view>
+<view wx:if="{{TabCur == 1}}" class="tabCard" wx:for="{{className}}" bindtap="changeDetail">
+    <view class="cardTitle">大数据与计算机科学学院</view>
+    <view class="maginClass">
+        <view>{{item.name}}</view>
+        <view>{{category[1]}}信息查看</view>
+    </view>
 </view>
 <view wx:if="{{TabCur == 1}}">
     <!-- 展示获奖信息 -->

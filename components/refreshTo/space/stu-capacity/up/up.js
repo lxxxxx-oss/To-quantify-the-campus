@@ -105,10 +105,11 @@ Page({
         
         // 将该信息对象上传到数据库
         let formData = new FormData();
-        console.log(that.data.imgList);
+        // console.log(that.data.imgList);
         formData.append("fileName", that.data.fileName);
         formData.append("fileType", that.data.category[that.data.fileCate]);
         formData.append("remark", that.data.remark);
+        formData.append("clazzName", 42001);
         that.data.imgList.forEach(e => {
           formData.appendFile("file", e, that.data.category[that.data.fileCate]);
         })
@@ -124,7 +125,11 @@ Page({
           data: data.buffer,
 
           success(res) {
-            console.log(res);
+            // console.log(res);
+            wx.showToast({
+              title: '上传成功',
+              icon: 'success'
+            })
           }
         });
     }

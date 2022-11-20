@@ -10,7 +10,7 @@
 </swiper>
 
 <!-- 通知栏 -->
-<view class="bulletinBoard" bindtap="detailText" style="color: {{flag || isCou ? '#000000' : 'red'}};">
+<view class="bulletinBoard" bindtap="detailText" style="color: {{flag || isCou || isHou ? '#000000' : 'red'}};">
     <view><image src="/assets/img/index/trumpet.png" class="trumpet"></image></view>
     <text class="scoll" user-select>{{mainText}}</text>
 </view>

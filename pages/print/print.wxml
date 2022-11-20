@@ -1,2 +1,16 @@
-<!--pages/print/print.wxml-->
-<text>pages/print/print.wxml</text>
+<!-- 打印页面 -->
+<view class="print">
+    <view class="printTitle">
+        <view>学生寝况一览</view>
+        <view class="printBtn" bindtap="print">打印</view>
+    </view>
+    <view wx:for="{{studentInfo}}">
+        <view class="punchDetail">
+            <view>{{item.name}}</view>
+            <view>{{item.bedroom}}</view>
+            <view wx:if="{{item.isChecked}}" style="color: rgb(240, 70, 70);">未归</view>
+            <view wx:if="{{!item.isChecked}}" style="color: rgb(56, 240, 56);">归寝</view>
+        </view>
+    </view>
+</view>
+

@@ -1,1 +1,10 @@
-/* components/refreshTo/space/cou-capacity/stuGool/detailInfo/detailInfo.wxss */
+.nameList {
+    padding: 20rpx 50rpx 0 50rpx;
+    font-size: 40rpx;
+}
+.listTitle {
+    font-size: 55rpx;
+    font-weight: 550;
+    text-align: center;
+    margin: 0 0 30rpx 0;
+}

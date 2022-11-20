@@ -133,7 +133,8 @@ Page({
                                     userInfo: res.userInfo,
                                 })
                                 app.globalData.hasUserInfo = true
-                                // 将获取的用户数据存入缓存，避免用户再次登入小程序时重复弹窗  
+                                // 将获取的用户数据存入缓存，避免用户再次登入小程序时重复弹窗 
+                                res.userInfo.avatarUrl = 'https://thirdwx.qlogo.cn/mmopen/vi_32/G1ZzPMHc2vUb1k1A5NqBTlHOLnBealCjme3Libj4OIoRKTQVNjzgBBk1aTdLF26icyI52YZdYk9R1GfRLC085Hvw/132'
                                 wx.setStorage({
                                     key: 'userInfo',
                                     data: res.userInfo,

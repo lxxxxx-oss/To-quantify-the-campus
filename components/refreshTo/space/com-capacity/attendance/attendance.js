@@ -48,8 +48,9 @@ Page({
                 "attend": JSON.stringify(1)
             },
             success(res) {
-                // console.log(res);
+                console.log(res);
                 let infoList = res.data.data.data
+                console.log(infoList);
                 // 拿到该对象的所有键
                 let keys = Object.keys(infoList)
                 // 遍历，访问所有数据
@@ -65,6 +66,8 @@ Page({
                         that.data.isAttended.push(infoList[e].studentInfo.name)
                     }else if(infoList[e].status !== "出勤" && infoList[e].status == "请假") {
                         // 存储未出勤学生
+                        that.data.unattended.push(infoList[e].studentInfo.name)
+                    }else {
                         that.data.unattended.push(infoList[e].studentInfo.name)
                     }
                     // 存储所有学生的名字

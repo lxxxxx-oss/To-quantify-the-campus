@@ -4,7 +4,6 @@ Component({
     options: {
         addGlobalClass: true
     },
-    
     lifetimes: {
         attached() {
             var that = this
@@ -17,7 +16,6 @@ Component({
                     })
                 },
             })
-
             // 获取数据库的综测描述数据
             this.getMoralinfo().then((res) => {
                 // console.log(res.data.studentInfo.honorList);
@@ -34,20 +32,22 @@ Component({
                     this.setData({
                         infoList: this.data.infoList
                     })
-                    console.log(that.data.infoList[0].awardTime);
+                    // console.log(that.data.infoList[0].awardTime);
                     // 在信息数据获取成功后，再调取图片数据
                     // 获取数据库的图片数据
                     this.getMoralImg().then((res) => {
                         let that = this
                         // console.log(res);
                         if(JSON.stringify(res.data) !== '{}') {
-                            res.data.fileList.forEach(e => {
-                                // console.log(e.path);
-                                that.data.imgList.push(e.path)
+                            console.log(res.data.studentInfo.honorList);
+                            res.data.studentInfo.honorList.forEach(e => {
+                                e.fileList.forEach(img => {
+                                    that.data.imgList.push(img.path)
+                                })
                                 // console.log(that.data.imgList);
                             })
                         }   
-                        // 将图片数组里面的数据存入整个信息数组，方便页面渲染
+                        // // 将图片数组里面的数据存入整个信息数组，方便页面渲染
                         that.data.infoList.forEach((e, index)=> {
                             e.img = []
                             e.img.push(that.data.imgList[index])
@@ -57,7 +57,7 @@ Component({
                             infoList: that.data.infoList,
                             imgList: that.data.imgList
                         })
-                        // console.log(that.data.imgList);
+                        // console.log(that.data.infoList);
                     })
                 }
             })
@@ -134,7 +134,7 @@ Component({
         // 从数据库里拿到图片数据
         getMoralImg() {
             return requestTwo({
-                url: '/api/honor/student/upload/id=1',
+                url: '/api/honor/student/3',
                 methods: "GET",
                 success(res) {
                     console.log(res);

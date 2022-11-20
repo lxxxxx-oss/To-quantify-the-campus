@@ -1,0 +1,39 @@
+<!-- 综测得分 -->
+<view wx:for="{{className}}" wx:key="" class="member" wx:if="{{category == '综测'}}">
+    {{item}}
+    <!-- 学生的综测得分 -->
+    <view class="appointBtn" bindtap="appointBtn" data-index="{{index}}">综测得分：{{grade}}</view>
+</view>
+
+<!-- 获奖信息 -->
+<view  wx:if="{{category == '获奖'}}" class="stuMroal">
+    <view class="nameInfo">小黎 2020211999</view>
+    <view class="cu-card case">
+    <!-- 循环渲染从缓存里面,拿到的获奖信息 -->
+    <view class="cu-item shadow" wx:for="{{infoList}}" wx:key="index" data-index="{{index}}"  bindtap="viewInfo">
+        <view class="image">
+            <image src="{{item.img}}" mode="widthFix"></image>
+            <view class="cu-tag bg-blue">
+                <text>{{item.awardCategory}}</text>
+                <!-- <text class="cuIcon-close" style="font-size: 30rpx;"></text> -->
+            </view>
+            <view class="cu-bar bg-shadeBottom">
+            </view>
+        </view>
+        <view class="cu-list menu-avatar">
+            <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url({{avatar}});"></view>
+            <view class="content flex-sub">
+                <view class="text-grey">{{item.award}}-{{item.awardCategory}}-{{item.awardLevel}}</view>
+                <view class="text-gray text-sm flex justify-between">
+                {{item.awardTime}}
+                <view class="text-gray">
+                    综测加分：{{item.awardScore}}分
+                </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+</view>
+</view>

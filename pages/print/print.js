@@ -1,25 +1,21 @@
-// pages/print/print.js
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
-
+        // 打卡学生的信息
+        studentInfo: [],
+        // 是否打卡
+        isChecked: [],
+        // 下载exl表的地址
+        exlUrl: ""
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-
+        this.getPunchInfo()
     },
 
     /**
@@ -28,43 +24,76 @@ Page({
     onShow() {
         //添加选中效果,避免自定义tabbar闪烁
          if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-             this.getTabBar().setData({
-             selected: 1 //这个数是，tabBar从左到右的下标，从0开始
-             })
+            this.getTabBar().setData({
+                selected: 1 //这个数是，tabBar从左到右的下标，从0开始
+            })
         }
     },
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
+    
+    // 拿到学生信息
+    getPunchInfo() {
+        let that = this
+        let i = 0
+        wx.request({
+            url: 'https://alaskaboo.cn/resident/2020212037',
+            method: 'POST',
+            header: {
+                "Content-Type": 'application/json',
+            },
+            data: {
+                "timestamp":1668348012
+            },
+            success(res) {
+                // console.log(res.data.data);
+                let infoList = res.data.data.data[4]
+                // 拿到该对象的所有键
+                let keys = Object.keys(infoList)
+                // console.log(keys);
+                keys.forEach(e => {
+                    // console.log(infoList[e]);
+                    let stuKeys = Object.keys(infoList[e])
+                    stuKeys.forEach((stu, index) => {
+                        // console.log(infoList[e][stu]);
+                        that.data.studentInfo.push(infoList[e][stu].studentInfo)
+                        that.data.studentInfo[i].isChecked = infoList[e][stu].isChecked
+                        i = i+1
+                        that.setData({
+                            studentInfo: that.data.studentInfo,
+                        })
+                    })
+                }) 
+                // console.log(that.data.studentInfo);
+                // console.log(that.data.isChecked);
+            }
+        });
     },
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
+    // 打印exl表
+    print() {
+        let that = this
+        wx.request({
+            url: 'https://alaskaboo.cn/resident/download/2020212037',
+            method: 'POST',
+            header: {
+                "Content-Type": 'application/json',
+            },
+            data: {
+                "timestamp":1668348012
+            },
 
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
+            success(res) {
+                // 拿到下载exl的路径
+                console.log(res.data.data.path);
+                that.setData({
+                    exlUrl: res.data.data.path
+                })
+                // 跳转
+                wx.navigateTo({
+                    url: './exlUrl/exlUrl?exlUrl='+that.data.exlUrl,
+                })
+            }
+        })
     }
+    
+
 })
