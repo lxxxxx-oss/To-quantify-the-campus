@@ -2,7 +2,7 @@
 <view class="print">
     <view class="printTitle">
         <view>学生寝况一览</view>
-        <view class="printBtn" bindtap="print">打印</view>
+        <view class="printBtn" bindtap="print">前往打印</view>
     </view>
     <view wx:for="{{studentInfo}}">
         <view class="punchDetail">

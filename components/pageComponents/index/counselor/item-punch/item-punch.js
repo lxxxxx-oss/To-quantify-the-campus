@@ -15,7 +15,7 @@ Component({
             // 计算出勤率 -> 设置延迟在数据完全请求到了之后再进行下一步
             setTimeout(() => {
                 this.countRate()
-            }, 1000);
+            }, 2000);
         }
     },
 
@@ -70,7 +70,7 @@ Component({
                       if(infoList[e].status == "请假") {
                           // 存储请假学生
                           that.data.leaveName.push(infoList[e].studentInfo.name)
-                      }else if(infoList[e].status == "出勤") {
+                      }else if(infoList[e].status == "出勤" || infoList[e].status == "迟到") {
                           // 存储出勤学生
                           that.data.isAttended.push(infoList[e].studentInfo.name)
                       }else if(infoList[e].status !== "出勤" && infoList[e].status == "请假") {

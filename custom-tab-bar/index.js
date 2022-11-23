@@ -16,7 +16,7 @@ Component({
             "text": "空间",
             "iconPath": "/assets/img/tabBar/space.png",
             "selectedIconPath": "/assets/img/tabBar/space-active.png",
-            "isSpecial": true
+            // "isSpecial": true
         },
         {
             "pagePath": "pages/home/home",
@@ -37,7 +37,7 @@ Component({
             "text": "打印",
             "iconPath": "/assets/img/tabBar/print.png",
             "selectedIconPath": "/assets/img/tabBar/print-active.png",
-            "isSpecial": true
+            // "isSpecial": true
         },
         {
             "pagePath": "pages/home/home",
@@ -50,11 +50,13 @@ Component({
   },
     //组件的生命周期函数
     attached() {
+        // console.log(app.globalData.isHou);
+        app.globalData.isHou = true
         if(app.globalData.isHou) {
             this.setData({
                 list: this.data.houList
             })
-        }else {
+        }else if(app.globalData.isCom || app.globalData.isCou || app.globalData.isStu){
             this.setData({
                 list: this.data.elselist
             })
@@ -66,6 +68,7 @@ Component({
         // data为接受到的参数
         const data = event.currentTarget.dataset;
         // 取出参数中的path作为路由跳转的目标地址
+        console.log(data.path);
         wx.switchTab({url: data.path});
     },
   },

@@ -1,12 +1,10 @@
 <view class="detailTitle">{{floor}}打卡情况</view>
 <view class="overView">
-    <view>
-        <view>未完成打卡的宿舍</view>
-        <view>未完成名单：{{unfinishDoors}}</view>
-    </view>
+    <view>未完成打卡的宿舍</view>
+    <view>未完成宿舍：<text style="color: rgb(240, 46, 46);">{{unfinishDoors}}</text></view>
 </view>
 <view class="unfinishName">
     <view class="nameList" wx:for="{{dormInfo}}">
-        <view  wx:if="{{!item.status}}">{{item.doors}}未完成人员：{{item.unfinishName}}</view>
+        <view  wx:if="{{!item.status}}">{{item.doors}}未完成人员：<text style="color: rgb(240, 46, 46);">{{item.unfinishName}}</text></view>
     </view>
 </view>

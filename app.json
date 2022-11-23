@@ -1,10 +1,10 @@
 {
     "pages": [
-        "pages/log/log",
         "pages/index/index",
-        "pages/home/home",
         "pages/space/space",
         "pages/print/print",
+        "pages/home/home",
+        "pages/log/log",
         "components/refreshTo/index/hou-capacity/affiche/affiche",
         "components/refreshTo/index/hou-capacity/bed/bed",
         "components/refreshTo/index/hou-capacity/punch/punch",
@@ -55,8 +55,7 @@
         "components/refreshTo/index/stu-capacity/amendMoral/amendMoral",
         "components/refreshTo/space/stu-capacity/matchSuccess/matchSuccess",
         "components/refreshTo/index/hou-capacity/houPublish/houPublish",
-        "components/refreshTo/space/cou-capacity/stuRecord/detailRecord/detailRecord",
-        "pages/print/exlUrl/exlUrl"
+        "components/refreshTo/space/cou-capacity/stuRecord/detailRecord/detailRecord"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -70,26 +69,26 @@
             {
                 "pagePath": "pages/index/index",
                 "text": "首页",
-                "iconPath": "./assets/img/tabBar/index.png",
-                "selectedIconPath": "./assets/img/tabBar/index-active.png"
-            },
-            {
-                "pagePath": "pages/space/space",
-                "text": "空间",
-                "iconPath": "./assets/img/tabBar/space.png",
-                "selectedIconPath": "./assets/img/tabBar/space-active.png"
+                "iconPath": "/assets/img/tabBar/index.png",
+                "selectedIconPath": "/assets/img/tabBar/index-active.png"
             },
             {
                 "pagePath": "pages/print/print",
                 "text": "打印",
-                "iconPath": "./assets/img/tabBar/print.png",
-                "selectedIconPath": "./assets/img/tabBar/print-active.png"
+                "iconPath": "/assets/img/tabBar/print.png",
+                "selectedIconPath": "/assets/img/tabBar/print-active.png"
+            },
+            {
+                "pagePath": "pages/space/space",
+                "text": "空间",
+                "iconPath": "/assets/img/tabBar/space.png",
+                "selectedIconPath": "/assets/img/tabBar/space-active.png"
             },
             {
                 "pagePath": "pages/home/home",
                 "text": "我的",
-                "iconPath": "./assets/img/tabBar/my.png",
-                "selectedIconPath": "./assets/img/tabBar/my-active.png"
+                "iconPath": "/assets/img/tabBar/my.png",
+                "selectedIconPath": "/assets/img/tabBar/my-active.png"
             }
         ]
     },

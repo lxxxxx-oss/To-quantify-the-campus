@@ -1,12 +1,14 @@
+page {
+    background-color: rgb(245, 238, 238);
+}
 .detailTitle {
     margin: 50rpx 0 50rpx 0;
     padding: 20rpx;
     text-align: center;
+    background-color: #fff;
     font-size: 40rpx;
     font-weight: 600;
-    box-shadow:
-    1.9px 1.3px 1.4px -8px rgba(0, 0, 0, 0.05),
-    15px 10px 11px -8px rgba(0, 0, 0, 0.1);
+    box-shadow:0 2rpx 0 0 #cecece;
     border-radius: 20rpx;
 }
 .overView {
@@ -14,18 +16,19 @@
     flex-direction: column;
     justify-content: space-around;
     height: 200rpx;
-    margin: 50rpx 0;
+    background-color: #fff;
     padding: 20rpx 30rpx 20rpx 40rpx;
-    /* background-color: red; */
-    font-size: 35rpx;
+    font-size: 40rpx;
     box-shadow:
     1.9px 1.3px 1.4px -8px rgba(0, 0, 0, 0.05),
     15px 10px 11px -8px rgba(0, 0, 0, 0.1);
     border-radius: 20rpx;
 }
 .unfinishName {
+    margin-top: 40rpx;
     padding: 20rpx 30rpx 20rpx 40rpx;
-    font-size: 35rpx;
+    font-size: 40rpx;
+    background-color: #fff;
     box-shadow:
     1.9px 1.3px 1.4px -8px rgba(0, 0, 0, 0.05),
     15px 10px 11px -8px rgba(0, 0, 0, 0.1);

@@ -83,13 +83,34 @@ Page({
 
             success(res) {
                 // 拿到下载exl的路径
-                console.log(res.data.data.path);
+                // console.log(res.data.data.path);
                 that.setData({
                     exlUrl: res.data.data.path
                 })
-                // 跳转
-                wx.navigateTo({
-                    url: './exlUrl/exlUrl?exlUrl='+that.data.exlUrl,
+                
+                wx.showModal({
+                    title: '提示',
+                    content: '确认前往打印吗',
+                    success (res) {
+                      if (res.confirm) {
+                        // 打开excel文件
+                        wx.downloadFile({
+                            url: that.data.exlUrl,
+                            success: function (res) {
+                            const filePath = res.tempFilePath
+                            wx.openDocument({
+                                filePath: filePath,
+                                success: function (res) {
+                                console.log('打开文档成功')
+                                }
+                            })
+                            }
+                        })
+                      } 
+                      else if (res.cancel) {
+                        console.log('用户点击取消')
+                      }
+                    }
                 })
             }
         })

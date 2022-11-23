@@ -120,7 +120,7 @@ Page({
                         that.comLoginAll();
                     } else if(inputNum == 2) {
                         that.couLoginAll()
-                    }else{
+                    }else if(inputNum == 3){
                         that.houLoginAll()
                     }
                     // 请求用户权限

@@ -4,12 +4,12 @@ Page({
             {
                 "floor": "一楼",
                 "status": false,
-                "remain": 0
+                "remain": 3
             },
             {
                 "floor": "二楼",
                 "status": false,
-                "remain": 4
+                "remain": 0
             },
             {
                 "floor": "三楼",
@@ -23,6 +23,16 @@ Page({
             },
             {
                 "floor": "五楼",
+                "status": false ,
+                "remain": 0
+            },
+            {
+                "floor": "六楼",
+                "status": false ,
+                "remain": 0
+            },
+            {
+                "floor": "七楼",
                 "status": false ,
                 "remain": 0
             },

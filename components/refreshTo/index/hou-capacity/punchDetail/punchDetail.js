@@ -9,37 +9,37 @@ Page({
         // 当前楼层所有寝室信息
         dormInfo: [
             {
-                "doors": "201",
+                "doors": "101",
                 "status": false,
-                "unfinishName": "小红、小黑、小蓝、小红、小黑、小蓝"
+                "unfinishName": "李华、张三"
             },
             {
-                "doors": "202",
-                "status": false,
-                "unfinishName": ""
-            },
-            {
-                "doors": "203",
-                "status": false,
-                "unfinishName": "小绿、小紫"
-            },
-            {
-                "doors": "204",
-                "status": false,
-                "unfinishName": "小白"
-            },
-            {
-                "doors": "205",
+                "doors": "102",
                 "status": false,
                 "unfinishName": ""
             },
             {
-                "doors": "206",
+                "doors": "103",
                 "status": false,
-                "unfinishName": "小橙、小黑白"
+                "unfinishName": ""
             },
             {
-                "doors": "207",
+                "doors": "104",
+                "status": false,
+                "unfinishName": "王五"
+            },
+            {
+                "doors": "105",
+                "status": false,
+                "unfinishName": ""
+            },
+            {
+                "doors": "106",
+                "status": false,
+                "unfinishName": "李二、徐北"
+            },
+            {
+                "doors": "107",
                 "status": false,
                 "unfinishName": ""
             },
